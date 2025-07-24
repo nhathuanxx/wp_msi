@@ -1,0 +1,9 @@
+User-agent: *
+Sitemap: https://drmarie.com.vn/sitemap_index.xml
+Disallow: /wp-admin/
+Disallow: /en/
+Disallow: /zh/
+Disallow: /author/
+Disallow: /page/
+Disallow: /tag/
+Allow: /wp-admin/admin-ajax.php

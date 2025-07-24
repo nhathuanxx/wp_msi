@@ -1,0 +1,14 @@
+{
+    "name": "MSI_2020",
+    "version": "1.0.0",
+    "description": "node-sass buildnpm install -D node-sass nodemon",
+    "main": "index.js",
+    "scripts": {
+        "build-css": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 assets/scss/main.scss assets/css/main.css"
+    },
+    "author": "Vietnt13",
+    "license": "BSD",
+    "dependencies": {
+        "node-sass": "^4.13.1"
+    }
+}

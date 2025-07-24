@@ -1,0 +1,37 @@
+/**Mega Menu **/
+
+.navbar .container {
+    position: relative;
+}
+
+.navbar-nav,
+.navbar .collapse,
+.navbar-nav li {
+    position: static;
+}
+
+.menu-item-has-children,
+.menu-item-has-children .dropdown-menu {
+    left: auto;
+}
+
+.menu-item-has-children .dropdown-menu {
+    width: auto !important;
+}
+
+.msi-widget-post-list li {
+    display: block;
+    width: 100%;
+}
+
+.home-tab-menu li:nth-child(1) {
+    margin-right: 7px;
+}
+
+.home-tab-menu li a.active {
+    background: #00b0f0;
+    color: #fff;
+}
+.book-exam{
+    position: relative;
+}

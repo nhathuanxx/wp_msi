@@ -1,0 +1,325 @@
+$black_color: #000;
+$main_color: #00adf0;
+.msi-post-item {
+    margin-bottom: 1.4rem;
+    .post-item-title {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+        a {
+            color: $black_color;
+        }
+    }
+    .msi-post-created {
+        color: #999999;
+        margin-bottom: 8px;
+    }
+    .post-item-description {
+        color: #666666;
+    }
+}
+
+.msi-post-tab-content {
+    border-top: 1px solid #d9d9d9;
+}
+
+.msi-post-tab-content-left {
+    padding-left: 0;
+    border-right: 1px solid #d9d9d9;
+    padding-top: 2.5em;
+    padding-right: 30px;
+}
+
+.msi-read-more {
+    text-align: right;
+    margin-top: 10px;
+    text-transform: uppercase;
+    a {
+        color: $main_color;
+        font-weight: bold;
+    }
+}
+
+.msi-post-tab-module {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    .container {
+        position: relative;
+    }
+}
+
+.msi-post-tab-head {
+    .msi-post-tab-head-title {
+        font-size: 1.875rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.msi-post-tab-nav {
+    position: absolute;
+    top: -3px;
+    right: 0%;
+    z-index: 1;
+    .nav-item {
+        font-weight: 600;
+        margin-right: 10px;
+        &:last-child {
+            margin-right: 0;
+        }
+        a {
+            background-color: #ebebeb;
+            color: $black_color;
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+    }
+    .nav-item.active {
+        a {
+            background-color: $main_color;
+        }
+    }
+}
+
+.msi-post-tab-sidebar-right {
+    padding-top: 2.5em;
+    padding-left: 30px;
+    padding-right: 0;
+}
+
+.msi-widget-title {
+    color: $main_color;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-bottom: 7px;
+    border-bottom: 2px solid $main_color;
+    display: inline-block;
+}
+
+.msi-widget-post-list {
+    margin-top: 1rem;
+    li {
+        border-bottom: 1px dashed #d9d9d9;
+        padding-bottom: 1rem;
+        padding-left: 20px;
+        margin-bottom: 1rem;
+        position: relative;
+        &:before {
+            font-family: "Font Awesome 5 Free";
+            content: "\f054";
+            position: absolute;
+            top: 2px;
+            left: 0;
+            font-weight: 900;
+            color: $black_color;
+        }
+        a {
+            color: $black_color;
+        }
+    }
+}
+
+.msi-widget-tags-list {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.msi-widget-tags-item {
+    margin-bottom: 10px;
+    margin-left: 7px;
+    a {
+        display: inline-block;
+        background-color: #f2fbff;
+        border: 1px solid #c1eeff;
+        color: $black_color;
+        font-weight: 600;
+        padding: 7px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: #ec3893;
+            border: 1px solid #ec3893;
+            color: #fff;
+        }
+    }
+}
+
+.msi-related-widget,
+.msi-tags-widget {
+    margin-bottom: 1rem;
+}
+
+.page-header {
+    .page-title {
+        font-size: 30px;
+        color: #fff;
+        font-weight: bold;
+    }
+}
+
+.category,
+.page-template {
+    #breadcrumbs * {
+        color: #fff;
+    }
+}
+
+.msi-main-bg {
+    background-color: $main_color;
+    .btn-main--gradient {
+        border: 2px solid #fff;
+    }
+}
+
+.aligncenter figcaption {
+    text-align: center;
+}
+
+.wp-block-image {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.wp-block-image figcaption {
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+}
+
+.justify-content-center {
+    justify-content: center!important;
+}
+
+.msi-post-tags-related {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.msi-single-post-title {
+    .entry-title {
+        font-size: 30px;
+        font-weight: bold;
+        margin: 2rem 0;
+    }
+}
+
+.msi-post-social-share {
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 0 auto 2rem auto;
+    background-color: #fff;
+    border-radius: 32.5px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.msi-post-social-item {
+    font-size: 48px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.msi-title-section {
+    h2 {
+        font-size: 30px;
+        margin: 1rem 0 2rem 0;
+        padding-left: 15px;
+        border-left: 5px solid $main_color;
+    }
+}
+
+.msi-docter-col {
+    margin-bottom: 1.5rem;
+}
+
+.msi-docter-item {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.msi-docter-img {
+    background-color: #fff;
+    text-align: center;
+}
+
+.msi-docter-content {
+    background-color: #eaeaea;
+    padding: 2em;
+}
+
+.msi-docter-title {
+    font-size: 18px;
+    color: #444444;
+    margin-bottom: 10px;
+}
+
+.msi-docter-position {
+    color: #999999;
+    margin-bottom: 15px;
+}
+
+.msi-docter-listing {
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    // border-bottom: 2px solid $main_color;
+}
+
+.msi-staff-listing {
+    .msi-docter-img {
+        img {
+            height: 270px;
+        }
+    }
+}
+
+// Clinic page
+// max-100% top-left
+.top-left {
+    &:before {
+        transform: rotateX(180deg);
+        top: 0;
+    }
+    &:after {
+        background: inherit !important;
+    }
+}
+
+.top-right {
+    &:before {
+        background: inherit !important;
+    }
+    &:after {
+        background: url(./../images/introduce/shape.png) no-repeat;
+        background-size: 100%;
+        transform: rotate(180deg);
+        top: 0;
+        width: 130px;
+        height: 128px;
+    }
+}
+
+.max-90 {
+    max-width: 90%;
+    padding: 20px;
+    img {
+        border-radius: 0;
+    }
+}
+
+@media(min-width: 980px) {
+    .news__list__small .item__body {
+        width: 52%;
+        float: left;
+        margin-left: 3%;
+    }
+    .news__list__small .item__head {
+        width: 35%;
+        float: left;
+    }
+}

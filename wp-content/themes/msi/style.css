@@ -1,0 +1,49 @@
+/*
+Theme Name: MSI
+Theme URI: http://webdoanhnghiep.site/
+Author: Nguyen Tan Viet
+Author URI: http://webdoanhnghiep.site/
+Description: Website of Mariestopes Vietnam
+Version: 1.0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: wp-starter
+Tags:
+*/
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.home-tab-menu li:nth-child(1) {
+    margin-right: 7px;
+}
+
+.home-tab-menu li a.active {
+    background: #00b0f0;
+    color: #fff;
+}
+
+.msi-collapse-link-btn .fa:before {  
+  content: "\f107";
+}
+
+.msi-collapse-link-btn.collapsed .fa:before {
+  content: "\f106";
+}
+
+#msi-partner-logo-carousel .slick-track { 	
+    display: flex !important; 
+    
+}  
+#msi-partner-logo-carousel .slick-slide { 	
+    height: inherit !important; 	
+    display: flex !important; 	
+    justify-content: center; 	
+    align-items: center; 
+    margin-right: 20px;
+}
+.header__logo a img{
+    max-width: 150px;
+}
