@@ -25,16 +25,16 @@ define( 'WP_CACHE', true ); // Added by WP Rocket
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wp_msi' );
+define( 'DB_NAME', 'wp_drmaries' );
 
 /** MySQL database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'onecetawin' );
 
 /** MySQL database password */
- define( 'DB_PASSWORD', '' );
+ define( 'DB_PASSWORD', 'Onelog@@!59!!Onecetawin!!' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', '45.118.145.59:3388' );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
