@@ -50,31 +50,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 	<div id="page" class="wrap-main">
 		<header id="header" class="header" style="padding: 0px;">
-			<div class="extra-header" style="background-color: #283573;padding:0px 68px">
+			<div class="extra-header">
 				<div class="header__lang only-desktop">
 					<?php $translations = pll_the_languages(array('raw' => 1)); ?>
 
+					<!-- <?php
+echo "<script>console.log(" . json_encode($translations) . ");</script>";
+?>	 -->
+ 
 					<?php if (!empty($translations)) : ?>
+					<div class="header-lang-content">
+							<select class="select-circle" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+							<?php foreach ($translations as $translation) : ?>
+								<option <?php if ($translation['current_lang'] == true) : ?> selected="selected" <?php endif; ?> value="<?php echo $translation['url']; ?>">
+									<?php echo $translation['name']; ?>
+								</option>
+							<?php endforeach; ?>
+						</select>
 						<?php
 						$url = get_bloginfo('wpurl') . '/wp-content/themes/m5/assets/images/os/';
 						if (pll_current_language('slug') == 'vi') {
 							echo '<img src="' . $url . 'flag-vi.png" alt="flag">';
 						} elseif (pll_current_language('slug') == 'en') {
 							echo '<img src="' . $url . 'flag-en.png" alt="flag">';
-						} elseif (pll_current_language('slug') == 'zh') {
-							echo '<img src="' . $url . 'flag-cn.png" alt="flag">';
 						}
 						?>
-
-						<select class="select-circle" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-							<?php foreach ($translations as $translation) : ?>
-								<option <?php if ($translation['current_lang'] == true) : ?> selected="selected" <?php endif; ?> value="<?php echo $translation['url']; ?>">
-									<?php echo $translation['slug']; ?>
-								</option>
-							<?php endforeach; ?>
-						</select>
+					</div>
 					<?php endif; ?>
-
 				</div>
 			</div>
 			<div class="display-flex-center justify-content-between bg-f9" style="padding:0px 68px">

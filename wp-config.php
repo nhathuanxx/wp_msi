@@ -1,5 +1,8 @@
 <?php
-define( 'WP_CACHE', true ); // Added by WP Rocket
+define( 'WP_CACHE', false ); // Added by WP Rocket
+define( 'WP_ROCKET_MINIFY_CSS', false );
+define( 'WP_ROCKET_CONCATENATE_CSS', false );
+define( 'WP_ROCKET_OPTIMIZE_CSS_DELIVERY', false );
 
  // Added by WP Rocket
 
