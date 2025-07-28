@@ -2570,7 +2570,7 @@ h6,
 }
 
 .header {
-    padding: 0 100px;
+    padding: 0px;
     height: 154.88px;
     background-color: #fff;
 }
@@ -6485,6 +6485,18 @@ width: 100%;
     pointer-events: none;
     height: 24px;
     width: 24px;
+}
+
+
+/* add style */
+
+.extra-header{
+    height: 65px;
+    width: 100%;
+    background-color: #283573 !important;
+}
+.header{
+    padding: 0px;
 }
 
 
