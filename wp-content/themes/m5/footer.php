@@ -373,6 +373,41 @@
 
     
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const openBtn = document.getElementById("popup-country-open");
+    const closeBtn = document.getElementById("popup-country-close");
+    const modal = document.getElementById("popup-country-modal");
+
+    function openPopup() {
+      modal.style.display = "block";
+      openBtn.classList.add("open");
+    }
+
+    function closePopup() {
+      modal.style.display = "none";
+      openBtn.classList.remove("open");
+    }
+
+    openBtn.addEventListener("click", function () {
+      // Toggle: nếu đang mở thì đóng, nếu đang đóng thì mở
+      if (modal.style.display === "block") {
+        closePopup();
+      } else {
+        openPopup();
+      }
+    });
+
+    closeBtn.addEventListener("click", closePopup);
+
+    window.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        closePopup();
+      }
+    });
+  });
+</script>
+
 <style>
     .footer__main {
         background: white;
