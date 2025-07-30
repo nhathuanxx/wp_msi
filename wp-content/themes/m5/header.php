@@ -301,6 +301,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<img src="<?php echo $logoUrl; ?>" alt="<?php echo bloginfo(); ?>">
 					</a>
 				</div>
+						<!-- <?php
+
+						$args = array(
+							'theme_location' => 'primary_menu', // primary_menu or mega-menu
+							'depth' => 0,
+							'container' => '',
+							'menu_class'  => 'primary-menu',
+							'walker'  => new WP_Bootstrap_Mega_Navwalker()
+						);
+						wp_nav_menu($args);
+						?> -->
 			</div>
 			<div class="display-flex-center justify-content-between bg-f9" style="padding:0px 68px">
 				<div class="overlay-mobile"></div>
