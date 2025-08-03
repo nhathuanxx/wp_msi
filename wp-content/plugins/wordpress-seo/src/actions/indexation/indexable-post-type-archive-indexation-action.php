@@ -158,15 +158,20 @@ class Indexable_Post_Type_Archive_Indexation_Action implements Indexation_Action
 	 *
 	 * @return array The list of names of post types with unindexed archive pages.
 	 */
-	private function get_indexed_post_type_archives() {
-		$results = $this->repository->query()
-			->select( 'object_sub_type' )
-			->where( 'object_type', 'post-type-archive' )
-			->find_array();
+private function get_indexed_post_type_archives() {
+	$results = $this->repository->query()
+		->select( 'object_sub_type' )
+		->where( 'object_type', 'post-type-archive' )
+		->find_array();
 
-		$callback = function( $result ) {
-			return $result['object_sub_type'];
-		};
-		return \array_map( $callback, $results );
+	if ( ! is_array( $results ) ) {
+		$results = [];
 	}
+
+	$callback = function( $result ) {
+		return $result['object_sub_type'];
+	};
+
+	return \array_map( $callback, $results );
+}
 }

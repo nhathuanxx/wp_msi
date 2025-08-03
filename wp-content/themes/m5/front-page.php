@@ -13,8 +13,6 @@ get_header(); ?>
                     <div class="item">
                         <figure class="item__img margin-0 home-page-img">
                             <a href="<?php echo get_sub_field('cta_link', pll_current_language('slug')); ?>">
-                                <!-- <img src="<?php //echo get_sub_field('banner_image'); 
-                                                ?>" alt="slider banner"> -->
                                 <?php if (wp_is_mobile()) { ?>
                                     <img class="home_slider_banner_mobile" src="<?php echo get_sub_field('home_mobile_banner', pll_current_language('slug')); ?>" alt="slider banner">
                                 <?php } else { ?>
@@ -23,7 +21,7 @@ get_header(); ?>
                             </a>
                         </figure>
 
-                    </div><!-- End .item -->
+                    </div>
                 <?php endwhile; ?>
             <?php endif; ?>
         </div>
@@ -50,92 +48,12 @@ get_header(); ?>
             </div>
         </div>
     </div> -->
-    <?php require get_template_directory() . '/template-parts/clinic-address.php'; ?>
-    <!-- <div class="service">
-        <div class="container">
-            <div class="home__title">
-                <h2>
-                    <?php
-                    if (pll_current_language('slug') == 'vi') {
-                        echo 'Dịch vụ nổi bật';
-                    }
-                    if (pll_current_language('slug') == 'en') {
-                        echo 'Our services';
-                    }
+    <!-- <?php require get_template_directory() . '/template-parts/clinic-address.php'; ?> -->
+    <!-- <?php require get_template_directory() . '/template-parts/care-service.php'; ?> -->
 
-                    if (pll_current_language('slug') == 'zh') {
-                        echo '优质的服务';
-                    }
-                    ?>
-                </h2>
-            </div>
-            <div class="service__content">
-                <div class="row">
-                    <?php if (get_field('featured_services', pll_current_language('slug'))) : ?>
-                        <?php while (the_repeater_field('featured_services', pll_current_language('slug'))) : ?>
-                            <div class="col-sm-6 col-md-4 col-lg-3 item <?php echo get_sub_field('main_color_class') ?>">
-                                <div class="item__wrap">
-                                    <div class="item__icon">
-                                        <a href="<?php echo get_sub_field('url') ?>">
-                                            <figure>
-                                                <img src="<?php echo get_sub_field('icon_image') ?>" alt="<?php echo get_sub_field('title') ?>">
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="item__content">
-                                        <h3 class="item__title">
-                                            <a href="<?php echo get_sub_field('url') ?>">
-                                                <?php echo get_sub_field('title') ?>
-                                            </a>
-                                        </h3>
-                                        <div class="item__plus text-center">
-                                            <i class="icon-plus"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
-                    <div class="col-sm-6 col-md-4 col-lg-3 item item--empty">
-                        <div class="item__wrap display-flex-center justify-content-center">
-                            <a href="#" class="text-center secondary-color-txt">
-                                <i class="icon-three-dots display-block font-size-8"></i>
-                                <span class="display-block">
-                                    <?php
-                                    if (pll_current_language('slug') == 'vi') {
-                                        echo 'Xem thêm';
-                                    }
-                                    if (pll_current_language('slug') == 'en') {
-                                        echo 'Read more';
-                                    }
+    <!-- <?php require get_template_directory() . '/template-parts/os-package.php'; ?> -->
 
-                                    if (pll_current_language('slug') == 'zh') {
-                                        echo '看更多';
-                                    }
-                                    ?>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <figure class="service__banner margin-0">
-                <?php if (get_field('docter_team', pll_current_language('slug'))) : ?>
-                    <?php while (the_repeater_field('docter_team', pll_current_language('slug'))) : ?>
-                        <a href="<?php echo get_sub_field('url'); ?>">
-                            <img src="<?php echo get_sub_field('image'); ?>" alt="Dịch vụ nổi bật">
-                        </a>
-                    <?php endwhile; ?>
-                <?php endif; ?>
-            </figure>
-        </div>
-    </div> -->
-    <?php require get_template_directory() . '/template-parts/care-service.php'; ?>
-    <?php require get_template_directory() . '/template-parts/msi-doctors.php'; ?>
-
-    <?php require get_template_directory() . '/template-parts/os-package.php'; ?>
-
-    <div class="news bg-f9 os_news">
+    <!-- <div class="news bg-f9 os_news">
         <div class="container">
 
             <?php if (get_field('news_section', pll_current_language('slug'))) : ?>
@@ -148,7 +66,6 @@ get_header(); ?>
                 ?>
                     <div class="os_header_news">
                         <h2>
-                            <!-- <?php echo get_sub_field('title'); ?> -->
                             <?php
                             if (pll_current_language('slug') == 'vi') {
                                 echo 'Tin tức';
@@ -175,7 +92,7 @@ get_header(); ?>
                                 </a>
                             </li>
                         </ul>
-                    </div><!-- End .home__title -->
+                    </div>
                     <div class="tab-content" id="myTabContent">
 
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -207,7 +124,6 @@ get_header(); ?>
                                                     <h3 class="item__title">
                                                         <a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
                                                     </h3>
-                                                    <!-- <p class="item__date"><?php echo get_the_date(); ?></p> -->
                                                     <div class="os_btn_news_detail">
                                                         <a href="<?php echo get_permalink(); ?>">
                                                             <?php
@@ -230,7 +146,7 @@ get_header(); ?>
                                         <?php endwhile; ?>
                                         <?php wp_reset_postdata(); ?>
                                     <?php endif; ?>
-                                </div><!-- End .news__list__big -->
+                                </div>
                                 <?php
                                 $post_args_tab_2 = array(
                                     'posts_per_page'      => 3,
@@ -240,9 +156,6 @@ get_header(); ?>
                                     'offset' => 1
                                 );
                                 $news_query_tab_2 = new WP_Query($post_args_tab_2);
-                                // echo '<pre>';
-                                // echo var_dump($news_query_tab_2);
-                                // echo '</pre>';
                                 ?>
                                 <div class="news__list__small col-md-12 col-lg-7">
                                     <?php if ($news_query_tab_2->have_posts()) : ?>
@@ -263,20 +176,7 @@ get_header(); ?>
                                                         <a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
                                                     </h3>
                                                     <p class="item__date"><?php echo get_the_date(); ?></p>
-                                                    <!-- <a href="<?php echo get_permalink(); ?>" class="item__readmore">
-                                                        <?php
-                                                        if (pll_current_language('slug') == 'vi') {
-                                                            echo 'Xem chi tiết';
-                                                        }
-                                                        if (pll_current_language('slug') == 'en') {
-                                                            echo 'Read more';
-                                                        }
-
-                                                        if (pll_current_language('slug') == 'zh') {
-                                                            echo '看更多';
-                                                        }
-                                                        ?>
-                                                    </a> -->
+                                                 
                                                     <div class="os_btn_news_detail-2">
                                                         <a href="<?php echo get_permalink(); ?>">
                                                             <?php
@@ -299,29 +199,9 @@ get_header(); ?>
                                         <?php endwhile; ?>
                                         <?php wp_reset_postdata(); ?>
                                     <?php endif; ?>
-                                </div><!-- End .news__list__small -->
-                            </div><!-- End .news__list -->
-                            <!-- <div class="news__more text-center">
-                                <a href="<?php echo get_category_link($home_select_category_tab_1); ?>" class="third-color-txt font-size-14 text-uppercase">
-                                    <i class="icon-three-dots"></i>
-                                    <span>
-                                        <?php
-                                        if (pll_current_language('slug') == 'vi') {
-                                            echo 'Xem tất cả';
-                                        }
-                                        if (pll_current_language('slug') == 'en') {
-                                            echo 'View All';
-                                        }
-
-                                        if (pll_current_language('slug') == 'zh') {
-                                            echo '看更多';
-                                        }
-                                        ?>
-                                    </span>
-                                </a>
-                            </div> -->
-                            <!-- End .news__more -->
-                        </div><!-- End .tab-pane -->
+                                </div>
+                            </div>
+                        </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="news__list" style="box-shadow:none">
                                 <?php
@@ -368,13 +248,12 @@ get_header(); ?>
                                                         </a>
                                                         <img style="cursor:pointer" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/os/arrow_circle_right.svg'); ?>">
                                                     </div>
-                                                    <!-- <p class="item__date"><?php echo get_the_date(); ?></p> -->
                                                 </div>
                                             </div>
                                         <?php endwhile; ?>
                                         <?php wp_reset_postdata(); ?>
                                     <?php endif; ?>
-                                </div><!-- End .news__list__big -->
+                                </div>
                                 <?php
                                 $post_args_tab_2 = array(
                                     'posts_per_page'      => 3,
@@ -404,20 +283,7 @@ get_header(); ?>
                                                         <a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
                                                     </h3>
                                                     <p class="item__date"><?php echo get_the_date(); ?></p>
-                                                    <!-- <a href="<?php echo get_permalink(); ?>" class="item__readmore">
-                                                        <?php
-                                                        if (pll_current_language('slug') == 'vi') {
-                                                            echo 'Xem chi tiết';
-                                                        }
-                                                        if (pll_current_language('slug') == 'en') {
-                                                            echo 'Read more';
-                                                        }
-
-                                                        if (pll_current_language('slug') == 'zh') {
-                                                            echo '看更多';
-                                                        }
-                                                        ?>
-                                                    </a> -->
+                                                
                                                     <div class="os_btn_news_detail-2">
                                                         <a href="<?php echo get_permalink(); ?>">
                                                             <?php
@@ -440,39 +306,18 @@ get_header(); ?>
                                         <?php endwhile; ?>
                                         <?php wp_reset_postdata(); ?>
                                     <?php endif; ?>
-                                </div><!-- End .news__list__small -->
-                            </div><!-- End .news__list -->
-                            <!-- <div class="news__more text-center">
-                                <a href="<?php echo get_category_link($home_select_category_tab_2); ?>"" class=" third-color-txt font-size-14 text-uppercase">
-                                    <i class="icon-three-dots"></i>
-                                    <span>
+                                </div>
+                            </div>
+                          
+                        </div>
 
-                                        <?php
-                                        if (pll_current_language('slug') == 'vi') {
-                                            echo 'Xem tất cả';
-                                        }
-                                        if (pll_current_language('slug') == 'en') {
-                                            echo 'View All';
-                                        }
-
-                                        if (pll_current_language('slug') == 'zh') {
-                                            echo '看更多';
-                                        }
-                                        ?>
-                                    </span>
-                                </a>
-                            </div> -->
-                            <!-- End .news__more -->
-                        </div><!-- End .tab-pane -->
-
-                    </div><!-- End .tab-content -->
+                    </div>
                 <?php endwhile; ?>
             <?php endif; ?>
-        </div><!-- End .container -->
-    </div><!-- End (news bg-f9) -->
+        </div>
+    </div> -->
 
-    <?php require get_template_directory() . '/template-parts/os-partner-logo.php'; ?>
-    <?php require get_template_directory() . '/template-parts/content-us-now.php'; ?>
+
     <!-- <?php require get_template_directory() . '/template-parts/address.php'; ?> -->
 </main>
 
@@ -606,22 +451,22 @@ get_header(); ?>
         color: #0072AB;
         z-index: 99;
         font-family: 'Be Vietnam Pro', sans-serif;
-font-size: 16px;
-font-weight: 500;
-line-height: 24px;
-text-align: left;
-color: var(--Alias-Button-Primary-DarkBlue, #0072AB);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: left;
+        color: var(--Alias-Button-Primary-DarkBlue, #0072AB);
 
     }
 
-    .news__list__small .item__date{
-   font-family: 'Be Vietnam Pro', sans-serif;
-font-size: 16px;
-font-weight: 400;
-line-height: 24px;
-text-align: left;
-color: #000000;
-padding: 8px 0px;
+    .news__list__small .item__date {
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+        color: #000000;
+        padding: 8px 0px;
     }
 
     .os_btn_news_detail-2 img {
@@ -632,65 +477,74 @@ padding: 8px 0px;
         padding: 0px;
     }
 
-    .os_news .news__list__small .item__title a{
+    .os_news .news__list__small .item__title a {
         font-family: 'Be Vietnam Pro', sans-serif;
-font-size: 24px;
-font-weight: 600;
-line-height: 30px;
-text-align: left;
-color: #000000;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 30px;
+        text-align: left;
+        color: #000000;
     }
 
-    .os_news .news__list__big{
+    .os_news .news__list__big {
         padding: 0px;
     }
-    .os_news .news__list{
+
+    .os_news .news__list {
         display: flex;
         gap: 32px;
     }
-    .os_news .os_header_news h2{
-    margin: 0px;
-    }
 
-    .os_news .os_header_news .nav-item{
+    .os_news .os_header_news h2 {
         margin: 0px;
     }
 
-    .os_news  .home-tab-menu{
-        display: flex;
-        gap:24px
+    .os_news .os_header_news .nav-item {
+        margin: 0px;
     }
-    .os_news .os_header_news{
+
+    .os_news .home-tab-menu {
+        display: flex;
+        gap: 24px
+    }
+
+    .os_news .os_header_news {
         margin-bottom: 56px;
     }
-    .os_news .container{
+
+    .os_news .container {
         padding: 0px;
     }
-    .os_news{
+
+    .os_news {
         padding: 0px 0px 200px 0px;
         /* margin-bottom: 200px; */
     }
-    .os_news .news__list{
+
+    .os_news .news__list {
         margin: 0px;
     }
 
-    .os_news .news__list__small .item:not(:last-child){
+    .os_news .news__list__small .item:not(:last-child) {
         margin-bottom: 32px;
     }
 
     @media screen and (max-width: 767px) {
-        .os_news{
+        .os_news {
             padding: 0px 16px 54px 16px;
         }
-        .os_news .news__list{
+
+        .os_news .news__list {
             display: block;
         }
+
         .news__list__big {
             padding: 0;
             /* height: 420px; */
             margin-bottom: 32px;
         }
-        .news__list__big .item{
+
+        .news__list__big .item {
             height: auto;
         }
 
@@ -755,73 +609,89 @@ color: #000000;
             line-height: 30px;
 
         }
-        
+
         .footer__main .footer__item__title {
             font-size: 24px;
             line-height: 30px;
         }
-        .os_header_news h2{
-        margin-bottom: 24px !important;
+
+        .os_header_news h2 {
+            margin-bottom: 24px !important;
         }
-        .os_header_news .nav{
+
+        .os_header_news .nav {
             display: flex;
             gap: 16px;
         }
+
         .os_news .os_header_news {
-    margin-bottom: 24px;
-}
-.os_btn_news_detail a{
-    margin-right: 10px;
-}
-.os_btn_news_detail a{
-    font-family: 'Be Vietnam Pro', sans-serif;
-font-size: 16px;
-font-weight: 500;
-line-height: 24px;
-text-align: left;
+            margin-bottom: 24px;
+        }
 
-}
-.news__list__small .item .item__head{
-    margin-bottom: 40px;
-}
-.news__list__small .item__body {
-    width: 100%;
-}
+        .os_btn_news_detail a {
+            margin-right: 10px;
+        }
+
+        .os_btn_news_detail a {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            text-align: left;
+
+        }
+
+        .news__list__small .item .item__head {
+            margin-bottom: 40px;
+        }
+
+        .news__list__small .item__body {
+            width: 100%;
+        }
     }
-    .os_btn_news_detail a{
-    font-family: 'Be Vietnam Pro', sans-serif;
-font-size: 16px;
-font-weight: 500;
-line-height: 24px;
-text-align: left;
 
-}
+    .os_btn_news_detail a {
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: left;
+
+    }
+
     .os_news .os_header_news .nav-item .nav-link {
-height: 48px;
-gap: 10px;
-border-radius: 100px;
-opacity: 0px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: 'Be Vietnam Pro', sans-serif;
-font-size: 16px;
-font-weight: 500 !important;
-line-height: 24px;
-text-align: left;
+        height: 48px;
+        gap: 10px;
+        border-radius: 100px;
+        opacity: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500 !important;
+        line-height: 24px;
+        text-align: left;
 
-        }
-        .aspect-ratio>* *, .news__list__small .item__head>* *, .experienced__list .item__head>* *{
-            height: 100%;
-        }
-        .aspect-ratio>* *, .news__list__small .item__head:hover img{
-            transform: scale(1.1);
-            transition: all 0.3s;
-        }
-        figure{
-            height: 100% !important;
-        }
-        figure img{
-            height: 100% !important;
-        }
+    }
+
+    .aspect-ratio>* *,
+    .news__list__small .item__head>* *,
+    .experienced__list .item__head>* * {
+        height: 100%;
+    }
+
+    .aspect-ratio>* *,
+    .news__list__small .item__head:hover img {
+        transform: scale(1.1);
+        transition: all 0.3s;
+    }
+
+    figure {
+        height: 100% !important;
+    }
+
+    figure img {
+        height: 100% !important;
+    }
 </style>

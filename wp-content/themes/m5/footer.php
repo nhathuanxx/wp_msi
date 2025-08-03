@@ -18,7 +18,7 @@
     <div class="footer__main">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-lg-4 footer__item os_listing_1">
+                <div class="col-md-4 col-lg-4 footer__item">
                     <div class="footer__menu">
                         <?php if (get_field('listing_1', pll_current_language('slug'))) : ?>
                             <?php while (the_repeater_field('listing_1', pll_current_language('slug'))) : ?>
@@ -40,20 +40,7 @@
                         <a href="//www.dmca.com/Protection/Status.aspx?ID=9f2412a9-2785-4d2b-ad28-55364d386aba" title="DMCA.com Protection Status" class="dmca-badge"> <img src ="https://images.dmca.com/Badges/dmca_protected_sml_120m.png?ID=9f2412a9-2785-4d2b-ad28-55364d386aba"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
                     </div> -->
 
-                    <div class="footer__socials os_footer__socials text-center">
-                        <ul class="margin-0 p-0 text-center" style="display: flex; justify-content: left;gap: 12px;">
-                            <?php if (get_field('footer_social', pll_current_language('slug'))) : ?>
-                                <?php while (the_repeater_field('social_media', pll_current_language('slug'))) : ?>
-                                    <li><a href="<?php echo get_sub_field('url'); ?>" target="_blank" rel="nofollow"> <img src="<?php echo esc_url(get_sub_field('image')); ?>"
-                                                style="border-radius: 100%; height: 40px; width: 40px;"></a></li>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-                            <li><a href="<?php echo get_field('option_zalo', 'option') ? get_field('option_zalo', 'option') : '#'; ?>"
-                                    target="_blank" rel="nofollow">
-                                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/os/twitter_icon.svg'); ?>"
-                                        alt="zalo" style="border-radius: 100%; height: 40px; width: 40px;"></a></li>
-                        </ul>
-                    </div>
+
                 </div>
                 <div class="col-md-4 col-lg-4 footer__item">
                     <div class="footer__menu">
@@ -74,6 +61,24 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-4 footer__item">
+                    <div class="footer__menu">
+                        <?php if (get_field('listing_3', pll_current_language('slug'))) : ?>
+                            <?php while (the_repeater_field('listing_3', pll_current_language('slug'))) : ?>
+                                <p class="footer__item__title"><?php echo get_sub_field('title'); ?></p>
+                                <ul>
+                                    <?php while (the_repeater_field('listing')) : ?>
+                                        <li>
+                                            <a href="<?php echo get_sub_field('url'); ?>">
+                                                <!--  <i class="icon-arrow-next"></i> -->
+                                                <?php echo get_sub_field('title'); ?></a>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <!-- <div class="col-md-4 col-lg-4 footer__item">
                     <div class="footer__item__wrap footer__intro">
                         <?php if (get_field('footer_info', pll_current_language('slug'))) : ?>
                             <?php while (the_repeater_field('footer_info', pll_current_language('slug'))) : ?>
@@ -81,18 +86,15 @@
                                     <?php echo get_sub_field('title'); ?>
                                 </p>
                                 <div class="os_footer_address">
-                                 <p class="os_footer_address_title">
-                                 Địa chỉ trụ sở chính:
-                                 </p>
-                                 <p class="os_footer_address_detail">
-                                 Phòng 201-202, Nhà A1, Khu Ngoại Giao Đoàn Vạn Phúc, Số 298, Đường Kim Mã, Phường Kim Mã, Quận Ba Đình, Thành phố Hà Nội, Việt Nam
-                                 </p>
+                                    <p class="os_footer_address_title">
+                                        Địa chỉ trụ sở chính:
+                                    </p>
+                                    <p class="os_footer_address_detail">
+                                        Phòng 201-202, Nhà A1, Khu Ngoại Giao Đoàn Vạn Phúc, Số 298, Đường Kim Mã, Phường Kim Mã, Quận Ba Đình, Thành phố Hà Nội, Việt Nam
+                                    </p>
                                 </div>
                                 <div class="footer__intro__content os_footer__intro__content">
                                     <ul>
-                                        <!-- <li class="item">
-                                            <?php echo get_sub_field('address'); ?>
-                                        </li> -->
                                         <li class="item">
                                             <?php echo get_sub_field('hotline'); ?>
                                         </li>
@@ -107,7 +109,7 @@
                             <?php endwhile; ?>
                         <?php endif; ?>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- 
             <div class="footer__socials text-center">
@@ -130,21 +132,23 @@
             <div class="footer__bar__wrap display-flex-center justify-content-between display-sm-block">
                 <div class="footer__copyright">
                     <p class="margin-0 p-0 font-size-14 secondary-color-txt">
-                        ©<?php echo date('Y'); ?> Copyright Công ty TNHH Dr.Marie
+                        ©<?php echo date('Y'); ?> © 2024 Readdy. All rights reserved.
                     </p>
                 </div>
                 <div class="footer__brand">
-                    <figre class="margin-0 p-0">
-                        <!--<img src="<?php //echo esc_url(get_template_directory_uri() . '/assets/images/logo-bottom.jpg'); 
-                                        ?>"
-                            alt="Logo">-->
-
-                        <!-- <figre class="margin-0 p-0">
-                            <img style="width: 120px" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/DrMarie_logo_vn.png'); ?>"
-                                alt="marie">
-
-                        </figre> -->
-                    </figre>
+                    <div class="footer__socials os_footer__socials text-center">
+                        <ul class="margin-0 p-0 text-center" style="display: flex; justify-content: left;gap: 12px;">
+                            <?php if (get_field('footer_social', pll_current_language('slug'))) : ?>
+                                <?php while (the_repeater_field('social_media', pll_current_language('slug'))) : ?>
+                                    <li><a href="<?php echo get_sub_field('url'); ?>" target="_blank" rel="nofollow"> <img src="<?php echo esc_url(get_sub_field('image')); ?>"></a></li>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
+                            <!-- <li><a href="<?php echo get_field('option_zalo', 'option') ? get_field('option_zalo', 'option') : '#'; ?>"
+                                    target="_blank" rel="nofollow">
+                                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/os/twitter_icon.svg'); ?>"
+                                        alt="zalo" ></a></li> -->
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -196,7 +200,7 @@
                                 ?>
                             </div>
                             <div class="book-now__custom-form">
-                            <?php if (get_field('booking_form_setting', pll_current_language('slug'))): ?>
+                                <?php if (get_field('booking_form_setting', pll_current_language('slug'))): ?>
                                     <?php echo do_shortcode(get_field('booking_form_setting', pll_current_language('slug'))); ?>
                                 <?php endif; ?>
                             </div>
@@ -214,74 +218,7 @@
         </div>
     </div>
 
-    <div id="contact-bar">
-        <?php
-        $option_phone_num = get_field('option_phone_num', 'option');
-        $option_phone_num_link = '#';
-        if ($option_phone_num) {
 
-            $option_phone_num_link = $option_phone_num['url'];
-        }
-        ?>
-        <ul>
-            <!-- <li class="ctb-phone"><a href="<?php echo $option_phone_num_link; ?>" target="_blank" rel="nofollow"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/call.png" alt="Gọi cho tôi"></a></li>
-            <li class="ctb-fbm"><a href="<?php echo get_field('option_link_fb_mes', 'option') ? get_field('option_link_fb_mes', 'option') : '#'; ?>" target="_blank" rel="nofollow">
-                    <img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/messenger-icon.png" alt="Nhắn tin facebook"></a></li>
-            <li class="ctb-mail"><a href="<?php echo get_field('option_zalo', 'option') ? get_field('option_zalo', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/zalo-logo.png" alt="Zalo"></a></li> -->
-            <!-- <?php if (is_front_page()) : ?>
-                <li>
-                    <div class="footer__fixed__address__wrap position-rel">
-                        <a href="#position-rel" class="footer__fixed__address__icon">
-                            <figure class="margin-0 padding-0">
-                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/find-address.svg'); ?>"
-                                    alt="<?php
-                                            if (pll_current_language('slug') == 'vi') {
-                                                echo 'Tìm địa chỉ phòng khám gần bạn?';
-                                            }
-                                            if (pll_current_language('slug') == 'en') {
-                                                echo 'Find clinic address near you?';
-                                            }
-                                            if (pll_current_language('slug') == 'zh') {
-                                                echo '寻找您附近的诊所地址？';
-                                            }
-                                            ?>">
-                            </figure>
-                        </a>
-                        <div class="footer__fixed__address__tooltip">
-                            <div class="footer__fixed__address__tooltip__wrap">
-                                <?php
-                                if (pll_current_language('slug') == 'vi') {
-                                    echo 'Tìm địa chỉ phòng khám gần bạn?';
-                                }
-                                if (pll_current_language('slug') == 'en') {
-                                    echo 'Find clinic address near you?';
-                                }
-                                if (pll_current_language('slug') == 'zh') {
-                                    echo '寻找您附近的诊所地址？';
-                                }
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            <?php endif; ?> -->
-            <li class="book-calendar"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-book-now.svg" alt="book-now"></li>
-            <li class="icon-center" id="toggleIcon"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-social.svg" alt="icon-social"></li>
-            <li class="icon-satellite"><a href="<?php echo get_field('option_zalo', 'option') ? get_field('option_zalo', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-zalo.svg" alt="icon-zalo"></a></li>
-            <li class="icon-satellite"><a href="<?php echo get_field('option_link_fb_mes', 'option') ? get_field('option_link_fb_mes', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-messenger.svg" alt="icon-messenger"></a></li>
-            <li class="icon-satellite"><a href="<?php echo $option_phone_num_link; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-call.svg" alt="icon-call"></a></li>
-            <li>
-                <div class="back-to-top">
-                    <a href="javascript:;" class="footer__fixed__to-top">
-                        <figure class="margin-0 padding-0">
-                            <img style="padding: 0;" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/os/to-top.svg'); ?>"
-                                alt="Back to top">
-                        </figure>
-                    </a>
-                </div>
-            </li>
-        </ul>
-    </div>
 
 </footer>
 
@@ -318,11 +255,11 @@
 
     // thanh search, khi nhập data thì ẩn text default
     jQuery("#search-data-input-val").on("input", function() {
-    	if(jQuery("#search-data-input-val").val()){
-            jQuery(".search-data label").css("opacity",0);
+        if (jQuery("#search-data-input-val").val()) {
+            jQuery(".search-data label").css("opacity", 0);
             jQuery(".header__menu__mobile .search-data .search-data-label").css("opacity", 0);
         } else {
-             jQuery(".search-data label").css("opacity", 1);
+            jQuery(".search-data label").css("opacity", 1);
             jQuery(".header__menu__mobile .search-data .search-data-label").css("opacity", 1);
 
         }
@@ -347,10 +284,10 @@
     });
 
     document.getElementById('city').addEventListener('change', function() {
-    var selectedCity = this.value;
-    var clinics = document.querySelectorAll('.clinic-nearby-u-slider');
+        var selectedCity = this.value;
+        var clinics = document.querySelectorAll('.clinic-nearby-u-slider');
 
-    const mapFrame = document.getElementById('map_frame');
+        const mapFrame = document.getElementById('map_frame');
 
         clinics.forEach(function(clinic) {
             const clinicCity = clinic.getAttribute('data-city');
@@ -368,11 +305,105 @@
             }
         });
     });
-
 </script>
 
-    
+
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const openBtn = document.getElementById("popup-country-open");
+        const closeBtn = document.getElementById("popup-country-close");
+        const modal = document.getElementById("popup-country-modal");
+
+        function openPopup() {
+            modal.style.display = "block";
+            openBtn.classList.add("open");
+        }
+
+        function closePopup() {
+            modal.style.display = "none";
+            openBtn.classList.remove("open");
+        }
+
+        openBtn.addEventListener("click", function() {
+            // Toggle: nếu đang mở thì đóng, nếu đang đóng thì mở
+            if (modal.style.display === "block") {
+                closePopup();
+            } else {
+                openPopup();
+            }
+        });
+
+        closeBtn.addEventListener("click", closePopup);
+
+        window.addEventListener("click", function(e) {
+            if (e.target === modal) {
+                closePopup();
+            }
+        });
+    });
+</script>
+<script>
+    jQuery(document).ready(function($) {
+        // Đóng tất cả menu
+        function closeAllMenus() {
+            $('.menu-toggle').removeClass('active');
+            $('.menu-item-2').slideUp();
+            $('.menu-toggle').removeClass('active');
+            $('.menu-item-2').css('display', 'none')
+                .find('.menu-description, .submenu').css('display', 'none');
+        }
+
+        // Mở menu tương ứng
+        $('.custom-menu > .menu-item > .menu-item-1 > .menu-toggle').on('click', function(e) {
+            const $this = $(this);
+            const $menuItem1 = $this.closest('.menu-item-1');
+            const menuId = $menuItem1.data('menu-id');
+            const $menu2 = $('.menu-item-2[data-menu-id="' + menuId + '"]');
+
+            const isOpen = $this.hasClass('active');
+
+            closeAllMenus();
+
+            if (!isOpen) {
+                // Set lại vị trí top
+                const offset = $menuItem1.offset();
+                const height = $menuItem1.outerHeight();
+                const top = offset.top + height;
+                $menu2.css({
+                    top: 218 + 'px',
+                    display: 'flex'
+                });
+                $menu2.find('.menu-description, .submenu').css('display', 'block');
+
+                $this.addClass('active');
+                $menu2.stop(true, true).slideDown();
+            }
+        });
+
+        // Toggle cấp 2 (submenu-item)
+        $('.submenu').on('click', '.menu-toggle', function() {
+            const $this = $(this);
+            const $item = $this.closest('.submenu-item');
+
+            $item.siblings('.submenu-item').removeClass('open')
+                .find('.submenu-lv3').slideUp()
+                .end().find('.menu-toggle').removeClass('active');
+
+            $item.toggleClass('open');
+            $item.find('.submenu-lv3').first().slideToggle();
+            $this.toggleClass('active');
+        });
+
+        // Active link thường
+        $('.custom-menu a').on('click', function() {
+            $('.custom-menu a').removeClass('active');
+            $(this).addClass('active');
+            closeAllMenus();
+        });
+    });
+</script>
+
 <style>
     .footer__main {
         background: white;
@@ -380,13 +411,15 @@
     }
 
     .footer__main .footer__item__title {
-        font-family: 'Be Vietnam Pro', sans-serif;
-        color: #292929 !important;
-        font-size: 32px;
+        font-family: 'Roboto', sans-serif;
         font-weight: 600;
-        line-height: 38px;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0;
+        color: #000000;
         text-align: left;
-        margin-bottom: 32px;
+        /* margin-bottom: 32px; */
     }
 
     .footer__main ul li {
@@ -400,12 +433,14 @@
     }
 
     .footer__main ul li a {
-        font-family: 'Be Vietnam Pro', sans-serif;
-        font-size: 16px;
+        font-family: 'Roboto', sans-serif;
         font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
         line-height: 24px;
+        letter-spacing: 0;
         text-align: left;
-        color: #292929 !important;
+        color: #272727 !important;
     }
 
     .footer__main ul li a:hover {
@@ -418,16 +453,17 @@
     }
 
     .footer__main .footer__copyright p {
-        font-family: 'Be Vietnam Pro', sans-serif;
-        font-size: 16px;
-        font-size: 16px;
+        font-family: 'Roboto', sans-serif;
         font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
         line-height: 24px;
-        text-align: left;
+        letter-spacing: 0;
+        color: #9CA3AF;
     }
 
     .footer__bar {
-        background-color: white;
+        /* background-color: white;
         font-family: 'Be Vietnam Pro', sans-serif;
         font-size: 16px;
         font-size: 16px;
@@ -435,23 +471,30 @@
         line-height: 24px;
         text-align: left;
         padding: 24px 0 20px;
-        border-top: 1px solid #DCDCDC;
+        border-top: 1px solid #DCDCDC; */
+        height: 107px;
+        width: 100%;
+        background-color: #111827;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 80px;
     }
 
     .os_footer__socials ul li img {
-        width: 40px !important;
-        height: 40px !important;
-        border-radius: 100px;
+        width: 16px !important;
+        height: 16px !important;
+        /* border-radius: 100px; */
     }
 
     .footer__socials ul li {
         margin: 0;
     }
 
-    .footer__socials ul li a {
+    /* .footer__socials ul li a {
         width: 40px;
         height: 40px;
-    }
+    } */
 
     .os-phone,
     .os-mail {
@@ -480,6 +523,7 @@
         border-radius: 40px;
         box-shadow: 0px 9px 30px 0px #00000012;
     }
+
     .book-now__custom .modal-body {
         padding: 0;
     }
@@ -520,7 +564,7 @@
         margin-bottom: 64px;
     }
 
-    .book-now__custom-form .form-control{
+    .book-now__custom-form .form-control {
         border-top: none;
         border-right: none;
         border-left: none;
@@ -528,7 +572,7 @@
         padding-left: 0px;
     }
 
-    .book-now__custom-form .form-control:focus{
+    .book-now__custom-form .form-control:focus {
         box-shadow: none;
     }
 
@@ -547,35 +591,40 @@
         object-fit: cover;
     }
 
-    .os_listing_1 ul li a{
+    /* .os_listing_1 ul li a {
         font-family: 'Be Vietnam Pro', sans-serif;
-font-size: 16px;
-font-weight: 700;
-line-height: 24px;
-text-align: left;
-color: var(--Alias-Text-Primary-blue, #00ACEE) !important;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        text-align: left;
+        color: var(--Alias-Text-Primary-blue, #00ACEE) !important;
 
-    }
+    } */
 
-    
+
     @media screen and (max-width: 991px) {
         .book-now__custom {
             padding: 40px;
         }
+
         .book-now__custom-title {
             font-size: 48px;
             line-height: 56px;
         }
+
         .book-now__custom-head_icon {
             width: 48px;
             height: 48px;
         }
+
         .book-now__custom-subtitle {
             margin-bottom: 32px;
         }
+
         .book-now__custom-img {
             display: none;
         }
+
         .book-now__custom-form {
             margin-bottom: 48px;
         }
@@ -589,21 +638,26 @@ color: var(--Alias-Text-Primary-blue, #00ACEE) !important;
         .book-now__custom {
             padding: 24px;
         }
+
         .book-now__custom-title {
             font-size: 40px;
             line-height: 48px;
         }
+
         .book-now__custom-head_icon {
             width: 40px;
             height: 40px;
         }
+
         .book-now__custom-subtitle {
             margin-bottom: 24px;
         }
+
         .book-now__custom-form {
             margin-bottom: 32px;
         }
     }
+
     @media screen and (max-width: 575px) {
         .book-now__custom {
             padding: 16px;
@@ -613,6 +667,7 @@ color: var(--Alias-Text-Primary-blue, #00ACEE) !important;
             font-size: 28px;
             line-height: 35.73px;
         }
+
         .book-now__custom-head_icon {
             width: 32px;
             height: 32px;
@@ -646,25 +701,31 @@ color: var(--Alias-Text-Primary-blue, #00ACEE) !important;
         cursor: pointer;
         max-width: 48px;
     }
+
     #contact-bar ul li.icon-center {
         position: relative;
         cursor: pointer;
-        z-index: 10; /* Đảm bảo icon trung tâm luôn trên cùng */
+        z-index: 10;
+        /* Đảm bảo icon trung tâm luôn trên cùng */
     }
-    
+
     #contact-bar ul li.icon-satellite {
         position: absolute;
         opacity: 0;
-        transform: scale(0); /* Thu nhỏ icon vệ tinh khi ẩn */
+        transform: scale(0);
+        /* Thu nhỏ icon vệ tinh khi ẩn */
         transition: all 0.3s ease;
     }
-    #contact-bar ul li.icon-center.active ~ .icon-satellite {
+
+    #contact-bar ul li.icon-center.active~.icon-satellite {
         opacity: 1;
-        transform: scale(1); /* Phóng to icon vệ tinh khi hiện */
+        transform: scale(1);
+        /* Phóng to icon vệ tinh khi hiện */
     }
 
     #contact-bar ul li.icon-satellite:nth-child(2) {
-        top: -80px; /* Điều chỉnh vị trí cho icon vệ tinh 1 */
+        top: -80px;
+        /* Điều chỉnh vị trí cho icon vệ tinh 1 */
         left: 0;
     }
 
@@ -682,6 +743,7 @@ color: var(--Alias-Text-Primary-blue, #00ACEE) !important;
         top: 28px;
         left: -40px;
     }
+
     /* end custom contact bar */
 
     @media screen and (max-width: 767px) {
@@ -689,32 +751,71 @@ color: var(--Alias-Text-Primary-blue, #00ACEE) !important;
             display: none;
         }
     }
-    .os_footer__intro__content ul li{
-        margin-bottom: 8px ;
+
+    .os_footer__intro__content ul li {
+        margin-bottom: 8px;
     }
-    .os_footer_address{
+
+    .os_footer_address {
         font-family: 'Be Vietnam Pro', sans-serif;
-font-size: 16px;
-font-weight: 400;
-line-height: 24px;
-text-align: left;
-color: var(--Alias-Text-Neutral, #292929);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+        color: var(--Alias-Text-Neutral, #292929);
 
     }
-    .os_footer_address p{
+
+    .os_footer_address p {
         margin: 0px;
     }
-    .os_footer_address{
+
+    .os_footer_address {
         margin-bottom: 32px;
     }
-    .os_footer__intro__content ul li{
+
+    .os_footer__intro__content ul li {
         display: flex;
         gap: 4px;
     }
+
     .disabled-link {
-    pointer-events: none;
-    cursor: default;
-}
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .footer__brand {
+        display: flex;
+        align-items: center;
+    }
+
+    .footer__main {
+        max-width: 1335px;
+        margin: 0 auto;
+        width: 100%;
+        padding: 88px 0px 54px 0px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .footer {
+        background-color: white;
+    }
+
+    .footer__main .footer__item__title {
+        font-family: "Sanchez", serif;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 32px;
+        color: #283573;
+    }
+
+    .footer__main .footer__item__title ul li a {
+        font-family: "Sanchez", serif;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 32px;
+        color: #283573;
+    }
 </style>
 
 </body>
