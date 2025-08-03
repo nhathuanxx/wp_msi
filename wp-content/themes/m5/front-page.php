@@ -5,7 +5,50 @@
 get_header(); ?>
 
 <main class="main-content home-page">
-    <div class="slider-main home-banner">
+    <div class="banner-home-page">
+        <img class="background-banner-img" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner.png-tiny.webp"
+            alt="hompage-banner">
+        <div class="banner-home-page-content-wrapper">
+            <div class="banner-home-page-content">
+                <div class="banner-home-page-content-left">
+                    <div class="banner-title">
+                        Chúng tôi cung cấp dịch vụ chăm sóc sức khỏe sinh sản tư nhân và NHS thông qua mạng lưới phòng khám trên khắp nước Anh. Có thể đặt lịch hẹn ngay trong ngày.
+                    </div>
+                </div>
+                <div class="banner-home-page-content-right">
+                    <div class="banner-image-1">
+                        <img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/home-banner-1.png-tiny.webp"
+                            alt="hompage-banner">
+                    </div>
+                    <div class="banner-image-2">
+                        <img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/home-banner-2.png-tiny.webp"
+                            alt="hompage-banner">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="home-service-container">
+        <div class="home-service-content">
+            <div class="home-service-title">
+                Chúng tôi đã cung cấp dịch vụ phá thai và thắt ống dẫn tinh tư nhân do NHS tài trợ thông qua mạng lưới các phòng khám địa phương trên khắp nước Anh trong hơn 40 năm.
+            </div>
+            <div class="home-service-top">
+                <div class="home-service-top-left" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/home-service-1.webp');">
+
+                </div>
+                <div class="home-service-top-right" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/home-service-2.webp');">
+
+                </div>
+
+            </div>
+            <div class="home-service-bottom" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/home-service-3.webp');">
+
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="slider-main home-banner">
         <div class="sun-slider" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "fade": true, "dots": false, "autoplay": true, "infinite": true, "autoplaySpeed": 5000}'>
             <?php if (get_field('banner', pll_current_language('slug'))) : ?>
                 <?php while (the_repeater_field('banner', pll_current_language('slug'))) :
@@ -25,7 +68,7 @@ get_header(); ?>
                 <?php endwhile; ?>
             <?php endif; ?>
         </div>
-    </div>
+    </div> -->
 
     <!-- <div class="introduce">
         <div class="container">
