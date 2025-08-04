@@ -547,7 +547,8 @@ $current_cat_description = get_queried_object()->description;
 		border-color: transparent;
 		pointer-events: none;
 	}
-	.os-page-qa .post-thumbnail-img img{
+
+	.os-page-qa .post-thumbnail-img img {
 		height: 350px;
 	}
 </style>

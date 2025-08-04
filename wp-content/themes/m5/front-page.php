@@ -6,7 +6,7 @@ get_header(); ?>
 
 <main class="main-content home-page">
     <div class="banner-home-page">
-        <img class="background-banner-img" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner.png-tiny.webp"
+        <img class="background-banner-img" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner-new.png-tiny.jpg"
             alt="hompage-banner">
         <div class="banner-home-page-content-wrapper">
             <div class="banner-home-page-content">
@@ -35,19 +35,72 @@ get_header(); ?>
             </div>
             <div class="home-service-top">
                 <div class="home-service-top-left" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/home-service-1.webp');">
-
+                    <div class="home-service-button">
+                        <a href="#">PHÁ THAI</a>
+                    </div>
                 </div>
                 <div class="home-service-top-right" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/home-service-2.webp');">
-
+                    <div class="home-service-button">
+                        <a href="#">CẮT ỐNG DẪN</a>
+                    </div>
                 </div>
 
             </div>
             <div class="home-service-bottom" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/home-service-3.webp');">
-
+                <div class="home-service-button">
+                    <a href="#">TRÁNH THAI</a>
+                </div>
             </div>
         </div>
-
     </div>
+    <!-- <?php require get_template_directory() . '/template-parts/short-story.php'; ?> -->
+
+    <div class="about-us-container">
+        <div class="about-us-content">
+            <div class="about-us-content-left">
+                <div class="about-us-title">
+                    Về chúng tôi
+                </div>
+                <div class="about-us-subtitle">
+                    Phòng khám đầu tiên của chúng tôi ở trung tâm London được mở vào năm 1976. Ngày nay, chúng tôi đã phát triển thành một trong những nhà cung cấp dịch vụ tránh thai và phá thai an toàn lớn nhất thế giới, với hơn 10.000 nhân viên làm việc tại 37 quốc gia trên toàn thế giới.
+                </div>
+                <div class="about-us-read-more">
+                    ĐỌC THÊM
+                </div>
+            </div>
+            <div class="about-us-content-right">
+                <div class="about-us-img-1">
+                    <img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/about-us-1.webp"
+                        alt="about-us-1">
+                </div>
+                <div class="about-us-img-2">
+                    <img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/about-us-2.webp"
+                        alt="about-us-2">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intl-activity-container">
+        <div class="intl-activity-content">
+            <div class="intl-activity-item" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/intl-activity-item-1.webp');">
+                <div class="home-service-button">
+                    <a href="#">CÔNG TÁC VẬN ĐỘNG</a>
+                </div>
+            </div>
+            <div class="intl-activity-item" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/intl-activity-item-2.jpg');">
+                <div class="home-service-button">
+                    <a href="#">CÔNG VIỆC QUỐC TẾ</a>
+                </div>
+
+            </div>
+            <div class="intl-activity-item" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/intl-activity-item-3.webp');">
+                <div class="home-service-button">
+                    <a href="#">SỰ TẬP CHUNG CỦA CHÚNG TÔI VÀO CHẤT LƯỢNG</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- <div class="slider-main home-banner">
         <div class="sun-slider" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "fade": true, "dots": false, "autoplay": true, "infinite": true, "autoplaySpeed": 5000}'>
             <?php if (get_field('banner', pll_current_language('slug'))) : ?>
