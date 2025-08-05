@@ -15,7 +15,7 @@ $current_page_ID = get_the_ID();
 $page_content = get_post($current_page_ID)->post_content;
 $current_cat_name = get_the_title();
 ?>
-<div class="page-qa">
+<!-- <div class="page-qa">
 	<div class="container">
 		<div class="page-qa__banner">
 			<div class="page-qa__banner-content">
@@ -24,19 +24,20 @@ $current_cat_name = get_the_title();
 					echo $current_cat_name
 					?>
 				</div>
-				<!-- <div class="page-qa__banner-subtitle">
-                    <?php
-                    if (pll_current_language('slug') == 'vi') {
-                        echo 'Cung cấp những thông tin mới nhất về sức khỏe phụ nữ, các kiến thức chuyên môn, cùng những cập nhật từ phòng khám.';
-                    }
-                    if (pll_current_language('slug') == 'en') {
-                        echo "Discover how we can empower you to not just survive, but thrive. Dive deeper into prioritizing your well being<br />and gain the knowledge needed to make informed decisions that will lead to a healthier lifestyle.";
-                    }
-                    if (pll_current_language('slug') == 'zh') {
-                        echo '了解我们如何帮助您不仅生存，而且蓬勃发展。更深入地优先考虑您的健康<br />并获得做出明智决策所需的知识，从而实现更健康的生活方式。';
-                    }
-                    ?>
-                </div> -->
+			</div>
+		</div>
+	</div>
+</div> -->
+<div class="wp-block-msi-blocks-header-image-uk alignfull">
+	<div class="right-image-block">
+		<div class="container-wide">
+			<div class="input-container">
+				<span> <?php
+						echo $current_cat_name
+						?></span>
+			</div>
+			<div class="container-image">
+				<div class="image-container"><img decoding="async" src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg.webp" alt="Y tá MSI UK đang an ủi khách hàng phá thai." class="header-image lazyloaded" data-src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg.webp" data-eio-rwidth="800" data-eio-rheight="533" data-src-webp="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg.webp"><noscript><img decoding="async" src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg" alt="MSI UK nurse comforting abortion client." class="header-image" data-eio="l" /></noscript><img decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzU2IiBoZWlnaHQ9IjMyMCIgdmlld0JveD0iMCAwIDM1NiAzMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTptdWx0aXBseSI+CjxwYXRoIGQ9Ik0zNTMuODgxIDIzNS40N0wxOTkuODY3IC0yMC45NjkzQzE5Ny45MSAtMjQuMzI1MSAxOTQuMjc2IC0yNi44NDE5IDE5MC4zNjMgLTI3LjY4MDlDMTg2LjQ1IC0yOC41MTk4IDE4Mi4yNTcgLTI3LjY4MDkgMTc4LjkwMyAtMjUuNDQzN0MxMDcuMzQ2IDIyLjM3NjQgNDYuNDEwOSA4Ni40MTYyIDEuOTY3NDQgMTU5Ljk2NEMwLjAxMDgxMzQgMTYzLjMyIC0wLjU0ODIyOSAxNjcuNTE1IDAuNTY5ODQ1IDE3MS40M0MxLjY4NzkyIDE3NS4zNDUgNC4yMDM1OSAxNzguNzAxIDcuODM3MzMgMTgwLjY1OEwyNzIuMjYyIDMyMS4zMjJDMjc0LjQ5OCAzMjIuNDQxIDI3Ni43MzQgMzIzIDI3OS4yNSAzMjNDMjg0LjAwMiAzMjMgMjg4Ljc1MyAzMjAuNzYzIDI5MS41NDkgMzE2LjU2OEMzMDcuMjAyIDI5My4zNTcgMzI3LjA0NyAyNzIuNjYzIDM1MC4yNDggMjU1LjA0NUMzNTYuMTE3IDI1MC41NzEgMzU3Ljc5NSAyNDIuMTgxIDM1My44ODEgMjM1Ljc0OSIgZmlsbD0iI0VCRjNGQiIvPgo8L2c+Cjwvc3ZnPgo=" class="rectangle first"><img decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzU3IiBoZWlnaHQ9IjI3OCIgdmlld0JveD0iMCAwIDM1NyAyNzgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTptdWx0aXBseSI+CjxwYXRoIGQ9Ik0zNTQuODc1IDI2My40N0wyMDAuNDI4IDcuMDMwNzFDMTk4LjQ2NiAzLjY3NDkyIDE5NC44MjIgMS4xNTgwNyAxOTAuODk4IDAuMzE5MTE3QzE4Ni45NzMgLTAuNTE5ODMyIDE4Mi43NjkgMC4zMTkxMjIgMTc5LjQwNSAyLjU1NjMyQzEwNy42NDcgNTAuMzc2NCA0Ni41NDEzIDExNC40MTYgMS45NzI5NyAxODcuOTY0QzAuMDEwODQzNyAxOTEuMzIgLTAuNTQ5NzY5IDE5NS41MTUgMC41NzE0NDYgMTk5LjQzQzEuNjkyNjYgMjAzLjM0NSA0LjIxNTQgMjA2LjcwMSA3Ljg1OTM1IDIwOC42NThMMjczLjAyNyAzNDkuMzIyQzI3NS4yNjkgMzUwLjQ0MSAyNzcuNTEyIDM1MSAyODAuMDM0IDM1MUMyODQuNzk5IDM1MSAyODkuNTY1IDM0OC43NjMgMjkyLjM2OCAzNDQuNTY4QzMwOC4wNjUgMzIxLjM1NyAzMjcuOTY2IDMwMC42NjMgMzUxLjIzMSAyODMuMDQ1QzM1Ny4xMTggMjc4LjU3MSAzNTguOCAyNzAuMTgxIDM1NC44NzUgMjYzLjc0OSIgZmlsbD0iIzlEQ0RGMCIvPgo8L2c+Cjwvc3ZnPgo=" class="rectangle second"></div>
 			</div>
 		</div>
 	</div>
@@ -58,16 +59,18 @@ $current_cat_name = get_the_title();
 
 <?php get_footer(); ?>
 <style>
-	.service-page{
-		font-family: 'Be Vietnam Pro', sans-serif !important; 
+	.service-page {
+		font-family: 'Be Vietnam Pro', sans-serif !important;
 		background-color: white;
 	}
+
 	/* .service-intro__content{
 		width: 100%;
 	} */
-	.service-intro{
+	.service-intro {
 		background-color: white;
 	}
+
 	.page-qa {
 		padding-top: 64px;
 		padding-bottom: 72px;
@@ -114,6 +117,7 @@ $current_cat_name = get_the_title();
 		color: #292929;
 		margin-top: 24px;
 	}
+
 	@media screen and (max-width: 768px) {
 		.page-item .previous {
 			display: none;
@@ -151,8 +155,12 @@ $current_cat_name = get_the_title();
 			padding: 18.17px 10.17px;
 			border-radius: 24px;
 		}
-		.page-qa__banner-content{
+
+		.page-qa__banner-content {
 			padding: 0px;
 		}
-		}
+
+
+		/* test111111111111 */
+	}
 </style>
