@@ -6840,7 +6840,7 @@ body {
   height: 25px; */
   text-align: center;
   border-radius: unset;
-  font-family: "Arial", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -6850,7 +6850,7 @@ body {
 
 .extra-header .header-lang-content {
   display: flex;
-  font-family: "Arial", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
 
   display: flex;
@@ -6947,7 +6947,7 @@ body {
   margin-bottom: 15px;
   padding-bottom: 15px;
   text-transform: uppercase;
-  font-family: "Sanchez", serif;
+    font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
 }
@@ -7021,7 +7021,7 @@ body {
 .extra-header .extra-header-menu .primary-menu > li > a {
   color: white;
   text-transform: none;
-  font-family: "Arial", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 18px;
@@ -7039,7 +7039,7 @@ body {
   align-items: center;
   gap: 8px;
   color: #ffffff;
-  font-family: "Arial", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
 }
 .extra-header .extra-header-menu .custom-call-btn .phone-number {
@@ -7170,7 +7170,7 @@ body {
   text-decoration: none;
   color: #283573;
   cursor: pointer;
-  /* font-family: "Sanchez", serif; */
+  /* font-family: 'Roboto', sans-serif; */
   font-style: normal;
   font-weight: 700;
   font-size: 17px;
@@ -7257,7 +7257,7 @@ a.active {
   padding: 48px 0 48px 32px;
 }
 .menu-item-2 .submenu .submenu-item {
-  font-family: "Sanchez", serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -7268,7 +7268,7 @@ a.active {
   max-width: 385px;
 }
 .menu-item-2 .submenu .submenu-item a {
-  font-family: "Sanchez", serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -7276,7 +7276,7 @@ a.active {
   color: #283573;
 }
 .menu-item-2 .submenu .submenu-item button {
-  font-family: "Sanchez", serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -7314,7 +7314,7 @@ a.active {
     max-width: 248px;
 } */
 .menu-item-2 .menu-description .title {
-  font-family: "Sanchez", serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 26px;
@@ -7322,7 +7322,7 @@ a.active {
   color: #283573;
 }
 .menu-item-2 .menu-description .subtitle {
-  font-family: "Sanchez", serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -7332,7 +7332,7 @@ a.active {
 }
 
 .menu-item-2 .menu-description .read-more {
-  font-family: "Sanchez", serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -7346,7 +7346,7 @@ a.active {
 }
 .menu-item-2 .menu-description .call-btn a {
   padding: 0px;
-  font-family: "Sanchez", serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -7398,7 +7398,7 @@ a.active {
 .banner-home-page-content-left .banner-title {
   font-size: 48px;
   line-height: 56px;
-  font-family: "Sanchez", serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
   text-transform: none;
@@ -7424,7 +7424,7 @@ a.active {
   font-size: 28px;
   line-height: 38px;
   color: #283573;
-  font-family: "Sanchez", serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
   text-transform: none;
@@ -7464,6 +7464,6 @@ a.active {
   border-radius: 16px;
   background-size: cover;
   width: 100%;
-background-repeat: no-repeat;
+  background-repeat: no-repeat;
   min-height: 252px;
 }
