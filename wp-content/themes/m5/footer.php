@@ -865,7 +865,7 @@
     }
 
     .footer__main .footer__item__title {
-        font-family: "Sanchez", serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 700;
         font-size: 22px;
         line-height: 32px;
@@ -873,7 +873,7 @@
     }
 
     .footer__main .footer__item__title ul li a {
-        font-family: "Sanchez", serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 500;
         font-size: 22px;
         line-height: 32px;
@@ -925,7 +925,7 @@
         font-size: 14px;
         line-height: 24px;
         color: #283573;
-        font-family: "Arial", sans-serif;
+        font-family: "Roboto", sans-serif;
         font-size: 14px;
         font-weight: 400;
         letter-spacing: normal;
