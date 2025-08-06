@@ -1,13 +1,6 @@
 <?php
 $short_story = get_field('short_story', pll_current_language('slug'));
 
-if ($short_story) {
-    echo "<script>console.log(" . json_encode($short_story) . ");</script>";
-}
-?>
-<?php
-$short_story = get_field('short_story', pll_current_language('slug'));
-
 if ($short_story): ?>
     <div class="slider-testimonial-container">
 
@@ -195,4 +188,76 @@ if ($short_story): ?>
         currentIndex = (currentIndex + 1) % slides.length;
         updateSlider();
     });
+
+
+
+     let startX = 0;
+let isDragging = false;
+let animationID;
+let currentTranslate = 0;
+let prevTranslate = 0;
+
+track.addEventListener('mousedown', dragStart);
+track.addEventListener('mouseup', dragEnd);
+track.addEventListener('mouseleave', dragEnd);
+track.addEventListener('mousemove', dragMove);
+
+track.addEventListener('touchstart', dragStart);
+track.addEventListener('touchend', dragEnd);
+track.addEventListener('touchmove', dragMove);
+
+function dragStart(event) {
+    isDragging = true;
+    startX = getPositionX(event);
+    animationID = requestAnimationFrame(animation);
+    track.style.transition = "none";
+}
+
+function dragMove(event) {
+    if (!isDragging) return;
+    const currentPosition = getPositionX(event);
+    const diff = currentPosition - startX;
+    currentTranslate = prevTranslate + diff;
+}
+
+function dragEnd(event) {
+    if (!isDragging) return;
+    isDragging = false;
+    cancelAnimationFrame(animationID);
+
+    const movedBy = currentTranslate - prevTranslate;
+
+    if (movedBy < -50 && currentIndex < slides.length - 1) {
+        currentIndex += 1;
+    } else if (movedBy > 50 && currentIndex > 0) {
+        currentIndex -= 1;
+    }
+
+    setSliderByIndex();
+}
+
+function getPositionX(event) {
+    return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+}
+
+function animation() {
+    setSliderPosition(currentTranslate);
+    if (isDragging) requestAnimationFrame(animation);
+}
+
+function setSliderPosition(position) {
+    track.style.transform = `translateX(${position}px)`;
+}
+
+function setSliderByIndex() {
+    track.style.transition = "transform 0.5s ease";
+    const newPosition = -currentIndex * track.offsetWidth;
+    track.style.transform = `translateX(${newPosition}px)`;
+    prevTranslate = newPosition;
+    currentTranslate = newPosition;
+
+    // Update dots
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[currentIndex].classList.add("active");
+}
 </script>
