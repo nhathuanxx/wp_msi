@@ -53,7 +53,7 @@ get_header(); ?>
             </div>
         </div>
     </div>
-    <!-- <?php require get_template_directory() . '/template-parts/short-story.php'; ?> -->
+    <?php require get_template_directory() . '/template-parts/short-story.php'; ?>
 
     <div class="about-us-container">
         <div class="about-us-content">
