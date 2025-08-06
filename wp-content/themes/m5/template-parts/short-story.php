@@ -1,35 +1,68 @@
-<div class="slider-testimonial-wrapper">
-    <div class="slider-testimonial-viewport">
-        <div class="slider-testimonial-track" id="testimonialSliderTrack">
-            <div class="testimonial-slide">
-                <img src="https://via.placeholder.com/300x200?text=Slide+1" alt="">
-                <p>“Dịch vụ chu đáo, chuyên nghiệp và rất thân thiện.”</p>
+<?php
+$short_story = get_field('short_story', pll_current_language('slug'));
+
+if ($short_story) {
+    echo "<script>console.log(" . json_encode($short_story) . ");</script>";
+}
+?>
+<?php
+$short_story = get_field('short_story', pll_current_language('slug'));
+
+if ($short_story): ?>
+    <div class="slider-testimonial-container">
+
+        <div class="slider-testimonial-wrapper">
+            <div class="slider-testimonial-viewport">
+                <div class="slider-testimonial-track" id="testimonialSliderTrack">
+                    <?php foreach ($short_story as $row):
+                        $image = $row['image'];
+                        $description = $row['description'];
+                    ?>
+                        <div class="testimonial-slide">
+                            <?php if ($image): ?>
+                                <div class="image-container">
+                                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+
+                                </div> <?php endif; ?>
+                            <?php if ($description): ?>
+                                <div class="description-container">
+                                    <p><?php echo esc_html($description); ?></p>
+
+                                </div> <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
             </div>
-            <div class="testimonial-slide">
-                <img src="https://via.placeholder.com/300x200?text=Slide+2" alt="">
-                <p>“Tôi cảm thấy được hỗ trợ đầy đủ ở mọi giai đoạn.”</p>
-            </div>
-            <div class="testimonial-slide">
-                <img src="https://via.placeholder.com/300x200?text=Slide+3" alt="">
-                <p>“Không gian sạch sẽ và nhân viên cực kỳ thân thiện.”</p>
+
+            <div class="slider-testimonial-controls">
+                <button class="nav-button" id="prevBtn">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3IDdMMSA3TTEgN0w3IDEzTTEgN0w3IDEiIHN0cm9rZT0iIzI4MzU3MyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==" alt="prev" />
+                </button>
+                <div class="testimonial-dots" id="testimonialDotsContainer"></div>
+                <button class="nav-button" id="nextBtn">
+                    <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEgN0wxNyA3TTE3IDdMMTEgMU0xNyA3TDExIDEzIiBzdHJva2U9IiMyODM1NzMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=" alt="next" />
+
+
+                </button>
             </div>
         </div>
     </div>
-
-    <div class="slider-testimonial-controls">
-        <button class="nav-button" id="prevBtn">←</button>
-        <div class="testimonial-dots" id="testimonialDotsContainer"></div>
-        <button class="nav-button" id="nextBtn">→</button>
-    </div>
-</div>
+<?php endif; ?>
 <style>
+    .slider-testimonial-container {
+        background: #ffffff;
+        padding: 60px 0px;
+    }
 
     .slider-testimonial-wrapper {
-        max-width: 960px;
+        max-width: 1335px;
         margin: 0 auto;
-        background: #fbeef3;
-        padding: 2rem;
+        background: #F9EEF2;
+        padding: 80px 40px;
         border-radius: 12px;
+        position: relative;
+    
     }
 
     .slider-testimonial-viewport {
@@ -47,29 +80,51 @@
         flex: 0 0 100%;
         display: flex;
         align-items: center;
-        gap: 2rem;
-        padding: 1rem;
+        gap: 40px;
+        /* padding: 1rem; */
         box-sizing: border-box;
     }
 
-    .testimonial-slide img {
-        width: 300px;
+    .testimonial-slide .image-container {
+        width: 50%;
         border-radius: 12px;
+        border-radius: 8px;
+    }
+
+    .testimonial-slide .description-container {
+        width: 50%;
+    }
+
+    .testimonial-slide .image-container img {
+        border-radius: 8px;
+        height: 350px;
+        max-width: 90%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: 100%;
+
     }
 
     .testimonial-slide p {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #1d2d6b;
+        font-family: 'Roboto', sans-serif;
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 44px;
+        color: #283573;
     }
 
     /* Navigation */
     .slider-testimonial-controls {
+        /* bottom: 30px; */
         display: flex;
-        justify-content: center;
         align-items: center;
         gap: 20px;
-        margin-top: 20px;
+        left: calc(50% + 20px);
+        position: absolute;
+        z-index: 10;
+        transform: none;
+        left: calc(50% + 20px);
+        bottom: 80px;
     }
 
     .nav-button {
@@ -78,16 +133,20 @@
         font-size: 1.5rem;
         cursor: pointer;
         color: #1d2d6b;
+        display: flex;
+        align-items: center;
+        /* content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3IDdMMSA3TTEgN0w3IDEzTTEgN0w3IDEiIHN0cm9rZT0iIzI4MzU3MyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==");
+    opacity: 1; */
     }
 
     .testimonial-dots {
         display: flex;
-        gap: 10px;
+        gap: 20px;
     }
 
     .testimonial-dot {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         background-color: #d0aac3;
         cursor: pointer;
@@ -96,7 +155,7 @@
     }
 
     .testimonial-dot.active {
-        background-color: #e8519d;
+        background-color: #bf006a;
     }
 </style>
 <script>
@@ -109,7 +168,7 @@
 
     // Generate dots dynamically
     slides.forEach((_, index) => {
-        const dot = document.createElement("button");
+        const dot = document.createElement("div");
         dot.classList.add("testimonial-dot");
         if (index === 0) dot.classList.add("active");
         dot.addEventListener("click", () => {

@@ -16,14 +16,27 @@ get_header(); ?>
                     </div>
                 </div>
                 <div class="banner-home-page-content-right">
-                    <div class="banner-image-1">
-                        <img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/home-banner-1.png-tiny.webp"
-                            alt="hompage-banner">
-                    </div>
-                    <div class="banner-image-2">
-                        <img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/home-banner-2.png-tiny.webp"
-                            alt="hompage-banner">
-                    </div>
+                    <?php
+                    $banner = get_field('banner', pll_current_language('slug'));
+                    echo "<script>console.log(" . json_encode($banner) . ");</script>";
+
+                    $banner1 = !empty($banner[0]['banner_image']) ? $banner[0]['banner_image'] : null;
+                    $banner2 = !empty($banner[1]['banner_image']) ? $banner[1]['banner_image'] : null;
+                    ?>
+
+                    <?php if ($banner1 || $banner2): ?>
+                        <?php if ($banner1): ?>
+                            <div class="banner-image-1">
+                                <img src="<?php echo esc_url($banner1); ?>" alt="banner-image-1">
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($banner2): ?>
+                            <div class="banner-image-2">
+                                <img src="<?php echo esc_url($banner2); ?>" alt="banner-image-2">
+                            </div>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
