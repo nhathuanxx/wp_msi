@@ -6,16 +6,58 @@ get_header(); ?>
 
 <main class="main-content home-page">
     <div class="banner-home-page">
-        <img class="background-banner-img" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner-new.png-tiny.jpg"
+        <img class="background-banner-img" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner.jpg"
             alt="hompage-banner">
         <div class="banner-home-page-content-wrapper">
             <div class="banner-home-page-content">
                 <div class="banner-home-page-content-left">
                     <div class="banner-title">
-                        Chúng tôi cung cấp dịch vụ chăm sóc sức khỏe sinh sản tư nhân và NHS thông qua mạng lưới phòng khám trên khắp nước Anh. Có thể đặt lịch hẹn ngay trong ngày.
+                        <?php the_field('banner_description', pll_current_language('slug')); ?>
+                    </div>
+                    <?php
+                    $lang = pll_current_language('slug');
+
+                    $args = array(
+                        'post_type'      => 'post',
+                        'posts_per_page' => 6,
+                        'lang'           => $lang,
+                    );
+                    $latest_posts = new WP_Query($args);
+                    ?>
+
+                    <div class="dropdown">
+                        <div class="select">
+                            <p>
+                                <?php if ($lang === 'vi') : ?>
+                                    Bạn không biết nên bắt đầu từ đâu?
+                                <?php else : ?>
+                                    Not sure where to start?
+                                <?php endif; ?>
+                            </p>
+                        </div>
+                        <div class="options hide">
+                            <?php if ($latest_posts->have_posts()) : ?>
+                                <?php while ($latest_posts->have_posts()) : $latest_posts->the_post(); ?>
+                                    <div class="wp-block-msi-blocks-dropdown-option-uk">
+                                        <a href="<?php the_permalink(); ?>" target="_self" rel="noopener">
+                                            <p><?php the_title(); ?></p>
+                                        </a>
+                                    </div>
+                                <?php endwhile; ?>
+                                <?php wp_reset_postdata(); ?>
+                            <?php else : ?>
+                                <div class="wp-block-msi-blocks-dropdown-option-uk">
+                                    <p>
+                                        <?php echo ($lang === 'vi') ? 'Không có bài viết nào.' : 'No posts found.'; ?>
+                                    </p>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
                 <div class="banner-home-page-content-right">
+                    <img id="scrollBannerBtn" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiMyODM1NzMiLz4KPHBhdGggZD0iTTQwIDMyVjQ4TTQwIDQ4TDQ2IDQyTTQwIDQ4TDM0IDQyIiBzdHJva2U9IiNENkU3RjciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=" alt="Cuộn xuống" class="scroll-down-arrow">
+
                     <?php
                     $banner = get_field('banner', pll_current_language('slug'));
                     echo "<script>console.log(" . json_encode($banner) . ");</script>";
@@ -41,32 +83,54 @@ get_header(); ?>
             </div>
         </div>
     </div>
-    <div class="home-service-container">
+    <div class="home-service-container" id="homeServiceContainer">
         <div class="home-service-content">
             <div class="home-service-title">
-                Chúng tôi đã cung cấp dịch vụ phá thai và thắt ống dẫn tinh tư nhân do NHS tài trợ thông qua mạng lưới các phòng khám địa phương trên khắp nước Anh trong hơn 40 năm.
+                <?php the_field('category_banner_description', pll_current_language('slug')); ?>
             </div>
-            <div class="home-service-top">
-                <div class="home-service-top-left" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/home-service-1.webp');">
-                    <div class="home-service-button">
-                        <a href="#">PHÁ THAI</a>
-                    </div>
-                </div>
-                <div class="home-service-top-right" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/home-service-2.webp');">
-                    <div class="home-service-button">
-                        <a href="#">CẮT ỐNG DẪN</a>
-                    </div>
-                </div>
+            <?php if (have_rows('category_banner', pll_current_language('slug'))): ?>
+                <?php
+                $banners = [];
+                while (have_rows('category_banner', pll_current_language('slug'))) : the_row();
+                    $banners[] = [
+                        'image' => get_sub_field('image'),
+                        'title' => get_sub_field('title'),
+                        'slug'  => get_sub_field('slug')
+                    ];
+                endwhile;
+                ?>
 
-            </div>
-            <div class="home-service-bottom" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/home-service-3.webp');">
-                <div class="home-service-button">
-                    <a href="#">TRÁNH THAI</a>
-                </div>
-            </div>
+                <?php if (count($banners) >= 3): ?>
+                    <div class="home-service-top">
+                        <div class="home-service-top-left" style="background-image: url('<?php echo esc_url($banners[0]['image']['url']); ?>');">
+                            <div class="home-service-button">
+                                <a href="<?php echo esc_url(home_url('/' . $banners[0]['slug'])); ?>">
+                                    <?php echo esc_html($banners[0]['title']); ?>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="home-service-top-right" style="background-image: url('<?php echo esc_url($banners[1]['image']['url']); ?>');">
+                            <div class="home-service-button">
+                                <a href="<?php echo esc_url(home_url('/' . $banners[1]['slug'])); ?>">
+                                    <?php echo esc_html($banners[1]['title']); ?>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="home-service-bottom" style="background-image: url('<?php echo esc_url($banners[2]['image']['url']); ?>');">
+                        <div class="home-service-button">
+                            <a href="<?php echo esc_url(home_url('/' . $banners[2]['slug'])); ?>">
+                                <?php echo esc_html($banners[2]['title']); ?>
+                            </a>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
         </div>
     </div>
     <?php require get_template_directory() . '/template-parts/customer-story.php'; ?>
+    <?php require get_template_directory() . '/template-parts/clinic-part.php'; ?>
 
     <?php require get_template_directory() . '/template-parts/short-story.php'; ?>
 
@@ -74,10 +138,10 @@ get_header(); ?>
         <div class="about-us-content">
             <div class="about-us-content-left">
                 <div class="about-us-title">
-                    Về chúng tôi
+                    <?php the_field('about_us_title', pll_current_language('slug')); ?>
                 </div>
                 <div class="about-us-subtitle">
-                    Phòng khám đầu tiên của chúng tôi ở trung tâm London được mở vào năm 1976. Ngày nay, chúng tôi đã phát triển thành một trong những nhà cung cấp dịch vụ tránh thai và phá thai an toàn lớn nhất thế giới, với hơn 10.000 nhân viên làm việc tại 37 quốc gia trên toàn thế giới.
+                    <?php the_field('about_us_description', pll_current_language('slug')); ?>
                 </div>
                 <div class="about-us-read-more">
                     ĐỌC THÊM
@@ -85,34 +149,53 @@ get_header(); ?>
             </div>
             <div class="about-us-content-right">
                 <div class="about-us-img-1">
-                    <img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/about-us-1.webp"
-                        alt="about-us-1">
+                    <!-- <img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/about-us-1.webp"
+                        alt="about-us-1"> -->
+                    <?php
+                    $image = get_field('about_us_banner_1', pll_current_language('slug'));
+                    if ($image):
+                    ?>
+                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: 'about us'); ?>">
+                    <?php endif; ?>
                 </div>
                 <div class="about-us-img-2">
-                    <img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/about-us-2.webp"
-                        alt="about-us-2">
+                    <!-- <img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/about-us-2.webp"
+                        alt="about-us-2"> -->
+                    <?php
+                    $image = get_field('about_us_banner_2', pll_current_language('slug'));
+                    if ($image):
+                    ?>
+                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: 'about us'); ?>">
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
     </div>
     <div class="intl-activity-container">
         <div class="intl-activity-content">
-            <div class="intl-activity-item" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/intl-activity-item-1.webp');">
-                <div class="home-service-button">
-                    <a href="#">CÔNG TÁC VẬN ĐỘNG</a>
-                </div>
-            </div>
-            <div class="intl-activity-item" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/intl-activity-item-2.jpg');">
-                <div class="home-service-button">
-                    <a href="#">CÔNG VIỆC QUỐC TẾ</a>
-                </div>
+            <?php
+            $lang_slug = pll_current_language('slug');
 
-            </div>
-            <div class="intl-activity-item" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/intl-activity-item-3.webp');">
-                <div class="home-service-button">
-                    <a href="#">SỰ TẬP CHUNG CỦA CHÚNG TÔI VÀO CHẤT LƯỢNG</a>
-                </div>
-            </div>
+            if (have_rows('events', $lang_slug)) :
+                while (have_rows('events', $lang_slug)) : the_row();
+                    $title = get_sub_field('title');
+                    $image = get_sub_field('image');
+                    $slug  = get_sub_field('slug');
+
+                    $image_url = is_array($image) ? $image['url'] : $image;
+                    $url = esc_url(home_url($slug));
+            ?>
+                    <div class="intl-activity-item" style="background-image: url('<?php echo esc_url($image_url); ?>');">
+                        <div class="home-service-button">
+                            <a href="<?php echo $url; ?>">
+                                <?php echo esc_html($title); ?>
+                            </a>
+                        </div>
+                    </div>
+            <?php
+                endwhile;
+            endif;
+            ?>
         </div>
     </div>
 
@@ -159,7 +242,7 @@ get_header(); ?>
             </div>
         </div>
     </div> -->
-    <!-- <?php require get_template_directory() . '/template-parts/clinic-address.php'; ?> -->
+    <?php require get_template_directory() . '/template-parts/clinic-address.php'; ?>
     <!-- <?php require get_template_directory() . '/template-parts/care-service.php'; ?> -->
 
     <!-- <?php require get_template_directory() . '/template-parts/os-package.php'; ?> -->
@@ -806,3 +889,30 @@ get_header(); ?>
         height: 100% !important;
     }
 </style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const dropdown = document.querySelector(".dropdown");
+        const select = dropdown.querySelector(".select");
+        const options = dropdown.querySelector(".options");
+
+        select.addEventListener("click", function() {
+            options.classList.toggle("hide");
+            options.classList.toggle("show");
+        });
+
+        // Optional: Close dropdown if click outside
+        document.addEventListener("click", function(e) {
+            if (!dropdown.contains(e.target)) {
+                options.classList.add("hide");
+                options.classList.remove("show");
+            }
+        });
+    });
+</script>
+<script>
+    document.getElementById('scrollBannerBtn').addEventListener('click', function() {
+        document.getElementById('homeServiceContainer').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+</script>

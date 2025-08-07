@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Page Clinic Address
  *
@@ -93,7 +94,7 @@ $url = get_template_directory_uri();
                                             ?>
                                         </a>
                                         <a href="javascript:;"
-                                            class="clinic-nearby-u-slider__item_action-item clinic-nearby-u-slider__item_action-book book-calendar" data-clinic="<?php echo get_sub_field('value_form_contact');?>" >
+                                            class="clinic-nearby-u-slider__item_action-item clinic-nearby-u-slider__item_action-book book-calendar" data-clinic="<?php echo get_sub_field('value_form_contact'); ?>">
                                             <?php
                                             if (pll_current_language('slug') == 'vi') {
                                                 echo 'Đặt lịch';
@@ -127,13 +128,8 @@ $url = get_template_directory_uri();
             </div>
         </div>
     </div>
-
-    <?php require get_template_directory() . '/template-parts/os-partner-logo-2.php'; ?>
-    <?php require get_template_directory() . '/template-parts/content-us-now.php'; ?>
 </div>
 <?php get_footer(); ?>
-
-
 <style>
     #pagetitle {
         display: none;
@@ -207,9 +203,55 @@ $url = get_template_directory_uri();
             padding-left: 0px;
             padding-right: 0px;
         }
-        
+
         .page-clinic-address__map {
             margin-bottom: 40px;
         }
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const citySelect = document.getElementById('city');
+        const clinicItems = document.querySelectorAll('.clinic-nearby-u-slider');
+
+        if (!citySelect || clinicItems.length === 0) return;
+
+        function filterClinics(city) {
+            clinicItems.forEach(function(item) {
+                if (!city || item.dataset.city === city) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function updateURLParam(city) {
+            const url = new URL(window.location.href);
+            if (city) {
+                url.searchParams.set('thanh-pho', city);
+            } else {
+                url.searchParams.delete('thanh-pho');
+            }
+            window.history.replaceState({}, '', url.toString());
+        }
+
+        // 1. Khi trang được tải: đọc từ query string và lọc
+        const params = new URLSearchParams(window.location.search);
+        const cityFromURL = params.get('thanh-pho');
+        if (cityFromURL) {
+            citySelect.value = cityFromURL;
+            filterClinics(cityFromURL);
+        } else {
+            filterClinics(''); // Hiển thị tất cả nếu không có param
+        }
+
+        // 2. Khi người dùng chọn thành phố
+        citySelect.addEventListener('change', function() {
+            const selectedCity = this.value;
+            filterClinics(selectedCity);
+            updateURLParam(selectedCity);
+        });
+    });
+</script>

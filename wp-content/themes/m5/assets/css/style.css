@@ -7365,7 +7365,14 @@ a.active {
   margin-top: 68px;
 }
 
-.banner-home-page img {
+.banner-home-page .banner-image-1 img {
+  width: 100%;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-home-page .banner-image-2 img {
   width: 100%;
   display: block;
   height: 100%;
@@ -7616,14 +7623,27 @@ a.active {
 }
 
 .about-us-img-1 {
-  height: 100%;
-  max-height: 438px;
+  /* height: 100%; */
+  height: 438px;
   width: 100%;
 }
 
-.about-us-img-2 {
+.about-us-img-1 img {
   height: 100%;
-  max-height: 438px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.about-us-img-2 img {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+
+}
+
+.about-us-img-2 {
+  /* height: 100%; */
+  height: 438px;
   width: 100%;
   position: relative;
   top: 60px;
@@ -7717,4 +7737,92 @@ a.active {
   position: absolute;
   width: 100%;
   z-index: -1;
+}
+
+.banner-home-page-content-left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.banner-home-page-content-left .dropdown {
+  position: relative;
+  width: 80%;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.banner-home-page-content-left .dropdown .select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #FFFFFF;
+  background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTYgOSA2IDYgNi02IiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+);
+  background-position: 98%;
+  background-repeat: no-repeat;
+  border: 1px solid gray;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  padding: 18px 24px;
+}
+
+.banner-home-page-content-left .dropdown .select p {
+  margin: 0px;
+  line-height: 1.8;
+  color: #283573;
+
+}
+
+.banner-home-page-content-left .dropdown .hide {
+  display: none !important;
+}
+
+.banner-home-page-content-left .dropdown .options {
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+.banner-home-page-content-left .dropdown .options.hide {
+  display: none;
+}
+
+.banner-home-page-content-left .dropdown .options.show {
+  display: block;
+}
+
+.banner-home-page-content-left .dropdown .options div a {
+  display: block;
+  padding: 18px 24px;
+  color: #283573;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.banner-home-page-content-left .dropdown .options div a:hover {
+  background-color: #D9D9D9;
+}
+
+.banner-home-page-content-left .dropdown .options div a p {
+  margin: 0px
+}
+
+.scroll-down-arrow {
+  bottom: 72px;
+  cursor: pointer;
+  left: -40px;
+  position: absolute;
+  z-index: 1;
+  width: 80px;
+  height: 80px;
+}
+
+.banner-home-page-content-right {
+  position: relative;
 }

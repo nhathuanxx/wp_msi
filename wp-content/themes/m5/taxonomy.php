@@ -21,9 +21,7 @@ $current_cat_description = get_queried_object()->description;
 		<div class="page-qa__banner">
 			<div class="page-qa__banner-content">
 				<div class="page-qa__banner-title">
-					<?php
-					echo $current_cat_name
-					?>
+					123
 				</div>
 				<div class="page-qa__banner-subtitle">
 					<?php

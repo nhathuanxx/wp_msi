@@ -27,7 +27,6 @@
                                     <?php while (the_repeater_field('listing')) : ?>
                                         <li>
                                             <a rel="nofollow" href="<?php echo get_sub_field('url'); ?>">
-                                                <!-- <i class="icon-arrow-next"></i> -->
                                                 <?php echo get_sub_field('title'); ?></a>
                                         </li>
                                     <?php endwhile; ?>
@@ -197,20 +196,25 @@
 
 
                 </div>
-                <!-- <div class="footer__brand">
-                    <div class="footer__socials os_footer__socials text-center">
-                        <ul class="margin-0 p-0 text-center" style="display: flex; justify-content: left;gap: 12px;">
-                            <?php if (get_field('footer_social', pll_current_language('slug'))) : ?>
-                                <?php while (the_repeater_field('social_media', pll_current_language('slug'))) : ?>
-                                    <li><a href="<?php echo get_sub_field('url'); ?>" target="_blank" rel="nofollow"> <img src="<?php echo esc_url(get_sub_field('image')); ?>"></a></li>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-                        </ul>
-                    </div>
-                </div> -->
             </div>
         </div>
+         <!-- <li class="book-calendar"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-book-now.svg" alt="book-now"></li>
+            <li class="icon-center" id="toggleIcon"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-social.svg" alt="icon-social"></li>
+            <li class="icon-satellite"><a href="<?php echo get_field('option_zalo', 'option') ? get_field('option_zalo', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-zalo.svg" alt="icon-zalo"></a></li>
+            <li class="icon-satellite"><a href="<?php echo get_field('option_link_fb_mes', 'option') ? get_field('option_link_fb_mes', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-messenger.svg" alt="icon-messenger"></a></li>
+            <li class="icon-satellite"><a href="<?php echo $option_phone_num_link; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-call.svg" alt="icon-call"></a></li>
+            <li>
+                <div class="back-to-top">
+                    <a href="javascript:;" class="footer__fixed__to-top">
+                        <figure class="margin-0 padding-0">
+                            <img style="padding: 0;" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/os/to-top.svg'); ?>"
+                                alt="Back to top">
+                        </figure>
+                    </a>
+                </div>
+            </li> -->
     </div>
+    
 
     <div class="modal fade" id="modal_schedule_book" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
