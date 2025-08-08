@@ -136,6 +136,16 @@ if ($query->have_posts()) : ?>
         text-align: center;
     }
 
+    .all-story:hover {
+        background: #FFFFFF !important;
+        border: 1px solid #283573 !important;
+    }
+
+    .all-story:hover a {
+        color: #283573 !important;
+
+    }
+
     .all-story a {
         color: white !important;
     }
@@ -220,6 +230,12 @@ if ($query->have_posts()) : ?>
     .customer-story-slide-content a {
         padding: 0px;
         margin: 0 0 16px;
+    }
+
+    .customer-story-slide-content a:hover {
+        background-color: white !important;
+        color: #283573 !important;
+        border: 1px solid #283573 !important;
     }
 
     .customer-story-slide-content p {

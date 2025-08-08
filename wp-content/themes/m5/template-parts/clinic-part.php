@@ -96,9 +96,24 @@
         gap: 24px;
     }
 
+    .wp-block-msi-blocks-find-clinic-uk .text-desktop p {
+        color: #283573;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        letter-spacing: normal;
+        line-height: 28px;
+    }
+
     .h2-size {
         font-size: 40px !important;
         line-height: 48px !important;
+        color: #283573;
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        text-transform: none;
+        margin: 0px
     }
 
     main .entry-content p {
@@ -164,26 +179,30 @@
         text-transform: uppercase;
         width: 100%;
     }
+
+    .wp-block-msi-blocks-find-clinic-uk .container-wide .text-side .buttons-container .wp-block-button:hover {
+        background-color: white;
+        color: #283573;
+        border: 1px solid #283573;
+
+    }
 </style>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('.search-container');
-            const select = form.querySelector('select.select');
-            const errorMessage = document.querySelector('.enter-message');
+        const form = document.querySelector('.search-container');
+        const select = form.querySelector('select.select');
+        const errorMessage = document.querySelector('.enter-message');
 
-            form.addEventListener('submit', function(e) {
-                const selectedValue = select.value;
+        form.addEventListener('submit', function(e) {
+            const selectedValue = select.value;
 
-                if (selectedValue === 'all') {
-                    e.preventDefault(); // Chặn gửi form
-                    errorMessage.style.display = 'block'; // Hiện thông báo lỗi
-                } else {
-                    errorMessage.style.display = 'none'; // Ẩn thông báo nếu có
-                    console.log('Đã chọn:', selectedValue); // Ghi log nếu hợp lệ
-                }
-            });
+            if (selectedValue === 'all') {
+                e.preventDefault(); // Chặn gửi form
+                errorMessage.style.display = 'block'; // Hiện thông báo lỗi
+            } else {
+                errorMessage.style.display = 'none'; // Ẩn thông báo nếu có
+                console.log('Đã chọn:', selectedValue); // Ghi log nếu hợp lệ
+            }
         });
-
-       
-    
+    });
 </script>

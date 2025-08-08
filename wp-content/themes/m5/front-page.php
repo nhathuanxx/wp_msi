@@ -242,7 +242,7 @@ get_header(); ?>
             </div>
         </div>
     </div> -->
-    <?php require get_template_directory() . '/template-parts/clinic-address.php'; ?>
+    <!-- <?php require get_template_directory() . '/template-parts/clinic-address.php'; ?> -->
     <!-- <?php require get_template_directory() . '/template-parts/care-service.php'; ?> -->
 
     <!-- <?php require get_template_directory() . '/template-parts/os-package.php'; ?> -->
