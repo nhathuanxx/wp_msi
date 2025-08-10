@@ -4250,7 +4250,8 @@ body {
 }
 
 .service-intro__content {
-    width: 69.5%;
+    max-width: 1335px;
+    margin: 0 auto;
     line-height: 1.88;
     margin-bottom: 45px;
 }

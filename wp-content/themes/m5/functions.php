@@ -238,6 +238,60 @@ function twentynineteen_widgets_init()
 }
 add_action('widgets_init', 'twentynineteen_widgets_init');
 
+add_action('admin_head', function () {
+    echo '<style>
+        /* Tăng chiều rộng tối thiểu cho mỗi cột */
+        .acf-repeater.-table .acf-row > .acf-field {
+            min-width: 150px;
+        }
+
+        /* Cho phép bảng co giãn theo nội dung */
+        .acf-repeater .acf-input table {
+            table-layout: auto !important;
+        }
+
+        /* Input và textarea full width */
+        .acf-repeater .acf-input input[type="text"] {
+            width: 100% !important;
+        }
+        .acf-repeater .acf-input textarea {
+            width: 100% !important;
+            min-height: 80px;
+        }
+
+        /* Scroll ngang khi quá nhiều cột */
+        .acf-repeater .acf-table {
+            min-width: 1200px; /* có thể chỉnh lớn hơn nếu muốn */
+        }
+        .acf-repeater {
+            overflow-x: auto;
+            display: block;
+        }
+    </style>';
+});
+function msi_mobile_render_menu($items, $base_url, $level = 1) {
+    if (!$items) return;
+    echo '<ul class="msi-mobile-menu-level-' . esc_attr($level) . '">';
+    foreach ($items as $item) {
+        $hasChildren = !empty($item['children']) && $item['children'] !== false;
+        $slug = isset($item['slug']) ? $item['slug'] : '#';
+        $url = (strpos($slug, 'http') === 0) ? $slug : trailingslashit($base_url) . $slug;
+        echo '<li class="msi-mobile-menu-item">';
+        if ($hasChildren) {
+            // Nút toggle có mũi tên bên phải
+            echo '<button class="msi-mobile-menu-toggle" aria-expanded="false">'
+                . esc_html($item['title']) 
+                . '<span class="msi-mobile-menu-arrow">›</span>'
+                . '</button>';
+            msi_mobile_render_menu($item['children'], $base_url, $level + 1);
+        } else {
+            echo '<a href="' . esc_url($url) . '" class="msi-mobile-menu-link">' . esc_html($item['title']) . '</a>';
+        }
+        echo '</li>';
+    }
+    echo '</ul>';
+}
+
 /**
  * Enqueue scripts and styles.
  */

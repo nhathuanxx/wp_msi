@@ -306,13 +306,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<?php endif; ?>
 					</div>
 					<div class="extra-header-menu">
+						<!-- <?php
+								wp_nav_menu(array(
+									'theme_location' => 'primary_menu',
+									'menu_class'     => 'primary-menu',
+									'container'      => false
+								));
+								?> -->
 						<?php
-						wp_nav_menu(array(
-							'theme_location' => 'primary_menu',
-							'menu_class'     => 'primary-menu',
-							'container'      => false
-						));
-						?>
+						$base_url = site_url();
+						$lang = pll_current_language('slug');
+
+						if (have_rows('menu_top', $lang)) : ?>
+							<ul class="custom-menu menu-top">
+								<?php while (have_rows('menu_top', $lang)) : the_row();
+									$title = get_sub_field('title');
+									$slug = trim(get_sub_field('slug'), '/');
+									$link = trailingslashit($base_url) . $slug;
+								?>
+									<li class="menu-item menu-top-item">
+										<a href="<?= esc_url($link); ?>" data-menu-id="<?= esc_attr($slug); ?>">
+											<?= esc_html($title); ?>
+										</a>
+									</li>
+								<?php endwhile; ?>
+							</ul>
+						<?php endif; ?>
+
 						<a href="tel:1900 55 88 82" class="custom-call-btn">
 							<img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/phone-icon.svg"
 								alt="icon-phone">
@@ -337,10 +357,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<img src="<?php echo $logoUrl; ?>" alt="<?php echo bloginfo(); ?>">
 						</a>
 					</div>
-
 					<?php
-					$base_url = home_url();
+					$base_url = site_url();
 					$menu_items = get_field('menu_items', pll_current_language('slug'));
+					// echo "<script>console.log(" . json_encode($menu_items) . ");</script>";
+
 					if (have_rows('menu_items', pll_current_language('slug'))): ?>
 						<ul class="custom-menu">
 							<?php while (have_rows('menu_items', pll_current_language('slug'))): the_row(); ?>
@@ -432,9 +453,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<?php endwhile; ?>
 						</ul>
 					<?php endif; ?>
+					<?php $lang = pll_current_language('slug'); ?>
+
+					<a href="javascript:;"
+						class="header__book font-size-16 font-weight-bold book-calendar btn-box-shadow btn-h50 btn-i-lg-12 text-uppercase">
+						<?php if ($lang === 'vi') : ?>
+							ĐẶT LỊCH
+						<?php else : ?>
+							BOOK APPOINTMENT
+						<?php endif; ?>
+						<img class="arrow-custom-menu" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/arrow-custom-menu.svg" alt="arrow-custom-menu">
+					</a>
+					<button id="msi-mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="msi-mobile-menu">
+						<div class="header__icon__menu d-lg-none icon-menu-mobile">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</button>
 
 				</div>
 			</div>
+			<?php
+			$base_url = site_url();
+			$menu_items = get_field('menu_items', pll_current_language('slug'));
+
+			if ($menu_items): ?>
+				<div id="msi-mobile-menu-wrapper">
+
+					<!-- <button id="msi-mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="msi-mobile-menu">
+								<span class="msi-mobile-hamburger"></span>
+							</button> -->
+
+					<nav id="msi-mobile-menu" class="msi-mobile-menu" aria-hidden="true">
+						<?php msi_mobile_render_menu($menu_items, $base_url); ?>
+					</nav>
+
+				</div>
+			<?php endif; ?>
 			<!-- <div class="msi-mega-menu-container">
 				<div class="display-flex-center justify-content-between bg-f9 msi-mega-menu">
 					<div class="overlay-mobile"></div>
@@ -465,160 +521,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 				</div>
 			</div> -->
-			<div class="header__menu__mobile">
+			<!-- <div class="header__menu__mobile">
 
-				<span class="header__search ">
-					<form method="get" action="" role="search">
-						<input type="hidden" name="post_type" value="post">
-						<input type="hidden" name="taxonomy" value="category">
-						<input type="hidden" name="term" value="tin-tuc-y-hoc">
-						<div class="search-data">
-							<input id="search-data-input-val" type="search" name="s" value="" />
-							<label class="search-data-label">Search</label>
-							<img class="icon-calendar"
-								src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/os/icon-search.svg"
-								alt="icon-calendar">
-						</div>
-					</form>
-				</span>
-				<div class="header__menu">
-					<?php
-
-					$args = array(
-						'theme_location' => 'mega_menu', // primary_menu or mega-menu
-						'depth' => 0,
-						'container' => '',
-						'menu_class'  => 'primary-menu',
-						'walker'  => new WP_Bootstrap_Mega_Navwalker()
-					);
-					wp_nav_menu($args);
-					?>
-					<!-- <ul class="primary-menu">
-						<li class="active">
-							<a href="index.html">Trang chủ</a>
-						</li>
-						<li>
-							<a href="about.html">Giới thiệu</a>
-							<ul>
-								<li>
-									<a href="#">Khám sức khỏe phụ nữ định kỳ</a>
-								</li>
-								<li>
-									<a href="#">Các biện pháp tránh thai dài hạn</a>
-									<ul>
-										<li>
-											<a href="#">Khám sức khỏe phụ nữ định kỳ</a>
-										</li>
-										<li>
-											<a href="#">Các biện pháp tránh thai dài hạn</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li class="mega-menu">
-							<a href="service.html">Dịch vụ</a>
-							<div class="mega-menu__main">
-								<div class="mega-menu__main__wrap">
-									<div class="item mega-menu__list">
-										<ul>
-											<li>
-												<a href="#">Khám sức khỏe phụ nữ định kỳ</a>
-											</li>
-											<li>
-												<a href="#">Các biện pháp tránh thai dài hạn</a>
-											</li>
-										</ul>
-									</div>
-									<div class="item mega-menu__list">
-										<ul>
-											<li>
-												<a href="#">Khám sức khỏe phụ nữ định kỳ</a>
-											</li>
-											<li>
-												<a href="#">Các biện pháp tránh thai dài hạn</a>
-											</li>
-										</ul>
-									</div>
-									<div class="item mega-menu__img">
-										<figure class="margin-0">
-											<img src="./assets/images/cham-soc-truoc-sinh.jpg" alt="Chăm sóc trước sinh">
-										</figure>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-									</div>
-									<div class="col-lg-4"></div>
-									<div class="col-lg-4"></div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<a href="#">Phòng khám</a>
-						</li>
-						<li>
-							<a href="#">Tin tức</a>
-						</li>
-						<li>
-							<a href="#">Đội ngũ MSI</a>
-						</li>
-					</ul> -->
-				</div>
-				<div class="header__menu__mobile__info">
-
-
-
-					<div class="header__lang">
-
-						<?php if (!empty($translations)) : ?>
-							<?php
-							$url = get_bloginfo('wpurl') . '/wp-content/themes/m5/assets/images/os/';
-							if (pll_current_language('slug') == 'vi') {
-								echo '<img src="' . $url . 'flag-vi.png" alt="flag">';
-							} elseif (pll_current_language('slug') == 'en') {
-								echo '<img src="' . $url . 'flag-en.png" alt="flag">';
-							} elseif (pll_current_language('slug') == 'zh') {
-								echo '<img src="' . $url . 'flag-cn.png" alt="flag">';
-							}
-							?>
-							<select class="select-circle"
-								onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-
-								<?php foreach ($translations as $translation) : ?>
-									<option
-										selected="<?php echo ($translation['current_lang'] == true) ? 'selected' : ''; ?>"
-										value="<?php echo $translation['url']; ?>">
-										<?php echo $translation['slug']; ?>
-									</option>
-								<?php endforeach; ?>
-							</select>
-						<?php endif; ?>
-					</div>
-					<div class="header__desc text-center">
-						<?php
-						while (the_repeater_field('header_slogan', pll_current_language('slug'))) :
-						?>
-							<p class="primary-color font-weight-bold margin-0 font-size-14 text-uppercase">
-								<?php echo get_field('title', pll_current_language('slug')); ?>
-							<p class="text-uppercase margin-0">
-								<?php echo get_field('sub_title', pll_current_language('slug')); ?>
-							</p>
-						<?php endwhile; ?>
-					</div>
-					<a href="javascript:;"
-						class="header__book btn btn-secondary btn-secondary--gradient font-size-16 font-weight-bold book-calendar btn-box-shadow btn-h50 btn-i-lg-12 text-uppercase">
-						<i class="icon-calendar"></i>
-						<?php echo get_field('book_an_appointment', pll_current_language('slug')); ?>
-					</a>
-				</div>
-			</div>
-			<div class="header__icon__menu d-lg-none icon-menu-mobile">
+			
+			</div> -->
+			<!-- <div class="header__icon__menu d-lg-none icon-menu-mobile">
 				<span></span>
 				<span></span>
 				<span></span>
-			</div>
+			</div> -->
 	</div>
 	</header>
+
+
 
 	<!-- tạm ẩn background đầu trang -->

@@ -6,7 +6,9 @@ get_header(); ?>
 
 <main class="main-content home-page">
     <div class="banner-home-page">
-        <img class="background-banner-img" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner.jpg"
+        <img class="background-banner-img background-banner-img-desktop" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner.jpg"
+            alt="hompage-banner">
+                <img class="background-banner-img background-banner-img-mobile" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner.png-tiny.webp"
             alt="hompage-banner">
         <div class="banner-home-page-content-wrapper">
             <div class="banner-home-page-content">
@@ -86,7 +88,7 @@ get_header(); ?>
     <div class="home-service-container" id="homeServiceContainer">
         <div class="home-service-content">
             <div class="home-service-title">
-                <?php the_field('category_banner_description', pll_current_language('slug')); ?>
+                <?php the_field('category_banner_title', pll_current_language('slug')); ?>
             </div>
             <?php if (have_rows('category_banner', pll_current_language('slug'))): ?>
                 <?php

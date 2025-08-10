@@ -4,25 +4,37 @@
     <div class="container-wide">
         <div class="text-side">
 
-            <div class="text-desktop">
-                <h1 class="h2-size">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">Tìm phòng khám</font>
-                    </font>
-                </h1>
-                <p>
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">Chúng tôi cung cấp dịch vụ phá thai bằng thuốc và phẫu thuật, thắt ống dẫn tinh và tránh thai thông qua mạng lưới hơn 60 phòng khám trên khắp nước Anh.&nbsp;</font>
-                    </font>
-                </p>
-            </div>
+       <?php
+$lang = pll_current_language('slug');
+?>
+
+<div class="text-desktop">
+    <h1 class="h2-size">
+        <?php if ($lang === 'vi') : ?>
+            Tìm phòng khám
+        <?php else : ?>
+            Find a clinic
+        <?php endif; ?>
+    </h1>
+    <p>
+        <?php if ($lang === 'vi') : ?>
+            Chúng tôi cung cấp dịch vụ phá thai bằng thuốc và phẫu thuật, thắt ống dẫn tinh và tránh thai
+            thông qua mạng lưới hơn 60 phòng khám trên khắp nước Anh.&nbsp;
+        <?php else : ?>
+            We provide medical and surgical abortion, vasectomy, and contraception services through a network
+            of over 60 clinics across the UK.&nbsp;
+        <?php endif; ?>
+    </p>
+</div>
             <form action="/wp_msi/phong-kham-gan-ban" class="search-container"><select name="thanh-pho" class="select">
                     <option value="all" selected="">
-                        <p>
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">Chọn một vị trí</font>
-                            </font>
-                        </p>
+                     <p>
+    <?php if ($lang === 'vi') : ?>
+        Chọn một vị trí
+    <?php else : ?>
+        Choose a location
+    <?php endif; ?>
+</p>
                     </option>
                     <option value="Hà Nội">Hà Nội</option>
                     <option value="Nghệ An">Nghệ An</option>
@@ -34,17 +46,21 @@
                     <option value="Đồng Nai">Đồng Nai</option>
                     <option value="Cần Thơ">Cần Thơ</option>
                 </select>
-                <div class="buttons-container"><button type="submit" class="wp-block-button">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">Tìm kiếm phòng khám</font>
-                        </font>
-                    </button></div>
+                <div class="buttons-container">  <button type="submit" class="wp-block-button">
+        <?php if ($lang === 'vi') : ?>
+            Tìm kiếm phòng khám
+        <?php else : ?>
+            Search for a clinic
+        <?php endif; ?>
+    </button></div>
             </form>
-            <p class="enter-message not-visible">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Vui lòng đảm bảo bạn đã chọn một vị trí từ danh sách thả xuống để xem các phòng khám ở khu vực của bạn.</font>
-                </font>
-            </p>
+        <p class="enter-message not-visible">
+    <?php if ($lang === 'vi') : ?>
+        Vui lòng đảm bảo bạn đã chọn một vị trí từ danh sách thả xuống để xem các phòng khám ở khu vực của bạn.
+    <?php else : ?>
+        Please make sure you have selected a location from the dropdown list to see clinics in your area.
+    <?php endif; ?>
+</p>
         </div>
     </div>
     <div class="hidden"></div>

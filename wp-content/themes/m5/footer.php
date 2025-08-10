@@ -184,7 +184,7 @@
                 </ul>
             </div>
             <div class="footer-bar-text">MSI Reproductive Choices UK, 1 Conway Street, Fitzroy Square, London, W1T 6LP, Vương quốc Anh.</div>
-            <div class="footer-bar-text">Tổ chức từ thiện đã đăng ký tại Anh và xứ Wales, mã số tổ chức từ thiện: 265543.</div>
+            <div class="footer-bar-text">Tổ chức từ thiện đã đăng ký tại Việt Nam, mã số tổ chức từ thiện: 265543.</div>
             <div class="footer__bar__wrap display-flex-center justify-content-between display-sm-block">
                 <div class="footer__copyright">
                     <p class="margin-0 p-0 font-size-14 secondary-color-txt footer-bar-text">
@@ -245,8 +245,8 @@
                                     }
                                     ?>
                                 </div>
-                                <img class="book-now__custom-head_icon"
-                                    src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/os/icon_bufterfly.svg">
+                                <!-- <img class="book-now__custom-head_icon"
+                                    src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/os/icon_bufterfly.svg"> -->
                             </div>
                             <div class="book-now__custom-subtitle">
                                 <?php
@@ -465,6 +465,36 @@
         });
     });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('msi-mobile-menu-btn');
+    const menu = document.getElementById('msi-mobile-menu');
+
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        menu.classList.toggle('open');
+        btn.classList.toggle('active');
+        menu.setAttribute('aria-hidden', expanded);
+    });
+
+    const toggles = menu.querySelectorAll('.msi-mobile-menu-toggle');
+    toggles.forEach(toggleBtn => {
+        toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+            toggleBtn.setAttribute('aria-expanded', !expanded);
+
+            const submenu = toggleBtn.nextElementSibling;
+            if (submenu && (submenu.classList.contains('msi-mobile-menu-level-2') || submenu.classList.contains('msi-mobile-menu-level-3'))) {
+                submenu.classList.toggle('open');
+            }
+        });
+    });
+});
+</script>
 <style>
     .footer__main {
         background: white;
@@ -572,7 +602,8 @@
     /* custom css book now */
     .modal_book-now__custom {
         /* width: 1200px; */
-        max-width: 1200px;
+        max-width: 1000px;
+        height: 80%;
         /* height: 749px; */
         /* max-height: 749px; */
         border-radius: 40px;
@@ -589,6 +620,11 @@
         background-repeat: no-repeat;
         border-radius: 40px;
         box-shadow: 0px 9px 30px 0px #00000012;
+        /* max-width: 1000px;
+        height: 80%; */
+    }
+    .modal-open .modal{
+        overflow:  hidden !important;
     }
 
     .book-now__custom .modal-body {
@@ -649,8 +685,9 @@
 
     .form-book-exam .book-now__custom-form .form-action button {
         min-width: 100%;
-        background-color: #E50C75;
+        background-color: #283573;
         background-image: none;
+        border-radius: 8px;
     }
 
     .book-now__custom-img {
