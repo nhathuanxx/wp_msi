@@ -19,10 +19,10 @@ $lang = pll_current_language('slug');
     <p>
         <?php if ($lang === 'vi') : ?>
             Chúng tôi cung cấp dịch vụ phá thai bằng thuốc và phẫu thuật, thắt ống dẫn tinh và tránh thai
-            thông qua mạng lưới hơn 60 phòng khám trên khắp nước Anh.&nbsp;
+            thông qua mạng lưới hơn 60 phòng khám trên khắp nước Việt Nam.&nbsp;
         <?php else : ?>
             We provide medical and surgical abortion, vasectomy, and contraception services through a network
-            of over 60 clinics across the UK.&nbsp;
+            of over 60 clinics across the Viet Nam.&nbsp;
         <?php endif; ?>
     </p>
 </div>
@@ -121,7 +121,7 @@ $lang = pll_current_language('slug');
         line-height: 28px;
     }
 
-    .h2-size {
+    /* .h2-size {
         font-size: 40px !important;
         line-height: 48px !important;
         color: #283573;
@@ -130,7 +130,7 @@ $lang = pll_current_language('slug');
         font-weight: 700;
         text-transform: none;
         margin: 0px
-    }
+    } */
 
     main .entry-content p {
         margin-bottom: 15px;
@@ -189,7 +189,7 @@ $lang = pll_current_language('slug');
         font-size: 16px;
         justify-content: center;
         letter-spacing: .16em;
-        max-width: 366px;
+        /* max-width: 366px; */
         min-height: 54px;
         text-decoration: none;
         text-transform: uppercase;

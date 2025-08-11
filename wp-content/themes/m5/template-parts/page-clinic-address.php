@@ -361,12 +361,6 @@ $url = get_template_directory_uri();
     margin-right: calc(var(--wp--style--root--padding-right) * -1);
     margin-left: calc(var(--wp--style--root--padding-left) * -1);
 } */
-    .wp-block-msi-blocks-search-by-service-or-location-uk .container-wide {
-        display: flex;
-        justify-content: center;
-        padding: 0 !important;
-        width: 100%;
-    }
 
     .container-wide {
         max-width: 1335px;

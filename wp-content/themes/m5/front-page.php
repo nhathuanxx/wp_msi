@@ -5,7 +5,78 @@
 get_header(); ?>
 
 <main class="main-content home-page">
-    <div class="banner-home-page">
+    <div class="slider-main home-banner">
+        <div class="sun-slider" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "fade": true, "dots": false, "autoplay": true, "infinite": true, "autoplaySpeed": 5000}'>
+            <?php if (get_field('banner', pll_current_language('slug'))) : ?>
+                <?php while (the_repeater_field('banner', pll_current_language('slug'))) :
+                ?>
+                    <div class="item">
+                        <figure class="item__img margin-0 home-page-img">
+                            <a href="<?php echo get_sub_field('cta_link', pll_current_language('slug')); ?>">
+                                <!-- <img src="<?php //echo get_sub_field('banner_image'); 
+                                                ?>" alt="slider banner"> -->
+                                <?php if (wp_is_mobile()) { ?>
+                                    <img class="home_slider_banner_mobile" src="<?php echo get_sub_field('home_mobile_banner', pll_current_language('slug')); ?>" alt="slider banner">
+                                <?php } else { ?>
+                                    <img class="home_slider_banner_desktop" src="<?php echo get_sub_field('banner_image', pll_current_language('slug')); ?>" alt="slider banner">
+                                <?php } ?>
+                            </a>
+                        </figure>
+
+                    </div><!-- End .item -->
+                <?php endwhile; ?>
+            <?php endif; ?>
+
+        </div>
+                            <img id="scrollBannerBtn" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiMyODM1NzMiLz4KPHBhdGggZD0iTTQwIDMyVjQ4TTQwIDQ4TDQ2IDQyTTQwIDQ4TDM0IDQyIiBzdHJva2U9IiNENkU3RjciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=" alt="Cuộn xuống" class="scroll-down-arrow">
+
+        <div class="banner-home-page-content-left">
+            <div class="banner-title">
+                <?php the_field('banner_description', pll_current_language('slug')); ?>
+            </div>
+            <?php
+            $lang = pll_current_language('slug');
+
+            $args = array(
+                'post_type'      => 'post',
+                'posts_per_page' => 6,
+                'lang'           => $lang,
+            );
+            $latest_posts = new WP_Query($args);
+            ?>
+
+            <div class="dropdown">
+                <div class="select">
+                    <p>
+                        <?php if ($lang === 'vi') : ?>
+                            Bạn không biết nên bắt đầu từ đâu?
+                        <?php else : ?>
+                            Not sure where to start?
+                        <?php endif; ?>
+                    </p>
+                </div>
+                <div class="options hide">
+                    <?php if ($latest_posts->have_posts()) : ?>
+                        <?php while ($latest_posts->have_posts()) : $latest_posts->the_post(); ?>
+                            <div class="wp-block-msi-blocks-dropdown-option-uk">
+                                <a href="<?php the_permalink(); ?>" target="_self" rel="noopener">
+                                    <p><?php the_title(); ?></p>
+                                </a>
+                            </div>
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
+                    <?php else : ?>
+                        <div class="wp-block-msi-blocks-dropdown-option-uk">
+                            <p>
+                                <?php echo ($lang === 'vi') ? 'Không có bài viết nào.' : 'No posts found.'; ?>
+                            </p>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="banner-home-page">
         <img class="background-banner-img background-banner-img-desktop" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner.jpg"
             alt="hompage-banner">
                 <img class="background-banner-img background-banner-img-mobile" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner.png-tiny.webp"
@@ -84,7 +155,7 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="home-service-container" id="homeServiceContainer">
         <div class="home-service-content">
             <div class="home-service-title">
@@ -145,8 +216,8 @@ get_header(); ?>
                 <div class="about-us-subtitle">
                     <?php the_field('about_us_description', pll_current_language('slug')); ?>
                 </div>
-                <div class="about-us-read-more">
-                    ĐỌC THÊM
+                <div class="about-us-read-more about-us-read-more-desktop">
+                    <?php echo (pll_current_language('slug') === 'vi') ? 'ĐỌC THÊM' : 'READ MORE'; ?>
                 </div>
             </div>
             <div class="about-us-content-right">
@@ -171,8 +242,14 @@ get_header(); ?>
                     <?php endif; ?>
                 </div>
             </div>
+
+        </div>
+        <div class="about-us-read-more about-us-read-more-mobile">
+            <?php echo (pll_current_language('slug') === 'vi') ? 'ĐỌC THÊM' : 'READ MORE'; ?>
         </div>
     </div>
+    <?php require get_template_directory() . '/template-parts/os-partner-logo.php'; ?>
+
     <div class="intl-activity-container">
         <div class="intl-activity-content">
             <?php

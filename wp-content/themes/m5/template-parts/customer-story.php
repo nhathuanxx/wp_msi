@@ -51,7 +51,12 @@ if ($query->have_posts()) : ?>
                             <div class="customer-story-slide-content">
                                 <a href="<?php the_permalink(); ?>" class="customer-story-slide-title"><?php the_title(); ?></a>
                                 <p><?php echo esc_html(get_the_excerpt()); ?></p>
-                                <a class="read-more" href="<?php the_permalink(); ?>">Đọc thêm</a>
+                                <a class="read-more read-more-desktop" href="<?php the_permalink(); ?>">
+                                    <?php echo ($lang === 'vi') ? 'Đọc thêm' : 'Read more'; ?>
+                                </a>
+                                  <a class="read-more-mobile" href="<?php the_permalink(); ?>">
+                                    <?php echo ($lang === 'vi') ? 'Đọc thêm' : 'Read more'; ?>
+                                </a>
                             </div>
                         </div>
                     <?php endwhile; ?>
@@ -71,6 +76,13 @@ if ($query->have_posts()) : ?>
                 <button class="customer-story-nav-button" id="customerStoryNextBtn">
                     <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEgN0wxNyA3TTE3IDdMMTEgMU0xNyA3TDExIDEzIiBzdHJva2U9IiMyODM1NzMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=" alt="next" />
                 </button>
+            </div>
+        </div>
+        <div class="customer-story-slider-header-right customer-story-slider-header-right-mobile">
+            <div class="all-story">
+                <a href="<?php echo esc_url($category_link); ?>">
+                    <?php echo ($lang === 'vi') ? 'XEM TẤT CẢ CÁC CÂU CHUYỆN' : 'VIEW ALL STORIES'; ?>
+                </a>
             </div>
         </div>
     </div>
