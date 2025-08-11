@@ -465,7 +465,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<img class="arrow-custom-menu" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/arrow-custom-menu.svg" alt="arrow-custom-menu">
 					</a>
 					<button id="msi-mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="msi-mobile-menu">
-						<div class="header__icon__menu d-lg-none icon-menu-mobile">
+						<div class="header__icon__menu icon-menu-mobile">
 							<span></span>
 							<span></span>
 							<span></span>
@@ -487,6 +487,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 					<nav id="msi-mobile-menu" class="msi-mobile-menu" aria-hidden="true">
 						<?php msi_mobile_render_menu($menu_items, $base_url); ?>
+						<ul class="menu-top-mobile">
+							<?php while (have_rows('menu_top', $lang)) : the_row();
+								$title = get_sub_field('title');
+								$slug = trim(get_sub_field('slug'), '/');
+								$link = trailingslashit($base_url) . $slug;
+							?>
+								<li class="menu-item menu-top-mobile-item">
+									<a href="<?= esc_url($link); ?>" data-menu-id="<?= esc_attr($slug); ?>">
+										<?= esc_html($title); ?>
+									</a>
+								</li>
+							<?php endwhile; ?>
+						</ul>
+						<!-- <li class="msi-mobile-menu-item"><a href="http://localhost/wp_msi/phong-kham-gan-ban" class="msi-mobile-menu-link">Tìm phòng khám</a></li> -->
 					</nav>
 
 				</div>

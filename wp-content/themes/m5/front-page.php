@@ -15,11 +15,9 @@ get_header(); ?>
                             <a href="<?php echo get_sub_field('cta_link', pll_current_language('slug')); ?>">
                                 <!-- <img src="<?php //echo get_sub_field('banner_image'); 
                                                 ?>" alt="slider banner"> -->
-                                <?php if (wp_is_mobile()) { ?>
-                                    <img class="home_slider_banner_mobile" src="<?php echo get_sub_field('home_mobile_banner', pll_current_language('slug')); ?>" alt="slider banner">
-                                <?php } else { ?>
+                            
                                     <img class="home_slider_banner_desktop" src="<?php echo get_sub_field('banner_image', pll_current_language('slug')); ?>" alt="slider banner">
-                                <?php } ?>
+                            
                             </a>
                         </figure>
 
