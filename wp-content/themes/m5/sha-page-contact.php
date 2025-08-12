@@ -24,7 +24,9 @@ $url = get_template_directory_uri();
         </div>
     </div>
 </div>
+
 <div class="page-contact">
+    <?php msi_breadcrumb(); ?>
 
     <div class="container contact-container">
 
@@ -53,7 +55,6 @@ $url = get_template_directory_uri();
             Learn more about the working environment at MSI VN by reading colleagues’ stories across the organization.
         <?php endif; ?>
     </p> -->
-        <?php require get_template_directory() . '/template-parts/template-blog.php'; ?>
 
     <?php require get_template_directory() . '/template-parts/post-list.php'; ?>
 

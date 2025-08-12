@@ -561,6 +561,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+<script>
+document.getElementById("msi-copy-link-btn").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+        const btn = document.getElementById("msi-copy-link-btn");
+        const text = document.getElementById("post_copy_link_text");
+
+        // Ẩn icon, hiện chữ
+        btn.style.display = "none";
+        text.style.display = "block";
+
+        // Sau 2 giây thì hiện lại icon, ẩn chữ
+        setTimeout(() => {
+            btn.style.display = "inline-block";
+            text.style.display = "none";
+        }, 2000);
+    }).catch(err => {
+        console.error("Không thể sao chép: ", err);
+    });
+});
+</script>
+<script>
+document.getElementById("msi-fb-share").addEventListener("click", function (e) {
+    e.preventDefault();
+    const currentUrl = encodeURIComponent(window.location.href);
+    const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+    window.open(fbUrl, "_blank", "width=600,height=400");
+});
+</script>
 <style>
     .footer__main {
         background: white;

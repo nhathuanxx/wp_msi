@@ -329,6 +329,60 @@ function msi_get_post_card_html($post) {
     <?php
     return ob_get_clean();
 }
+function msi_breadcrumb() {
+    $lang = function_exists('pll_current_language') ? pll_current_language('slug') : 'en';
+
+    // Đặt nhãn Home theo ngôn ngữ
+    $home_label = ($lang === 'vi') ? 'Trang chủ' : 'Home';
+
+    echo '<nav class="msi-breadcrumb">';
+    echo '<a href="' . esc_url(home_url()) . '">' . esc_html($home_label) . '</a>';
+
+    if (is_category()) {
+        $current_cat = get_queried_object();
+        if ($current_cat->parent != 0) {
+            $parents = get_category_parents($current_cat->parent, true, ' › ');
+            echo ' › ' . rtrim($parents, ' › ');
+        }
+        echo ' › <span class="msi-current active">' . single_cat_title('', false) . '</span>';
+
+    } elseif (is_singular('post')) {
+        $category = get_the_category();
+        if ($category) {
+            $cat = $category[0];
+            if ($cat->parent != 0) {
+                $parents = get_category_parents($cat->parent, true, ' › ');
+                echo ' › ' . rtrim($parents, ' › ');
+            }
+            echo ' › <a href="' . get_category_link($cat->term_id) . '">' . $cat->name . '</a>';
+        }
+        echo ' › <span class="msi-current active">' . get_the_title() . '</span>';
+
+    } elseif (is_page()) {
+        global $post;
+        if ($post->post_parent) {
+            $ancestors = array_reverse(get_post_ancestors($post->ID));
+            foreach ($ancestors as $ancestor) {
+                echo ' › <a href="' . get_permalink($ancestor) . '">' . get_the_title($ancestor) . '</a>';
+            }
+        }
+        echo ' › <span class="msi-current active">' . get_the_title() . '</span>';
+
+    } elseif (is_tag()) {
+        echo ' › <span class="msi-current active">' . single_tag_title('', false) . '</span>';
+
+    } elseif (is_search()) {
+        echo ' › <span class="msi-current active">' . sprintf(
+            ($lang === 'vi') ? 'Kết quả tìm kiếm cho "%s"' : 'Search results for "%s"',
+            get_search_query()
+        ) . '</span>';
+
+    } elseif (is_404()) {
+        echo ' › <span class="msi-current active">' . (($lang === 'vi') ? 'Lỗi 404' : 'Error 404') . '</span>';
+    }
+
+    echo '</nav>';
+}
 
 // Xử lý Ajax load more bài viết
 function msi_load_more_posts() {
