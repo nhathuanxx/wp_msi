@@ -46,7 +46,6 @@ if (!function_exists('twentynineteen_setup')) :
 		 * provide it for us.
 		 */
 		add_theme_support('title-tag');
-
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
@@ -291,6 +290,86 @@ function msi_mobile_render_menu($items, $base_url, $level = 1) {
     }
     echo '</ul>';
 }
+
+
+
+function msi_get_post_card_html($post) {
+    ob_start();
+    $categories = get_the_category($post->ID);
+    $lang = pll_current_language('slug');
+    $default_image_url = get_template_directory_uri() . '/assets/images/msi/phong-kham-gan-ban.jpg';
+
+    if ($lang === 'vi') {
+        $date = get_the_date('\n\g\à\y j \t\h\á\n\g n \n\ă\m Y', $post->ID);
+    } else {
+        $date = get_the_date('F j, Y', $post->ID);
+    }
+    ?>
+    <div class="post-card">
+        <a href="<?php echo get_permalink($post->ID); ?>" class="post-thumb">
+            <?php
+            if (has_post_thumbnail($post->ID)) {
+                echo get_the_post_thumbnail($post->ID, 'medium');
+            } else {
+                echo '<img src="' . esc_url($default_image_url) . '" alt="Ảnh mặc định" />';
+            }
+            ?>
+            <?php if ($categories) : ?>
+                <span class="post-category"><?php echo esc_html($categories[0]->name); ?></span>
+            <?php endif; ?>
+        </a>
+        <div class="post-meta">
+            <span><?php echo $date; ?> • Đọc trong <?php echo ceil(str_word_count(strip_tags($post->post_content)) / 200); ?> phút</span>
+        </div>
+        <h3 class="post-title">
+            <a href="<?php echo get_permalink($post->ID); ?>"><?php echo get_the_title($post->ID); ?></a>
+        </h3>
+        <p class="post-excerpt"><?php echo wp_trim_words(get_the_excerpt($post->ID), 20); ?></p>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+
+// Xử lý Ajax load more bài viết
+function msi_load_more_posts() {
+    $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
+    $search = isset($_POST['search']) ? sanitize_text_field($_POST['search']) : '';
+    $lang = function_exists('pll_current_language') ? pll_current_language('slug') : '';
+
+    $args = [
+        'post_type' => 'post',
+        'posts_per_page' => 3,
+        'paged' => $paged,
+        's' => $search,
+        'lang' => $lang, 
+    ];
+
+    if ($category) {
+        $args['category_name'] = $category;
+    }
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            echo msi_get_post_card_html(get_post());
+        }
+    }
+    wp_die();
+}
+add_action('wp_ajax_msi_load_more', 'msi_load_more_posts');
+add_action('wp_ajax_nopriv_msi_load_more', 'msi_load_more_posts');
+
+// Enqueue JS và truyền URL ajax sang JS
+function msi_enqueue_scripts() {
+    wp_enqueue_script('msi-loadmore', get_template_directory_uri() . '/js/loadmore.js', ['jquery'], null, true);
+    wp_localize_script('msi-loadmore', 'msi_ajax', [
+        'url' => admin_url('admin-ajax.php')
+    ]);
+}
+add_action('wp_enqueue_scripts', 'msi_enqueue_scripts');
 
 /**
  * Enqueue scripts and styles.

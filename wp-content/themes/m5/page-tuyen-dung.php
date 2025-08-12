@@ -49,10 +49,11 @@ get_header();
             <?php endif; ?>
         </p>
         <!-- <?php require get_template_directory() . '/template-parts/post-list.php'; ?> -->
+         
         <?php
         $lang = pll_current_language('slug');
         $category_slugs = [
-            'vi' => 'bai-viet-tuyen-dung',
+            'vi' => 'cau-chuyen',
             'en' => 'join-us-post',
         ];
         $category_name = $category_slugs[$lang] ?? 'default-category';

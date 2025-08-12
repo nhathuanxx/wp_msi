@@ -20,35 +20,11 @@ $url = get_template_directory_uri();
             </h1>
             <p>
                 <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Để khám phá các phòng khám và dịch vụ của chúng tôi trên khắp Việt Ban, hãy chọn một thành phố </font>
+                    <font style="vertical-align: inherit;">Để khám phá các phòng khám và dịch vụ của chúng tôi trên khắp Việt Nam, hãy chọn một thành phố </font>
                 </font>
-                <!-- <br>
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">địa chỉ hoặc mã bưu điện và chọn một tùy chọn từ danh sách thả xuống.</font>
-                </font> -->
             </p>
             <div class="search-section">
                 <div class="input-section"><select id="city" fdprocessedid="i1owaj">
-                        <!-- <option value="all">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">Dịch vụ</font>
-                            </font>
-                        </option>
-                        <option value="10" data-show-gest-calc="true">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">Phá thai</font>
-                            </font>
-                        </option>
-                        <option value="11" data-show-gest-calc="false">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">Tránh thai</font>
-                            </font>
-                        </option>
-                        <option value="89" data-show-gest-calc="false">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">Thắt ống dẫn tinh</font>
-                            </font>
-                        </option> -->
                         <option value="">Chọn 1 thành phố</option>
                         <option value="Hà Nội">Hà Nội</option>
                         <option value="Nghệ An">Nghệ An</option>
@@ -60,19 +36,10 @@ $url = get_template_directory_uri();
                         <option value="Đồng Nai">Đồng Nai</option>
                         <option value="Cần Thơ">Cần Thơ</option>
                     </select>
-                    <!-- <div class="input_box"><img decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE5IDE5TDE0LjY1IDE0LjY1TTE3IDlDMTcgMTMuNDE4MyAxMy40MTgzIDE3IDkgMTdDNC41ODE3MiAxNyAxIDEzLjQxODMgMSA5QzEgNC41ODE3MiA0LjU4MTcyIDEgOSAxQzEzLjQxODMgMSAxNyA0LjU4MTcyIDE3IDlaIiBzdHJva2U9IiM4Njg1ODUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=" alt="Tìm kiếm"><input type="text" placeholder="Mã bưu điện của bác sĩ đa khoa, bất kỳ địa điểm hoặc phòng khám nào" id="search-input" autocomplete="off" fdprocessedid="se327m" class="pac-target-input"><img decoding="async" id="reset-btn" class="hidden" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iMTIiIGZpbGw9IiNGM0Y0RUYiLz4KPHBhdGggZD0iTTE1IDlMOSAxNU05IDlMMTUgMTUiIHN0cm9rZT0iIzI4MzU3MyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==" alt="Đặt lại đầu vào"></div><button id="map-search-button" onmouseover="document.getElementById(&quot;search-location-magnifier&quot;).src=&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE5IDE5TDE0LjY1IDE0LjY1TTE3IDlDMTcgMTMuNDE4MyAxMy40MTgzIDE3IDkgMTdDNC41ODE3MiAxNyAxIDEzLjQxODMgMSA5QzEgNC41ODE3MiA0LjU4MTcyIDEgOSAxQzEzLjQxODMgMSAxNyA0LjU4MTcyIDE3IDlaIiBzdHJva2U9IiMyODM1NzMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=&quot;" onmouseout="document.getElementById(&quot;search-location-magnifier&quot;).src=&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE5IDE5TDE0LjY1IDE0LjY1TTE3IDlDMTcgMTMuNDE4MyAxMy40MTgzIDE3IDkgMTdDNC41ODE3MiAxNyAxIDEzLjQxODMgMSA5QzEgNC41ODE3MiA0LjU4MTcyIDEgOSAxQzEzLjQxODMgMSAxNyA0LjU4MTcyIDE3IDlaIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=&quot;" fdprocessedid="yqfm2"><img decoding="async" id="search-location-magnifier" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE5IDE5TDE0LjY1IDE0LjY1TTE3IDlDMTcgMTMuNDE4MyAxMy40MTgzIDE3IDkgMTdDNC41ODE3MiAxNyAxIDEzLjQxODMgMSA5QzEgNC41ODE3MiA0LjU4MTcyIDEgOSAxQzEzLjQxODMgMSAxNyA0LjU4MTcyIDE3IDlaIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=" alt="Tìm kiếm vị trí"><span>
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">Tìm kiếm</font>
-                            </font>
-                        </span></button> -->
                 </div>
-                <!-- <p class="enter-message not-visible">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">Vui lòng đảm bảo bạn đã chọn một vị trí từ danh sách thả xuống để xem các phòng khám ở khu vực của bạn.</font>
-                    </font>
-                </p> -->
             </div>
-        </div><img decoding="async" class="bg-image lazyloaded" src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/MSI-London-Clinic.png.webp" alt="Phòng khám MSI London" data-src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/MSI-London-Clinic.png.webp" data-eio-rwidth="560" data-eio-rheight="1160" data-src-webp="https://www.msichoices.org.uk/wp-content/uploads/2023/08/MSI-London-Clinic.png.webp"><noscript><img decoding="async" class="bg-image" src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/MSI-London-Clinic.png" alt="MSI London Clinic" data-eio="l" /></noscript>
+        </div>
+        <img decoding="async" class="bg-image lazyloaded" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/phong-kham-gan-ban.jpg" alt="Phòng khám MSI London" data-src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/MSI-London-Clinic.png.webp" data-eio-rwidth="560" data-eio-rheight="1160" data-src-webp="https://www.msichoices.org.uk/wp-content/uploads/2023/08/MSI-London-Clinic.png.webp"><noscript><img decoding="async" class="bg-image" src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/MSI-London-Clinic.png" alt="MSI VietNam Clinic" data-eio="l" /></noscript>
     </div>
 </div>
 <div class="phong-kham-container">

@@ -368,6 +368,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<?php
 								$title = get_sub_field('title');
 								$slug = trim(get_sub_field('slug'), '/');
+								if (stripos($slug, 'url:') === 0) {
+									$link = trim(substr($slug, 4));
+								} else {
+									$link = "$base_url/$slug";
+								}
 								$description = get_sub_field('description');
 								$children_lv2 = get_sub_field('children');
 								$has_lv2 = is_array($children_lv2) && count($children_lv2) > 0;
@@ -377,7 +382,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<?php if ($has_lv2): ?>
 											<button type="button" class="menu-toggle"><?= esc_html($title); ?></button>
 										<?php else: ?>
-											<a class="link" href="<?= esc_url("$base_url/$slug"); ?>"><?= esc_html($title); ?></a>
+											<a class="link" href="<?= esc_url($link); ?>"><?= esc_html($title); ?></a>
 										<?php endif; ?>
 										<?php if ($has_lv2): ?>
 											<img class="arrow-custom-menu" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/arrow-custom-menu.svg"
@@ -401,7 +406,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 													</div>
 
 													<div class="read-more">
-														<a href="<?= esc_url("$base_url/$slug"); ?>">Đọc thêm</a>
+														<a href="<?= esc_url("$base_url/$slug"); ?>"><?php if ($lang === 'vi') : ?>
+																Đọc thêm <?php else : ?>
+																Read more
+															<?php endif; ?></a>
 													</div>
 													<div class="call-btn">
 														<a href="tel:1900 55 88 82" class="custom-call-btn">
@@ -419,6 +427,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														<?php
 														$title2 = $row2['title'];
 														$slug2 = trim($row2['slug'], '/');
+														$url2 = $row2['url'] ?? '';
+														if (stripos($slug2, 'url:') === 0) {
+															$link2 = trim(substr($slug2, 4));
+														} else {
+															$link2 = "$base_url/$slug2";
+														}
 														$children_lv3 = $row2['children'];
 														$has_lv3 = is_array($children_lv3) && count($children_lv3) > 0;
 														?>
@@ -429,7 +443,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																		alt="arrow-right">
 																</div>
 															<?php else: ?>
-																<a href="<?= esc_url("$base_url/$slug2"); ?>"><?= esc_html($title2); ?></a>
+																<a href="<?= esc_url($link2); ?>"><?= esc_html($title2); ?></a>
 															<?php endif; ?>
 
 															<?php if ($has_lv3): ?>
@@ -438,8 +452,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																		<?php
 																		$title3 = $row3['title'];
 																		$slug3 = trim($row3['slug'], '/');
+																		if (stripos($slug3, 'url:') === 0) {
+																			$link3 = trim(substr($slug3, 4));
+																		} else {
+																			$link3 = "$base_url/$slug3";
+																		}
 																		?>
-																		<li><a href="<?= esc_url("$base_url/$slug3"); ?>"><?= esc_html($title3); ?></a></li>
+																		<li><a href="<?= esc_url($link3); ?>"><?= esc_html($title3); ?></a></li>
 																	<?php endforeach; ?>
 																</ul>
 															<?php endif; ?>

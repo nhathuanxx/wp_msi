@@ -15,16 +15,16 @@
         </div> -->
         <div class="row partner-row-header">
             <div class="col-8 partner-row-header-1">
-                <div>
-                    <?php
-                    if (pll_current_language('slug') == 'vi') {
-                        echo 'Chúng tôi làm việc với những đối tác tốt nhất';
-                    }
-                    if (pll_current_language('slug') == 'en') {
-                        echo 'We work with the best Partners';
-                    }
-                    ?>
-                </div>
+
+                <?php
+                if (pll_current_language('slug') == 'vi') {
+                    echo 'Chúng tôi làm việc với những đối tác tốt nhất';
+                }
+                if (pll_current_language('slug') == 'en') {
+                    echo 'We work with the best Partners';
+                }
+                ?>
+
             </div>
         </div>
 
@@ -66,13 +66,13 @@
 
     .partner-row-header-1 {
         font-family: 'Roboto', sans-serif;
-        font-size: 56px;
+        font-size: 40px;
         font-weight: 700;
         line-height: 67px;
         text-align: left;
         color: #FFFFFF;
         display: flex;
-        justify-content: left;
+        justify-content: center;
         align-items: center;
         text-align: center;
     }
@@ -161,6 +161,8 @@
         background: white;
         height: 100%;
         width: 100%;
+        object-fit: contain;
+        padding: 4px;
         /* padding: 20px; */
     }
 
@@ -190,6 +192,8 @@
             background: white;
             height: 100%;
             width: 100%;
+            object-fit: contain;
+            padding: 4px;
             /* padding: 12px; */
         }
 
