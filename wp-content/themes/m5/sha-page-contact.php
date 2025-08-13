@@ -9,17 +9,21 @@
 
 get_header();
 $url = get_template_directory_uri();
+$lang = pll_current_language('slug');
 ?>
 <div class="wp-block-msi-blocks-header-image-uk alignfull">
     <div class="right-image-block">
         <div class="container-wide">
             <div class="input-container">
-                <span> <?php
-                        echo get_the_title();
-                        ?></span>
+                <span><?php echo get_the_title(); ?></span>
             </div>
             <div class="container-image">
-                <div class="image-container"><img decoding="async" src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg.webp" alt="Y tá MSI UK đang an ủi khách hàng phá thai." class="header-image lazyloaded" data-src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg.webp" data-eio-rwidth="800" data-eio-rheight="533" data-src-webp="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg.webp"><noscript><img decoding="async" src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg" alt="MSI UK nurse comforting abortion client." class="header-image" data-eio="l" /></noscript><img decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzU2IiBoZWlnaHQ9IjMyMCIgdmlld0JveD0iMCAwIDM1NiAzMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTptdWx0aXBseSI+CjxwYXRoIGQ9Ik0zNTMuODgxIDIzNS40N0wxOTkuODY3IC0yMC45NjkzQzE5Ny45MSAtMjQuMzI1MSAxOTQuMjc2IC0yNi44NDE5IDE5MC4zNjMgLTI3LjY4MDlDMTg2LjQ1IC0yOC41MTk4IDE4Mi4yNTcgLTI3LjY4MDkgMTc4LjkwMyAtMjUuNDQzN0MxMDcuMzQ2IDIyLjM3NjQgNDYuNDEwOSA4Ni40MTYyIDEuOTY3NDQgMTU5Ljk2NEMwLjAxMDgxMzQgMTYzLjMyIC0wLjU0ODIyOSAxNjcuNTE1IDAuNTY5ODQ1IDE3MS40M0MxLjY4NzkyIDE3NS4zNDUgNC4yMDM1OSAxNzguNzAxIDcuODM3MzMgMTgwLjY1OEwyNzIuMjYyIDMyMS4zMjJDMjc0LjQ5OCAzMjIuNDQxIDI3Ni43MzQgMzIzIDI3OS4yNSAzMjNDMjg0LjAwMiAzMjMgMjg4Ljc1MyAzMjAuNzYzIDI5MS41NDkgMzE2LjU2OEMzMDcuMjAyIDI5My4zNTcgMzI3LjA0NyAyNzIuNjYzIDM1MC4yNDggMjU1LjA0NUMzNTYuMTE3IDI1MC41NzEgMzU3Ljc5NSAyNDIuMTgxIDM1My44ODEgMjM1Ljc0OSIgZmlsbD0iI0VCRjNGQiIvPgo8L2c+Cjwvc3ZnPgo=" class="rectangle first"><img decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzU3IiBoZWlnaHQ9IjI3OCIgdmlld0JveD0iMCAwIDM1NyAyNzgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTptdWx0aXBseSI+CjxwYXRoIGQ9Ik0zNTQuODc1IDI2My40N0wyMDAuNDI4IDcuMDMwNzFDMTk4LjQ2NiAzLjY3NDkyIDE5NC44MjIgMS4xNTgwNyAxOTAuODk4IDAuMzE5MTE3QzE4Ni45NzMgLTAuNTE5ODMyIDE4Mi43NjkgMC4zMTkxMjIgMTc5LjQwNSAyLjU1NjMyQzEwNy42NDcgNTAuMzc2NCA0Ni41NDEzIDExNC40MTYgMS45NzI5NyAxODcuOTY0QzAuMDEwODQzNyAxOTEuMzIgLTAuNTQ5NzY5IDE5NS41MTUgMC41NzE0NDYgMTk5LjQzQzEuNjkyNjYgMjAzLjM0NSA0LjIxNTQgMjA2LjcwMSA3Ljg1OTM1IDIwOC42NThMMjczLjAyNyAzNDkuMzIyQzI3NS4yNjkgMzUwLjQ0MSAyNzcuNTEyIDM1MSAyODAuMDM0IDM1MUMyODQuNzk5IDM1MSAyODkuNTY1IDM0OC43NjMgMjkyLjM2OCAzNDQuNTY4QzMwOC4wNjUgMzIxLjM1NyAzMjcuOTY2IDMwMC42NjMgMzUxLjIzMSAyODMuMDQ1QzM1Ny4xMTggMjc4LjU3MSAzNTguOCAyNzAuMTgxIDM1NC44NzUgMjYzLjc0OSIgZmlsbD0iIzlEQ0RGMCIvPgo8L2c+Cjwvc3ZnPgo=" class="rectangle second"></div>
+                <div class="image-container">
+                    <img decoding="async"
+                        src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg.webp"
+                        alt="<?php echo ($lang === 'vi') ? 'Y tá MSI UK đang an ủi khách hàng phá thai.' : 'MSI UK nurse comforting abortion client.'; ?>"
+                        class="header-image lazyloaded">
+                </div>
             </div>
         </div>
     </div>
@@ -34,54 +38,80 @@ $url = get_template_directory_uri();
             <div class="ss1">
                 <?php the_content(); ?>
             </div>
-
-
-
         </div>
+
         <div class="msi-contact-container">
 
             <!-- Left: Contact Form -->
             <div class="msi-contact-form">
-                <?php echo do_shortcode('[contact-form-7 id="5667" title="Form liên hệ"]'); ?>
-            </div>
+                <?php
+                if ($lang === 'vi') {
+                    echo do_shortcode('[contact-form-7 id="5667" title="Form liên hệ"]');
+                } else {
+                    echo do_shortcode('[contact-form-7 id="5668" title="Contact form"]');
+                }
+                ?> </div>
 
             <!-- Right: Office Info + Map -->
             <div class="msi-contact-info">
-                <h2 class="msi-contact-title">Global support office</h2>
+                <h2 class="msi-contact-title">
+                    <?php echo ($lang === 'vi') ? 'Văn phòng hỗ trợ toàn cầu' : 'Global support office'; ?>
+                </h2>
                 <p class="msi-contact-description">
-                    <?php _e('For general information and enquiries about MSI Reproductive Choices in Vietnam, please contact us by phone or email.', 'text-domain'); ?>
+                    <?php
+                    if ($lang === 'vi') {
+                        echo 'Để biết thông tin chung và các thắc mắc về MSI Reproductive Choices tại Việt Nam, vui lòng liên hệ với chúng tôi qua điện thoại hoặc email.';
+                    } else {
+                        echo 'For general information and enquiries about MSI Reproductive Choices in Vietnam, please contact us by phone or email.';
+                    }
+                    ?>
                 </p>
 
                 <!-- Google Map -->
                 <div class="msi-contact-map">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8616118270887!2d105.81020881538544!3d21.03783919345031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9e0a5f2aab%3A0x7e0a37a4f04191e8!2sMSI%20Reproductive%20Choices!5e0!3m2!1sen!2s!4v1691874000000!5m2!1sen!2s"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3724.038132324194!2d105.81553046126574!3d21.031160180537913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zUGjDsm5nIDIwMy0yMDUsIE5ow6AgQTEvMjk4IFAuIEtpbSBNw6MsIEtodSBOZ2_huqFpIGdpYW8gxJFvw6BuIFbhuqFuIFBow7pjLCBCYSDEkMOsbmgsIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1755111763281!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
                 <!-- Address & Contact -->
                 <div class="msi-contact-details">
-                    <p><strong>Address:</strong> Phòng 203-205, Nhà A1/298 P. Kim Mã, Khu Ngoại giao đoàn Vạn Phúc, Ba Đình, Hà Nội, Việt Nam</p>
-                    <p><strong>Hotline:</strong> 1900 558882</p>
-                    <p><strong>Email:</strong> <a href="mailto:truyenthong@msichoices.org.vn">truyenthong@msichoices.org.vn</a></p>
+                    <p><strong><?php echo ($lang === 'vi') ? 'Địa chỉ:' : 'Address:'; ?></strong> Phòng 203-205, Nhà A1/298 P. Kim Mã, Khu Ngoại giao đoàn Vạn Phúc, Ba Đình, Hà Nội, Việt Nam</p>
+                    <p><strong><?php echo ($lang === 'vi') ? 'Hotline:' : 'Hotline:'; ?></strong> 1900 558882</p>
+                    <p><strong><?php echo ($lang === 'vi') ? 'Email:' : 'Email:'; ?></strong> <a href="mailto:truyenthong@msichoices.org.vn">truyenthong@msichoices.org.vn</a></p>
                 </div>
 
                 <!-- Social Links -->
                 <div class="msi-contact-social">
-                    <a href="https://www.facebook.com/profile.php?id=61572517763607" target="_blank" class="msi-contact-social-link">F</a>
-                    <a href="https://www.youtube.com/@msireproductivechoicesviet6308" target="_blank" class="msi-contact-social-link">Y</a>
-                    <a href="https://www.tiktok.com/@msivn_corporate_health" target="_blank" class="msi-contact-social-link">T</a>
+                    <a href="https://www.facebook.com/profile.php?id=61572517763607" target="_blank" class="msi-contact-social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@msireproductivechoicesviet6308" target="_blank" class="msi-contact-social-link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@msivn_corporate_health" target="_blank" class="msi-contact-social-link">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
                 </div>
             </div>
 
         </div>
     </div>
-
+    <h3 class="wp-block-heading has-text-align-center">
+        <?php if ($lang === 'vi') : ?>
+            Tìm hiểu thêm về MSI Việt Nam
+        <?php else : ?>
+            Learn more about MSI Vietnam
+        <?php endif; ?>
+    </h3>
+    <p class="has-text-align-center-p">
+        <?php if ($lang === 'vi') : ?>
+            Tìm hiểu sâu hơn về MSI Việt Nam bằng cách đọc những câu chuyện, tin tức của chúng tôi.
+        <?php else : ?>
+            Explore more about MSI Vietnam by reading our stories and news.
+        <?php endif; ?>
+    </p>
     <?php require get_template_directory() . '/template-parts/post-list.php'; ?>
 
-    <?php
-    get_footer(); ?>
+    <?php get_footer(); ?>
 
 
     <style>
@@ -174,13 +204,13 @@ $url = get_template_directory_uri();
 
         }
 
-        .w-form-custom .form-group input:first-child {
+        /* .w-form-custom .form-group input:first-child {
             color: #989898;
             background-image: url(<?php bloginfo('wpurl'); ?>.'/wp-content/themes/m5/assets/images/os/icon-form-name.svg');
             background-position: right 10px center;
             background-repeat: no-repeat;
             padding-right: 30px;
-        }
+        } */
 
         .w-form-custom .form-action button {
             background-image: none;
@@ -289,10 +319,13 @@ $url = get_template_directory_uri();
             border-radius: 8px;
             color: white;
         }
-  .msi-contact-form p,.msi-contact-form h2{
-                color: white;
 
-  }
+        .msi-contact-form p,
+        .msi-contact-form h2 {
+            color: white;
+
+        }
+
         .msi-contact-form input,
         .msi-contact-form textarea,
         .msi-contact-form select {
@@ -351,5 +384,9 @@ $url = get_template_directory_uri();
             line-height: 40px;
             border-radius: 6px;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
         }
     </style>

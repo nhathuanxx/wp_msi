@@ -14,18 +14,29 @@ $url = get_template_directory_uri();
     <div class="container-wide">
         <div class="content-container">
             <h1>
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Phòng khám của chúng tôi</font>
-                </font>
+                <?php if (pll_current_language('slug') === 'vi') : ?>
+                    Phòng khám của chúng tôi
+                <?php else : ?>
+                    Our Clinics
+                <?php endif; ?>
             </h1>
+
             <p>
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Để khám phá các phòng khám và dịch vụ của chúng tôi trên khắp Việt Nam, hãy chọn một thành phố </font>
-                </font>
+                <?php if (pll_current_language('slug') === 'vi') : ?>
+                    Để khám phá các phòng khám và dịch vụ của chúng tôi trên khắp Việt Nam, hãy chọn một thành phố
+                <?php else : ?>
+                    To explore our clinics and services across Vietnam, please select a city
+                <?php endif; ?>
             </p>
             <div class="search-section">
                 <div class="input-section"><select id="city" fdprocessedid="i1owaj">
-                        <option value="">Chọn 1 thành phố</option>
+                        <option value="">
+                            <?php if (pll_current_language('slug') === 'vi') : ?>
+                                Chọn 1 thành phố
+                            <?php else : ?>
+                                Select a city
+                            <?php endif; ?>
+                        </option>
                         <option value="Hà Nội">Hà Nội</option>
                         <option value="Nghệ An">Nghệ An</option>
                         <option value="Hà Tĩnh">Hà Tĩnh</option>
@@ -44,9 +55,9 @@ $url = get_template_directory_uri();
 </div>
 <div class="phong-kham-container">
     <div class="phong-kham-content">
-<div class="phong-kham-left">
-  <div class="danh-sach-phong-kham">
-     <?php if (get_field('clinic_nearby_you_v2', pll_current_language('slug'))): ?>
+        <div class="phong-kham-left">
+            <div class="danh-sach-phong-kham">
+                <?php if (get_field('clinic_nearby_you_v2', pll_current_language('slug'))): ?>
                     <?php while (the_repeater_field('clinic_nearby_you_v2', pll_current_language('slug'))): ?>
                         <?php
                         $city = get_sub_field('city');
@@ -112,14 +123,14 @@ $url = get_template_directory_uri();
                         <?php endwhile; ?>
                     <?php endwhile; ?>
                 <?php endif; ?>
-  </div>
-    </div>
-    <div class="phong-kham-right">
-    <iframe id="map_frame"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8250797010614!2d105.7894751506404!3d21.039683885923726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab379b922995%3A0x35dafdcd8bab9392!2sMarie%20Stopes%20Vi%E1%BB%87t%20Nam!5e0!3m2!1svi!2s!4v1595851822503!5m2!1svi!2s"
-                        width="600" height="677" frameborder="0" style="border:0;" allowfullscreen=""
-                        aria-hidden="false" tabindex="0"></iframe>
-    </div>
+            </div>
+        </div>
+        <div class="phong-kham-right">
+            <iframe id="map_frame"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8250797010614!2d105.7894751506404!3d21.039683885923726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab379b922995%3A0x35dafdcd8bab9392!2sMarie%20Stopes%20Vi%E1%BB%87t%20Nam!5e0!3m2!1svi!2s!4v1595851822503!5m2!1svi!2s"
+                width="600" height="677" frameborder="0" style="border:0;" allowfullscreen=""
+                aria-hidden="false" tabindex="0"></iframe>
+        </div>
     </div>
 
 </div>
@@ -400,72 +411,80 @@ $url = get_template_directory_uri();
         -o-object-fit: cover;
         object-fit: cover;
     }
-    .phong-kham-container{
+
+    .phong-kham-container {
         background-color: white;
         padding: 40px 0px;
     }
-    .phong-kham-content{
+
+    .phong-kham-content {
         max-width: 1335px;
         margin: 0 auto;
         display: flex;
         gap: 24px;
         align-items: center;
     }
-    .phong-kham-content .phong-kham-left{
+
+    .phong-kham-content .phong-kham-left {
         width: 50%;
 
     }
-    .phong-kham-content .phong-kham-right{
-width: 50%;
-    position: relative;
-    overflow: hidden;
+
+    .phong-kham-content .phong-kham-right {
+        width: 50%;
+        position: relative;
+        overflow: hidden;
         border-radius: 10px;
-    height: 800px;
+        height: 800px;
     }
-    .phong-kham-content .phong-kham-right iframe{
+
+    .phong-kham-content .phong-kham-right iframe {
         width: 100%;
         height: 100%;
         border: none;
     }
-.danh-sach-phong-kham{
-    height: 800px;
-    overflow-y: scroll;
-}
 
-/* tiep tuc */
-.clinic-nearby-u-slider__item{
-    border: 1px solid #D7D7D7;
-    border-radius: 10px;
-    display: flex
-;
-padding: 20px 24px;
-    flex-direction: column;
-}
-.clinic-nearby-u-slider .clinic-nearby-u-slider__item .clinic-nearby-u-slider__item_content{
-    margin: 0px;
-}
-.clinic-nearby-u-slider{
-    margin: 0px;
-    margin-bottom:32px
-}
-.clinic-nearby-u-slider__item_title{
-    font-size: 24px;
-    line-height: 32px;
-        color: #283573 !important
-;
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    text-transform: none;
-}
-.clinic-nearby-u-slider .clinic-nearby-u-slider__item .clinic-nearby-u-slider__item_content .clinic-nearby-u-slider__item_subtitle .clinic-nearby-u-slider__item_info span {
+    .danh-sach-phong-kham {
+        height: 800px;
+        overflow-y: scroll;
+    }
+
+    /* tiep tuc */
+    .clinic-nearby-u-slider__item {
+        border: 1px solid #D7D7D7;
+        border-radius: 10px;
+        display: flex;
+        padding: 20px 24px;
+        flex-direction: column;
+    }
+
+    .clinic-nearby-u-slider .clinic-nearby-u-slider__item .clinic-nearby-u-slider__item_content {
+        margin: 0px;
+    }
+
+    .clinic-nearby-u-slider {
+        margin: 0px;
+        margin-bottom: 32px
+    }
+
+    .clinic-nearby-u-slider__item_title {
+        font-size: 24px;
+        line-height: 32px;
         color: #283573 !important;
-    font-family: "Roboto", sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: normal;
-    line-height: 28px;
-}
+        font-family: "Roboto", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        text-transform: none;
+    }
+
+    .clinic-nearby-u-slider .clinic-nearby-u-slider__item .clinic-nearby-u-slider__item_content .clinic-nearby-u-slider__item_subtitle .clinic-nearby-u-slider__item_info span {
+        color: #283573 !important;
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        letter-spacing: normal;
+        line-height: 28px;
+    }
 </style>
 
 <script>

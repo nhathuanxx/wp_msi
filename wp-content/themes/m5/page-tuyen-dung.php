@@ -38,7 +38,29 @@ get_header();
             </div>
         </div>
         <?php $lang = pll_current_language('slug'); ?>
+      <?php
+$base_url = site_url();
+$job_link = ($lang === 'vi') ? $base_url . '/bai-viet-tuyen-dung' : $base_url . '/en/join-us-post';
+?>
 
+<div class="msi-join-us-wrapper">
+    <div class="msi-join-us-text">
+        <h2 class="msi-join-us-title">
+            <?php echo ($lang === 'vi') ? 'Tìm việc làm' : 'Join Our Team'; ?>
+        </h2>
+        <p class="msi-join-us-desc">
+            <?php echo ($lang === 'vi') 
+                ? 'MSI Việt Nam luôn tìm kiếm những cá nhân tài năng và nhiệt huyết để cùng thực hiện sứ mệnh nâng cao sức khỏe sinh sản cho cộng đồng.'
+                : 'MSI Vietnam is always looking for talented and passionate individuals to join our mission of improving reproductive health for the community.'; ?>
+        </p>
+    </div>
+
+    <div class="msi-join-us-btn-wrapper">
+        <a href="<?php echo esc_url($job_link); ?>" class="msi-join-us-btn">
+            <?php echo ($lang === 'vi') ? 'CƠ HỘI HIỆN TẠI CỦA CHÚNG TÔI' : 'VIEW CURRENT OPPORTUNITIES'; ?>
+        </a>
+    </div>
+</div>
         <h3 class="wp-block-heading has-text-align-center">
             <?php if ($lang === 'vi') : ?>
                 Hãy lắng nghe ý kiến của nhân viên chúng tôi
@@ -54,11 +76,11 @@ get_header();
             <?php endif; ?>
         </p>
         <!-- <?php require get_template_directory() . '/template-parts/post-list.php'; ?> -->
-         
+
         <?php
         $lang = pll_current_language('slug');
         $category_slugs = [
-            'vi' => 'cau-chuyen',
+            'vi' => 'bai-viet-tuyen-dung',
             'en' => 'join-us-post',
         ];
         $category_name = $category_slugs[$lang] ?? 'default-category';
@@ -271,8 +293,9 @@ get_footer();
         text-transform: none;
         text-align: center;
     }
-    .has-text-align-center-p{
-         max-width: 800px !important;
+
+    .has-text-align-center-p {
+        max-width: 800px !important;
         margin-left: auto !important;
         margin-right: auto !important;
         color: #283573;

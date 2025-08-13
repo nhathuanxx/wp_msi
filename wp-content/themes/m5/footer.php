@@ -350,11 +350,26 @@
                     </div>
                 </li>
             <?php endif; ?> -->
-            <li class="book-calendar-footer"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-book-now.svg" alt="book-now"></li>
-            <li class="icon-center" id="toggleIcon"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-social.svg" alt="icon-social"></li>
-            <!-- <li class="icon-satellite"><a href="<?php echo get_field('option_zalo', 'option') ? get_field('option_zalo', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-zalo.svg" alt="icon-zalo"></a></li> -->
-            <!-- <li class="icon-satellite"><a href="<?php echo get_field('option_link_fb_mes', 'option') ? get_field('option_link_fb_mes', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-messenger.svg" alt="icon-messenger"></a></li> -->
-            <li class="icon-satellite"><a href="<?php echo $option_phone_num_link; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-call.svg" alt="icon-call"></a></li>
+            <li class="book-calendar-footer"><div class="cta-footer-container">
+                <i class="fas fa-calendar" style="font-size: 20px;"></i>
+            </div>
+</li>
+            <li class="icon-center" id="toggleIcon"><div class="cta-footer-container">
+                <i class="fas fa-comments" style="font-size: 20px;"></i>
+            </div></li>
+            <li class="icon-satellite">
+    <a href="<?php echo get_field('option_facebook', 'option') ? get_field('option_facebook', 'option') : 'https://www.facebook.com/profile.php?id=61572517763607'; ?>"
+       target="_blank" rel="nofollow">
+        <i class="fab fa-facebook-f" style="font-size: 20px;"></i>
+    </a>
+</li>
+<li class="icon-satellite">
+    <a href="<?php echo get_field('option_tiktok', 'option') ? get_field('option_tiktok', 'option') : 'https://www.tiktok.com/@msivn_corporate_health'; ?>"
+       target="_blank" rel="nofollow">
+        <i class="fab fa-tiktok" style="font-size: 20px;"></i>
+    </a>
+</li>
+            <li class="icon-satellite"><a href="<?php echo $option_phone_num_link; ?>" target="_blank" rel="nofollow"><i class="fas fa-phone" style="font-size: 20px;"></i></a></li>
             <li>
                 <div class="back-to-top">
                     <a href="javascript:;" class="footer__fixed__to-top" style="padding:0px">
@@ -589,6 +604,7 @@
         // Click filter category
         $('.template-blog-filter-btn').on('click', function() {
             category = $(this).data('category');
+            debugger
             page = 1;
             $('#template-blog-post-list').html('');
             $('#template-blog-load-more-btn').show();
@@ -1031,7 +1047,36 @@
         top: 28px;
         left: -40px;
     }
-
+    .icon-satellite a {
+            width: 48px;
+    height: 48px;
+    background: white;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px #888;
+    border-radius: 50%;
+    }
+    .icon-satellite a i{
+        color: #283573;
+        font-size: 20px;
+    }
+      .cta-footer-container  i{
+        color: #283573;
+        font-size: 20px;
+    }
+ .cta-footer-container{
+        width: 48px;
+    height: 48px;
+    background: white;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px #888;
+        border-radius: 50%;
+ }
     /* end custom contact bar */
 
     /* @media screen and (max-width: 767px) {

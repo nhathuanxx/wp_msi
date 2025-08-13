@@ -12,11 +12,15 @@ if ($short_story): ?>
                         $description = $row['description'];
                     ?>
                         <div class="testimonial-slide">
-                            <?php if ($image): ?>
-                                <div class="image-container">
-                                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                         <?php 
+$default_image_url = get_bloginfo('wpurl') . '/wp-content/themes/m5/assets/images/msi/phong-kham-gan-ban.jpg';
+?>
 
-                                </div> <?php endif; ?>
+<div class="image-container">
+    <img 
+        src="<?php echo esc_url( $image ? $image['url'] : $default_image_url ); ?>" 
+        alt="<?php echo esc_attr( $image['alt'] ?? 'Phòng khám MSI London' ); ?>">
+</div>
                             <?php if ($description): ?>
                                 <div class="description-container">
                                     <p><?php echo esc_html($description); ?></p>

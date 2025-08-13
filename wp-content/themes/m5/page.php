@@ -54,6 +54,21 @@ $current_cat_name = get_the_title();
 			</div>
 		</div>
 	</div>
+	<h3 class="wp-block-heading has-text-align-center">
+	<?php if ($lang === 'vi') : ?>
+		Tìm hiểu thêm về MSI Việt Nam
+	<?php else : ?>
+		Learn more about MSI Vietnam
+	<?php endif; ?>
+</h3>
+<p class="has-text-align-center-p">
+	<?php if ($lang === 'vi') : ?>
+		Tìm hiểu sâu hơn về MSI Việt Nam bằng cách đọc những câu chuyện, tin tức của chúng tôi.
+	<?php else : ?>
+		Explore more about MSI Vietnam by reading our stories and news.
+	<?php endif; ?>
+</p>
+<?php require get_template_directory() . '/template-parts/post-list.php'; ?>
 </main>
 
 

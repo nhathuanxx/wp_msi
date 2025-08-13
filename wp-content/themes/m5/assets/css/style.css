@@ -7443,7 +7443,7 @@ a.active {
 }
 
 .banner-home-page-content-left .banner-title {
-  font-size: 48px;
+  font-size: 40px;
   line-height: 56px;
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -7846,8 +7846,8 @@ a.active {
   left: calc(50% - 40px);
   position: absolute;
   z-index: 1;
-  width: 80px;
-  height: 80px;
+  width: 68px;
+  height: 68px;
 }
 
 .banner-home-page-content-right {
@@ -8268,6 +8268,25 @@ h1 {
 
 /* responsive */
 @media (max-width: 1280px) {
+  .footer__bar_container{
+    padding: 0px 24px !important;
+  }
+  .msi-breadcrumb{
+    padding: 0px 24px;
+  }
+  .msi-join-us-wrapper{
+    margin: 0px 24px 40px 24px !important;
+  }
+  .wp-block-msi-blocks-header-image-uk .right-image-block .container-wide{
+    gap: 20px;
+  }
+  .wp-block-msi-blocks-header-image-uk .input-container{
+    width: 100%;
+    text-align: center;
+  }
+  .wp-block-msi-blocks-header-image-uk .right-image-block .container-wide .container-image .image-container{
+    width: 100%;
+  }
       #contact-bar {
         bottom: 0px;
         right: 20px;
@@ -9277,3 +9296,877 @@ h1 {
   color: #666;
   /* Màu đậm hơn để nổi bật */
 }
+.page-contact .contact-content .ss1 h1{
+  color: #283573 !important;
+  font-family: "Roboto", sans-serif !important;
+}
+.page-contact .contact-content .ss1 p{
+  color: #283573 !important;
+  font-family: "Roboto", sans-serif !important;
+}
+   .msi-contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1335px;
+            margin: 0px auto;
+            padding: 40px 0px;
+        }
+
+        /* Left: Contact Form */
+        .msi-contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: #283573;
+            padding: 30px;
+            border-radius: 8px;
+            color: white;
+        }
+  .msi-contact-form p,.msi-contact-form h2{
+                color: white;
+
+  }
+        .msi-contact-form input,
+        .msi-contact-form textarea,
+        .msi-contact-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .msi-contact-form button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Right: Contact Info */
+        .msi-contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .msi-contact-title {
+            margin-bottom: 10px;
+        }
+
+        .msi-contact-map {
+            margin: 20px 0;
+        }
+
+        .msi-contact-map iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        .msi-contact-details {
+            margin-bottom: 20px;
+        }
+
+        .msi-contact-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .msi-contact-social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #ddd;
+            color: #000;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+
+        }
+        .msi-contact-form textarea {
+            max-height: 120px;
+        }
+        .msi-contact-form-title{
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 38px;
+    margin-bottom: 20px;
+        }
+        .msi-contact-title{
+          color: #283573;
+           font-family: "Roboto", sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 38px;
+    margin-bottom: 20px;
+        }
+         .post-list-content {
+        max-width: 1335px;
+        margin: 0px auto;
+        display: flex;
+        gap: 24px;
+    }
+
+    .is-layout-constrained>.alignwide {
+        max-width: 1335px;
+        margin: 0px auto;
+    }
+
+    .wp-block-msi-blocks-multi-column-feature-block .box {
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .input-container {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 20px;
+    }
+
+    .wp-block-msi-blocks-multi-column-feature-block .image {
+        border-radius: 8px;
+        height: 256px;
+        margin-bottom: 1rem;
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: -webkit-fill-available;
+        width: -moz-available;
+        width: stretch;
+    }
+
+    .wp-block-msi-blocks-multi-column-feature-block .col-text {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    h4 {
+        font-size: 24px;
+        line-height: 32px;
+        color: #283573;
+        font-family: "Roboto", sans-serif;
+        margin: 0px;
+        font-style: normal;
+        font-weight: 700;
+        text-transform: none;
+    }
+
+    p {
+        color: #283573;
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        letter-spacing: normal;
+        line-height: 28px;
+    }
+
+    .buttons-container .wp-block-button,
+    .wp-block-buttons .wp-block-button,
+    .wp-block-group .wp-block-button {
+        align-items: center;
+        background: #283573;
+        border-radius: 6px;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        font-size: 16px;
+        height: auto;
+        justify-content: center;
+        letter-spacing: .16em;
+        /* max-width: 366px; */
+        min-height: 54px;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .buttons-container .wp-block-button .wp-block-button__link,
+    .wp-block-buttons .wp-block-button .wp-block-button__link,
+    .wp-block-group .wp-block-button .wp-block-button__link {
+        align-items: center;
+        background-color: transparent;
+        border-radius: 6px;
+        color: inherit;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        padding: 13px 32px;
+        width: 100%;
+    }
+
+    .wp-block-buttons-is-layout-flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .wp-block-column-is-layout-flow {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .limit-lines-1 {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+
+    .limit-lines-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+
+    .limit-lines-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+
+    .contact-content {
+        max-width: 1335px;
+        margin: 0px auto;
+    }
+
+    .has-text-align-center {
+        max-width: 800px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        color: #283573;
+        font-family: "Roboto", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        text-transform: none;
+        text-align: center;
+    }
+    .has-text-align-center-p{
+         max-width: 800px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        color: #283573;
+        font-family: "Roboto", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        text-transform: none;
+        font-size: 18px;
+        text-align: center;
+    }
+    .footer__main {
+        background: white;
+        padding: 50px 0;
+    }
+
+    .footer__main .footer__item__title {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0;
+        color: #000000;
+        text-align: left;
+        /* margin-bottom: 32px; */
+    }
+
+    .footer__main ul li {
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+        color: #292929 !important;
+        margin-bottom: 12px;
+    }
+
+    .footer__main ul li a {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0;
+        text-align: left;
+        padding: 0px;
+        color: #272727 !important;
+    }
+
+    .footer__main ul li a:hover {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        text-align: left;
+        font-family: 'Roboto', sans-serif;
+        color: #283573 !important;
+    }
+
+    .footer__main .footer__copyright p {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0;
+        color: #9CA3AF;
+    }
+
+    .footer__copyright {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .footer__bar {
+        /* background-color: white;
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 16px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+        padding: 24px 0 20px;
+        border-top: 1px solid #DCDCDC; */
+        /* height: 107px; */
+        width: 100%;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* padding: 0px 80px; */
+    }
+
+    .os_footer__socials ul li img {
+        width: 16px !important;
+        height: 16px !important;
+        /* border-radius: 100px; */
+    }
+
+    .footer__socials ul li {
+        margin: 0;
+    }
+
+    /* .footer__socials ul li a {
+        width: 40px;
+        height: 40px;
+    } */
+
+    .os-phone,
+    .os-mail {
+        font-weight: 600 !important;
+        color: #000000 !important;
+    }
+
+    /* custom css book now */
+    .modal_book-now__custom {
+        /* width: 1200px; */
+        max-width: 1000px;
+        height: 80%;
+        /* height: 749px; */
+        /* max-height: 749px; */
+        border-radius: 40px;
+        /* box-shadow: 0px 9px 30px 0px #00000012; */
+        /* background-color: #fff; */
+    }
+
+    .book-now__custom {
+        border: none;
+        background-image: url("<?php echo get_template_directory_uri(); ?>/assets/images/os/booking-now-bgr.png");
+        padding: 64px 64px 0 64px;
+        background-size: cover;
+        background-position: left;
+        background-repeat: no-repeat;
+        border-radius: 40px;
+        box-shadow: 0px 9px 30px 0px #00000012;
+        /* max-width: 1000px;
+        height: 80%; */
+    }
+
+    .modal-open .modal {
+        overflow: hidden !important;
+    }
+
+    .book-now__custom .modal-body {
+        padding: 0;
+    }
+
+    .book-now__custom-head {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .book-now__custom-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 56px;
+        font-weight: 500;
+        line-height: 67px;
+        text-align: left;
+    }
+
+    .book-now__custom-head_icon {
+        width: 64px;
+        height: 64px;
+        margin-left: -16px;
+    }
+
+    .book-now__custom-subtitle {
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: left;
+        margin-top: 8px;
+        margin-bottom: 40px;
+    }
+
+    .book-now__custom-form {
+        background-color: #fff;
+        padding: 32px;
+        border-radius: 24px;
+        margin-bottom: 64px;
+    }
+
+    .book-now__custom-form .form-control {
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-radius: 0px;
+        padding-left: 0px;
+    }
+
+    .book-now__custom-form .form-control:focus {
+        box-shadow: none;
+    }
+
+    .book-now__custom-form .form-group {
+        margin-bottom: 32px;
+    }
+
+    .form-book-exam .book-now__custom-form .form-action button {
+        min-width: 100%;
+        background-color: #283573;
+        background-image: none;
+        border-radius: 8px;
+    }
+
+    .book-now__custom-img {
+        max-width: 328px;
+        object-fit: cover;
+    }
+
+    /* .os_listing_1 ul li a {
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        text-align: left;
+        color: var(--Alias-Text-Primary-blue, #00ACEE) !important;
+
+    } */
+
+
+    @media screen and (max-width: 991px) {
+        .book-now__custom {
+            padding: 40px;
+        }
+
+        .book-now__custom-title {
+            font-size: 48px;
+            line-height: 56px;
+        }
+
+        .book-now__custom-head_icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        .book-now__custom-subtitle {
+            margin-bottom: 32px;
+        }
+
+        .book-now__custom-img {
+            display: none;
+        }
+
+        .book-now__custom-form {
+            margin-bottom: 48px;
+        }
+
+        .book-now__custom .form-book-exam {
+            padding: 0px;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .book-now__custom {
+            padding: 24px;
+        }
+
+        .book-now__custom-title {
+            font-size: 40px;
+            line-height: 48px;
+        }
+
+        .book-now__custom-head_icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .book-now__custom-subtitle {
+            margin-bottom: 24px;
+        }
+
+        .book-now__custom-form {
+            margin-bottom: 32px;
+        }
+    }
+
+    @media screen and (max-width: 575px) {
+        .book-now__custom {
+            padding: 16px;
+        }
+
+        .book-now__custom-title {
+            font-size: 28px;
+            line-height: 35.73px;
+        }
+
+        .book-now__custom-head_icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .book-now__custom-subtitle {
+            margin-bottom: 16px;
+        }
+
+        .book-now__custom-form {
+            margin-bottom: 0px;
+        }
+    }
+
+    /* end custom css book now */
+
+    /* custom contact bar */
+
+    #contact-bar {
+        bottom: 0px;
+        right: 75px;
+        top: auto;
+    }
+
+    #contact-bar li {
+        margin: 24px 0;
+    }
+
+    #contact-bar img {
+        padding: 0px;
+        cursor: pointer;
+        max-width: 48px;
+    }
+
+    #contact-bar ul li.icon-center {
+        position: relative;
+        cursor: pointer;
+        z-index: 10;
+        /* Đảm bảo icon trung tâm luôn trên cùng */
+    }
+
+    #contact-bar ul li.icon-satellite {
+        position: absolute;
+        opacity: 0;
+        transform: scale(0);
+        /* Thu nhỏ icon vệ tinh khi ẩn */
+        transition: all 0.3s ease;
+    }
+
+    #contact-bar ul li.icon-center.active~.icon-satellite {
+        opacity: 1;
+        transform: scale(1);
+        /* Phóng to icon vệ tinh khi hiện */
+    }
+
+    #contact-bar ul li.icon-satellite:nth-child(2) {
+        top: -80px;
+        /* Điều chỉnh vị trí cho icon vệ tinh 1 */
+        left: 0;
+    }
+
+    #contact-bar ul li.icon-satellite:nth-child(3) {
+        top: 124px;
+        left: -40px;
+    }
+
+    #contact-bar ul li.icon-satellite:nth-child(4) {
+        top: 75px;
+        left: -60px;
+    }
+
+    #contact-bar ul li.icon-satellite:nth-child(5) {
+        top: 28px;
+        left: -40px;
+    }
+    .icon-satellite a {
+            width: 48px;
+    height: 48px;
+    background: white;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px #888;
+    border-radius: 50%;
+    }
+    .icon-satellite a i{
+        color: #283573;
+        font-size: 20px;
+    }
+      .cta-footer-container  i{
+        color: #283573;
+        font-size: 20px;
+    }
+ .cta-footer-container{
+        width: 48px;
+    height: 48px;
+    background: white;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px #888;
+        border-radius: 50%;
+ }
+    /* end custom contact bar */
+
+    /* @media screen and (max-width: 767px) {
+        .footer__bar {
+            display: none;
+        }
+    } */
+
+    .os_footer__intro__content ul li {
+        margin-bottom: 8px;
+    }
+
+    .os_footer_address {
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+        color: var(--Alias-Text-Neutral, #292929);
+
+    }
+
+    .os_footer_address p {
+        margin: 0px;
+    }
+
+    .os_footer_address {
+        margin-bottom: 32px;
+    }
+
+    .os_footer__intro__content ul li {
+        display: flex;
+        gap: 4px;
+    }
+
+    .disabled-link {
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .footer__brand {
+        display: flex;
+        align-items: center;
+    }
+
+    .footer__main {
+        max-width: 1335px;
+        margin: 0 auto;
+        width: 100%;
+        padding: 88px 0px 54px 0px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .footer {
+        background-color: white;
+    }
+
+    .footer__main .footer__item__title {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 32px;
+        color: #283573;
+    }
+
+    .footer__main .footer__item__title ul li a {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 32px;
+        color: #283573;
+    }
+
+    .footer__bar_container {
+        max-width: 1335px;
+        margin: 0px auto;
+        width: 100%;
+    }
+
+    .footer-bar-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 0px 40px 0px;
+    }
+
+    .nha-tai-tro {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .wp-block-social-links {
+        display: flex;
+        gap: 24px;
+    }
+
+    .wp-block-social-links li {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wp-block-social-links .wp-social-link svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .footer-bar {
+        padding: 40px 0px;
+    }
+
+    .footer-bar-text {
+        font-size: 14px;
+        line-height: 24px;
+        color: #283573;
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: normal;
+    }
+
+    .footer__copyright a {
+        text-decoration: underline;
+    }
+    .msi-join-us-wrapper {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #283573;
+    padding: 20px;
+    border-radius: 4px;
+    color: #fff;
+    flex-wrap: wrap;
+}
+
+.msi-join-us-text {
+    flex: 1;
+    padding-right: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    min-width: 240px;
+}
+
+.msi-join-us-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.msi-join-us-desc {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #fff;
+}
+
+.msi-join-us-btn-wrapper {
+    flex-shrink: 0;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    min-width: 200px;
+}
+
+.msi-join-us-btn {
+    display: inline-block;
+    background-color: #fff;
+    color: #283573;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    min-width: 180px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.msi-join-us-btn:hover {
+    background-color: #f2f2f2;
+    color: #1e2a5a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .msi-join-us-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    .msi-join-us-text {
+        border-right: none;
+        padding-right: 0;
+        padding-bottom: 15px;
+    }
+    .msi-join-us-btn-wrapper {
+        padding-left: 0;
+    }
+}
+.msi-join-us-wrapper{
+    margin: 0px auto;
+    max-width: 1335px;
+    margin-bottom: 60px;
+    padding: 32px 24px;
+}
+        

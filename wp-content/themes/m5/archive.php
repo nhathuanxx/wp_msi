@@ -42,7 +42,7 @@ $search_text = ($lang === 'en') ? 'Search' : 'Tìm kiếm';
             ];
 
             if ($current_cat_slug !== 'tin-tuc' && $current_cat_slug !== 'news') {
-                $args['category_name'] = $current_cat_name;
+                $args['category_name'] = $current_cat_slug;
             }
 
             $query = new WP_Query($args);
@@ -102,6 +102,7 @@ $search_text = ($lang === 'en') ? 'Search' : 'Tìm kiếm';
             endif;
             ?>
         </div>
+        <!-- <?php echo $current_cat_slug ?> -->
         <div class="line-space">
             <hr class="line-space-content" style="background-color:#00000033;color:#00000033">
         </div>
