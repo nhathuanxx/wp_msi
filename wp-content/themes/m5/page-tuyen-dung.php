@@ -17,6 +17,8 @@ get_header();
             </div>
         </div>
     </div>
+    <?php msi_breadcrumb(); ?>
+
     <!-- <div class="content">
         <?php the_content(); ?>
     </div> -->

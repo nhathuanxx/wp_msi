@@ -93,13 +93,12 @@
 }
 
 .msi-widget-title {
-  color: #00adf0;
-  font-size: 1.125rem;
-  text-transform: uppercase;
+  font-style: normal;
   font-weight: 600;
-  padding-bottom: 7px;
-  border-bottom: 2px solid #00adf0;
-  display: inline-block;
+  font-size: 40px !important;
+  line-height: 48px;
+  color: #283573;
+  font-family: "Roboto", sans-serif;
 }
 
 .msi-widget-post-list {
@@ -151,7 +150,9 @@
   font-size: 12px;
 }
 
-.msi-widget-tags-item a:hover, .msi-widget-tags-item a:active, .msi-widget-tags-item a:focus {
+.msi-widget-tags-item a:hover,
+.msi-widget-tags-item a:active,
+.msi-widget-tags-item a:focus {
   background-color: #ec3893;
   border: 1px solid #ec3893;
   color: #fff;
@@ -159,7 +160,7 @@
 
 .msi-related-widget,
 .msi-tags-widget {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 .page-header .page-title {

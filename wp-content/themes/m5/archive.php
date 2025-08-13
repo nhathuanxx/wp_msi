@@ -15,6 +15,10 @@ $category = get_queried_object();
 $current_cat_ID = $category->term_id;
 $current_cat_name = $category->name;
 $current_cat_description = $category->description;
+$lang = pll_current_language('slug');
+$current_cat_slug = $category->slug; // lấy slug để so sánh
+$search_text = ($lang === 'en') ? 'Search' : 'Tìm kiếm';
+
 ?>
 <div class="category-container">
     <div class="category-content">
@@ -32,13 +36,14 @@ $current_cat_description = $category->description;
         </div>
         <div class="category-first-post">
             <?php
-            $category_slug = 'pha-thai';
-
             $args = [
                 'post_type' => 'post',
                 'posts_per_page' => 1,
-                'category_name' => $current_cat_name,
             ];
+
+            if ($current_cat_slug !== 'tin-tuc' && $current_cat_slug !== 'news') {
+                $args['category_name'] = $current_cat_name;
+            }
 
             $query = new WP_Query($args);
 
@@ -73,11 +78,20 @@ $current_cat_description = $category->description;
 
                             <span class="category-featured__bullet">•</span>
 
-                            <span class="category-featured__reading-time">Đọc <?php echo esc_html($reading_time); ?> phút</span>
+                            <span class="category-featured__reading-time"><?php if ($lang === 'vi') : ?>
+                                    Đọc
+                                <?php else : ?>
+                                    Read <?php endif; ?> <?php echo esc_html($reading_time); ?> <?php if ($lang === 'vi') : ?>
+                                    phút <?php else : ?>
+                                    minutes <?php endif; ?></span>
                         </div>
                         <h2 class="category-featured__title"><?php echo esc_html($title); ?></h2>
                         <p class="category-featured__excerpt"><?php echo esc_html($excerpt); ?></p>
-                        <a href="<?php echo esc_url($permalink); ?>" class="category-featured__button">ĐỌC THÊM</a>
+                        <a href="<?php echo esc_url($permalink); ?>" class="category-featured__button"><?php if ($lang === 'vi') : ?>
+                                ĐỌC THÊM
+                            <?php else : ?>
+                                READ MORE
+                            <?php endif; ?></a>
                     </div>
                     <div class="category-featured__image">
                         <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr($title); ?>">
@@ -106,28 +120,31 @@ $current_cat_description = $category->description;
                     <div class="template-blog-search-box" style="display:none;">
                         <span class="template-blog-search-icon"> <img class="search-icon" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/search-icon.svg" alt="search-icon">
                         </span>
-                        <input type="text" id="template-blog-search-key" placeholder="Tìm kiếm Blog...">
+                        <input type="text" id="template-blog-search-key" placeholder="<?php echo esc_attr($search_text . ' ' . $current_cat_name . '...'); ?>">
                         <button id="template-blog-search-clear" aria-label="Xóa tìm kiếm" title="Xóa tìm kiếm">&times;</button>
                     </div>
                 </div>
             </div>
-            <div class="template-blog-filter">
-                <!-- Nút filter category -->
-                <?php
+            <?php
+            if ($current_cat_slug === 'tin-tuc' || $current_cat_slug === 'news') {
                 $categories = get_categories();
                 foreach ($categories as $cat) {
-                    echo '<button class="template-blog-filter-btn" data-category="' . esc_attr($cat->slug) . '">' . esc_html($cat->name) . '</button>';
+                    echo '<button class="template-blog-filter-btn" data-category="' . esc_attr($cat->slug) . '">'
+                        . esc_html($cat->name) .
+                        '</button>';
                 }
-                ?>
-            </div>
+            }
+            ?>
 
             <!-- Danh sách bài viết -->
             <div id="template-blog-post-list">
 
                 <?php
-                // Lấy 3 bài mới nhất lúc đầu (không lọc)
                 $lang = pll_current_language('slug');
-                $args = ['post_type' => 'post', 'posts_per_page' => 9, 'lang' => $lang,];
+                $args = ['post_type' => 'post', 'posts_per_page' => 6, 'lang' => $lang];
+                       if ($current_cat_slug !== 'tin-tuc' && $current_cat_slug !== 'news') {
+                $args['category_name'] = $category->slug;
+            }
                 $query = new WP_Query($args);
                 while ($query->have_posts()) {
                     $query->the_post();
@@ -139,7 +156,14 @@ $current_cat_description = $category->description;
 
             <!-- Nút tải thêm -->
             <div class="template-blog-load-more-wrap">
-                <button id="template-blog-load-more-btn" data-category="cau-chuyen">TẢI THÊM</button>
+                <button id="template-blog-load-more-btn"
+    data-category="<?php echo ($category->slug === 'tin-tuc' || $category->slug === 'news') ? '' : esc_attr($category->slug); ?>">
+                    <?php if ($lang === 'vi') : ?>
+                        TẢI THÊM
+                    <?php else : ?>
+                        LOAD MORE
+                    <?php endif; ?>
+                </button>
             </div>
         </div>
     </div>
