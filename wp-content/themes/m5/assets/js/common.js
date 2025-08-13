@@ -144,6 +144,20 @@
                 document.getElementById('clinic-showroom').value = 'Chọn cơ sở'
             }
         })
+          $('.book-calendar-footer').on('click', function(e) {
+            e.preventDefault();
+            $('#modal_schedule_book').modal({ show: true });
+
+            
+            // fill clinic vào booking
+            var name = this.getAttribute('data-clinic');
+            if(name) {
+                document.getElementById('clinic-showroom').value = name;
+            } else {
+                document.getElementById('clinic-showroom').value = 'Chọn cơ sở'
+            }
+        })
+
 
         // Header fixed
         window.onscroll = function() {

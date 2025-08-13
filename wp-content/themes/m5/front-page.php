@@ -587,8 +587,6 @@ get_header(); ?>
             <?php endif; ?>
         </div>
     </div> -->
-
-
     <!-- <?php require get_template_directory() . '/template-parts/address.php'; ?> -->
 </main>
 

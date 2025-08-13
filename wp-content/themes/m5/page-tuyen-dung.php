@@ -1,4 +1,7 @@
 <?php
+/*
+* Template Name: Tuyen Dung Page Template
+*/
 get_header();
 ?>
 

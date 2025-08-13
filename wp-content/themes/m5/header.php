@@ -506,19 +506,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 					<nav id="msi-mobile-menu" class="msi-mobile-menu" aria-hidden="true">
 						<?php msi_mobile_render_menu($menu_items, $base_url); ?>
-						<ul class="menu-top-mobile">
+						<div class="menu-top-mobile">
 							<?php while (have_rows('menu_top', $lang)) : the_row();
 								$title = get_sub_field('title');
 								$slug = trim(get_sub_field('slug'), '/');
 								$link = trailingslashit($base_url) . $slug;
 							?>
-								<li class="menu-item menu-top-mobile-item">
+								<div class="menu-item menu-top-mobile-item">
 									<a href="<?= esc_url($link); ?>" data-menu-id="<?= esc_attr($slug); ?>">
 										<?= esc_html($title); ?>
 									</a>
-								</li>
+								</div>
 							<?php endwhile; ?>
-						</ul>
+							<div class="menu-item menu-top-mobile-item call-btn">
+								<a href="tel:1900 55 88 82" class="custom-call-btn">
+									<img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/phone-icon.svg"
+										alt="icon-phone">
+									<span class="phone-number">1900 55 88 82</span>
+								</a>
+							</div>
+							<div class="menu-item menu-top-mobile-item">
+								<?php $translations = pll_the_languages(['raw' => 1]); ?>
+<?php if (!empty($translations)) : ?>
+    <div class="header-lang-content">
+        <div class="lang-img-container">
+            <?php
+            $url = get_bloginfo('wpurl') . '/wp-content/themes/m5/assets/images/os/';
+            $lang_slug = pll_current_language('slug');
+            echo '<img class="lang-img" src="' . esc_url($url . 'flag-' . $lang_slug . '.png') . '" alt="flag">';
+            ?>
+        </div>
+        <select class="select-circle"
+            onchange="if(this.value){window.location.href=this.value;}">
+            <?php foreach ($translations as $translation) : ?>
+                <option value="<?php echo esc_url($translation['url']); ?>" <?php selected($translation['current_lang'], true); ?>>
+                    <?php echo esc_html($translation['name']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+<?php endif; ?>
+							</div>
+						</div>
 						<!-- <li class="msi-mobile-menu-item"><a href="http://localhost/wp_msi/phong-kham-gan-ban" class="msi-mobile-menu-link">Tìm phòng khám</a></li> -->
 					</nav>
 

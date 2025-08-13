@@ -18,7 +18,7 @@
     <div class="footer__main">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-lg-4 footer__item">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 footer__item">
                     <div class="footer__menu">
                         <?php if (get_field('listing_1', pll_current_language('slug'))) : ?>
                             <?php while (the_repeater_field('listing_1', pll_current_language('slug'))) : ?>
@@ -41,7 +41,7 @@
 
 
                 </div>
-                <div class="col-md-4 col-lg-4 footer__item">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 footer__item">
                     <div class="footer__menu">
                         <?php if (get_field('listing_2', pll_current_language('slug'))) : ?>
                             <?php while (the_repeater_field('listing_2', pll_current_language('slug'))) : ?>
@@ -59,10 +59,28 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 footer__item">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 footer__item">
                     <div class="footer__menu">
                         <?php if (get_field('listing_3', pll_current_language('slug'))) : ?>
                             <?php while (the_repeater_field('listing_3', pll_current_language('slug'))) : ?>
+                                <p class="footer__item__title"><?php echo get_sub_field('title'); ?></p>
+                                <ul>
+                                    <?php while (the_repeater_field('listing')) : ?>
+                                        <li>
+                                            <a href="<?php echo get_sub_field('url'); ?>">
+                                                <!--  <i class="icon-arrow-next"></i> -->
+                                                <?php echo get_sub_field('title'); ?></a>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 footer__item">
+                    <div class="footer__menu">
+                        <?php if (get_field('listing_4', pll_current_language('slug'))) : ?>
+                            <?php while (the_repeater_field('listing_4', pll_current_language('slug'))) : ?>
                                 <p class="footer__item__title"><?php echo get_sub_field('title'); ?></p>
                                 <ul>
                                     <?php while (the_repeater_field('listing')) : ?>
@@ -188,17 +206,17 @@
             <div class="footer__bar__wrap display-flex-center justify-content-between display-sm-block">
                 <div class="footer__copyright">
                     <p class="margin-0 p-0 font-size-14 secondary-color-txt footer-bar-text">
-                        ©<?php echo date('Y'); ?> © 2024 Readdy. All rights reserved.
+                        ©<?php echo date('Y'); ?> Readdy. All rights reserved.
                     </p>
-                    <a class="footer-bar-text" href="#">Chính sách bảo mật</a>
+                    <!-- <a class="footer-bar-text" href="#">Chính sách bảo mật</a>
                     <a class="footer-bar-text" href="#">Chính sách cookie</a>
-                    <a class="footer-bar-text" href="#">Chống chế độ nô lệ hiện đại</a>
+                    <a class="footer-bar-text" href="#">Chống chế độ nô lệ hiện đại</a> -->
 
 
                 </div>
             </div>
         </div>
-         <!-- <li class="book-calendar"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-book-now.svg" alt="book-now"></li>
+        <!-- <li class="book-calendar"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-book-now.svg" alt="book-now"></li>
             <li class="icon-center" id="toggleIcon"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-social.svg" alt="icon-social"></li>
             <li class="icon-satellite"><a href="<?php echo get_field('option_zalo', 'option') ? get_field('option_zalo', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-zalo.svg" alt="icon-zalo"></a></li>
             <li class="icon-satellite"><a href="<?php echo get_field('option_link_fb_mes', 'option') ? get_field('option_link_fb_mes', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-messenger.svg" alt="icon-messenger"></a></li>
@@ -214,7 +232,7 @@
                 </div>
             </li> -->
     </div>
-    
+
 
     <div class="modal fade" id="modal_schedule_book" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
@@ -281,7 +299,74 @@
     </div>
 
 
+<div id="contact-bar">
+        <?php
+        $option_phone_num = get_field('option_phone_num', 'option');
+        $option_phone_num_link = '#';
+        if ($option_phone_num) {
 
+            $option_phone_num_link = $option_phone_num['url'];
+        }
+        ?>
+        <ul>
+            <!-- <li class="ctb-phone"><a href="<?php echo $option_phone_num_link; ?>" target="_blank" rel="nofollow"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/call.png" alt="Gọi cho tôi"></a></li>
+            <li class="ctb-fbm"><a href="<?php echo get_field('option_link_fb_mes', 'option') ? get_field('option_link_fb_mes', 'option') : '#'; ?>" target="_blank" rel="nofollow">
+                    <img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/messenger-icon.png" alt="Nhắn tin facebook"></a></li>
+            <li class="ctb-mail"><a href="<?php echo get_field('option_zalo', 'option') ? get_field('option_zalo', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/zalo-logo.png" alt="Zalo"></a></li> -->
+            <!-- <?php if (is_front_page()) : ?>
+                <li>
+                    <div class="footer__fixed__address__wrap position-rel">
+                        <a href="#position-rel" class="footer__fixed__address__icon">
+                            <figure class="margin-0 padding-0">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/find-address.svg'); ?>"
+                                    alt="<?php
+                                            if (pll_current_language('slug') == 'vi') {
+                                                echo 'Tìm địa chỉ phòng khám gần bạn?';
+                                            }
+                                            if (pll_current_language('slug') == 'en') {
+                                                echo 'Find clinic address near you?';
+                                            }
+                                            if (pll_current_language('slug') == 'zh') {
+                                                echo '寻找您附近的诊所地址？';
+                                            }
+                                            ?>">
+                            </figure>
+                        </a>
+                        <div class="footer__fixed__address__tooltip">
+                            <div class="footer__fixed__address__tooltip__wrap">
+                                <?php
+                                if (pll_current_language('slug') == 'vi') {
+                                    echo 'Tìm địa chỉ phòng khám gần bạn?';
+                                }
+                                if (pll_current_language('slug') == 'en') {
+                                    echo 'Find clinic address near you?';
+                                }
+                                if (pll_current_language('slug') == 'zh') {
+                                    echo '寻找您附近的诊所地址？';
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            <?php endif; ?> -->
+            <li class="book-calendar-footer"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-book-now.svg" alt="book-now"></li>
+            <li class="icon-center" id="toggleIcon"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-social.svg" alt="icon-social"></li>
+            <!-- <li class="icon-satellite"><a href="<?php echo get_field('option_zalo', 'option') ? get_field('option_zalo', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-zalo.svg" alt="icon-zalo"></a></li> -->
+            <!-- <li class="icon-satellite"><a href="<?php echo get_field('option_link_fb_mes', 'option') ? get_field('option_link_fb_mes', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-messenger.svg" alt="icon-messenger"></a></li> -->
+            <li class="icon-satellite"><a href="<?php echo $option_phone_num_link; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-call.svg" alt="icon-call"></a></li>
+            <li>
+                <div class="back-to-top">
+                    <a href="javascript:;" class="footer__fixed__to-top" style="padding:0px">
+                        <figure class="margin-0 padding-0">
+                            <img style="padding: 0;" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/os/to-top.svg'); ?>"
+                                alt="Back to top">
+                        </figure>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
 </footer>
 
 </div><!-- End #page-->
@@ -466,131 +551,131 @@
     });
 </script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const btn = document.getElementById('msi-mobile-menu-btn');
-    const menu = document.getElementById('msi-mobile-menu');
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('msi-mobile-menu-btn');
+        const menu = document.getElementById('msi-mobile-menu');
 
-    if (!btn || !menu) return;
+        if (!btn || !menu) return;
 
-    btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', !expanded);
-        menu.classList.toggle('open');
-        btn.classList.toggle('active');
-        menu.setAttribute('aria-hidden', expanded);
-    });
+        btn.addEventListener('click', () => {
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', !expanded);
+            menu.classList.toggle('open');
+            btn.classList.toggle('active');
+            menu.setAttribute('aria-hidden', expanded);
+        });
 
-    const toggles = menu.querySelectorAll('.msi-mobile-menu-toggle');
-    toggles.forEach(toggleBtn => {
-        toggleBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-            toggleBtn.setAttribute('aria-expanded', !expanded);
+        const toggles = menu.querySelectorAll('.msi-mobile-menu-toggle');
+        toggles.forEach(toggleBtn => {
+            toggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                toggleBtn.setAttribute('aria-expanded', !expanded);
 
-            const submenu = toggleBtn.nextElementSibling;
-            if (submenu && (submenu.classList.contains('msi-mobile-menu-level-2') || submenu.classList.contains('msi-mobile-menu-level-3'))) {
-                submenu.classList.toggle('open');
-            }
+                const submenu = toggleBtn.nextElementSibling;
+                if (submenu && (submenu.classList.contains('msi-mobile-menu-level-2') || submenu.classList.contains('msi-mobile-menu-level-3'))) {
+                    submenu.classList.toggle('open');
+                }
+            });
         });
     });
-});
 </script>
 <script>
-   jQuery(function($) {
-    let page = 2;
-    let category = '';
-    let search = '';
+    jQuery(function($) {
+        let page = 2;
+        let category = '';
+        let search = '';
 
-    // Click filter category
-    $('.template-blog-filter-btn').on('click', function() {
-        category = $(this).data('category');
-        page = 1;
-        $('#template-blog-post-list').html('');
-        $('#template-blog-load-more-btn').show();
-        loadPosts();
-    });
-
-    // Toggle hiển thị input tìm kiếm khi click icon tìm kiếm
-    $('#template-blog-search-toggle').on('click', function() {
-        $('.template-blog-search-box').toggle();
-        $('#template-blog-search-key').focus();
-        $(this).hide();
-    });
-
-    // Clear text input khi click nút x
-    $('#template-blog-search-clear').on('click', function() {
-        $('#template-blog-search-key').val('');
-        search = '';
-        page = 1;
-        $('#template-blog-post-list').html('');
-        $('#template-blog-load-more-btn').show();
-        loadPosts();
-    });
-
-    // Tìm kiếm khi nhấn Enter
-    $('#template-blog-search-key').on('keypress', function(e) {
-        if (e.which === 13) {
-            search = $(this).val();
+        // Click filter category
+        $('.template-blog-filter-btn').on('click', function() {
+            category = $(this).data('category');
             page = 1;
             $('#template-blog-post-list').html('');
             $('#template-blog-load-more-btn').show();
             loadPosts();
-        }
-    });
+        });
 
-    // Nút tải thêm
-    $('#template-blog-load-more-btn').on('click', function() {
-        category = $('#template-blog-load-more-btn').data('category') || '';
-        loadPosts();
-    });
+        // Toggle hiển thị input tìm kiếm khi click icon tìm kiếm
+        $('#template-blog-search-toggle').on('click', function() {
+            $('.template-blog-search-box').toggle();
+            $('#template-blog-search-key').focus();
+            $(this).hide();
+        });
 
-    function loadPosts() {
-        $.post(msi_ajax.url, {
-            action: 'msi_load_more',
-            page: page,
-            category: category,
-            search: search
-        }, function(data) {
-            if (data.trim() === '') {
-                $('#template-blog-load-more-btn').hide();
-            } else {
-                $('#template-blog-post-list').append(data);
-                page++;
+        // Clear text input khi click nút x
+        $('#template-blog-search-clear').on('click', function() {
+            $('#template-blog-search-key').val('');
+            search = '';
+            page = 1;
+            $('#template-blog-post-list').html('');
+            $('#template-blog-load-more-btn').show();
+            loadPosts();
+        });
+
+        // Tìm kiếm khi nhấn Enter
+        $('#template-blog-search-key').on('keypress', function(e) {
+            if (e.which === 13) {
+                search = $(this).val();
+                page = 1;
+                $('#template-blog-post-list').html('');
+                $('#template-blog-load-more-btn').show();
+                loadPosts();
             }
         });
-    }
-});
-</script>
-<script>
-document.getElementById("msi-copy-link-btn").addEventListener("click", function (e) {
-    e.preventDefault();
 
-    const url = window.location.href;
-    navigator.clipboard.writeText(url).then(() => {
-        const btn = document.getElementById("msi-copy-link-btn");
-        const text = document.getElementById("post_copy_link_text");
+        // Nút tải thêm
+        $('#template-blog-load-more-btn').on('click', function() {
+            category = $('#template-blog-load-more-btn').data('category') || '';
+            loadPosts();
+        });
 
-        // Ẩn icon, hiện chữ
-        btn.style.display = "none";
-        text.style.display = "block";
-
-        // Sau 2 giây thì hiện lại icon, ẩn chữ
-        setTimeout(() => {
-            btn.style.display = "inline-block";
-            text.style.display = "none";
-        }, 2000);
-    }).catch(err => {
-        console.error("Không thể sao chép: ", err);
+        function loadPosts() {
+            $.post(msi_ajax.url, {
+                action: 'msi_load_more',
+                page: page,
+                category: category,
+                search: search
+            }, function(data) {
+                if (data.trim() === '') {
+                    $('#template-blog-load-more-btn').hide();
+                } else {
+                    $('#template-blog-post-list').append(data);
+                    page++;
+                }
+            });
+        }
     });
-});
 </script>
 <script>
-document.getElementById("msi-fb-share").addEventListener("click", function (e) {
-    e.preventDefault();
-    const currentUrl = encodeURIComponent(window.location.href);
-    const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-    window.open(fbUrl, "_blank", "width=600,height=400");
-});
+    document.getElementById("msi-copy-link-btn").addEventListener("click", function(e) {
+        e.preventDefault();
+
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            const btn = document.getElementById("msi-copy-link-btn");
+            const text = document.getElementById("post_copy_link_text");
+
+            // Ẩn icon, hiện chữ
+            btn.style.display = "none";
+            text.style.display = "block";
+
+            // Sau 2 giây thì hiện lại icon, ẩn chữ
+            setTimeout(() => {
+                btn.style.display = "inline-block";
+                text.style.display = "none";
+            }, 2000);
+        }).catch(err => {
+            console.error("Không thể sao chép: ", err);
+        });
+    });
+</script>
+<script>
+    document.getElementById("msi-fb-share").addEventListener("click", function(e) {
+        e.preventDefault();
+        const currentUrl = encodeURIComponent(window.location.href);
+        const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+        window.open(fbUrl, "_blank", "width=600,height=400");
+    });
 </script>
 <style>
     .footer__main {
@@ -721,8 +806,9 @@ document.getElementById("msi-fb-share").addEventListener("click", function (e) {
         /* max-width: 1000px;
         height: 80%; */
     }
-    .modal-open .modal{
-        overflow:  hidden !important;
+
+    .modal-open .modal {
+        overflow: hidden !important;
     }
 
     .book-now__custom .modal-body {
@@ -948,11 +1034,11 @@ document.getElementById("msi-fb-share").addEventListener("click", function (e) {
 
     /* end custom contact bar */
 
-    @media screen and (max-width: 767px) {
+    /* @media screen and (max-width: 767px) {
         .footer__bar {
             display: none;
         }
-    }
+    } */
 
     .os_footer__intro__content ul li {
         margin-bottom: 8px;
@@ -1069,11 +1155,11 @@ document.getElementById("msi-fb-share").addEventListener("click", function (e) {
         font-weight: 400;
         letter-spacing: normal;
     }
+
     .footer__copyright a {
         text-decoration: underline;
     }
 </style>
-
 </body>
 
 </html>

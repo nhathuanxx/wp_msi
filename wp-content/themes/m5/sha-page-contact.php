@@ -38,23 +38,45 @@ $url = get_template_directory_uri();
 
 
         </div>
+        <div class="msi-contact-container">
 
+            <!-- Left: Contact Form -->
+            <div class="msi-contact-form">
+                <?php echo do_shortcode('[contact-form-7 id="5667" title="Form liên hệ"]'); ?>
+            </div>
 
+            <!-- Right: Office Info + Map -->
+            <div class="msi-contact-info">
+                <h2 class="msi-contact-title">Global support office</h2>
+                <p class="msi-contact-description">
+                    <?php _e('For general information and enquiries about MSI Reproductive Choices in Vietnam, please contact us by phone or email.', 'text-domain'); ?>
+                </p>
+
+                <!-- Google Map -->
+                <div class="msi-contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8616118270887!2d105.81020881538544!3d21.03783919345031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9e0a5f2aab%3A0x7e0a37a4f04191e8!2sMSI%20Reproductive%20Choices!5e0!3m2!1sen!2s!4v1691874000000!5m2!1sen!2s"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Address & Contact -->
+                <div class="msi-contact-details">
+                    <p><strong>Address:</strong> Phòng 203-205, Nhà A1/298 P. Kim Mã, Khu Ngoại giao đoàn Vạn Phúc, Ba Đình, Hà Nội, Việt Nam</p>
+                    <p><strong>Hotline:</strong> 1900 558882</p>
+                    <p><strong>Email:</strong> <a href="mailto:truyenthong@msichoices.org.vn">truyenthong@msichoices.org.vn</a></p>
+                </div>
+
+                <!-- Social Links -->
+                <div class="msi-contact-social">
+                    <a href="https://www.facebook.com/profile.php?id=61572517763607" target="_blank" class="msi-contact-social-link">F</a>
+                    <a href="https://www.youtube.com/@msireproductivechoicesviet6308" target="_blank" class="msi-contact-social-link">Y</a>
+                    <a href="https://www.tiktok.com/@msivn_corporate_health" target="_blank" class="msi-contact-social-link">T</a>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <!-- <h3 class="wp-block-heading has-text-align-center">
-        <?php if ($lang === 'vi') : ?>
-            Hãy lắng nghe những câu chuyện của chúng tôi
-        <?php else : ?>
-            Listen to our's story
-        <?php endif; ?>
-    </h3>
-    <p class="has-text-align-center-p">
-        <?php if ($lang === 'vi') : ?>
-            Tìm hiểu sâu hơn về môi trường làm việc tại MSI VN bằng cách đọc những chia sẻ của các đồng nghiệp trong toàn tổ chức.
-        <?php else : ?>
-            Learn more about the working environment at MSI VN by reading colleagues’ stories across the organization.
-        <?php endif; ?>
-    </p> -->
 
     <?php require get_template_directory() . '/template-parts/post-list.php'; ?>
 
@@ -247,4 +269,87 @@ $url = get_template_directory_uri();
         }
 
         /* end  css for form contact*/
+    </style>
+    <style>
+        .msi-contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1335px;
+            margin: 0px auto;
+            padding: 40px 0px;
+        }
+
+        /* Left: Contact Form */
+        .msi-contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: #283573;
+            padding: 30px;
+            border-radius: 8px;
+            color: white;
+        }
+  .msi-contact-form p,.msi-contact-form h2{
+                color: white;
+
+  }
+        .msi-contact-form input,
+        .msi-contact-form textarea,
+        .msi-contact-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .msi-contact-form button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Right: Contact Info */
+        .msi-contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .msi-contact-title {
+            margin-bottom: 10px;
+        }
+
+        .msi-contact-map {
+            margin: 20px 0;
+        }
+
+        .msi-contact-map iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        .msi-contact-details {
+            margin-bottom: 20px;
+        }
+
+        .msi-contact-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .msi-contact-social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #ddd;
+            color: #000;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
     </style>
