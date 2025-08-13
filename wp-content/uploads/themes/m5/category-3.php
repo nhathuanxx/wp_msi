@@ -16,7 +16,7 @@ get_header();
     <div class="container">
         <ul class="nav nav-pills msi-post-tab-nav" id="pills-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="msi-post-cat-1-tab" data-toggle="pill" href="#msi-post-cat-1" role="tab" aria-controls="msi-post-cat-1" aria-selected="true">Chương trình khuyến mãi</a>
+                <a class="nav-link active" id="msi-post-cat-1-tab" data-toggle="pill" href="#msi-post-cat-1" role="tab" aria-controls="msi-post-cat-1" aria-selected="true">Chương trình khuyến mãi 123</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="msi-post-cat-2-tab" data-toggle="pill" href="#msi-post-cat-2" role="tab" aria-controls="msi-post-cat-2" aria-selected="false">Thông tin hữu ích</a>
