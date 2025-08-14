@@ -23,7 +23,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-
+    <title>MSI Choices Vietnam - Making Choices Possible</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -57,7 +57,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					$logoUrl = get_field('logo_image', pll_current_language('slug'));
 					if (is_front_page()) {
 					?>
-						<h1 style="display: none;">Hệ thống phòng khám Sản phụ khoa Dr.Marie</h1>
+						<h1 style="display: none;">MSI VN</h1>
 					<?php
 					}
 					?>

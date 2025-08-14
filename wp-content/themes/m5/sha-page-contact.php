@@ -32,7 +32,7 @@ $lang = pll_current_language('slug');
 <div class="page-contact">
     <?php msi_breadcrumb(); ?>
 
-    <div class="container contact-container">
+    <div class="contact-container">
 
         <div class="contact-content">
             <div class="ss1">

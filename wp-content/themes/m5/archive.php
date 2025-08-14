@@ -68,6 +68,9 @@ $search_text = ($lang === 'en') ? 'Search' : 'Tìm kiếm';
                 }
             ?>
                 <div id="category-featured" class="category-featured">
+                      <div class="category-featured__image category-featured__image_mobile">
+                        <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr($title); ?>">
+                    </div>
                     <div class="category-featured__content">
                         <div class="category-featured__meta">
                             <span class="category-featured__category"><?php echo esc_html($categories[0]->name); ?></span>
@@ -93,7 +96,7 @@ $search_text = ($lang === 'en') ? 'Search' : 'Tìm kiếm';
                                 READ MORE
                             <?php endif; ?></a>
                     </div>
-                    <div class="category-featured__image">
+                    <div class="category-featured__image category-featured__image_desktop">
                         <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr($title); ?>">
                     </div>
                 </div>
@@ -143,9 +146,9 @@ $search_text = ($lang === 'en') ? 'Search' : 'Tìm kiếm';
                 <?php
                 $lang = pll_current_language('slug');
                 $args = ['post_type' => 'post', 'posts_per_page' => 6, 'lang' => $lang];
-                       if ($current_cat_slug !== 'tin-tuc' && $current_cat_slug !== 'news') {
-                $args['category_name'] = $category->slug;
-            }
+                if ($current_cat_slug !== 'tin-tuc' && $current_cat_slug !== 'news') {
+                    $args['category_name'] = $category->slug;
+                }
                 $query = new WP_Query($args);
                 while ($query->have_posts()) {
                     $query->the_post();
@@ -158,7 +161,7 @@ $search_text = ($lang === 'en') ? 'Search' : 'Tìm kiếm';
             <!-- Nút tải thêm -->
             <div class="template-blog-load-more-wrap">
                 <button id="template-blog-load-more-btn"
-    data-category="<?php echo ($category->slug === 'tin-tuc' || $category->slug === 'news') ? '' : esc_attr($category->slug); ?>">
+                    data-category="<?php echo ($category->slug === 'tin-tuc' || $category->slug === 'news') ? '' : esc_attr($category->slug); ?>">
                     <?php if ($lang === 'vi') : ?>
                         TẢI THÊM
                     <?php else : ?>

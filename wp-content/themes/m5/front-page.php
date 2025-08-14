@@ -588,6 +588,27 @@ get_header(); ?>
         </div>
     </div> -->
     <!-- <?php require get_template_directory() . '/template-parts/address.php'; ?> -->
+     <div class="accordion-group">
+  <h2>Y tế từ xa</h2>
+  <div class="accordion-item">
+    <button class="accordion-header">Y tế từ xa</button>
+    <div class="accordion-content">
+      <p>Nội dung Y tế từ xa...</p>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-group">
+  <h2>Xử lý dữ liệu về bạn</h2>
+  <div class="accordion-item">
+    <button class="accordion-header">Chúng tôi thu thập thông tin gì?</button>
+    <div class="accordion-content"><p>Nội dung...</p></div>
+  </div>
+  <div class="accordion-item">
+    <button class="accordion-header">Chúng tôi thu thập thông tin ở đâu?</button>
+    <div class="accordion-content"><p>Nội dung...</p></div>
+  </div>
+</div>
 </main>
 
 <?php get_footer(); ?>

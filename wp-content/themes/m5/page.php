@@ -14,6 +14,7 @@ get_header();
 $current_page_ID = get_the_ID();
 $page_content = get_post($current_page_ID)->post_content;
 $current_cat_name = get_the_title();
+    $lang = pll_current_language('slug');
 ?>
 <!-- <div class="page-qa">
 	<div class="container">
@@ -37,7 +38,23 @@ $current_cat_name = get_the_title();
 						?></span>
 			</div>
 			<div class="container-image">
-				<div class="image-container"><img decoding="async" src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg.webp" alt="Y tá MSI UK đang an ủi khách hàng phá thai." class="header-image lazyloaded" data-src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg.webp" data-eio-rwidth="800" data-eio-rheight="533" data-src-webp="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg.webp"><noscript><img decoding="async" src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg" alt="MSI UK nurse comforting abortion client." class="header-image" data-eio="l" /></noscript><img decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzU2IiBoZWlnaHQ9IjMyMCIgdmlld0JveD0iMCAwIDM1NiAzMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTptdWx0aXBseSI+CjxwYXRoIGQ9Ik0zNTMuODgxIDIzNS40N0wxOTkuODY3IC0yMC45NjkzQzE5Ny45MSAtMjQuMzI1MSAxOTQuMjc2IC0yNi44NDE5IDE5MC4zNjMgLTI3LjY4MDlDMTg2LjQ1IC0yOC41MTk4IDE4Mi4yNTcgLTI3LjY4MDkgMTc4LjkwMyAtMjUuNDQzN0MxMDcuMzQ2IDIyLjM3NjQgNDYuNDEwOSA4Ni40MTYyIDEuOTY3NDQgMTU5Ljk2NEMwLjAxMDgxMzQgMTYzLjMyIC0wLjU0ODIyOSAxNjcuNTE1IDAuNTY5ODQ1IDE3MS40M0MxLjY4NzkyIDE3NS4zNDUgNC4yMDM1OSAxNzguNzAxIDcuODM3MzMgMTgwLjY1OEwyNzIuMjYyIDMyMS4zMjJDMjc0LjQ5OCAzMjIuNDQxIDI3Ni43MzQgMzIzIDI3OS4yNSAzMjNDMjg0LjAwMiAzMjMgMjg4Ljc1MyAzMjAuNzYzIDI5MS41NDkgMzE2LjU2OEMzMDcuMjAyIDI5My4zNTcgMzI3LjA0NyAyNzIuNjYzIDM1MC4yNDggMjU1LjA0NUMzNTYuMTE3IDI1MC41NzEgMzU3Ljc5NSAyNDIuMTgxIDM1My44ODEgMjM1Ljc0OSIgZmlsbD0iI0VCRjNGQiIvPgo8L2c+Cjwvc3ZnPgo=" class="rectangle first"><img decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzU3IiBoZWlnaHQ9IjI3OCIgdmlld0JveD0iMCAwIDM1NyAyNzgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTptdWx0aXBseSI+CjxwYXRoIGQ9Ik0zNTQuODc1IDI2My40N0wyMDAuNDI4IDcuMDMwNzFDMTk4LjQ2NiAzLjY3NDkyIDE5NC44MjIgMS4xNTgwNyAxOTAuODk4IDAuMzE5MTE3QzE4Ni45NzMgLTAuNTE5ODMyIDE4Mi43NjkgMC4zMTkxMjIgMTc5LjQwNSAyLjU1NjMyQzEwNy42NDcgNTAuMzc2NCA0Ni41NDEzIDExNC40MTYgMS45NzI5NyAxODcuOTY0QzAuMDEwODQzNyAxOTEuMzIgLTAuNTQ5NzY5IDE5NS41MTUgMC41NzE0NDYgMTk5LjQzQzEuNjkyNjYgMjAzLjM0NSA0LjIxNTQgMjA2LjcwMSA3Ljg1OTM1IDIwOC42NThMMjczLjAyNyAzNDkuMzIyQzI3NS4yNjkgMzUwLjQ0MSAyNzcuNTEyIDM1MSAyODAuMDM0IDM1MUMyODQuNzk5IDM1MSAyODkuNTY1IDM0OC43NjMgMjkyLjM2OCAzNDQuNTY4QzMwOC4wNjUgMzIxLjM1NyAzMjcuOTY2IDMwMC42NjMgMzUxLjIzMSAyODMuMDQ1QzM1Ny4xMTggMjc4LjU3MSAzNTguOCAyNzAuMTgxIDM1NC44NzUgMjYzLjc0OSIgZmlsbD0iIzlEQ0RGMCIvPgo8L2c+Cjwvc3ZnPgo=" class="rectangle second"></div>
+				<div class="image-container">
+<?php
+// Lấy ID của trang hiện tại
+$post_id = get_the_ID();
+
+// Lấy nội dung trang
+$post_content = get_post_field('post_content', $post_id);
+
+// Tìm ảnh đầu tiên trong nội dung
+preg_match('/<img[^>]+src=["\']([^"\']+)["\']/i', $post_content, $matches);
+
+// Nếu có ảnh đầu tiên thì dùng, nếu không thì dùng ảnh mặc định
+$image_url = !empty($matches[1]) 
+    ? esc_url($matches[1]) 
+    : get_template_directory_uri() . '/assets/images/msi/phong-kham-gan-ban.jpg';
+?>
+<img class="header-image lazyloaded" src="<?php echo $image_url; ?>" alt="<?php the_title_attribute(); ?>">				</div>
 			</div>
 		</div>
 	</div>
