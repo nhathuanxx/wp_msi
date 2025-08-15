@@ -1040,7 +1040,7 @@ function msi_circle_enqueue_assets() {
 }
 .msi-circle-animation-dot{
   position: absolute;
-  top: calc(-0.058 * var(--size));
+  top: calc(-0.5 * 0.058 * var(--size)); /* nửa nằm ngoài, nửa nằm trong vòng ring */
   left: 50%;
   transform: translateX(-50%);
   width: calc(0.058 * var(--size));
