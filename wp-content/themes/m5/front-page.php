@@ -13,15 +13,11 @@ get_header(); ?>
                     <div class="item">
                         <figure class="item__img margin-0 home-page-img">
                             <a href="<?php echo get_sub_field('cta_link', pll_current_language('slug')); ?>">
-                                <!-- <img src="<?php //echo get_sub_field('banner_image'); 
-                                                ?>" alt="slider banner"> -->
-
                                 <img class="home_slider_banner_desktop" src="<?php echo get_sub_field('banner_image', pll_current_language('slug')); ?>" alt="slider banner">
-
                             </a>
                         </figure>
 
-                    </div><!-- End .item -->
+                    </div>
                 <?php endwhile; ?>
             <?php endif; ?>
 
@@ -74,12 +70,7 @@ get_header(); ?>
             </div>
         </div>
     </div>
-    <!-- <?php require get_template_directory() . '/template-parts/circle-animation.php'; ?> -->
-<?php
-echo do_shortcode('[msi_circle size="150" target="3000" initial_rotation="0" text="Vòng 1"]');
-echo do_shortcode('[msi_circle size="200" target="3000" initial_rotation="120" text="Vòng 2"]');
-echo do_shortcode('[msi_circle size="500" target="3000" initial_rotation="240" text="Vòng 3"]');
-?>
+    <?php require get_template_directory() . '/template-parts/general-introduction.php'; ?>
     <div class="home-service-container" id="homeServiceContainer">
         <div class="home-service-content">
             <div class="home-service-title">
@@ -127,7 +118,6 @@ echo do_shortcode('[msi_circle size="500" target="3000" initial_rotation="240" t
         </div>
     </div>
     <?php require get_template_directory() . '/template-parts/customer-story.php'; ?>
-    <?php require get_template_directory() . '/template-parts/clinic-part.php'; ?>
 
     <?php require get_template_directory() . '/template-parts/short-story.php'; ?>
 

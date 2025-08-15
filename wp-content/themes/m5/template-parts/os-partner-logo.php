@@ -1,19 +1,8 @@
 <div class="os-partner-container" id="msiPartnerLogo">
-
-    <!-- <div class="mask_group_partner">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/os/mask_group_partner.svg'); ?>">
-        
-
-    </div> -->
-    <!-- <img class="mask_group_partner" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/os/mask_group_partner.svg'); ?>" alt=""> -->
-
     <div class=" os-partner-content" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner.jpg'); 
             background-size: cover; 
            ">
-        <!-- <div class="home__title">
-            <h2>Đối tác MSI</h2>
-        </div> -->
-         <div class="row partner-row-header">
+         <div class="row partner-row-header" id="msiPartnerLogo2">
             <div class="col-8 partner-row-header-1">
 
                 <?php
@@ -38,24 +27,105 @@
                 <?php endwhile; ?>
             <?php endif; ?>
         </div>
-        <div class="row partner-row-header">
+        <div class="row partner-row-header" id="msiPartnerLogo3">
             <div class="col-8 partner-row-header-1">
 
                 <?php
                 if (pll_current_language('slug') == 'vi') {
-                    echo 'Showcase logo của đối tác';
+                    echo 'Đối tác Công tư';
                 }
                 if (pll_current_language('slug') == 'en') {
-                    echo 'We work with the best Partners';
+                    echo 'Public-Private Partnership';
                 }
                 ?>
 
             </div>
         </div>
 
-        <div id="msi-partner-logo-carousel" class="slider slider-nav">
-            <?php if (get_field('partner_logo_list', pll_current_language('slug'))) : ?>
-                <?php while (the_repeater_field('partner_logo_list', pll_current_language('slug'))) : ?>
+        <div id="msi-partner-logo-carousel-3" class="slider slider-nav">
+            <?php if (get_field('partner_logo_list_3', pll_current_language('slug'))) : ?>
+                <?php while (the_repeater_field('partner_logo_list_3', pll_current_language('slug'))) : ?>
+                    <div>
+                        <div class="os-slider-nav-img-container">
+                            <img class="os-slider-nav-img" src="<?php echo get_sub_field('logo_image'); ?>" alt="Partner logo" />
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
+
+         <div class="row partner-row-header" id="msiPartnerLogo4">
+            <div class="col-8 partner-row-header-1">
+
+                <?php
+                if (pll_current_language('slug') == 'vi') {
+                    echo 'Đối tác Doanh nghiệp';
+                }
+                if (pll_current_language('slug') == 'en') {
+                    echo 'Business Partner';
+                }
+                ?>
+
+            </div>
+        </div>
+
+        <div id="msi-partner-logo-carousel-4" class="slider slider-nav">
+            <?php if (get_field('partner_logo_list_4', pll_current_language('slug'))) : ?>
+                <?php while (the_repeater_field('partner_logo_list_4', pll_current_language('slug'))) : ?>
+                    <div>
+                        <div class="os-slider-nav-img-container">
+                            <img class="os-slider-nav-img" src="<?php echo get_sub_field('logo_image'); ?>" alt="Partner logo" />
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
+
+         <div class="row partner-row-header" id="msiPartnerLogo5">
+            <div class="col-8 partner-row-header-1">
+
+                <?php
+                if (pll_current_language('slug') == 'vi') {
+                    echo 'Đối tác Quốc tế';
+                }
+                if (pll_current_language('slug') == 'en') {
+                    echo 'Global Partner';
+                }
+                ?>
+
+            </div>
+        </div>
+
+        <div id="msi-partner-logo-carousel-5" class="slider slider-nav">
+            <?php if (get_field('partner_logo_list_5', pll_current_language('slug'))) : ?>
+                <?php while (the_repeater_field('partner_logo_list_5', pll_current_language('slug'))) : ?>
+                    <div>
+                        <div class="os-slider-nav-img-container">
+                            <img class="os-slider-nav-img" src="<?php echo get_sub_field('logo_image'); ?>" alt="Partner logo" />
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
+
+         <div class="row partner-row-header" id="msiPartnerLogo6">
+            <div class="col-8 partner-row-header-1">
+
+                <?php
+                if (pll_current_language('slug') == 'vi') {
+                    echo 'Đối tác Tổ chức Xã hội Dân sự (CSO)';
+                }
+                if (pll_current_language('slug') == 'en') {
+                    echo 'Partner Civil Society Organization (CSO)';
+                }
+                ?>
+
+            </div>
+        </div>
+
+        <div id="msi-partner-logo-carousel-6" class="slider slider-nav">
+            <?php if (get_field('partner_logo_list_6', pll_current_language('slug'))) : ?>
+                <?php while (the_repeater_field('partner_logo_list_6', pll_current_language('slug'))) : ?>
                     <div>
                         <div class="os-slider-nav-img-container">
                             <img class="os-slider-nav-img" src="<?php echo get_sub_field('logo_image'); ?>" alt="Partner logo" />
@@ -150,9 +220,6 @@
     }
 
     .os-slider-nav-img {
-        /* width: 204px;
-        height: 101px; */
-        /* border-radius: 16px; */
     }
 
     .slick-dots li button:before {
@@ -266,26 +333,5 @@
             gap: 0px;
             border-radius: 7.64px;
         }
-
-        /* .os-slider-nav-img {
-            width: 97.37px;
-            height: 48.69px;
-            gap: 0px;
-            border-radius: 7.64px;
-        } */
     }
-
-    /* .mask_group_partner {
-        position: absolute;
-        right: 0px;
-        display: flex;
-        align-items: end;
-    } */
-     #msi-partner-logo-carousel-2 .slick-list{
-        display: flex;
-        justify-content: center;
-     }
-     #msi-partner-logo-carousel-2 .slick-slider{
-        margin-bottom: 40px !important;
-     }
 </style>
