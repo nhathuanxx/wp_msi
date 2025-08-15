@@ -1,4 +1,4 @@
-<div class="os-partner-container">
+<div class="os-partner-container" id="msiPartnerLogo">
 
     <!-- <div class="mask_group_partner">
         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/os/mask_group_partner.svg'); ?>">

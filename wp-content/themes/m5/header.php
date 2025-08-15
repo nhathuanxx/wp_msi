@@ -477,9 +477,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<a href="javascript:;"
 						class="header__book font-size-16 font-weight-bold book-calendar btn-box-shadow btn-h50 btn-i-lg-12 text-uppercase">
 						<?php if ($lang === 'vi') : ?>
-							ĐẶT LỊCH
+							LIÊN HỆ
 						<?php else : ?>
-							BOOK APPOINTMENT
+							CONTACT
 						<?php endif; ?>
 						<img class="arrow-custom-menu" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/arrow-custom-menu.svg" alt="arrow-custom-menu">
 					</a>

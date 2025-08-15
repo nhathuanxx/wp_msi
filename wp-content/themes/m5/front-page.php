@@ -6,7 +6,7 @@ get_header(); ?>
 
 <main class="main-content home-page">
     <div class="slider-main home-banner">
-        <div class="sun-slider" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "fade": true, "dots": false, "autoplay": true, "infinite": true, "autoplaySpeed": 5000}'>
+        <div class="sun-slider" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "fade": true, "dots": false, "autoplay": true, "infinite": true, "autoplaySpeed": 3000}'>
             <?php if (get_field('banner', pll_current_language('slug'))) : ?>
                 <?php while (the_repeater_field('banner', pll_current_language('slug'))) :
                 ?>
@@ -15,9 +15,9 @@ get_header(); ?>
                             <a href="<?php echo get_sub_field('cta_link', pll_current_language('slug')); ?>">
                                 <!-- <img src="<?php //echo get_sub_field('banner_image'); 
                                                 ?>" alt="slider banner"> -->
-                            
-                                    <img class="home_slider_banner_desktop" src="<?php echo get_sub_field('banner_image', pll_current_language('slug')); ?>" alt="slider banner">
-                            
+
+                                <img class="home_slider_banner_desktop" src="<?php echo get_sub_field('banner_image', pll_current_language('slug')); ?>" alt="slider banner">
+
                             </a>
                         </figure>
 
@@ -26,7 +26,7 @@ get_header(); ?>
             <?php endif; ?>
 
         </div>
-                            <img id="scrollBannerBtn" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiMyODM1NzMiLz4KPHBhdGggZD0iTTQwIDMyVjQ4TTQwIDQ4TDQ2IDQyTTQwIDQ4TDM0IDQyIiBzdHJva2U9IiNENkU3RjciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=" alt="Cuộn xuống" class="scroll-down-arrow">
+        <img id="scrollBannerBtn" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiMyODM1NzMiLz4KPHBhdGggZD0iTTQwIDMyVjQ4TTQwIDQ4TDQ2IDQyTTQwIDQ4TDM0IDQyIiBzdHJva2U9IiNENkU3RjciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=" alt="Cuộn xuống" class="scroll-down-arrow">
 
         <div class="banner-home-page-content-left">
             <div class="banner-title">
@@ -588,27 +588,31 @@ get_header(); ?>
         </div>
     </div> -->
     <!-- <?php require get_template_directory() . '/template-parts/address.php'; ?> -->
-     <div class="accordion-group">
-  <h2>Y tế từ xa</h2>
-  <div class="accordion-item">
-    <button class="accordion-header">Y tế từ xa</button>
-    <div class="accordion-content">
-      <p>Nội dung Y tế từ xa...</p>
+    <!-- <div class="accordion-group">
+        <h2>Y tế từ xa</h2>
+        <div class="accordion-item">
+            <button class="accordion-header">Y tế từ xa</button>
+            <div class="accordion-content">
+                <p>Nội dung Y tế từ xa...</p>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<div class="accordion-group">
-  <h2>Xử lý dữ liệu về bạn</h2>
-  <div class="accordion-item">
-    <button class="accordion-header">Chúng tôi thu thập thông tin gì?</button>
-    <div class="accordion-content"><p>Nội dung...</p></div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-header">Chúng tôi thu thập thông tin ở đâu?</button>
-    <div class="accordion-content"><p>Nội dung...</p></div>
-  </div>
-</div>
+    <div class="accordion-group">
+        <h2>Xử lý dữ liệu về bạn</h2>
+        <div class="accordion-item">
+            <button class="accordion-header">Chúng tôi thu thập thông tin gì?</button>
+            <div class="accordion-content">
+                <p>Nội dung...</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <button class="accordion-header">Chúng tôi thu thập thông tin ở đâu?</button>
+            <div class="accordion-content">
+                <p>Nội dung...</p>
+            </div>
+        </div>
+    </div> -->
 </main>
 
 <?php get_footer(); ?>
@@ -1008,6 +1012,15 @@ get_header(); ?>
 <script>
     document.getElementById('scrollBannerBtn').addEventListener('click', function() {
         document.getElementById('homeServiceContainer').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+</script>
+<script>
+document.querySelector('a[href="#msiPartnerLogo"]')
+    .addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById('msiPartnerLogo').scrollIntoView({
             behavior: 'smooth'
         });
     });
