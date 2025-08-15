@@ -70,10 +70,21 @@ $tab_keys = array_keys($slugs[$lang]);
                 <?php foreach ($tab_keys as $key):
                     $slug = $slugs[$lang][$key];
                     $page = get_page_by_path($slug, OBJECT, 'page');
-                    if (!$page) continue;
 
-                    $thumb = get_the_post_thumbnail_url($page->ID, 'medium') ?: 'https://via.placeholder.com/400x250?text=No+Image';
-                    $desc = wp_trim_words(strip_tags($page->post_content), 20, '...');
+                    // Lấy thumbnail hoặc ảnh mặc định
+                    $thumb = '';
+                    if ($page instanceof WP_Post) {
+                        $thumb = get_the_post_thumbnail_url($page->ID, 'medium');
+                    }
+                    if (!$thumb) {
+                        $thumb = get_template_directory_uri() . '/assets/images/msi/phong-kham-gan-ban.jpg';
+                    }
+
+                    // Lấy mô tả ngắn hoặc rỗng
+                    $desc = '';
+                    if ($page instanceof WP_Post) {
+                        $desc = wp_trim_words(strip_tags($page->post_content), 20, '...');
+                    }
                 ?>
                     <div class="msi-grid-card" data-tab="<?php echo esc_attr($key); ?>">
                         <div class="msi-grid-thumb" style="background-image:url('<?php echo esc_url($thumb); ?>')"></div>
@@ -173,6 +184,8 @@ $tab_keys = array_keys($slugs[$lang]);
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 20px;
+        justify-items: center;
+        /* Center card giữa grid */
     }
 
     .msi-grid-card {
@@ -184,6 +197,9 @@ $tab_keys = array_keys($slugs[$lang]);
         display: flex;
         flex-direction: column;
         transition: box-shadow .2s;
+        max-width: 300px;
+        /* Giới hạn chiều rộng để card đẹp hơn */
+        width: 100%;
     }
 
     .msi-grid-card:hover {
@@ -194,6 +210,7 @@ $tab_keys = array_keys($slugs[$lang]);
         background-size: cover;
         background-position: center;
         height: 150px;
+        width: 100%;
     }
 
     .msi-grid-body {
