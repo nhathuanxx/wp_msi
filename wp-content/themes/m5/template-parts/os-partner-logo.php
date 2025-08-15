@@ -13,12 +13,37 @@
         <!-- <div class="home__title">
             <h2>Đối tác MSI</h2>
         </div> -->
+         <div class="row partner-row-header">
+            <div class="col-8 partner-row-header-1">
+
+                <?php
+                if (pll_current_language('slug') == 'vi') {
+                    echo 'Đối tác chiến lược';
+                }
+                if (pll_current_language('slug') == 'en') {
+                    echo 'Strategic Partners';
+                }
+                ?>
+
+            </div>
+        </div>
+             <div id="msi-partner-logo-carousel-2" class="slider slider-nav">
+            <?php if (get_field('partner_logo_list_2', pll_current_language('slug'))) : ?>
+                <?php while (the_repeater_field('partner_logo_list_2', pll_current_language('slug'))) : ?>
+                    <div>
+                        <div class="os-slider-nav-img-container">
+                            <img class="os-slider-nav-img" src="<?php echo get_sub_field('logo_image'); ?>" alt="Partner logo" />
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
         <div class="row partner-row-header">
             <div class="col-8 partner-row-header-1">
 
                 <?php
                 if (pll_current_language('slug') == 'vi') {
-                    echo 'Chúng tôi làm việc với những đối tác tốt nhất';
+                    echo 'Showcase logo của đối tác';
                 }
                 if (pll_current_language('slug') == 'en') {
                     echo 'We work with the best Partners';
@@ -39,6 +64,7 @@
                 <?php endwhile; ?>
             <?php endif; ?>
         </div>
+    
     </div>
 </div>
 <style>
@@ -51,11 +77,11 @@
     }
 
     .os-partner-content {
-        padding: 60px 24px;
+        padding: 80px 24px;
     }
 
     .partner-row-header {
-        padding-bottom: 80px;
+        padding-bottom: 40px;
     }
 
     .partner-row-header {
@@ -255,4 +281,11 @@
         display: flex;
         align-items: end;
     } */
+     #msi-partner-logo-carousel-2 .slick-list{
+        display: flex;
+        justify-content: center;
+     }
+     #msi-partner-logo-carousel-2 .slick-slider{
+        margin-bottom: 40px !important;
+     }
 </style>

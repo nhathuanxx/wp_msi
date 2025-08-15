@@ -7576,7 +7576,11 @@ a.active {
   align-items: center;
   border-radius: 16px;
   background-size: cover;
+    overflow: hidden;
+
   position: relative;
+    background-position:center ;
+
 }
 
 .home-service-top-right {
@@ -7586,8 +7590,11 @@ a.active {
   justify-content: center;
   align-items: center;
   border-radius: 16px;
+  overflow: hidden;
   background-size: cover;
   position: relative;
+    background-position:center ;
+
 }
 
 .home-service-bottom {
@@ -7596,7 +7603,10 @@ a.active {
   align-items: center;
   border-radius: 16px;
   background-size: cover;
+  background-position:center ;
   width: 100%;
+    overflow: hidden;
+
   background-repeat: no-repeat;
   min-height: 252px;
   position: relative;
@@ -10093,7 +10103,7 @@ p {
 }
 
 /* responsive */
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
   .contact-container {
     padding-left: 24px;
     padding-right: 24px;

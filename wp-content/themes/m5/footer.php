@@ -486,64 +486,118 @@
     });
 </script>
 <script>
-    jQuery(document).ready(function($) {
-        // Đóng tất cả menu
-        function closeAllMenus() {
-            $('.menu-toggle').removeClass('active');
-            $('.menu-item-2').slideUp();
-            $('.menu-toggle').removeClass('active');
-            $('.menu-item-2').css('display', 'none')
-                .find('.menu-description, .submenu').css('display', 'none');
-        }
+jQuery(function ($) {
+  const CLOSE_DELAY = 300;
+  const TOP_OFFSET  = 218;
+  const panels = {};
+  const timers = {};
+  const subTimers = {};
 
-        // Mở menu tương ứng
-        $('.custom-menu > .menu-item > .menu-item-1 > .menu-toggle').on('click', function(e) {
-            const $this = $(this);
-            const $menuItem1 = $this.closest('.menu-item-1');
-            const menuId = $menuItem1.data('menu-id');
-            const $menu2 = $('.menu-item-2[data-menu-id="' + menuId + '"]');
-
-            const isOpen = $this.hasClass('active');
-
-            closeAllMenus();
-
-            if (!isOpen) {
-                // Set lại vị trí top
-                const offset = $menuItem1.offset();
-                const height = $menuItem1.outerHeight();
-                const top = offset.top + height;
-                $menu2.css({
-                    top: 218 + 'px',
-                    display: 'flex'
-                });
-                $menu2.find('.menu-description, .submenu').css('display', 'block');
-
-                $this.addClass('active');
-                $menu2.stop(true, true).slideDown();
-            }
-        });
-
-        // Toggle cấp 2 (submenu-item)
-        $('.submenu').on('click', '.menu-toggle', function() {
-            const $this = $(this);
-            const $item = $this.closest('.submenu-item');
-
-            $item.siblings('.submenu-item').removeClass('open')
-                .find('.submenu-lv3').slideUp()
-                .end().find('.menu-toggle').removeClass('active');
-
-            $item.toggleClass('open');
-            $item.find('.submenu-lv3').first().slideToggle();
-            $this.toggleClass('active');
-        });
-
-        // Active link thường
-        $('.custom-menu a').on('click', function() {
-            $('.custom-menu a').removeClass('active');
-            $(this).addClass('active');
-            closeAllMenus();
-        });
+  function cancelClose(id) {
+    if (timers[id]) { clearTimeout(timers[id]); timers[id] = null; }
+  }
+  function scheduleClose(id) {
+    cancelClose(id);
+    timers[id] = setTimeout(function () {
+      const p = panels[id];
+      if (!p) return;
+      p.$btn.removeClass('active');
+      p.$panel.stop(true, true).slideUp(200);
+    }, CLOSE_DELAY);
+  }
+  function closeAllExcept(keepId) {
+    $.each(panels, function (id, p) {
+      if (id === keepId) return;
+      cancelClose(id);
+      p.$btn.removeClass('active');
+      p.$panel.stop(true, true).slideUp(200);
     });
+  }
+  function openPanel(id) {
+    const p = panels[id];
+    if (!p) return;
+    closeAllExcept(id);
+    p.$btn.addClass('active');
+    p.$panel.css({ top: TOP_OFFSET + 'px' })
+      .stop(true, true).slideDown(200);
+    p.$panel.find('.menu-description, .submenu').show();
+  }
+
+  // Ghép menu cấp 1 và panel cấp 2
+  $('.menu-item-1[data-menu-id]').each(function () {
+    const id = $(this).data('menu-id');
+    const $panel = $(`.menu-item-2[data-menu-id="${id}"]`);
+    if ($panel.length) {
+      $panel.hide(); // Ẩn mặc định
+      panels[id] = { $btn: $(this), $panel };
+    }
+  });
+
+  // Hover cấp 1
+  $.each(panels, function (id, p) {
+    p.$btn.on('mouseenter', function () { cancelClose(id); openPanel(id); });
+    p.$btn.on('mouseleave', function () { scheduleClose(id); });
+    p.$panel.on('mouseenter', function () { cancelClose(id); });
+    p.$panel.on('mouseleave', function () { scheduleClose(id); });
+  });
+
+  // Hover cấp 2 → cấp 3
+  $('.custom-menu').on('mouseenter', '.submenu-item', function () {
+    const $item = $(this);
+    const $lv3  = $item.children('.submenu-lv3');
+
+    $item.siblings('.submenu-item')
+      .removeClass('open')
+      .children('.submenu-lv3').stop(true, true).slideUp(200);
+
+    if ($lv3.length) {
+      $item.addClass('open');
+      $lv3.stop(true, true).slideDown(200);
+    }
+  });
+
+  $('.custom-menu').on('mouseleave', '.submenu-item', function () {
+    const $item = $(this);
+    const $lv3  = $item.children('.submenu-lv3');
+    if ($lv3.length) {
+      subTimers[$item.index()] = setTimeout(function () {
+        $item.removeClass('open');
+        $lv3.stop(true, true).slideUp(200);
+      }, CLOSE_DELAY);
+    }
+  });
+
+  // Khi trỏ vào menu cấp 3 thì giữ cấp 2 mở
+  $('.custom-menu').on('mouseenter', '.submenu-lv3', function () {
+    const $parentItem = $(this).closest('.submenu-item');
+    clearTimeout(subTimers[$parentItem.index()]);
+  });
+  $('.custom-menu').on('mouseleave', '.submenu-lv3', function () {
+    const $parentItem = $(this).closest('.submenu-item');
+    subTimers[$parentItem.index()] = setTimeout(function () {
+      $parentItem.removeClass('open');
+      $parentItem.children('.submenu-lv3').stop(true, true).slideUp(200);
+    }, CLOSE_DELAY);
+  });
+
+  // Tắt click-toggle cũ
+  $('.custom-menu > .menu-item > .menu-item-1 > .menu-toggle').off('click');
+  $('.submenu').off('click', '.menu-toggle');
+  $('.custom-menu').on('click', '.menu-toggle', function (e) { e.preventDefault(); e.stopPropagation(); });
+
+  // Click ra ngoài -> đóng tất cả
+  $(document).on('click', function (e) {
+    if ($(e.target).closest('.custom-menu').length === 0) {
+      $.each(panels, function (id, p) {
+        cancelClose(id);
+        p.$btn.removeClass('active');
+        p.$panel.stop(true, true).slideUp(200);
+      });
+      $('.submenu-item.open').removeClass('open')
+        .children('.submenu-lv3').stop(true, true).slideUp(200);
+    }
+  });
+});
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {

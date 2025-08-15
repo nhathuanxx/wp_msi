@@ -395,7 +395,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<?php if ($has_lv2 || $description): ?>
 									<div class="menu-item-2" data-menu-id="<?= esc_attr($slug); ?>" style="display:none">
 										<div class="menu-item-2-content">
-											<?php if ($description): ?>
+											<?php
+											 if ($description): ?>
 												<div class="menu-description">
 													<div class="title">
 														<?= esc_html($title); ?>
@@ -406,7 +407,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 													</div>
 
 													<div class="read-more">
-														<a href="<?= esc_url("$base_url/$slug"); ?>"><?php if ($lang === 'vi') : ?>
+														<a href="<?= esc_url("$link"); ?>"><?php if ($lang === 'vi') : ?>
 																Đọc thêm <?php else : ?>
 																Read more
 															<?php endif; ?></a>
