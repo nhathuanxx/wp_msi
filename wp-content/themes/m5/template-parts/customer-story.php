@@ -247,7 +247,7 @@ if ($query->have_posts()) : ?>
     .customer-story-slide-content a:hover {
         background-color: white !important;
         color: #283573 !important;
-        border: 1px solid #283573 !important;
+        /* border: 1px solid #283573 !important; */
     }
 
     .customer-story-slide-content p {
