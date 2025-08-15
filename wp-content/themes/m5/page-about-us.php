@@ -1,53 +1,52 @@
 <?php
-/*
- * Template Name: About Us Tabs (PHP in foreach)
+/* 
+ * Template Name: About Us Tabs (with default grid view)
  */
 get_header();
 
 // Ngôn ngữ hiện tại (Polylang)
 $lang = function_exists('pll_current_language') ? pll_current_language('slug') : 'vi';
 
-// Slug page theo ngôn ngữ (cập nhật nếu cần)
+// Slug page theo ngôn ngữ
 $slugs = [
     'vi' => [
-        'tam-nhin'        => 'tam-nhin',
-        'su-menh'         => 'su-menh',
-        'gia-tri-cot-loi' => 'gia-tri-cot-loi',
-        'co-cau-to-chuc'  => 'co-cau-to-chuc',
-        'co-so-cua-nic'   => 'co-so-cua-nic',
+        'tam-nhin'         => 'tam-nhin',
+        'su-menh'          => 'su-menh',
+        'gia-tri-cot-loi'  => 'gia-tri-cot-loi',
+        'co-cau-to-chuc'   => 'co-cau-to-chuc',
+        'co-so-cua-nic'    => 'co-so-cua-nic',
     ],
     'en' => [
-        'tam-nhin'        => 'vision',
-        'su-menh'         => 'mission',
-        'gia-tri-cot-loi' => 'core-values',
-        'co-cau-to-chuc'  => 'organization',
-        'co-so-cua-nic'   => 'nic-facility',
+        'tam-nhin'         => 'vision',
+        'su-menh'          => 'mission',
+        'gia-tri-cot-loi'  => 'core-values',
+        'co-cau-to-chuc'   => 'organization',
+        'co-so-cua-nic'    => 'nic-facility',
     ]
 ];
 
 // Tiêu đề tab theo ngôn ngữ
 $titles = [
     'vi' => [
-        'tam-nhin'        => 'Tầm nhìn',
-        'su-menh'         => 'Sứ mệnh',
-        'gia-tri-cot-loi' => 'Giá trị cốt lõi',
-        'co-cau-to-chuc'  => 'Cơ cấu tổ chức',
-        'co-so-cua-nic'   => 'Cơ sở của NIC',
+        'tam-nhin'         => 'Tầm nhìn',
+        'su-menh'          => 'Sứ mệnh',
+        'gia-tri-cot-loi'  => 'Giá trị cốt lõi',
+        'co-cau-to-chuc'   => 'Cơ cấu tổ chức',
+        'co-so-cua-nic'    => 'Cơ sở của NIC',
     ],
     'en' => [
-        'tam-nhin'        => 'Vision',
-        'su-menh'         => 'Mission',
-        'gia-tri-cot-loi' => 'Core Values',
-        'co-cau-to-chuc'  => 'Organization',
-        'co-so-cua-nic'   => 'NIC Facility',
+        'tam-nhin'         => 'Vision',
+        'su-menh'          => 'Mission',
+        'gia-tri-cot-loi'  => 'Core Values',
+        'co-cau-to-chuc'   => 'Organization',
+        'co-so-cua-nic'    => 'NIC Facility',
     ]
 ];
 
-$tab_keys = array_keys($slugs[$lang]); // giữ thứ tự theo mảng slugs
+$tab_keys = array_keys($slugs[$lang]);
 ?>
 
 <div class="about-us-page">
-
     <!-- Breadcrumb -->
     <nav class="msi-breadcrumb" aria-label="Breadcrumb">
         <a href="<?php echo esc_url(home_url('/')); ?>">
@@ -58,82 +57,71 @@ $tab_keys = array_keys($slugs[$lang]); // giữ thứ tự theo mảng slugs
             <?php echo ($lang === 'vi') ? 'Về chúng tôi' : 'About Us'; ?>
         </a>
         <span>›</span>
-        <span id="msi-breadcrumb-tab"><?php echo esc_html($titles[$lang][$tab_keys[0]]); ?></span>
+        <span id="msi-breadcrumb-tab"></span>
     </nav>
 
     <div class="msi-tab-container">
-
-        <!-- Content bên trái -->
+        <!-- Content -->
         <main class="msi-tab-content" role="main">
-            <h2 id="msi-tab-title"><?php echo esc_html($titles[$lang][$tab_keys[0]]); ?></h2>
+            <h2 id="msi-tab-title"></h2>
+
+            <!-- Section mặc định: grid ô chọn -->
+            <div id="msi-default-grid" class="msi-grid">
+                <?php foreach ($tab_keys as $key):
+                    $slug = $slugs[$lang][$key];
+                    $page = get_page_by_path($slug, OBJECT, 'page');
+                    if (!$page) continue;
+
+                    $thumb = get_the_post_thumbnail_url($page->ID, 'medium') ?: 'https://via.placeholder.com/400x250?text=No+Image';
+                    $desc = wp_trim_words(strip_tags($page->post_content), 20, '...');
+                ?>
+                    <div class="msi-grid-card" data-tab="<?php echo esc_attr($key); ?>">
+                        <div class="msi-grid-thumb" style="background-image:url('<?php echo esc_url($thumb); ?>')"></div>
+                        <div class="msi-grid-body">
+                            <h3><?php echo esc_html($titles[$lang][$key]); ?></h3>
+                            <p><?php echo esc_html($desc); ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
 
             <?php foreach ($tab_keys as $index => $key): ?>
-                <section id="<?php echo esc_attr($key); ?>" class="msi-tab-pane<?php echo $index === 0 ? ' active' : ''; ?>">
+                <section id="<?php echo esc_attr($key); ?>" class="msi-tab-pane">
                     <?php
-                    // === Ở đây bạn có thể paste trực tiếp PHP + HTML cho tab mong muốn ===
-                    // Ví dụ: nếu tab là 'co-cau-to-chuc' thì render custom PHP/HTML
                     if ($key === 'co-cau-to-chuc'):
-
-                        // Ví dụ minh họa: bạn có thể paste code PHP/HTML thật của bạn vào đây
-                        if ($lang === 'vi'):
-                    ?>
-                            <!-- === CUSTOM PHP/HTML (VI) - bạn paste vào chỗ này === -->
+                        if ($lang === 'vi'): ?>
+                            <!-- CUSTOM VI -->
                             <div class="msi-intro-section">
                                 <div class="msi-intro-left">
-                                    <h3 class="msi-intro-title">GIỚI THIỆU CHUNG (Ví dụ custom PHP)</h3>
-                                    <p>Đây là nội dung custom cho <strong>Cơ cấu tổ chức</strong> (tiếng Việt). Bạn có thể dán
-                                        trực tiếp HTML &amp; PHP tại đây.</p>
-                                    <a class="msi-intro-btn" href="<?php echo esc_url(site_url('ve-chung-toi')); ?>">XEM THÊM</a>
+                                    <h3 class="msi-intro-title">GIỚI THIỆU CHUNG</h3>
+                                    <p>Custom content cho <strong>Cơ cấu tổ chức</strong>.</p>
                                 </div>
                                 <div class="msi-intro-right">
-                                    <?php
-                                    // Ví dụ thực thi shortcode
-                                    echo do_shortcode('[msi_circle size="220" target="200" initial_rotation="160" text="Đối tác"]');
-                                    ?>
+                                    <?php echo do_shortcode('[msi_circle size="220" target="200" initial_rotation="160" text="Đối tác"]'); ?>
                                 </div>
                             </div>
-                            <!-- === END CUSTOM === -->
-                        <?php
-                        else:
-                        ?>
-                            <!-- === CUSTOM (EN) === -->
+                        <?php else: ?>
+                            <!-- CUSTOM EN -->
                             <div class="msi-intro-section">
-                                <div class="msi-intro-left">
-                                    <h3 class="msi-intro-title">Organization (example)</h3>
-                                    <p>Custom HTML/PHP for <strong>Organization</strong> (English).</p>
-                                </div>
+                                <h3 class="msi-intro-title">Organization</h3>
+                                <p>Custom EN content for Organization.</p>
                             </div>
-                            <!-- === END CUSTOM === -->
-                        <?php
-                        endif;
+                        <?php endif;
 
-                    // Custom khác: co-so-cua-nic
                     elseif ($key === 'co-so-cua-nic'):
-
                         if ($lang === 'vi'):
-                        ?>
-                            <!-- === CUSTOM (VI) for co-so-cua-nic === -->
-                            <?php require get_template_directory() . '/template-parts/general-introduction.php'; ?>
-
-                            <!-- === END CUSTOM === -->
-                        <?php
-                        else:
-                        ?>
-                            <!-- === CUSTOM (EN) for nic-facility === -->
+                            require get_template_directory() . '/template-parts/general-introduction.php';
+                        else: ?>
                             <div class="custom-facility">
                                 <h3>NIC Facility — (Custom)</h3>
-                                <p>Custom content for NIC Facility (English).</p>
+                                <p>Custom EN NIC Facility content.</p>
                             </div>
-                            <!-- === END CUSTOM === -->
-                    <?php
-                        endif;
+                    <?php endif;
 
-                    // Mặc định: lấy content từ Page theo slug
                     else:
                         $slug = $slugs[$lang][$key] ?? '';
                         $page = $slug ? get_page_by_path($slug, OBJECT, 'page') : null;
                         if ($page instanceof WP_Post) {
-                            // Render content (shortcode, block, filters preserved)
                             echo apply_filters('the_content', $page->post_content);
                         } else {
                             echo '<p style="color:#c00;">Không tìm thấy trang: ' . esc_html($slug) . '</p>';
@@ -144,26 +132,23 @@ $tab_keys = array_keys($slugs[$lang]); // giữ thứ tự theo mảng slugs
             <?php endforeach; ?>
         </main>
 
-        <!-- Tabs bên phải -->
+        <!-- Tabs sidebar -->
         <aside class="msi-tab-sidebar" aria-label="Tabs">
             <ul>
                 <?php foreach ($tab_keys as $i => $key): ?>
                     <li>
-                        <a href="#<?php echo esc_attr($key); ?>"
-                            data-title="<?php echo esc_attr($titles[$lang][$key]); ?>"
-                            class="<?php echo $i === 0 ? 'active' : ''; ?>">
+                        <a href="#<?php echo esc_attr($key); ?>" data-title="<?php echo esc_attr($titles[$lang][$key]); ?>">
                             <?php echo esc_html($titles[$lang][$key]); ?>
                         </a>
                     </li>
                 <?php endforeach; ?>
             </ul>
         </aside>
-
     </div>
 </div>
 
 <style>
-    /* Basic layout */
+    /* Layout & breadcrumb */
     .about-us-page {
         padding: 20px;
     }
@@ -183,6 +168,54 @@ $tab_keys = array_keys($slugs[$lang]); // giữ thứ tự theo mảng slugs
         color: #666;
     }
 
+    /* Grid default view */
+    .msi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .msi-grid-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        transition: box-shadow .2s;
+    }
+
+    .msi-grid-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .msi-grid-thumb {
+        background-size: cover;
+        background-position: center;
+        height: 150px;
+    }
+
+    .msi-grid-body {
+        padding: 12px;
+    }
+
+    .msi-grid-body h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+    }
+
+    .msi-grid-body p {
+        margin: 0;
+        font-size: 14px;
+        color: #555;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    /* Tabs layout */
     .msi-tab-container {
         display: flex;
         gap: 24px;
@@ -237,11 +270,10 @@ $tab_keys = array_keys($slugs[$lang]); // giữ thứ tự theo mảng slugs
         display: block;
     }
 
-    /* Responsive: tabs lên trên */
-    @media (max-width: 992px) {
+    /* Responsive: sidebar lên trên */
+    @media (max-width:992px) {
         .msi-tab-container {
             flex-direction: column;
-            align-items: stretch;
         }
 
         .msi-tab-sidebar {
@@ -273,31 +305,7 @@ $tab_keys = array_keys($slugs[$lang]); // giữ thứ tự theo mảng slugs
         .msi-tab-sidebar a {
             white-space: nowrap;
             padding: 8px 12px;
-            display: inline-block;
         }
-
-        .msi-tab-content {
-            order: 0;
-        }
-    }
-
-    /* Small style for sample custom blocks (you can change) */
-    .msi-intro-section {
-        display: flex;
-        gap: 20px;
-        align-items: flex-start;
-    }
-
-    .msi-intro-left {
-        flex: 1;
-    }
-
-    .msi-intro-right {
-        width: 260px;
-    }
-
-    .msi-intro-title {
-        margin: 0 0 10px;
     }
 </style>
 
@@ -307,34 +315,30 @@ $tab_keys = array_keys($slugs[$lang]); // giữ thứ tự theo mảng slugs
         const panes = document.querySelectorAll('.msi-tab-pane');
         const titleEl = document.getElementById('msi-tab-title');
         const breadcrumbTab = document.getElementById('msi-breadcrumb-tab');
+        const defaultGrid = document.getElementById('msi-default-grid');
 
         function idFromLink(a) {
             return a.getAttribute('href').replace('#', '');
         }
 
         function activate(tabId) {
+            if (defaultGrid) defaultGrid.style.display = 'none';
             const pane = document.getElementById(tabId);
             const link = document.querySelector('.msi-tab-sidebar a[href="#' + CSS.escape(tabId) + '"]');
             if (!pane || !link) return;
-
             links.forEach(a => a.classList.remove('active'));
             panes.forEach(p => p.classList.remove('active'));
-
             link.classList.add('active');
             pane.classList.add('active');
-
-            // cập nhật tiêu đề & breadcrumb
             if (titleEl && link.dataset.title) titleEl.textContent = link.dataset.title;
             if (breadcrumbTab && link.dataset.title) breadcrumbTab.textContent = link.dataset.title;
-
-            // ensure visible in sidebar
             link.scrollIntoView({
                 block: 'nearest',
                 inline: 'nearest'
             });
         }
 
-        // click tab (ở lại trang, dùng hash)
+        // click sidebar
         links.forEach(a => {
             a.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -344,12 +348,32 @@ $tab_keys = array_keys($slugs[$lang]); // giữ thứ tự theo mảng slugs
             });
         });
 
-        // init from hash or default first
+        // click grid card
+        if (defaultGrid) {
+            defaultGrid.querySelectorAll('.msi-grid-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const id = card.dataset.tab;
+                    history.pushState(null, '', '#' + id);
+                    activate(id);
+                });
+            });
+        }
+
+        // init
         function initFromHash() {
             const id = location.hash.replace('#', '');
-            if (id && document.getElementById(id)) activate(id);
-            else if (links[0]) activate(idFromLink(links[0]));
+            if (id && document.getElementById(id)) {
+                activate(id);
+            } else {
+                // hiển thị grid
+                if (defaultGrid) defaultGrid.style.display = 'grid';
+                titleEl.textContent = '';
+                breadcrumbTab.textContent = '';
+                panes.forEach(p => p.classList.remove('active'));
+                links.forEach(a => a.classList.remove('active'));
+            }
         }
+
         window.addEventListener('hashchange', initFromHash);
         initFromHash();
     });
