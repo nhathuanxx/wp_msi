@@ -967,6 +967,184 @@ function init()
  * Example for create Teams Post Type
  */
 add_filter('extra_post_types', 'k2_kinhdo_add_product');
+// ================= Shortcode MSI Circle Complete =================
+function msi_circle_shortcode($atts) {
+    $atts = shortcode_atts([
+        'size' => '240',
+        'target' => '1000',
+        'rotate_duration' => '2400',
+        'primary' => '#2d4ef5',
+        'ring' => '#e8ecf3',
+        'dot' => '#ff5449',
+        'text_color' => '#ffffff',
+        'text' => 'Đối tác trong Hệ sinh thái<br>Đổi mới Sáng tạo',
+        'initial_rotation' => '0'
+    ], $atts, 'msi_circle');
+
+    ob_start();
+    ?>
+    <div class="msi-circle-animation"
+         data-target="<?php echo esc_attr($atts['target']); ?>"
+         data-rotate-duration="<?php echo esc_attr($atts['rotate_duration']); ?>"
+         data-initial-rotation="<?php echo esc_attr($atts['initial_rotation']); ?>"
+         style="--size: <?php echo esc_attr($atts['size']); ?>px;
+                --primary: <?php echo esc_attr($atts['primary']); ?>;
+                --ring: <?php echo esc_attr($atts['ring']); ?>;
+                --dot: <?php echo esc_attr($atts['dot']); ?>;
+                --text: <?php echo esc_attr($atts['text_color']); ?>;">
+        <div class="msi-circle-animation-rotator" aria-hidden="true">
+            <span class="msi-circle-animation-dot"></span>
+        </div>
+        <div class="msi-circle-animation-ring ring-1" aria-hidden="true"></div>
+        <div class="msi-circle-animation-ring ring-2" aria-hidden="true"></div>
+        <div class="msi-circle-animation-inner">
+            <div class="msi-circle-animation-number">0</div>
+            <div class="msi-circle-animation-text"><?php echo $atts['text']; ?></div>
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('msi_circle', 'msi_circle_shortcode');
+
+
+// ================= Enqueue CSS + JS =================
+function msi_circle_enqueue_assets() {
+    // CSS
+    wp_add_inline_style('wp-block-library', '
+.msi-circle-animation{
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  margin: 0 auto;
+  transform: scale(.6);
+  opacity: 0;
+  transition: transform .6s cubic-bezier(.2,.8,.2,1), opacity .6s ease;
+}
+.msi-circle-animation.is-in{ transform: scale(1); opacity: 1; }
+
+.msi-circle-animation-ring{
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.msi-circle-animation .ring-1{ border: 2px solid var(--ring); transform: scale(1); }
+.msi-circle-animation .ring-2{ border: 2px solid var(--ring); opacity:.7; transform: scale(0.85); }
+
+.msi-circle-animation-rotator{
+  position: absolute; 
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+.msi-circle-animation-dot{
+  position: absolute;
+  top: calc(-0.058 * var(--size));
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(0.058 * var(--size));
+  height: calc(0.058 * var(--size));
+  background: var(--dot);
+  border-radius: 50%;
+  box-shadow: 0 0 0 calc(0.0125 * var(--size)) #fff;
+}
+
+.msi-circle-animation-inner{
+  position: absolute; inset: 0;
+  margin: auto;
+  width: calc(var(--size) * 0.7);
+  height: calc(var(--size) * 0.7);
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--text);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: calc(0.066 * var(--size));
+}
+.msi-circle-animation-number{
+  font-weight:700;
+  font-size: calc(var(--size)*0.16);
+  line-height:1.1;
+}
+.msi-circle-animation-text{
+  margin-top: calc(0.025 * var(--size));
+  font-weight:500;
+  font-size: calc(var(--size)*0.04);
+  line-height:1.4;
+  opacity:0.95;
+}
+');
+
+    // JS
+    wp_add_inline_script('jquery-core', '
+document.addEventListener("DOMContentLoaded", function(){
+  (function(){
+    const EASE_OUT_CUBIC = p => 1 - Math.pow(1 - p, 3);
+
+    function init(el){
+      const inView = () => el.classList.add("is-in");
+      if ("IntersectionObserver" in window){
+        new IntersectionObserver((entries, obs)=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting){ inView(); obs.disconnect(); }
+          });
+        }, {threshold: .3}).observe(el);
+      } else { inView(); }
+
+      const numberEl = el.querySelector(".msi-circle-animation-number");
+      const target = parseInt(el.getAttribute("data-target")||"1000", 10);
+      const countDuration = 1800;
+      let startCount = null;
+      function countUp(ts){
+        if(!startCount) startCount = ts;
+        const t = Math.min(1, (ts - startCount)/countDuration);
+        const eased = EASE_OUT_CUBIC(t);
+        const val = Math.round(target*eased);
+        numberEl.textContent = val.toLocaleString();
+        if(t<1) requestAnimationFrame(countUp);
+      }
+
+      const rotator = el.querySelector(".msi-circle-animation-rotator");
+      const rotateDuration = parseInt(el.getAttribute("data-rotate-duration")||"2400",10);
+      const initialRotation = parseFloat(el.getAttribute("data-initial-rotation")||"0");
+
+      // set ngay góc start để chấm đỏ đứng trên đỉnh
+      let startRotate = null;
+      let lastEasedAngle = 0;
+      let baseTurns = 0;
+
+      function spin(ts){
+        if(!startRotate) startRotate = ts;
+        const loopTime = (ts - startRotate) % rotateDuration;
+        const p = loopTime / rotateDuration;
+        const easedAngle = 360 * EASE_OUT_CUBIC(p);
+
+        // giữ baseTurns để không giật
+        if(easedAngle < lastEasedAngle) baseTurns += 360;
+        lastEasedAngle = easedAngle;
+
+        // tính góc thực tế: offset = -initialRotation để chấm đỏ lúc đầu đứng trên đỉnh
+        const angle = baseTurns + easedAngle - initialRotation;
+        rotator.style.transform = `rotate(${angle + initialRotation}deg)`;
+        requestAnimationFrame(spin);
+      }
+
+      const startWhenIn = () => {
+        if(el.classList.contains("is-in")){
+          requestAnimationFrame(countUp);
+          requestAnimationFrame(spin);
+        } else { requestAnimationFrame(startWhenIn); }
+      };
+      startWhenIn();
+    }
+
+    document.querySelectorAll(".msi-circle-animation").forEach(init);
+  })();
+});
+    ');
+}
+add_action('wp_enqueue_scripts', 'msi_circle_enqueue_assets');
 
 function k2_kinhdo_add_product($postypes)
 {   

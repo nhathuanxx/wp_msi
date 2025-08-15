@@ -74,86 +74,12 @@ get_header(); ?>
             </div>
         </div>
     </div>
-    <!-- <div class="banner-home-page">
-        <img class="background-banner-img background-banner-img-desktop" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner.jpg"
-            alt="hompage-banner">
-                <img class="background-banner-img background-banner-img-mobile" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner.png-tiny.webp"
-            alt="hompage-banner">
-        <div class="banner-home-page-content-wrapper">
-            <div class="banner-home-page-content">
-                <div class="banner-home-page-content-left">
-                    <div class="banner-title">
-                        <?php the_field('banner_description', pll_current_language('slug')); ?>
-                    </div>
-                    <?php
-                    $lang = pll_current_language('slug');
-
-                    $args = array(
-                        'post_type'      => 'post',
-                        'posts_per_page' => 6,
-                        'lang'           => $lang,
-                    );
-                    $latest_posts = new WP_Query($args);
-                    ?>
-
-                    <div class="dropdown">
-                        <div class="select">
-                            <p>
-                                <?php if ($lang === 'vi') : ?>
-                                    Bạn không biết nên bắt đầu từ đâu?
-                                <?php else : ?>
-                                    Not sure where to start?
-                                <?php endif; ?>
-                            </p>
-                        </div>
-                        <div class="options hide">
-                            <?php if ($latest_posts->have_posts()) : ?>
-                                <?php while ($latest_posts->have_posts()) : $latest_posts->the_post(); ?>
-                                    <div class="wp-block-msi-blocks-dropdown-option-uk">
-                                        <a href="<?php the_permalink(); ?>" target="_self" rel="noopener">
-                                            <p><?php the_title(); ?></p>
-                                        </a>
-                                    </div>
-                                <?php endwhile; ?>
-                                <?php wp_reset_postdata(); ?>
-                            <?php else : ?>
-                                <div class="wp-block-msi-blocks-dropdown-option-uk">
-                                    <p>
-                                        <?php echo ($lang === 'vi') ? 'Không có bài viết nào.' : 'No posts found.'; ?>
-                                    </p>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="banner-home-page-content-right">
-                    <img id="scrollBannerBtn" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiMyODM1NzMiLz4KPHBhdGggZD0iTTQwIDMyVjQ4TTQwIDQ4TDQ2IDQyTTQwIDQ4TDM0IDQyIiBzdHJva2U9IiNENkU3RjciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=" alt="Cuộn xuống" class="scroll-down-arrow">
-
-                    <?php
-                    $banner = get_field('banner', pll_current_language('slug'));
-                    echo "<script>console.log(" . json_encode($banner) . ");</script>";
-
-                    $banner1 = !empty($banner[0]['banner_image']) ? $banner[0]['banner_image'] : null;
-                    $banner2 = !empty($banner[1]['banner_image']) ? $banner[1]['banner_image'] : null;
-                    ?>
-
-                    <?php if ($banner1 || $banner2): ?>
-                        <?php if ($banner1): ?>
-                            <div class="banner-image-1">
-                                <img src="<?php echo esc_url($banner1); ?>" alt="banner-image-1">
-                            </div>
-                        <?php endif; ?>
-
-                        <?php if ($banner2): ?>
-                            <div class="banner-image-2">
-                                <img src="<?php echo esc_url($banner2); ?>" alt="banner-image-2">
-                            </div>
-                        <?php endif; ?>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
-    </div> -->
+    <!-- <?php require get_template_directory() . '/template-parts/circle-animation.php'; ?> -->
+<?php
+echo do_shortcode('[msi_circle size="150" target="3000" initial_rotation="0" text="Vòng 1"]');
+echo do_shortcode('[msi_circle size="200" target="3000" initial_rotation="120" text="Vòng 2"]');
+echo do_shortcode('[msi_circle size="500" target="3000" initial_rotation="240" text="Vòng 3"]');
+?>
     <div class="home-service-container" id="homeServiceContainer">
         <div class="home-service-content">
             <div class="home-service-title">
