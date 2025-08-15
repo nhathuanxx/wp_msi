@@ -35,7 +35,7 @@
                 <img class="nen-3" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/nen1.png"
                     alt="about-us-1">
                 <?php
-                echo do_shortcode('[msi_circle size="220" target="200" initial_rotation="160" text="Đối tác"]');
+                echo do_shortcode('[msi_circle size="220" target="200" initial_rotation="120" text="Đối tác"]');
                 ?>
             </div>
         </div>
@@ -44,7 +44,7 @@
                 <img class="nen-4" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/nen1.png"
                     alt="about-us-1">
                 <?php
-                echo do_shortcode('[msi_circle size="200" target="12" initial_rotation="280" text="Tỉnh thành"]');
+                echo do_shortcode('[msi_circle size="200" target="12" initial_rotation="240" text="Tỉnh thành"]');
                 ?>
             </div>
         </div>

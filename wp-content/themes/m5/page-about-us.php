@@ -14,14 +14,12 @@ $slugs = [
         'su-menh'          => 'su-menh',
         'gia-tri-cot-loi'  => 'gia-tri-cot-loi',
         'co-cau-to-chuc'   => 'co-cau-to-chuc',
-        'co-so-cua-nic'    => 'co-so-cua-nic',
     ],
     'en' => [
         'tam-nhin'         => 'vision',
         'su-menh'          => 'mission',
         'gia-tri-cot-loi'  => 'core-values',
         'co-cau-to-chuc'   => 'organization',
-        'co-so-cua-nic'    => 'nic-facility',
     ]
 ];
 
@@ -32,21 +30,20 @@ $titles = [
         'su-menh'          => 'Sứ mệnh',
         'gia-tri-cot-loi'  => 'Giá trị cốt lõi',
         'co-cau-to-chuc'   => 'Cơ cấu tổ chức',
-        'co-so-cua-nic'    => 'Cơ sở của NIC',
     ],
     'en' => [
         'tam-nhin'         => 'Vision',
         'su-menh'          => 'Mission',
         'gia-tri-cot-loi'  => 'Core Values',
         'co-cau-to-chuc'   => 'Organization',
-        'co-so-cua-nic'    => 'NIC Facility',
     ]
 ];
 
 $tab_keys = array_keys($slugs[$lang]);
 ?>
 
-<div class="about-us-page">
+<div class="about-us-page-container">
+    <div class="about-us-page">
     <!-- Breadcrumb -->
     <nav class="msi-breadcrumb" aria-label="Breadcrumb">
         <a href="<?php echo esc_url(home_url('/')); ?>">
@@ -63,7 +60,7 @@ $tab_keys = array_keys($slugs[$lang]);
     <div class="msi-tab-container">
         <!-- Content -->
         <main class="msi-tab-content" role="main">
-            <h2 id="msi-tab-title"></h2>
+            <!-- <h2 id="msi-tab-title"></h2> -->
 
             <!-- Section mặc định: grid ô chọn -->
             <div id="msi-default-grid" class="msi-grid">
@@ -157,11 +154,17 @@ $tab_keys = array_keys($slugs[$lang]);
         </aside>
     </div>
 </div>
+</div>
 
 <style>
     /* Layout & breadcrumb */
+     .about-us-page-container{
+        background: white;
+     }
     .about-us-page {
-        padding: 20px;
+        max-width: 1335px;
+        margin: 0px auto;
+        /* padding: 20px; */
     }
 
     .msi-breadcrumb {
@@ -181,56 +184,54 @@ $tab_keys = array_keys($slugs[$lang]);
 
     /* Grid default view */
     .msi-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-        justify-items: center;
-        /* Center card giữa grid */
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
 
-    .msi-grid-card {
-        background: #fff;
-        border: 1px solid #eee;
-        border-radius: 8px;
-        overflow: hidden;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        transition: box-shadow .2s;
-        max-width: 300px;
-        /* Giới hạn chiều rộng để card đẹp hơn */
-        width: 100%;
-    }
+/* Card chung */
+.msi-grid-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow .2s;
+    width: 100%;
+}
 
-    .msi-grid-card:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
+.msi-grid-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-    .msi-grid-thumb {
-        background-size: cover;
-        background-position: center;
-        height: 150px;
-        width: 100%;
-    }
+.msi-grid-thumb {
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+    width: 100%;
+}
 
-    .msi-grid-body {
-        padding: 12px;
-    }
+.msi-grid-body {
+    padding: 12px;
+}
 
-    .msi-grid-body h3 {
-        margin: 0 0 8px;
-        font-size: 18px;
-    }
+.msi-grid-body h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
 
-    .msi-grid-body p {
-        margin: 0;
-        font-size: 14px;
-        color: #555;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-    }
+.msi-grid-body p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
 
     /* Tabs layout */
     .msi-tab-container {
@@ -324,6 +325,37 @@ $tab_keys = array_keys($slugs[$lang]);
             padding: 8px 12px;
         }
     }
+    @media (min-width: 768px) {
+    .msi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Card đầu tiên to full width */
+    .msi-grid-card:first-child {
+        grid-column: span 2;
+    }
+
+    /* Chiều cao card đầu tiên lớn hơn */
+    .msi-grid-card:first-child .msi-grid-thumb {
+        height: 300px;
+    }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 767px) {
+    .msi-grid {
+        grid-template-columns: 1fr; /* 1 cột */
+    }
+
+    /* Card đầu tiên giống các card khác */
+    .msi-grid-card:first-child {
+        grid-column: auto;
+    }
+
+    .msi-grid-card:first-child .msi-grid-thumb {
+        height: 150px;
+    }
+}
 </style>
 
 <script>
