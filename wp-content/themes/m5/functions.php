@@ -1115,7 +1115,9 @@ document.addEventListener("DOMContentLoaded", function(){
       let baseTurns = 0;
 
       function spin(ts){
-        if(!startRotate) startRotate = ts;
+        if(!startRotate){
+            startRotate = ts - Math.random() * rotateDuration;
+        }
         const loopTime = (ts - startRotate) % rotateDuration;
         const p = loopTime / rotateDuration;
         const easedAngle = 360 * EASE_OUT_CUBIC(p);

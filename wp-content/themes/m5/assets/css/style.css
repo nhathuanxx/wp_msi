@@ -10947,7 +10947,8 @@ p {
     }
 
     .msi-intro-title {
-        font-size: 22px;
+        font-size: 28px;
+        line-height: 38px;
         font-weight: 800;
         color: #283573;
         margin-bottom: 20px;
@@ -10963,15 +10964,18 @@ p {
     }
 
     .msi-intro-btn {
-        display: inline-block;
-        padding: 10px 20px;
         border: 2px solid #283573;
         color: #283573;
         border-radius: 8px;
         text-decoration: none;
         font-weight: 600;
+        min-height: 54px;
         transition: all 0.3s ease;
         font-family: "Roboto", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 13px 32px;
     }
 
     .msi-intro-btn:hover {

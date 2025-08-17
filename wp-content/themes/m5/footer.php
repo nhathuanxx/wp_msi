@@ -171,6 +171,11 @@
                     </a>
                 </div>
             </div>
+            <div style="font-family:'Roboto',sans-serif; color:#283573; display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+
+
+
+</div>
             <?php if ( function_exists( 'pll_current_language' ) ): ?>
     <?php if ( pll_current_language('slug') === 'vi' ): ?>
         <div class="footer-bar-text">MSI Reproductive Choices tại Việt Nam.</div>
@@ -180,6 +185,21 @@
         <div class="footer-bar-text">Room 203-205, Building A1/298 Kim Ma Street, Van Phuc Diplomatic Compound, Ba Dinh, Hanoi, Vietnam.</div>
     <?php endif; ?>
 <?php endif; ?>
+  <div style="display:flex; gap:8px; align-items:center; font-family:'Roboto',sans-serif;">
+    <span style="font-size:14px; font-weight:400; color:#283573;">Hotline:</span>
+    <a  href="tel:1900558882" 
+       style="font-size:14px; font-weight:400; color:#283573; text-decoration:none;padding:0;line-height: 24px;">
+       1900 558882
+    </a>
+  </div>
+
+  <div style="display:flex; gap:8px; align-items:center;font-family:'Roboto',sans-serif;">
+    <span style="font-size:14px; font-weight:400; color:#283573;">Email:</span>
+    <a href="mailto:truyenthong@msichoices.org.vn" 
+       style="font-size:14px; font-weight:400; color:#283573; text-decoration:none;padding:0;line-height: 24px;">
+       truyenthong@msichoices.org.vn
+    </a>
+  </div>
             <div class="footer__bar__wrap display-flex-center justify-content-between display-sm-block">
                 <div class="footer__copyright">
                     <p class="margin-0 p-0 font-size-14 secondary-color-txt footer-bar-text">
