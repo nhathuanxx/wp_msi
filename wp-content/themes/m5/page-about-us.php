@@ -108,9 +108,8 @@ $tab_keys = array_keys($slugs[$lang]);
                 <?php foreach ($tab_keys as $index => $key): ?>
                     <section id="<?php echo esc_attr($key); ?>" class="msi-tab-pane">
                         <?php
-                        if ($key === 'co-cau-to-chuc'):
+                        if ($key === 'xxxxxx'):
                             if ($lang === 'vi'): ?>
-                                <!-- CUSTOM VI -->
                                 <div class="msi-intro-section">
                                     <div class="msi-intro-left">
                                         <h3 class="msi-intro-title">GIỚI THIỆU CHUNG</h3>
@@ -121,14 +120,13 @@ $tab_keys = array_keys($slugs[$lang]);
                                     </div>
                                 </div>
                             <?php else: ?>
-                                <!-- CUSTOM EN -->
                                 <div class="msi-intro-section">
                                     <h3 class="msi-intro-title">Organization</h3>
                                     <p>Custom EN content for Organization.</p>
                                 </div>
                             <?php endif;
 
-                        elseif ($key === 'co-so-cua-nic'):
+                        elseif ($key === 'zzzzz'):
                             if ($lang === 'vi'):
                                 require get_template_directory() . '/template-parts/general-introduction.php';
                             else: ?>
@@ -166,6 +164,21 @@ $tab_keys = array_keys($slugs[$lang]);
             </aside>
         </div>
     </div>
+    <h3 class="wp-block-heading has-text-align-center">
+	<?php if ($lang === 'vi') : ?>
+		Tìm hiểu thêm về MSI Việt Nam
+	<?php else : ?>
+		Learn more about MSI Vietnam
+	<?php endif; ?>
+</h3>
+    <p class="has-text-align-center-p">
+	<?php if ($lang === 'vi') : ?>
+		Tìm hiểu sâu hơn về MSI Việt Nam bằng cách đọc những câu chuyện, tin tức của chúng tôi.
+	<?php else : ?>
+		Explore more about MSI Vietnam by reading our stories and news.
+	<?php endif; ?>
+</p>
+<?php require get_template_directory() . '/template-parts/post-list.php'; ?>
 </div>
 
 <style>

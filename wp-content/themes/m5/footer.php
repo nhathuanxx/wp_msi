@@ -246,7 +246,7 @@
                 <div class="modal-body">
                     <div class="row justify-content-between">
                         <div class="form-book-exam col-12 col-lg-7">
-                            <div class="book-now__custom-head">
+                            <!-- <div class="book-now__custom-head">
                                 <div class="book-now__custom-title">
                                     <?php
                                     if (pll_current_language('slug') == 'vi') {
@@ -257,11 +257,10 @@
                                     }
                                     if (pll_current_language('slug') == 'zh') {
                                         echo '预订服务:';
+
                                     }
                                     ?>
                                 </div>
-                                <!-- <img class="book-now__custom-head_icon"
-                                    src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/os/icon_bufterfly.svg"> -->
                             </div>
                             <div class="book-now__custom-subtitle">
                                 <?php
@@ -275,7 +274,7 @@
                                     echo '立即预约女性健康';
                                 }
                                 ?>
-                            </div>
+                            </div> -->
                             <div class="book-now__custom-form">
                                 <?php if (get_field('booking_form_setting', pll_current_language('slug'))): ?>
                                     <?php echo do_shortcode(get_field('booking_form_setting', pll_current_language('slug'))); ?>
@@ -893,7 +892,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .book-now__custom {
         border: none;
         background-image: url("<?php echo get_template_directory_uri(); ?>/assets/images/os/booking-now-bgr.png");
-        padding: 64px 64px 0 64px;
+        /* padding: 64px 64px 0 64px; */
         background-size: cover;
         background-position: left;
         background-repeat: no-repeat;
@@ -944,7 +943,7 @@ document.addEventListener("DOMContentLoaded", function () {
         background-color: #fff;
         padding: 32px;
         border-radius: 24px;
-        margin-bottom: 64px;
+        /* margin-bottom: 64px; */
     }
 
     .book-now__custom-form .form-control {
@@ -1010,7 +1009,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         .book-now__custom-form {
-            margin-bottom: 48px;
+            /* margin-bottom: 48px; */
         }
 
         .book-now__custom .form-book-exam {
@@ -1038,7 +1037,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         .book-now__custom-form {
-            margin-bottom: 32px;
+            /* margin-bottom: 32px; */
         }
     }
 

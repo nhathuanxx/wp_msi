@@ -1,14 +1,14 @@
 <?php
 $lang = pll_current_language('slug');
-
+$slug = ($lang === 'vi') ? 'cau-chuyen' : 'story';
 $args = array(
     'post_type'      => 'post',
     'posts_per_page' => 6,
-    'category_name'  => 'cau-chuyen',
+    'category_name'  => $slug,
     'lang'           => $lang,
 );
-$category = get_category_by_slug('cau-chuyen');
-$category_link = get_category_link($category->term_id);
+$category = get_category_by_slug($slug);
+$category_link = $category ? get_category_link($category->term_id) : '#';
 $query = new WP_Query($args);
 
 if ($query->have_posts()) : ?>
@@ -62,12 +62,6 @@ if ($query->have_posts()) : ?>
                     <?php endwhile; ?>
                 </div>
             </div>
-
-            <!-- <div class="customer-story-slider-controls">
-                <button class="customer-story-nav-button" id="customerStoryPrevBtn">←</button>
-                <div class="customer-story-dots" id="customerStoryDotsContainer"></div>
-                <button class="customer-story-nav-button" id="customerStoryNextBtn">→</button>
-            </div> -->
             <div class="customer-story-slider-controls">
                 <button class="customer-story-nav-button" id="customerStoryPrevBtn">
                     <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3IDdMMSA3TTEgN0w3IDEzTTEgN0w3IDEiIHN0cm9rZT0iIzI4MzU3MyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==" alt="prev" />

@@ -26,7 +26,9 @@
                 <img class="nen-2" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/nen1.png"
                     alt="about-us-1">
                 <?php
-                echo do_shortcode('[msi_circle size="260" target="2000000" initial_rotation="40" text="Khách hàng"]');
+                $lang = pll_current_language('slug');
+                $text = ($lang === 'vi') ? 'Khách hàng' : 'Customers';
+                echo do_shortcode('[msi_circle size="260" target="2000000" initial_rotation="40" text="' . $text . '"]');
                 ?>
 
             </div>
@@ -34,7 +36,9 @@
                 <img class="nen-3" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/nen1.png"
                     alt="about-us-1">
                 <?php
-                echo do_shortcode('[msi_circle size="220" target="200" initial_rotation="120" text="Đối tác"]');
+                $lang = pll_current_language('slug');
+$text = ($lang === 'vi') ? 'Đối tác' : 'Partners';
+                echo do_shortcode('[msi_circle size="220" target="200" initial_rotation="120" text="' . $text . '"]');
                 ?>
             </div>
         </div>
@@ -43,7 +47,9 @@
                 <img class="nen-4" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/nen1.png"
                     alt="about-us-1">
                 <?php
-                echo do_shortcode('[msi_circle size="200" target="12" initial_rotation="150" text="Tỉnh thành"]');
+                      $lang = pll_current_language('slug');
+$text = ($lang === 'vi') ? 'Tỉnh thành' : 'Province';
+                echo do_shortcode('[msi_circle size="200" target="12" initial_rotation="150" text="' . $text . '"]');
                 ?>
             </div>
         </div>
