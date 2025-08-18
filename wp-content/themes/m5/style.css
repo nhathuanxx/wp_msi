@@ -107,3 +107,7 @@ img {
 .accordion-item.active .accordion-content {
   padding: 15px;
 }
+.template-blog-filter-btn-active{
+  background-color: #283573 !important;
+  color:white !important;
+}

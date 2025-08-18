@@ -42,8 +42,29 @@ if ($query->have_posts()) : ?>
             <div class="customer-story-slider-viewport">
                 <div class="customer-story-slider-track" id="customerStorySliderTrack">
                     <?php while ($query->have_posts()) : $query->the_post();
-                        $image = get_field('anh_bai_viet');
-                        $image_url = !empty($image['url']) ? esc_url($image['url']) : get_template_directory_uri() . '/assets/images/placeholder.jpg';
+                       $image = get_field('anh_bai_viet');
+$image_url = '';
+
+// 1. Nếu có ảnh custom field
+if ( !empty($image['url']) ) {
+    $image_url = esc_url($image['url']);
+}
+// 2. Nếu không có thì lấy featured image
+elseif ( has_post_thumbnail() ) {
+    $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+}
+// 3. Nếu không có thì lấy ảnh đầu tiên trong nội dung
+else {
+    global $post;
+    $content = $post->post_content;
+    preg_match('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+    if ( !empty($matches[1]) ) {
+        $image_url = esc_url($matches[1]);
+    } else {
+        // 4. fallback về placeholder
+        $image_url = get_template_directory_uri() . '/assets/images/placeholder.jpg';
+    }
+}
                         $image_alt = !empty($image['alt']) ? esc_attr($image['alt']) : get_the_title();
                     ?>
                         <div class="customer-story-slide">

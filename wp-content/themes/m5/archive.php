@@ -159,7 +159,7 @@ $search_text = ($lang === 'en') ? 'Search' : 'Tìm kiếm';
             </div>
 
             <!-- Nút tải thêm -->
-            <div class="template-blog-load-more-wrap">
+            <div class="template-blog-load-more-wrap" <?php if ($query->found_posts < 6) echo 'style="display:none;"'; ?>>
                 <button id="template-blog-load-more-btn"
                     data-category="<?php echo ($category->slug === 'tin-tuc' || $category->slug === 'news') ? '' : esc_attr($category->slug); ?>">
                     <?php if ($lang === 'vi') : ?>

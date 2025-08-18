@@ -9080,7 +9080,7 @@ h1 {
   font-style: normal;
   font-weight: 600;
   line-height: 38px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .msi-contact-title {
@@ -9471,7 +9471,9 @@ p {
         color: var(--Alias-Text-Primary-blue, #00ACEE) !important;
 
     } */
-
+.book-now__custom .form-book-exam{
+  padding: 0px;
+}
 @media screen and (max-width: 991px) {
   .book-now__custom {
     padding: 40px;
@@ -11121,6 +11123,14 @@ p {
 .book-now__custom-form form p {
   font-size: 16px;
     color: #283573;
+    margin-bottom: 8px;
+}
+.wpcf7-not-valid-tip{
+  font-size: 12px;
+  margin-top: 4px;
+}
+.wpcf7-form-control-wrap{
+  line-height: normal !important;
 }
 .book-now__custom-form input[type="submit"]{
       background-color: #283573;
@@ -11128,6 +11138,10 @@ p {
     border-radius: 8px;
     color: white;
     height: 52px;
+    margin-bottom: 0px;
+}
+.wpcf7 form .wpcf7-response-output{
+  margin: 0px;
 }
 .book-now__custom-form form label {
   font-size: 16px;
@@ -11149,5 +11163,29 @@ p {
   border-radius: 4px;
   border: 1px solid #283573;
       max-height: 80px;
-    padding: 0px 8px;
+    padding: 8px 8px;
+}
+.form-book-container {
+  overflow-y: auto; /* hoặc scroll nếu luôn hiện */
+  scrollbar-width: thin;              /* Firefox */
+  scrollbar-color: #aaa transparent;  /* Firefox: màu thanh | màu nền */
+}
+
+/* Chrome, Edge, Safari */
+.form-book-container::-webkit-scrollbar {
+  width: 6px;    /* chiều rộng scrollbar dọc */
+  height: 6px;   /* chiều cao scrollbar ngang */
+}
+
+.form-book-container::-webkit-scrollbar-thumb {
+  background-color: #aaa;   /* màu thanh kéo */
+  border-radius: 3px;       /* bo tròn cho gọn */
+}
+
+.form-book-container::-webkit-scrollbar-track {
+  background: transparent;  /* nền trong suốt */
+}
+.template-blog-filter-btn-active{
+  background-color: #283573 !important;
+  color:white !important;
 }

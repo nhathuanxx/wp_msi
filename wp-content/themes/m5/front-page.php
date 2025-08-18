@@ -130,9 +130,13 @@ get_header(); ?>
                 <div class="about-us-subtitle">
                     <?php the_field('about_us_description', pll_current_language('slug')); ?>
                 </div>
-                <div class="about-us-read-more about-us-read-more-desktop">
-                    <?php echo (pll_current_language('slug') === 'vi') ? 'ĐỌC THÊM' : 'READ MORE'; ?>
-                </div>
+             <?php 
+$url = (pll_current_language('slug') === 'vi') ? '/ve-chung-toi' : '/about-us';
+$text = (pll_current_language('slug') === 'vi') ? 'ĐỌC THÊM' : 'READ MORE';
+?>
+<a class="about-us-read-more about-us-read-more-desktop" href="<?php echo esc_url($url); ?>">
+    <?php echo esc_html($text); ?>
+</a>
             </div>
             <div class="about-us-content-right">
                 <div class="about-us-img-1">

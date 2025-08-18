@@ -281,7 +281,7 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <div class="col-0 col-lg-4 d-flex align-items-end">
+                        <div class="d-flex align-items-end">
                             <?php if (get_field('book_doctor_image', pll_current_language('slug'))): ?>
                                 <img class="book-now__custom-img"
                                     src="<?php echo do_shortcode(get_field('book_doctor_image', pll_current_language('slug'))); ?>"
@@ -657,7 +657,8 @@ jQuery(function ($) {
         // Click filter category
         $('.template-blog-filter-btn').on('click', function() {
             category = $(this).data('category');
-            debugger
+$('.template-blog-filter-btn').removeClass('template-blog-filter-btn-active');
+$(this).addClass('template-blog-filter-btn-active');
             page = 1;
             $('#template-blog-post-list').html('');
             $('#template-blog-load-more-btn').show();
@@ -705,9 +706,15 @@ jQuery(function ($) {
                 category: category,
                 search: search
             }, function(data) {
-                if (data.trim() === '') {
+                const posts = $(data).filter('.post-card'); 
+                if (posts.length == 0) {
+                    debugger
                     $('#template-blog-load-more-btn').hide();
                 } else {
+                    if(posts.length < 3){
+                                            $('#template-blog-load-more-btn').hide();
+
+                    }
                     $('#template-blog-post-list').append(data);
                     page++;
                 }

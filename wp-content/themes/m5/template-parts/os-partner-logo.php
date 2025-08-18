@@ -2,7 +2,7 @@
     <div class=" os-partner-content" style="background-image: url('<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/hompage-banner.jpg'); 
             background-size: cover; 
            ">
-         <div class="row partner-row-header" id="msiPartnerLogo2">
+         <div class="row partner-row-header" id="doi-tac-chien-luoc">
             <div class="col-8 partner-row-header-1">
 
                 <?php
@@ -27,7 +27,7 @@
                 <?php endwhile; ?>
             <?php endif; ?>
         </div>
-        <div class="row partner-row-header" id="msiPartnerLogo3">
+        <div class="row partner-row-header" id="doi-tac-cong-tu">
             <div class="col-8 partner-row-header-1">
 
                 <?php
@@ -54,7 +54,7 @@
             <?php endif; ?>
         </div>
 
-         <div class="row partner-row-header" id="msiPartnerLogo4">
+         <div class="row partner-row-header" id="doi-tac-doanh-nghiep">
             <div class="col-8 partner-row-header-1">
 
                 <?php
@@ -81,7 +81,7 @@
             <?php endif; ?>
         </div>
 
-         <div class="row partner-row-header" id="msiPartnerLogo5">
+         <div class="row partner-row-header" id="doi-tac-quoc-te">
             <div class="col-8 partner-row-header-1">
 
                 <?php
@@ -108,7 +108,7 @@
             <?php endif; ?>
         </div>
 
-         <div class="row partner-row-header" id="msiPartnerLogo6">
+         <div class="row partner-row-header" id="doi-tac-to-chuc-xa-hoi-dan-su">
             <div class="col-8 partner-row-header-1">
 
                 <?php
@@ -209,13 +209,15 @@
     }
 
     .os-slider-nav-img-container {
-        width: 180px;
-        height: 90px;
+        /* width: 180px;
+        height: 90px; */
+        width: 100%;
+        height: 100%;
         border-radius: 16px;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: white;
+        background-color: transparent;
         overflow: hidden;
     }
 
@@ -256,6 +258,9 @@
         width: 100%;
         object-fit: contain;
         padding: 4px;
+        width: 180px;
+        height: 90px;
+        border-radius: 16px;
         /* padding: 20px; */
     }
 

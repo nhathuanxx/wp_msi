@@ -83,11 +83,22 @@ $tab_keys = array_keys($slugs[$lang]);
                         // Lấy thumbnail hoặc ảnh mặc định
                         $thumb = '';
                         if ($page instanceof WP_Post) {
-                            $thumb = get_the_post_thumbnail_url($page->ID, 'medium');
-                        }
-                        if (!$thumb) {
-                            $thumb = get_template_directory_uri() . '/assets/images/msi/phong-kham-gan-ban.jpg';
-                        }
+    // 1. Thử lấy Featured Image
+    $thumb = get_the_post_thumbnail_url($page->ID, 'medium');
+
+    // 2. Nếu không có Featured Image thì tìm ảnh đầu tiên trong nội dung
+    if (!$thumb) {
+        $content = $page->post_content;
+        if (preg_match('/<img[^>]+src="([^">]+)"/i', $content, $matches)) {
+            $thumb = $matches[1];
+        }
+    }
+}
+
+// 3. Nếu vẫn chưa có thì dùng ảnh default
+if (!$thumb) {
+    $thumb = get_template_directory_uri() . '/assets/images/msi/phong-kham-gan-ban.jpg';
+}
 
                         // Lấy mô tả ngắn hoặc rỗng
                         $desc = '';
@@ -165,20 +176,20 @@ $tab_keys = array_keys($slugs[$lang]);
         </div>
     </div>
     <h3 class="wp-block-heading has-text-align-center">
-	<?php if ($lang === 'vi') : ?>
-		Tìm hiểu thêm về MSI Việt Nam
-	<?php else : ?>
-		Learn more about MSI Vietnam
-	<?php endif; ?>
-</h3>
+        <?php if ($lang === 'vi') : ?>
+            Tìm hiểu thêm về MSI Việt Nam
+        <?php else : ?>
+            Learn more about MSI Vietnam
+        <?php endif; ?>
+    </h3>
     <p class="has-text-align-center-p">
-	<?php if ($lang === 'vi') : ?>
-		Tìm hiểu sâu hơn về MSI Việt Nam bằng cách đọc những câu chuyện, tin tức của chúng tôi.
-	<?php else : ?>
-		Explore more about MSI Vietnam by reading our stories and news.
-	<?php endif; ?>
-</p>
-<?php require get_template_directory() . '/template-parts/post-list.php'; ?>
+        <?php if ($lang === 'vi') : ?>
+            Tìm hiểu sâu hơn về MSI Việt Nam bằng cách đọc những câu chuyện, tin tức của chúng tôi.
+        <?php else : ?>
+            Explore more about MSI Vietnam by reading our stories and news.
+        <?php endif; ?>
+    </p>
+    <?php require get_template_directory() . '/template-parts/post-list.php'; ?>
 </div>
 
 <style>
@@ -264,6 +275,7 @@ $tab_keys = array_keys($slugs[$lang]);
         display: flex;
         gap: 24px;
         align-items: flex-start;
+        margin-bottom: 40px;
     }
 
     .msi-tab-content {
@@ -318,6 +330,7 @@ $tab_keys = array_keys($slugs[$lang]);
     @media (max-width:992px) {
         .msi-tab-container {
             flex-direction: column;
+            margin-bottom: 40px;
         }
 
         .msi-tab-sidebar {
