@@ -35,7 +35,11 @@ if ($query->have_posts()) : ?>
 
                 <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
                     <div class="wp-block-button">
-                        <a class="wp-block-button__link wp-element-button" href="<?php the_permalink(); ?>">Đọc thêm</a>
+                        <?php
+                        $lang = pll_current_language('slug');
+                        $read_more_text = ($lang === 'vi') ? 'Đọc thêm' : 'Read more';
+                        ?>
+                        <a class="wp-block-button__link wp-element-button" href="<?php the_permalink(); ?>"> <?php echo $read_more_text; ?></a>
                     </div>
                 </div>
             </div>
@@ -183,7 +187,8 @@ wp_reset_postdata();
         text-overflow: ellipsis;
         white-space: normal;
     }
-    .contact-content{
+
+    .contact-content {
         max-width: 1335px;
         margin: 0px auto;
     }

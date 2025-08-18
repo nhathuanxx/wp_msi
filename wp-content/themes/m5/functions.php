@@ -1064,13 +1064,13 @@ function msi_circle_enqueue_assets() {
 }
 .msi-circle-animation-number{
   font-weight:700;
-  font-size: calc(var(--size)*0.16);
+  font-size: calc(var(--size)*0.1);
   line-height:1.1;
 }
 .msi-circle-animation-text{
   margin-top: calc(0.025 * var(--size));
   font-weight:500;
-  font-size: calc(var(--size)*0.04);
+  font-size: calc(var(--size)*0.07);
   line-height:1.4;
   opacity:0.95;
 }
@@ -1101,7 +1101,7 @@ document.addEventListener("DOMContentLoaded", function(){
         const t = Math.min(1, (ts - startCount)/countDuration);
         const eased = EASE_OUT_CUBIC(t);
         const val = Math.round(target*eased);
-        numberEl.textContent = val.toLocaleString();
+        numberEl.textContent = val.toLocaleString() + "+";
         if(t<1) requestAnimationFrame(countUp);
       }
 
@@ -1115,7 +1115,9 @@ document.addEventListener("DOMContentLoaded", function(){
       let baseTurns = 0;
 
       function spin(ts){
-        if(!startRotate) startRotate = ts;
+        if(!startRotate){
+            startRotate = ts - Math.random() * rotateDuration;
+        }
         const loopTime = (ts - startRotate) % rotateDuration;
         const p = loopTime / rotateDuration;
         const easedAngle = 360 * EASE_OUT_CUBIC(p);
