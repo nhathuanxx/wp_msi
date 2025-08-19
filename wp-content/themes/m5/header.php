@@ -98,7 +98,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 								</div>
 								<button id="popup-country-open" class="popup-country-btn">
-									<span class="popup-country-label">Quốc gia thành viên</span>
+									<span class="popup-country-label">
+										<?php if (pll_current_language('slug') === 'vi') : ?>
+																Quốc gia thành viên<?php else : ?>
+																Member States
+															<?php endif; ?>
+										</span>
 									<svg class="popup-country-arrow" width="16" height="16" viewBox="0 0 24 24">
 										<path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" />
 									</svg>
@@ -346,7 +351,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<div class="msi-extra-menu-container">
 				<div class="msi-extra-menu">
 					<div class="header__logo">
-						<a href="<?php bloginfo('wpurl'); ?>">
+						<a href="<?php echo pll_home_url(); ?>">
 							<?php
 							$logoUrl = get_field('logo_image', pll_current_language('slug'));
 							if (is_front_page()) {

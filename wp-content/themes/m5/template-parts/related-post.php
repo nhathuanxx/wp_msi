@@ -48,26 +48,38 @@
 
             $categories  = get_the_category($post->ID);
             $category_name = !empty($categories) ? $categories[0]->name : '';
-            $date_display = get_the_date('j \t\h\á\n\g n \n\ă\m Y', $post->ID); // Ví dụ: ngày 4 tháng 1 năm 2023
-            $reading_time = ceil(str_word_count(strip_tags(get_post_field('post_content', $post->ID))) / 200); // tính phút đọc
+if (pll_current_language('slug') === 'vi') {
+    // Ví dụ: ngày 4 tháng 1 năm 2023
+    $date_display = get_the_date('\n\g\à\y j \t\h\á\n\g n \n\ă\m Y', $post->ID);
+} else {
+    // Ví dụ: January 4, 2023
+    $date_display = get_the_date('F j, Y', $post->ID);
+}            $reading_time = ceil(str_word_count(strip_tags(get_post_field('post_content', $post->ID))) / 200); // tính phút đọc
         ?>
-            <div class="post-card">
-                <a href="<?php the_permalink(); ?>" class="post-thumb">
-                    <?php if ($image_url): ?>
-                        <img src="<?php echo esc_url($image_url); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy">
-                    <?php endif; ?>
-                    <?php if ($category_name): ?>
-                        <span class="post-category"><?php echo esc_html($category_name); ?></span>
-                    <?php endif; ?>
-                </a>
-                <div class="post-meta">
-                    <span><?php echo $date_display; ?> • Đọc trong <?php echo $reading_time; ?> phút</span>
-                </div>
-                <h3 class="post-title">
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                </h3>
-                <p class="post-excerpt"><?php echo wp_trim_words(get_the_excerpt(), 20, '…'); ?></p>
-            </div>
+           <div class="post-card">
+    <a href="<?php the_permalink(); ?>" class="post-thumb">
+        <?php if ($image_url): ?>
+            <img src="<?php echo esc_url($image_url); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy">
+        <?php endif; ?>
+        <?php if ($category_name): ?>
+            <span class="post-category"><?php echo esc_html($category_name); ?></span>
+        <?php endif; ?>
+    </a>
+    <div class="post-meta">
+        <span>
+            <?php echo $date_display; ?> • 
+            <?php if (pll_current_language('slug') === 'vi') : ?>
+                Đọc trong <?php echo $reading_time; ?> phút
+            <?php else : ?>
+                Read in <?php echo $reading_time; ?> minutes
+            <?php endif; ?>
+        </span>
+    </div>
+    <h3 class="post-title">
+        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+    </h3>
+    <p class="post-excerpt"><?php echo wp_trim_words(get_the_excerpt(), 20, '…'); ?></p>
+</div>
         <?php
         endforeach;
 

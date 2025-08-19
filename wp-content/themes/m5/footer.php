@@ -473,10 +473,11 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const openBtn = document.getElementById("popup-country-open");
-        const closeBtn = document.getElementById("popup-country-close");
         const modal = document.getElementById("popup-country-modal");
+        let closeTimeout; // biến lưu timeout đóng
 
         function openPopup() {
+            clearTimeout(closeTimeout); // nếu có hẹn giờ đóng thì hủy
             modal.style.display = "block";
             openBtn.classList.add("open");
         }
@@ -486,20 +487,22 @@
             openBtn.classList.remove("open");
         }
 
-        openBtn.addEventListener("click", function() {
-            // Toggle: nếu đang mở thì đóng, nếu đang đóng thì mở
+        // Khi hover vào nút -> mở
+        openBtn.addEventListener("mouseenter", openPopup);
+
+        // Theo dõi khi chuột di chuyển
+        document.addEventListener("mousemove", function(e) {
             if (modal.style.display === "block") {
-                closePopup();
-            } else {
-                openPopup();
-            }
-        });
-
-        closeBtn.addEventListener("click", closePopup);
-
-        window.addEventListener("click", function(e) {
-            if (e.target === modal) {
-                closePopup();
+                if (
+                    !openBtn.contains(e.target) &&
+                    !modal.contains(e.target)
+                ) {
+                    // hẹn giờ đóng sau 300ms
+                    closeTimeout = setTimeout(closePopup, 300);
+                } else {
+                    // nếu quay lại modal hoặc nút -> hủy việc đóng
+                    clearTimeout(closeTimeout);
+                }
             }
         });
     });
