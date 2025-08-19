@@ -399,14 +399,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<?php endif; ?>
 
 									</div>
-								</li>
-
-								<?php if ($has_lv2 || $description): ?>
+										<?php if ($has_lv2 || $description): ?>
 									<div class="menu-item-2" data-menu-id="<?= esc_attr($slug); ?>" style="display:none">
+
 										<div class="menu-item-2-content">
 											<?php
 											if ($description): ?>
-												<div class="menu-description">
+												<!-- <div class="menu-description">
 													<div class="title">
 														<?= esc_html($title); ?>
 													</div>
@@ -428,7 +427,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 															<span class="phone-number">1900 55 88 82</span>
 														</a>
 													</div>
-												</div>
+												</div> -->
 											<?php endif; ?>
 
 											<?php if ($has_lv2): ?>
@@ -479,6 +478,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										</div>
 									</div>
 								<?php endif; ?>
+								</li>
 							<?php endwhile; ?>
 						</ul>
 					<?php endif; ?>
