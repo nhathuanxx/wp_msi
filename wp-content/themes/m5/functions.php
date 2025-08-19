@@ -1056,7 +1056,7 @@ function msi_circle_enqueue_assets() {
   width: calc(var(--size) * 0.7);
   height: calc(var(--size) * 0.7);
   border-radius: 50%;
-  background: var(--primary);
+  background: #283573;
   color: var(--text);
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;

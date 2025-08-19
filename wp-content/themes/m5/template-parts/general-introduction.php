@@ -37,7 +37,7 @@
                     alt="about-us-1">
                 <?php
                 $lang = pll_current_language('slug');
-$text = ($lang === 'vi') ? 'Đối tác' : 'Partners';
+                $text = ($lang === 'vi') ? 'Đối tác' : 'Partners';
                 echo do_shortcode('[msi_circle size="220" target="200" initial_rotation="120" text="' . $text . '"]');
                 ?>
             </div>
@@ -47,8 +47,8 @@ $text = ($lang === 'vi') ? 'Đối tác' : 'Partners';
                 <img class="nen-4" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/nen1.png"
                     alt="about-us-1">
                 <?php
-                      $lang = pll_current_language('slug');
-$text = ($lang === 'vi') ? 'Tỉnh thành' : 'Province';
+                $lang = pll_current_language('slug');
+                $text = ($lang === 'vi') ? 'Tỉnh thành' : 'Province';
                 echo do_shortcode('[msi_circle size="200" target="12" initial_rotation="150" text="' . $text . '"]');
                 ?>
             </div>
@@ -56,25 +56,15 @@ $text = ($lang === 'vi') ? 'Tỉnh thành' : 'Province';
     </div>
 </div>
 <style>
-    .msi-intro-section {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 40px;
-        max-width: 1335px;
-        margin: 0 auto;
-        padding-top: 40px;
-        box-sizing: border-box;
-    }
 
-    .msi-intro-left {
+    /* .msi-intro-left {
         flex: 1;
         max-width: 40%;
         font-family: "Roboto", sans-serif;
-    }
+    } */
 
     .msi-intro-title {
-        font-size: 22px;
+        font-size: 28px;
         font-weight: 800;
         color: #283573;
         margin-bottom: 20px;
@@ -82,7 +72,7 @@ $text = ($lang === 'vi') ? 'Tỉnh thành' : 'Province';
     }
 
     .msi-intro-text {
-        font-size: 16px;
+        font-size: 20px;
         line-height: 1.7;
         color: #283573;
         margin-bottom: 28px;
