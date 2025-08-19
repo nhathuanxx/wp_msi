@@ -186,19 +186,26 @@
     <?php endif; ?>
 <?php endif; ?>
   <div style="display:flex; gap:8px; align-items:center; font-family:'Roboto',sans-serif;">
+    <?php 
+  $phone_raw = get_field('so_dien_thoai', 'option');
+  $phone = is_string($phone_raw) ? $phone_raw : '';
+  $phone_link = $phone ? 'tel:' . preg_replace('/\s+/', '', $phone) : '#';
+?>
     <span style="font-size:14px; font-weight:400; color:#283573;">Hotline:</span>
-    <a  href="tel:1900558882" 
+    <a  href="<?php echo esc_attr($phone_link); ?>" 
        style="font-size:14px; font-weight:400; color:#283573; text-decoration:none;padding:0;line-height: 24px;">
-       1900 558882
-    </a>
+       <?php echo esc_html($phone ?: 'Chưa có số'); ?>    </a>
   </div>
 
   <div style="display:flex; gap:8px; align-items:center;font-family:'Roboto',sans-serif;">
     <span style="font-size:14px; font-weight:400; color:#283573;">Email:</span>
-    <a href="mailto:truyenthong@msichoices.org.vn" 
-       style="font-size:14px; font-weight:400; color:#283573; text-decoration:none;padding:0;line-height: 24px;">
-       truyenthong@msichoices.org.vn
+   <?php $email = get_field('email', 'option'); ?>
+<?php if ($email): ?>
+    <a href="mailto:<?php echo esc_attr($email); ?>"
+       style="font-size:14px; font-weight:400; color:#283573; text-decoration:none;padding:0;line-height:24px;">
+       <?php echo esc_html($email); ?>
     </a>
+<?php endif; ?>
   </div>
             <div class="footer__bar__wrap display-flex-center justify-content-between display-sm-block">
                 <div class="footer__copyright">

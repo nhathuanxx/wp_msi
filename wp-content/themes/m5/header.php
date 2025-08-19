@@ -338,12 +338,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<?php endwhile; ?>
 							</ul>
 						<?php endif; ?>
-
-						<a href="tel:1900 55 88 82" class="custom-call-btn">
-							<img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/phone-icon.svg"
-								alt="icon-phone">
-							<span class="phone-number">1900 55 88 82</span>
-						</a>
+<?php 
+  $phone_raw = get_field('so_dien_thoai', 'option');
+  $phone = is_string($phone_raw) ? $phone_raw : '';
+  $phone_link = $phone ? 'tel:' . preg_replace('/\s+/', '', $phone) : '#';
+?>
+						<a href="<?php echo esc_attr($phone_link); ?>" class="custom-call-btn">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/msi/phone-icon.svg" alt="icon-phone">
+    <span class="phone-number"><?php echo esc_html($phone ?: 'Chưa có số'); ?></span>
+</a>
 					</div>
 				</div>
 			</div>

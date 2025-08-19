@@ -26,7 +26,7 @@
     <?php
     // Lấy 9 bài mới nhất lúc đầu (không lọc)
     $lang = pll_current_language('slug');
-    $args = ['post_type' => 'post', 'posts_per_page' => 6, 'lang' => $lang,];
+    $args = ['post_type' => 'post', 'posts_per_page' => 3, 'lang' => $lang,];
     $query = new WP_Query($args);
     while ($query->have_posts()) {
         $query->the_post();
@@ -37,7 +37,7 @@
 </div>
 
 <!-- Nút tải thêm -->
-<div class="template-blog-load-more-wrap"  <?php if ($query->found_posts < 6) echo 'style="display:none;"'; ?>>
+<div class="template-blog-load-more-wrap"  <?php if ($query->found_posts < 3) echo 'style="display:none;"'; ?>>
     <button id="template-blog-load-more-btn" data-category="cau-chuyen">TẢI THÊM</button>
 </div>
 <style>
