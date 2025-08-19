@@ -33,7 +33,7 @@ if ($query->have_posts()) : ?>
             <div class="customer-story-slider-header-right">
                 <div class="all-story">
                     <a href="<?php echo esc_url($category_link); ?>">
-                        <?php echo ($lang === 'vi') ? 'XEM TẤT CẢ CÁC CÂU CHUYỆN' : 'VIEW ALL STORIES'; ?>
+                        <?php echo ($lang === 'vi') ? 'CÂU CHUYỆN' : 'STORIES'; ?>
                     </a>
                 </div>
             </div>
@@ -125,7 +125,7 @@ else {
         font-style: normal;
         font-weight: 700;
         text-transform: none;
-        font-size: 40px;
+        font-size: 48px;
         line-height: 48px;
         margin: 28px 0px 15px 0px
     }
@@ -133,7 +133,7 @@ else {
     .customer-story-slider-header-left-subtitle {
         color: #283573;
         font-family: 'Roboto', sans-serif;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 400;
         letter-spacing: normal;
         line-height: 28px;
@@ -159,7 +159,7 @@ else {
         text-decoration: none;
         text-transform: uppercase;
         width: 100%;
-        padding: 13px 32px;
+        padding: 20px 80px;
         text-align: center;
     }
 
@@ -217,6 +217,7 @@ else {
         outline: 1px solid #1A1A1A;
         outline-offset: -1px;
         background-color: white;
+        overflow: hidden;
     }
 
     .customer-story-slide:active {
@@ -231,6 +232,10 @@ else {
         width: 487px;
         cursor: pointer;
     }
+    .customer-story-slide img:hover{
+        scale: 1.1;
+        transition: 0.6s;
+    }
 
     .customer-story-slide-content {
         display: flex;
@@ -244,7 +249,7 @@ else {
     .customer-story-slide-title {
         color: #283573;
         font-family: 'Roboto', sans-serif;
-        font-size: 24px;
+        font-size: 28px;
         font-weight: 600;
         line-height: 32px;
         cursor: pointer;
@@ -257,18 +262,28 @@ else {
     .customer-story-slide-content a {
         padding: 0px;
         margin: 0 0 16px;
+        border: 2px solid transparent;
     }
 
     .customer-story-slide-content a:hover {
         background-color: white !important;
         color: #283573 !important;
+        border: 2px solid #283573;
         /* border: 1px solid #283573 !important; */
+    }
+    .customer-story-slide-content .customer-story-slide-title{
+        border: none;
+    }
+    .customer-story-slide-content .customer-story-slide-title:hover {
+        color: #283573 !important;
+        border: none !important;
+        text-decoration: underline;
     }
 
     .customer-story-slide-content p {
         color: #283573;
         font-family: 'Roboto', sans-serif;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 400;
         line-height: 28px;
         margin: 0;
@@ -286,14 +301,15 @@ else {
         margin: 0px;
         /* height: 100%; */
         justify-content: center;
-        padding: 13px 32px;
+        padding: 20px 40px;
         align-items: center;
         background: #283573;
         border-radius: 6px;
         color: #FFFFFF;
         cursor: pointer;
         display: flex;
-        font-size: 16px;
+        font-size: 20px;
+        font-weight: 700;
         justify-content: center;
         letter-spacing: .16em;
         max-width: 366px;

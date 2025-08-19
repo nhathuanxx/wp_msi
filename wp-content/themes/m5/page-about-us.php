@@ -83,22 +83,22 @@ $tab_keys = array_keys($slugs[$lang]);
                         // Lấy thumbnail hoặc ảnh mặc định
                         $thumb = '';
                         if ($page instanceof WP_Post) {
-    // 1. Thử lấy Featured Image
-    $thumb = get_the_post_thumbnail_url($page->ID, 'medium');
+                            // 1. Thử lấy Featured Image
+                            $thumb = get_the_post_thumbnail_url($page->ID, 'medium');
 
-    // 2. Nếu không có Featured Image thì tìm ảnh đầu tiên trong nội dung
-    if (!$thumb) {
-        $content = $page->post_content;
-        if (preg_match('/<img[^>]+src="([^">]+)"/i', $content, $matches)) {
-            $thumb = $matches[1];
-        }
-    }
-}
+                            // 2. Nếu không có Featured Image thì tìm ảnh đầu tiên trong nội dung
+                            if (!$thumb) {
+                                $content = $page->post_content;
+                                if (preg_match('/<img[^>]+src="([^">]+)"/i', $content, $matches)) {
+                                    $thumb = $matches[1];
+                                }
+                            }
+                        }
 
-// 3. Nếu vẫn chưa có thì dùng ảnh default
-if (!$thumb) {
-    $thumb = get_template_directory_uri() . '/assets/images/msi/phong-kham-gan-ban.jpg';
-}
+                        // 3. Nếu vẫn chưa có thì dùng ảnh default
+                        if (!$thumb) {
+                            $thumb = get_template_directory_uri() . '/assets/images/msi/phong-kham-gan-ban.jpg';
+                        }
 
                         // Lấy mô tả ngắn hoặc rỗng
                         $desc = '';
@@ -205,12 +205,15 @@ if (!$thumb) {
     }
 
     .msi-breadcrumb {
-        font-size: 14px;
+        font-size: 20px;
         margin-bottom: 16px;
+        font-family: "Roboto", sans-serif;
     }
 
     .msi-breadcrumb a {
         color: #283573;
+        font-size: 20px;
+        font-family: "Roboto", sans-serif;
         text-decoration: none;
     }
 
@@ -238,10 +241,15 @@ if (!$thumb) {
         flex-direction: column;
         transition: box-shadow .2s;
         width: 100%;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     }
 
     .msi-grid-card:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+    }
+    .msi-grid-card:hover .msi-grid-thumb{
+     scale: 1.1;
+        transition: 0.6s;
     }
 
     .msi-grid-thumb {
@@ -252,18 +260,22 @@ if (!$thumb) {
     }
 
     .msi-grid-body {
-        padding: 12px;
+        padding: 24px;
     }
 
     .msi-grid-body h3 {
         margin: 0 0 8px;
-        font-size: 18px;
+        font-size: 24px;
+        font-family: "Roboto", sans-serif;
+        color: #283573;
+        font-weight: 700;
     }
 
     .msi-grid-body p {
         margin: 0;
-        font-size: 14px;
-        color: #555;
+        font-size: 20px;
+        font-family: "Roboto", sans-serif;
+        color: #283573;
         overflow: hidden;
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -296,30 +308,9 @@ if (!$thumb) {
         margin: 0;
     }
 
-    .msi-tab-sidebar li {
-        margin: 6px 0;
-    }
-
-    .msi-tab-sidebar a {
-        display: block;
-        padding: 10px 12px;
-        border-radius: 6px;
-        text-decoration: none;
-        color: #333;
-        transition: background .2s;
-    }
-
-    .msi-tab-sidebar a:hover {
-        background: #f2f3f7;
-    }
-
     .msi-tab-sidebar a.active {
         background: #283573;
         color: #fff;
-    }
-
-    .msi-tab-pane {
-        display: none;
     }
 
     .msi-tab-pane.active {

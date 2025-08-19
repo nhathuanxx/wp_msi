@@ -27,7 +27,7 @@
 		rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
 		rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,12 +100,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<button id="popup-country-open" class="popup-country-btn">
 									<span class="popup-country-label">
 										<?php if (pll_current_language('slug') === 'vi') : ?>
-																Quốc gia thành viên<?php else : ?>
-																Member States
-															<?php endif; ?>
-										</span>
+											Quốc gia thành viên<?php else : ?>
+											Member States
+										<?php endif; ?>
+									</span>
 									<svg class="popup-country-arrow" width="16" height="16" viewBox="0 0 24 24">
-										<path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" />
+										<path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="3" fill="none" />
 									</svg>
 								</button>
 							</div>
@@ -338,11 +338,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<?php endwhile; ?>
 							</ul>
 						<?php endif; ?>
-
-						<a href="tel:1900 55 88 82" class="custom-call-btn">
-							<img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/phone-icon.svg"
-								alt="icon-phone">
-							<span class="phone-number">1900 55 88 82</span>
+						<?php
+						$phone_raw = get_field('so_dien_thoai', 'option');
+						$phone = is_string($phone_raw) ? $phone_raw : '';
+						$phone_link = $phone ? 'tel:' . preg_replace('/\s+/', '', $phone) : '#';
+						?>
+						<a href="<?php echo esc_attr($phone_link); ?>" class="custom-call-btn">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/msi/phone-icon.svg" alt="icon-phone">
+							<span class="phone-number"><?php echo esc_html($phone ?: 'Chưa có số'); ?></span>
 						</a>
 					</div>
 				</div>
@@ -396,14 +399,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<?php endif; ?>
 
 									</div>
-								</li>
-
-								<?php if ($has_lv2 || $description): ?>
+										<?php if ($has_lv2 || $description): ?>
 									<div class="menu-item-2" data-menu-id="<?= esc_attr($slug); ?>" style="display:none">
+
 										<div class="menu-item-2-content">
 											<?php
-											 if ($description): ?>
-												<div class="menu-description">
+											if ($description): ?>
+												<!-- <div class="menu-description">
 													<div class="title">
 														<?= esc_html($title); ?>
 													</div>
@@ -425,7 +427,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 															<span class="phone-number">1900 55 88 82</span>
 														</a>
 													</div>
-												</div>
+												</div> -->
 											<?php endif; ?>
 
 											<?php if ($has_lv2): ?>
@@ -476,6 +478,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										</div>
 									</div>
 								<?php endif; ?>
+								</li>
 							<?php endwhile; ?>
 						</ul>
 					<?php endif; ?>
@@ -534,25 +537,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							</div>
 							<div class="menu-item menu-top-mobile-item">
 								<?php $translations = pll_the_languages(['raw' => 1]); ?>
-<?php if (!empty($translations)) : ?>
-    <div class="header-lang-content">
-        <div class="lang-img-container">
-            <?php
-            $url = get_bloginfo('wpurl') . '/wp-content/themes/m5/assets/images/os/';
-            $lang_slug = pll_current_language('slug');
-            echo '<img class="lang-img" src="' . esc_url($url . 'flag-' . $lang_slug . '.png') . '" alt="flag">';
-            ?>
-        </div>
-        <select class="select-circle"
-            onchange="if(this.value){window.location.href=this.value;}">
-            <?php foreach ($translations as $translation) : ?>
-                <option value="<?php echo esc_url($translation['url']); ?>" <?php selected($translation['current_lang'], true); ?>>
-                    <?php echo esc_html($translation['name']); ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-    </div>
-<?php endif; ?>
+								<?php if (!empty($translations)) : ?>
+									<div class="header-lang-content">
+										<div class="lang-img-container">
+											<?php
+											$url = get_bloginfo('wpurl') . '/wp-content/themes/m5/assets/images/os/';
+											$lang_slug = pll_current_language('slug');
+											echo '<img class="lang-img" src="' . esc_url($url . 'flag-' . $lang_slug . '.png') . '" alt="flag">';
+											?>
+										</div>
+										<select class="select-circle"
+											onchange="if(this.value){window.location.href=this.value;}">
+											<?php foreach ($translations as $translation) : ?>
+												<option value="<?php echo esc_url($translation['url']); ?>" <?php selected($translation['current_lang'], true); ?>>
+													<?php echo esc_html($translation['name']); ?>
+												</option>
+											<?php endforeach; ?>
+										</select>
+									</div>
+								<?php endif; ?>
 							</div>
 						</div>
 						<!-- <li class="msi-mobile-menu-item"><a href="http://localhost/wp_msi/phong-kham-gan-ban" class="msi-mobile-menu-link">Tìm phòng khám</a></li> -->
