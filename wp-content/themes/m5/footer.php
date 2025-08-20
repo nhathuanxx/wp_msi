@@ -18,7 +18,7 @@
     <div class="footer__main">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-4 footer__item">
+                <div class="col-12 col-lg-4 footer__item">
                     <div class="footer__menu">
 
                         <div class="footer_logo">
@@ -49,7 +49,7 @@
 
 
                 </div>
-                <div class="col-12 col-md-2 footer__item">
+                <div class="col-12 col-lg-2 footer__item">
                     <div class="footer__menu">
                         <?php if (get_field('listing_1', pll_current_language('slug'))) : ?>
                             <?php while (the_repeater_field('listing_1', pll_current_language('slug'))) : ?>
@@ -67,7 +67,7 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <div class="col-12 col-md-2 footer__item">
+                <div class="col-12 col-lg-2 footer__item">
                     <div class="footer__menu">
                         <?php if (get_field('listing_2', pll_current_language('slug'))) : ?>
                             <?php while (the_repeater_field('listing_2', pll_current_language('slug'))) : ?>
@@ -94,7 +94,7 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 footer__item">
+                <div class="col-12 col-lg-4 footer__item">
                    <div style="font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 22px;
@@ -115,27 +115,16 @@
     <?php echo do_shortcode('[contact-form-7 id="6046" title="Form yêu cầu theo dõi"]'); ?>
   <?php endif; ?>
 <?php endif; ?>
-                    <?php if (function_exists('pll_current_language')): ?>
-                        <?php if (pll_current_language('slug') === 'vi'): ?>
+              
                             <div class="footer-bar-text">
                                 <i class="fas fa-map-marker-alt" style="margin-right:6px;color:white;"></i>
-                                MSI Reproductive Choices tại Việt Nam.
+                    <?php the_field('ten_dia_chi', 'option'); ?>
                             </div>
                             <div class="footer-bar-text">
                                 <i class="fas fa-map-marker-alt" style="margin-right:6px;color:white;"></i>
-                                Phòng 203-205, Nhà A1, Số 298 Đường Kim Mã, Khu Ngoại giao đoàn Vạn Phúc, Phường Ngọc Hà, Hà Nội, Việt Nam.
+                    <?php the_field('dia_chi', 'option'); ?>
                             </div>
-                        <?php elseif (pll_current_language('slug') === 'en'): ?>
-                            <div class="footer-bar-text">
-                                <i class="fas fa-map-marker-alt" style="margin-right:6px;color:white;"></i>
-                                MSI Reproductive Choices in Vietnam.
-                            </div>
-                            <div class="footer-bar-text">
-                                <i class="fas fa-map-marker-alt" style="margin-right:6px;color:white;"></i>
-                                Room 203-205, Building A1,298 Kim Ma Street, Van Phuc Diplomatic Compound, Ba Dinh, Hanoi, Vietnam.
-                            </div>
-                        <?php endif; ?>
-                    <?php endif; ?>
+                     
 
                     <div style="display:flex; gap:8px; align-items:center; font-family:'Roboto',sans-serif;">
                         <?php
@@ -366,13 +355,13 @@
                 </div>
             </li>
             <li class="icon-satellite">
-                <a href="<?php echo get_field('option_facebook', 'option') ? get_field('option_facebook', 'option') : 'https://www.facebook.com/profile.php?id=61572517763607'; ?>"
+                <a target="_blank" href="<?php echo get_field('option_facebook', 'option') ? get_field('option_facebook', 'option') : 'https://www.facebook.com/profile.php?id=61572517763607'; ?>"
                     target="_blank" rel="nofollow">
                     <i class="fab fa-facebook-f" style="font-size: 20px;"></i>
                 </a>
             </li>
             <li class="icon-satellite">
-                <a href="<?php echo get_field('option_tiktok', 'option') ? get_field('option_tiktok', 'option') : 'https://www.tiktok.com/@msivn_corporate_health'; ?>"
+                <a target="_blank" href="<?php echo get_field('option_tiktok', 'option') ? get_field('option_tiktok', 'option') : 'https://www.tiktok.com/@msivn_corporate_health'; ?>"
                     target="_blank" rel="nofollow">
                     <i class="fab fa-tiktok" style="font-size: 20px;"></i>
                 </a>
@@ -1368,7 +1357,7 @@
   border-radius: 24px;
   overflow: hidden;
   background: white;
-  max-width: 350px;
+  width: 100%;
   padding: 10px 16px;
 }
 

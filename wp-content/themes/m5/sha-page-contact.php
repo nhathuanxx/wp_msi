@@ -19,10 +19,7 @@ $lang = pll_current_language('slug');
             </div>
             <div class="container-image">
                 <div class="image-container">
-                    <img decoding="async"
-                        src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg.webp"
-                        alt="<?php echo ($lang === 'vi') ? 'Y tá MSI UK đang an ủi khách hàng phá thai.' : 'MSI UK nurse comforting abortion client.'; ?>"
-                        class="header-image lazyloaded">
+                    <img decoding="async" class="header-image lazyloaded" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/anh-page.jpg" alt="page-image" >
                 </div>
             </div>
         </div>
@@ -55,7 +52,7 @@ $lang = pll_current_language('slug');
             <!-- Right: Office Info + Map -->
             <div class="msi-contact-info">
                 <h2 class="msi-contact-title">
-                    <?php echo ($lang === 'vi') ? 'Văn phòng hỗ trợ toàn cầu' : 'Global support office'; ?>
+                    <?php echo ($lang === 'vi') ? 'MSI Reproductive Choices tại Việt Nam' : 'MSI Reproductive Choices in Vietnam'; ?>
                 </h2>
                 <p class="msi-contact-description">
                     <?php
@@ -74,9 +71,9 @@ $lang = pll_current_language('slug');
 
                 <!-- Address & Contact -->
                 <div class="msi-contact-details">
-                    <p><strong><?php echo ($lang === 'vi') ? 'Địa chỉ:' : 'Address:'; ?></strong> Phòng 203-205, Nhà A1/298 P. Kim Mã, Khu Ngoại giao đoàn Vạn Phúc, Ba Đình, Hà Nội, Việt Nam</p>
-                    <p><strong><?php echo ($lang === 'vi') ? 'Hotline:' : 'Hotline:'; ?></strong> 1900 558882</p>
-                    <p><strong><?php echo ($lang === 'vi') ? 'Email:' : 'Email:'; ?></strong> <a href="mailto:truyenthong@msichoices.org.vn">truyenthong@msichoices.org.vn</a></p>
+                    <p><strong><?php echo ($lang === 'vi') ? 'Địa chỉ:' : 'Address:'; ?></strong> Phòng 203-205, Nhà A1, Số 298 Đường Kim Mã, Khu Ngoại giao đoàn Vạn Phúc, Phường Ngọc Hà, Hà Nội, Việt Nam.</p>
+                    <p><strong><?php echo ($lang === 'vi') ? 'Hotline:' : 'Hotline:'; ?></strong> 1900 55 88 82</p>
+                    <p><strong><?php echo ($lang === 'vi') ? 'Email:' : 'Email:'; ?></strong> <a style="font-size: 20px;" href="mailto:truyenthong@msichoices.org.vn">truyenthong@msichoices.org.vn</a></p>
                 </div>
 
                 <!-- Social Links -->

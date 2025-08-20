@@ -26,7 +26,8 @@ get_header(); ?>
 
         <div class="banner-home-page-content-left">
             <div class="banner-title">
-                <?php the_field('banner_description', pll_current_language('slug')); ?>
+                <div><?php the_field('banner_description', pll_current_language('slug')); ?></div>
+                <div><?php the_field('banner_description_2', pll_current_language('slug')); ?></div>
             </div>
             <?php
             $lang = pll_current_language('slug');

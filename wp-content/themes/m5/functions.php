@@ -274,7 +274,20 @@ function msi_mobile_render_menu($items, $base_url, $level = 1) {
     foreach ($items as $item) {
         $hasChildren = !empty($item['children']) && $item['children'] !== false;
         $slug = isset($item['slug']) ? $item['slug'] : '#';
-        $url = (strpos($slug, 'http') === 0) ? $slug : trailingslashit($base_url) . $slug;
+        // $url = (strpos($slug, 'http') === 0) ? $slug : trailingslashit($base_url) . $slug;
+          if (stripos($slug, 'url:') === 0) {
+            // Nếu slug bắt đầu bằng "url:" => lấy phần sau "url:"
+            $url = trim(substr($slug, 4));
+        } elseif (stripos($slug, 'http') === 0) {
+            // Nếu slug đã là link đầy đủ (http/https)
+            $url = $slug;
+        } elseif (!empty($slug) && $slug !== '#') {
+            // Nếu slug bình thường => nối base_url + slug
+            $url = trailingslashit($base_url) . ltrim($slug, '/');
+        } else {
+            // Nếu không có slug => mặc định "#"
+            $url = '#';
+        }
         echo '<li class="msi-mobile-menu-item">';
         if ($hasChildren) {
             // Nút toggle có mũi tên bên phải

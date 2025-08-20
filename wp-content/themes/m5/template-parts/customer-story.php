@@ -96,7 +96,7 @@ else {
         <div class="customer-story-slider-header-right customer-story-slider-header-right-mobile">
             <div class="all-story">
                 <a href="<?php echo esc_url($category_link); ?>">
-                    <?php echo ($lang === 'vi') ? 'XEM TẤT CẢ CÁC CÂU CHUYỆN' : 'VIEW ALL STORIES'; ?>
+                    <?php echo ($lang === 'vi') ? 'CÂU CHUYỆN' : 'STORIES'; ?>
                 </a>
             </div>
         </div>

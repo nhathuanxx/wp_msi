@@ -204,18 +204,18 @@ $tab_keys = array_keys($slugs[$lang]);
         /* padding: 20px; */
     }
 
-    .msi-breadcrumb {
+    /* .msi-breadcrumb {
         font-size: 20px;
         margin-bottom: 16px;
         font-family: "Roboto", sans-serif;
-    }
+    } */
 
-    .msi-breadcrumb a {
+    /* .msi-breadcrumb a {
         color: #283573;
         font-size: 20px;
         font-family: "Roboto", sans-serif;
         text-decoration: none;
-    }
+    } */
 
     .msi-breadcrumb span {
         margin: 0 6px;
@@ -296,7 +296,7 @@ $tab_keys = array_keys($slugs[$lang]);
     }
 
     .msi-tab-sidebar {
-        width: 240px;
+        width: 320px;
         max-height: 80vh;
         overflow-y: auto;
         flex-shrink: 0;
@@ -353,6 +353,7 @@ $tab_keys = array_keys($slugs[$lang]);
         .msi-tab-sidebar a {
             white-space: nowrap;
             padding: 8px 12px;
+            font-size: 16px;
         }
     }
 

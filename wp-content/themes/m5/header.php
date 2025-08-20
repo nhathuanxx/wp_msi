@@ -377,7 +377,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<?php
 								$title = get_sub_field('title');
 								$slug = trim(get_sub_field('slug'), '/');
-								if (stripos($slug, 'url:') === 0) {
+								$target = '';
+								if (stripos($slug, 'open_new_tab_url:') === 0) {
+									$link = trim(substr($slug, strlen('open_new_tab_url:')));
+									$target = ' target="_blank"';
+								} elseif (stripos($slug, 'url:') === 0) {
 									$link = trim(substr($slug, 4));
 								} else {
 									$link = "$base_url/$slug";
@@ -391,7 +395,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<?php if ($has_lv2): ?>
 											<button type="button" class="menu-toggle"><?= esc_html($title); ?></button>
 										<?php else: ?>
-											<a class="link" href="<?= esc_url($link); ?>"><?= esc_html($title); ?></a>
+											<!-- <a class="link" href="<?= esc_url($link); ?>"><?= esc_html($title); ?></a> -->
+											<a class="link" href="<?= esc_url($link); ?>" <?= $target ?>><?= esc_html($title); ?></a>
 										<?php endif; ?>
 										<?php if ($has_lv2): ?>
 											<img class="arrow-custom-menu" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/arrow-custom-menu.svg"
@@ -399,13 +404,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<?php endif; ?>
 
 									</div>
-										<?php if ($has_lv2 || $description): ?>
-									<div class="menu-item-2" data-menu-id="<?= esc_attr($slug); ?>" style="display:none">
+									<?php if ($has_lv2 || $description): ?>
+										<div class="menu-item-2" data-menu-id="<?= esc_attr($slug); ?>" style="display:none">
 
-										<div class="menu-item-2-content">
-											<?php
-											if ($description): ?>
-												<!-- <div class="menu-description">
+											<div class="menu-item-2-content">
+												<?php
+												if ($description): ?>
+													<!-- <div class="menu-description">
 													<div class="title">
 														<?= esc_html($title); ?>
 													</div>
@@ -428,56 +433,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														</a>
 													</div>
 												</div> -->
-											<?php endif; ?>
+												<?php endif; ?>
 
-											<?php if ($has_lv2): ?>
-												<ul class="submenu">
-													<?php foreach ($children_lv2 as $row2): ?>
-														<?php
-														$title2 = $row2['title'];
-														$slug2 = trim($row2['slug'], '/');
-														$url2 = $row2['url'] ?? '';
-														if (stripos($slug2, 'url:') === 0) {
-															$link2 = trim(substr($slug2, 4));
-														} else {
-															$link2 = "$base_url/$slug2";
-														}
-														$children_lv3 = $row2['children'];
-														$has_lv3 = is_array($children_lv3) && count($children_lv3) > 0;
-														?>
-														<li class="submenu-item">
-															<?php if ($has_lv3): ?>
-																<div style="display: flex; align-items: center;justify-content: space-between;">
-																	<button type="button" class="menu-toggle"><?= esc_html($title2); ?></button> <img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/arrow-right.svg"
-																		alt="arrow-right">
-																</div>
-															<?php else: ?>
-																<a href="<?= esc_url($link2); ?>"><?= esc_html($title2); ?></a>
-															<?php endif; ?>
+												<?php if ($has_lv2): ?>
+													<ul class="submenu">
+														<?php foreach ($children_lv2 as $row2): ?>
+															<?php
+															$title2 = $row2['title'];
+															$slug2 = trim($row2['slug'], '/');
+															$url2 = $row2['url'] ?? '';
+															$target2 = '';
+															if (stripos($slug2, 'open_new_tab_url:') === 0) {
+																$link2 = trim(substr($slug2, strlen('open_new_tab_url:')));
+																$target2 = ' target="_blank"';
+															} elseif (stripos($slug2, 'url:') === 0) {
+																$link2 = trim(substr($slug2, 4));
+															} else {
+																$link2 = "$base_url/$slug2";
+															}
+															$children_lv3 = $row2['children'];
+															$has_lv3 = is_array($children_lv3) && count($children_lv3) > 0;
+															?>
+															<li class="submenu-item">
+																<?php if ($has_lv3): ?>
+																	<div style="display: flex; align-items: center;justify-content: space-between;">
+																		<button type="button" class="menu-toggle"><?= esc_html($title2); ?></button> <img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/arrow-right.svg"
+																			alt="arrow-right">
+																	</div>
+																<?php else: ?>
+																	<a href="<?= esc_url($link2); ?>" <?= $target2 ?>><?= esc_html($title2); ?></a>
+																<?php endif; ?>
 
-															<?php if ($has_lv3): ?>
-																<ul class="submenu-lv3">
-																	<?php foreach ($children_lv3 as $row3): ?>
-																		<?php
-																		$title3 = $row3['title'];
-																		$slug3 = trim($row3['slug'], '/');
-																		if (stripos($slug3, 'url:') === 0) {
-																			$link3 = trim(substr($slug3, 4));
-																		} else {
-																			$link3 = "$base_url/$slug3";
-																		}
-																		?>
-																		<li><a href="<?= esc_url($link3); ?>"><?= esc_html($title3); ?></a></li>
-																	<?php endforeach; ?>
-																</ul>
-															<?php endif; ?>
-														</li>
-													<?php endforeach; ?>
-												</ul>
-											<?php endif; ?>
+																<?php if ($has_lv3): ?>
+																	<ul class="submenu-lv3">
+																		<?php foreach ($children_lv3 as $row3): ?>
+																			<?php
+																			$title3 = $row3['title'];
+																			$slug3 = trim($row3['slug'], '/');
+																			$target3 = '';
+															if (stripos($slug3, 'open_new_tab_url:') === 0) {
+																$link3 = trim(substr($slug3, strlen('open_new_tab_url:')));
+																$target3 = ' target="_blank"';
+															} elseif (stripos($slug3, 'url:') === 0) {
+																				$link3 = trim(substr($slug3, 4));
+																			} else {
+																				$link3 = "$base_url/$slug3";
+																			}
+																			?>
+																			<li><a href="<?= esc_url($link3); ?>" <?= $target2 ?>><?= esc_html($title3); ?></a></li>
+																		<?php endforeach; ?>
+																	</ul>
+																<?php endif; ?>
+															</li>
+														<?php endforeach; ?>
+													</ul>
+												<?php endif; ?>
+											</div>
 										</div>
-									</div>
-								<?php endif; ?>
+									<?php endif; ?>
 								</li>
 							<?php endwhile; ?>
 						</ul>
