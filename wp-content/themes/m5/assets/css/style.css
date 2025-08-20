@@ -7204,8 +7204,9 @@ body {
 .menu-item .menu-item-2 {
   display: flex;
   position: absolute;
-  width: 100vw;
-  top: 40px;
+  width: 400px;
+  border-radius: 8px;
+  /* top: 40px; */
 }
 
 .menu-item,
@@ -7218,7 +7219,7 @@ body {
 .submenu-lv3,
 .menu-description {
   display: none;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 .menu-toggle,
@@ -7275,9 +7276,9 @@ a.active {
 }
 
 .menu-item-2 .submenu {
-  width: 70%;
+  width: 100%;
   background: #ebf3fb;
-  padding: 48px 0 48px 32px;
+  padding: 32px;
 }
 
 .menu-item-2 .submenu .submenu-item {
@@ -7298,7 +7299,11 @@ a.active {
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
+  text-decoration: none;
   color: #283573;
+}
+.menu-item-2 .submenu .submenu-item:hover a{
+  text-decoration: underline;
 }
 
 .menu-item-2 .submenu .submenu-item button {
@@ -7311,10 +7316,11 @@ a.active {
 }
 
 .menu-item-2 .submenu .submenu-item .submenu-lv3 {
-  position: absolute;
-  top: 0px;
-  left: 385px;
-  width: 385px;
+  margin-left: 12px;
+  /* position: absolute; */
+  /* top: 0px; */
+  /* left: 385px;
+  width: 385px; */
 }
 
 .menu-item-2 .submenu .submenu-item .submenu-lv3 li {
@@ -7334,8 +7340,8 @@ a.active {
 }
 
 .menu-item-2-content {
-  margin: 0px auto;
-  max-width: 1335px;
+  /* margin: 0px auto; */
+  /* max-width: 1335px; */
   width: 100%;
   display: flex;
 }
@@ -7645,6 +7651,7 @@ a.active {
 
 .intl-activity-container {
   background-color: white;
+  padding-bottom: 40px;
 }
 
 .intl-activity-content {
@@ -9296,7 +9303,7 @@ p {
   letter-spacing: 0;
   text-align: left;
   padding: 0px;
-  color: #272727 !important;
+  color: white !important;
 }
 
 .footer__main ul li a:hover {
@@ -9322,6 +9329,8 @@ p {
   display: flex;
   gap: 20px;
   align-items: center;
+  justify-content: center;
+  padding: 8px 0px;
 }
 
 .footer__bar {
@@ -9697,11 +9706,11 @@ p {
   margin: 0 auto;
   width: 100%;
   padding: 88px 0px 54px 0px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid white;
 }
 
 .footer {
-  background-color: white;
+  background-color: #283573;
 }
 
 .footer__main .footer__item__title {
