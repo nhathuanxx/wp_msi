@@ -18,21 +18,29 @@
     <div class="footer__main">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 footer__item">
+                <div class="col-12 col-md-4 footer__item">
                     <div class="footer__menu">
-                        <?php if (get_field('listing_1', pll_current_language('slug'))) : ?>
-                            <?php while (the_repeater_field('listing_1', pll_current_language('slug'))) : ?>
-                                <p class="footer__item__title footer__item__wrap"><?php echo get_sub_field('title'); ?></p>
-                                <ul>
-                                    <?php while (the_repeater_field('listing')) : ?>
-                                        <li>
-                                            <a rel="nofollow" href="<?php echo get_sub_field('url'); ?>">
-                                                <?php echo get_sub_field('title'); ?></a>
-                                        </li>
-                                    <?php endwhile; ?>
-                                </ul>
-                            <?php endwhile; ?>
-                        <?php endif; ?>
+
+                        <div class="footer_logo">
+                            <a href="<?php echo pll_home_url(); ?>">
+                                <?php
+                                $logoUrl = get_field('logo_image', pll_current_language('slug'));
+                                if (is_front_page()) {
+                                ?>
+                                    <h1 style="display: none;">MSI Choices Vietnam - Making Choices Possible</h1>
+                                <?php
+                                }
+                                ?>
+                                <img src="<?php echo $logoUrl; ?>" alt="<?php echo bloginfo(); ?>">
+                            </a>
+                        </div>
+                        <div class="footer-logo-description">
+                            <?php if (pll_current_language('slug') === 'vi') : ?>
+                                MSI Reproductive Choices Vietnam: Nâng tầm Sức khỏe Sinh sản, Thúc đẩy Bình đẳng Giới và Phát triển Bền vững tại Việt Nam.
+                            <?php else : ?>
+                                MSI Reproductive Choices Vietnam: Advancing Reproductive Health, Promoting Gender Equality, and Fostering Sustainable Development in Vietnam.
+                            <?php endif; ?>
+                        </div>
                     </div>
 
                     <!-- <div class="sha-dmca" style="padding-top: 30px;">
@@ -41,7 +49,25 @@
 
 
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 footer__item">
+                <div class="col-12 col-md-2 footer__item">
+                    <div class="footer__menu">
+                        <?php if (get_field('listing_1', pll_current_language('slug'))) : ?>
+                            <?php while (the_repeater_field('listing_1', pll_current_language('slug'))) : ?>
+                                <p class="footer__item__title"><?php echo get_sub_field('title'); ?></p>
+                                <ul>
+                                    <?php while (the_repeater_field('listing')) : ?>
+                                        <li>
+                                            <a href="<?php echo get_sub_field('url'); ?>">
+                                                <!--  <i class="icon-arrow-next"></i> -->
+                                                <?php echo get_sub_field('title'); ?></a>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <div class="col-12 col-md-2 footer__item">
                     <div class="footer__menu">
                         <?php if (get_field('listing_2', pll_current_language('slug'))) : ?>
                             <?php while (the_repeater_field('listing_2', pll_current_language('slug'))) : ?>
@@ -54,44 +80,84 @@
                                                 <?php echo get_sub_field('title'); ?></a>
                                         </li>
                                     <?php endwhile; ?>
+                                      <li>
+  <?php if ( function_exists('pll_current_language') ): ?>
+    <?php if ( pll_current_language('slug') === 'vi' ): ?>
+        <a href="https://msichoices.org.vn/lien-he">Liên hệ</a>
+    <?php elseif ( pll_current_language('slug') === 'en' ): ?>
+        <a href="https://msichoices.org.vn/en/contact">Contact</a>
+    <?php endif; ?>
+  <?php endif; ?>
+</li>
                                 </ul>
                             <?php endwhile; ?>
                         <?php endif; ?>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 footer__item">
-                    <div class="footer__menu">
-                        <?php if (get_field('listing_3', pll_current_language('slug'))) : ?>
-                            <?php while (the_repeater_field('listing_3', pll_current_language('slug'))) : ?>
-                                <p class="footer__item__title"><?php echo get_sub_field('title'); ?></p>
-                                <ul>
-                                    <?php while (the_repeater_field('listing')) : ?>
-                                        <li>
-                                            <a href="<?php echo get_sub_field('url'); ?>">
-                                                <!--  <i class="icon-arrow-next"></i> -->
-                                                <?php echo get_sub_field('title'); ?></a>
-                                        </li>
-                                    <?php endwhile; ?>
-                                </ul>
-                            <?php endwhile; ?>
+                <div class="col-12 col-md-4 footer__item">
+                   <div style="font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 32px;
+    color: white;">
+  <?php if ( function_exists('pll_current_language') ): ?>
+    <?php if ( pll_current_language('slug') === 'vi' ): ?>
+        ĐĂNG KÝ NHẬN THÔNG BÁO
+    <?php elseif ( pll_current_language('slug') === 'en' ): ?>
+        SUBSCRIBE TO UPDATES
+    <?php endif; ?>
+  <?php endif; ?>
+</div>
+<?php if ( function_exists('pll_current_language') ): ?>
+  <?php if ( pll_current_language('slug') === 'vi' ): ?>
+    <?php echo do_shortcode('[contact-form-7 id="6044" title="Form yêu cầu theo dõi vi"]'); ?>
+  <?php else: ?>
+    <?php echo do_shortcode('[contact-form-7 id="6046" title="Form yêu cầu theo dõi"]'); ?>
+  <?php endif; ?>
+<?php endif; ?>
+                    <?php if (function_exists('pll_current_language')): ?>
+                        <?php if (pll_current_language('slug') === 'vi'): ?>
+                            <div class="footer-bar-text">
+                                <i class="fas fa-map-marker-alt" style="margin-right:6px;color:white;"></i>
+                                MSI Reproductive Choices tại Việt Nam.
+                            </div>
+                            <div class="footer-bar-text">
+                                <i class="fas fa-map-marker-alt" style="margin-right:6px;color:white;"></i>
+                                Phòng 203-205, Nhà A1, Số 298 Đường Kim Mã, Khu Ngoại giao đoàn Vạn Phúc, Phường Ngọc Hà, Hà Nội, Việt Nam.
+                            </div>
+                        <?php elseif (pll_current_language('slug') === 'en'): ?>
+                            <div class="footer-bar-text">
+                                <i class="fas fa-map-marker-alt" style="margin-right:6px;color:white;"></i>
+                                MSI Reproductive Choices in Vietnam.
+                            </div>
+                            <div class="footer-bar-text">
+                                <i class="fas fa-map-marker-alt" style="margin-right:6px;color:white;"></i>
+                                Room 203-205, Building A1,298 Kim Ma Street, Van Phuc Diplomatic Compound, Ba Dinh, Hanoi, Vietnam.
+                            </div>
                         <?php endif; ?>
+                    <?php endif; ?>
+
+                    <div style="display:flex; gap:8px; align-items:center; font-family:'Roboto',sans-serif;">
+                        <?php
+                        $phone_raw = get_field('so_dien_thoai', 'option');
+                        $phone = is_string($phone_raw) ? $phone_raw : '';
+                        $phone_link = $phone ? 'tel:' . preg_replace('/\s+/', '', $phone) : '#';
+                        ?>
+                        <i class="fas fa-phone-alt" style="color:white;"></i>
+                        <a href="<?php echo esc_attr($phone_link); ?>"
+                            style="font-size:14px; font-weight:400; color:white; text-decoration:none;padding:0;line-height:24px;">
+                            <?php echo esc_html($phone ?: 'Chưa có số'); ?>
+                        </a>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 footer__item">
-                    <div class="footer__menu">
-                        <?php if (get_field('listing_4', pll_current_language('slug'))) : ?>
-                            <?php while (the_repeater_field('listing_4', pll_current_language('slug'))) : ?>
-                                <p class="footer__item__title"><?php echo get_sub_field('title'); ?></p>
-                                <ul>
-                                    <?php while (the_repeater_field('listing')) : ?>
-                                        <li>
-                                            <a href="<?php echo get_sub_field('url'); ?>">
-                                                <!--  <i class="icon-arrow-next"></i> -->
-                                                <?php echo get_sub_field('title'); ?></a>
-                                        </li>
-                                    <?php endwhile; ?>
-                                </ul>
-                            <?php endwhile; ?>
+
+                    <div style="display:flex; gap:8px; align-items:center;font-family:'Roboto',sans-serif;">
+                        <i class="fas fa-envelope" style="color:white;"></i>
+                        <?php $email = get_field('email', 'option'); ?>
+                        <?php if ($email): ?>
+                            <a href="mailto:<?php echo esc_attr($email); ?>"
+                                style="font-size:14px; font-weight:400; color:white; text-decoration:none;padding:0;line-height:24px;">
+                                <?php echo esc_html($email); ?>
+                            </a>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -144,83 +210,20 @@
             </div> -->
         </div>
     </div>
-    <div class="footer__bar">
-        <div class="footer__bar_container">
-
-            <div class="footer-bar-top">
-                <div class="nha-tai-tro">
-                    <img class="nha-tai-tro-img"
-                        src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/footer-1.svg"
-                        alt="icon-calendar">
-                    <img class="nha-tai-tro-img"
-                        src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/footer-2.svg"
-                        alt="icon-calendar">
-                    <img class="nha-tai-tro-img"
-                        src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/footer-3.webp"
-                        alt="icon-calendar">
-                </div>
-                <div class="msi-social-footer">
-                    <a href="https://www.facebook.com/profile.php?id=61572517763607">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@msireproductivechoicesviet6308">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@msivn_corporate_health">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                </div>
-            </div>
-            <div style="font-family:'Roboto',sans-serif; color:#283573; display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
-
-
-
-</div>
-            <?php if ( function_exists( 'pll_current_language' ) ): ?>
-    <?php if ( pll_current_language('slug') === 'vi' ): ?>
-        <div class="footer-bar-text">MSI Reproductive Choices tại Việt Nam.</div>
-        <div class="footer-bar-text">Phòng 203-205, Nhà A1/298 P. Kim Mã, Khu Ngoại giao đoàn Vạn Phúc, Ba Đình, Hà Nội, Việt Nam.</div>
-    <?php elseif ( pll_current_language('slug') === 'en' ): ?>
-        <div class="footer-bar-text">MSI Reproductive Choices in Vietnam.</div>
-        <div class="footer-bar-text">Room 203-205, Building A1/298 Kim Ma Street, Van Phuc Diplomatic Compound, Ba Dinh, Hanoi, Vietnam.</div>
-    <?php endif; ?>
-<?php endif; ?>
-  <div style="display:flex; gap:8px; align-items:center; font-family:'Roboto',sans-serif;">
-    <?php 
-  $phone_raw = get_field('so_dien_thoai', 'option');
-  $phone = is_string($phone_raw) ? $phone_raw : '';
-  $phone_link = $phone ? 'tel:' . preg_replace('/\s+/', '', $phone) : '#';
-?>
-    <span style="font-size:14px; font-weight:400; color:#283573;">Hotline:</span>
-    <a  href="<?php echo esc_attr($phone_link); ?>" 
-       style="font-size:14px; font-weight:400; color:#283573; text-decoration:none;padding:0;line-height: 24px;">
-       <?php echo esc_html($phone ?: 'Chưa có số'); ?>    </a>
-  </div>
-
-  <div style="display:flex; gap:8px; align-items:center;font-family:'Roboto',sans-serif;">
-    <span style="font-size:14px; font-weight:400; color:#283573;">Email:</span>
-   <?php $email = get_field('email', 'option'); ?>
-<?php if ($email): ?>
-    <a href="mailto:<?php echo esc_attr($email); ?>"
-       style="font-size:14px; font-weight:400; color:#283573; text-decoration:none;padding:0;line-height:24px;">
-       <?php echo esc_html($email); ?>
-    </a>
-<?php endif; ?>
-  </div>
-            <div class="footer__bar__wrap display-flex-center justify-content-between display-sm-block">
-                <div class="footer__copyright">
-                    <p class="margin-0 p-0 font-size-14 secondary-color-txt footer-bar-text">
-                        ©<?php echo date('Y'); ?> Readdy. All rights reserved.
-                    </p>
-                    <!-- <a class="footer-bar-text" href="#">Chính sách bảo mật</a>
+    <div class="footer__bar__wrap display-flex-center justify-content-between display-sm-block">
+        <div class="footer__copyright">
+            <p class="margin-0 p-0 font-size-14 secondary-color-txt footer-bar-text">
+                ©<?php echo date('Y'); ?> MSIVN. All rights reserved.
+            </p>
+            <!-- <a class="footer-bar-text" href="#">Chính sách bảo mật</a>
                     <a class="footer-bar-text" href="#">Chính sách cookie</a>
                     <a class="footer-bar-text" href="#">Chống chế độ nô lệ hiện đại</a> -->
 
 
-                </div>
-            </div>
         </div>
-        <!-- <li class="book-calendar"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-book-now.svg" alt="book-now"></li>
+    </div>
+    </div>
+    <!-- <li class="book-calendar"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-book-now.svg" alt="book-now"></li>
             <li class="icon-center" id="toggleIcon"><img width="50" height="50" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-social.svg" alt="icon-social"></li>
             <li class="icon-satellite"><a href="<?php echo get_field('option_zalo', 'option') ? get_field('option_zalo', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-zalo.svg" alt="icon-zalo"></a></li>
             <li class="icon-satellite"><a href="<?php echo get_field('option_link_fb_mes', 'option') ? get_field('option_link_fb_mes', 'option') : '#'; ?>" target="_blank" rel="nofollow"><img width="42" height="42" src="<?php echo get_template_directory_uri(); ?>/assets/images/os/icon-messenger.svg" alt="icon-messenger"></a></li>
@@ -264,7 +267,6 @@
                                     }
                                     if (pll_current_language('slug') == 'zh') {
                                         echo '预订服务:';
-
                                     }
                                     ?>
                                 </div>
@@ -515,118 +517,141 @@
     });
 </script>
 <script>
-jQuery(function ($) {
-  const CLOSE_DELAY = 300;
-  const TOP_OFFSET  = 218;
-  const panels = {};
-  const timers = {};
-  const subTimers = {};
+    jQuery(function($) {
+        const CLOSE_DELAY = 300;
+        const TOP_OFFSET = 90;
+        const panels = {};
+        const timers = {};
+        const subTimers = {};
 
-  function cancelClose(id) {
-    if (timers[id]) { clearTimeout(timers[id]); timers[id] = null; }
-  }
-  function scheduleClose(id) {
-    cancelClose(id);
-    timers[id] = setTimeout(function () {
-      const p = panels[id];
-      if (!p) return;
-      p.$btn.removeClass('active');
-      p.$panel.stop(true, true).slideUp(200);
-    }, CLOSE_DELAY);
-  }
-  function closeAllExcept(keepId) {
-    $.each(panels, function (id, p) {
-      if (id === keepId) return;
-      cancelClose(id);
-      p.$btn.removeClass('active');
-      p.$panel.stop(true, true).slideUp(200);
+        function cancelClose(id) {
+            if (timers[id]) {
+                clearTimeout(timers[id]);
+                timers[id] = null;
+            }
+        }
+
+        function scheduleClose(id) {
+            cancelClose(id);
+            timers[id] = setTimeout(function() {
+                const p = panels[id];
+                if (!p) return;
+                p.$btn.removeClass('active');
+                p.$panel.stop(true, true).slideUp(200);
+            }, CLOSE_DELAY);
+        }
+
+        function closeAllExcept(keepId) {
+            $.each(panels, function(id, p) {
+                if (id === keepId) return;
+                cancelClose(id);
+                p.$btn.removeClass('active');
+                p.$panel.stop(true, true).slideUp(200);
+            });
+        }
+
+        function openPanel(id) {
+            const p = panels[id];
+            if (!p) return;
+            closeAllExcept(id);
+            p.$btn.addClass('active');
+            p.$panel.css({
+                    top: TOP_OFFSET + 'px'
+                })
+                .stop(true, true).slideDown(200);
+            p.$panel.find('.menu-description, .submenu').show();
+        }
+
+        // Ghép menu cấp 1 và panel cấp 2
+        $('.menu-item-1[data-menu-id]').each(function() {
+            const id = $(this).data('menu-id');
+            const $panel = $(`.menu-item-2[data-menu-id="${id}"]`);
+            if ($panel.length) {
+                $panel.hide(); // Ẩn mặc định
+                panels[id] = {
+                    $btn: $(this),
+                    $panel
+                };
+            }
+        });
+
+        // Hover cấp 1
+        $.each(panels, function(id, p) {
+            p.$btn.on('mouseenter', function() {
+                cancelClose(id);
+                openPanel(id);
+            });
+            p.$btn.on('mouseleave', function() {
+                scheduleClose(id);
+            });
+            p.$panel.on('mouseenter', function() {
+                cancelClose(id);
+            });
+            p.$panel.on('mouseleave', function() {
+                scheduleClose(id);
+            });
+        });
+
+        // Hover cấp 2 → cấp 3
+        $('.custom-menu').on('mouseenter', '.submenu-item', function() {
+            const $item = $(this);
+            const $lv3 = $item.children('.submenu-lv3');
+
+            $item.siblings('.submenu-item')
+                .removeClass('open')
+                .children('.submenu-lv3').stop(true, true).slideUp(200);
+
+            if ($lv3.length) {
+                $item.addClass('open');
+                $lv3.stop(true, true).slideDown(200);
+            }
+        });
+
+        $('.custom-menu').on('mouseleave', '.submenu-item', function() {
+            const $item = $(this);
+            const $lv3 = $item.children('.submenu-lv3');
+            if ($lv3.length) {
+                subTimers[$item.index()] = setTimeout(function() {
+                    $item.removeClass('open');
+                    $lv3.stop(true, true).slideUp(200);
+                }, CLOSE_DELAY);
+            }
+        });
+
+        // Khi trỏ vào menu cấp 3 thì giữ cấp 2 mở
+        $('.custom-menu').on('mouseenter', '.submenu-lv3', function() {
+            const $parentItem = $(this).closest('.submenu-item');
+            clearTimeout(subTimers[$parentItem.index()]);
+        });
+        $('.custom-menu').on('mouseleave', '.submenu-lv3', function() {
+            const $parentItem = $(this).closest('.submenu-item');
+            subTimers[$parentItem.index()] = setTimeout(function() {
+                $parentItem.removeClass('open');
+                $parentItem.children('.submenu-lv3').stop(true, true).slideUp(200);
+            }, CLOSE_DELAY);
+        });
+
+        // Tắt click-toggle cũ
+        $('.custom-menu > .menu-item > .menu-item-1 > .menu-toggle').off('click');
+        $('.submenu').off('click', '.menu-toggle');
+        $('.custom-menu').on('click', '.menu-toggle', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+
+        //   Click ra ngoài -> đóng tất cả
+        $(document).on('click', function(e) {
+            if ($(e.target).closest('.custom-menu').length === 0) {
+                $.each(panels, function(id, p) {
+                    cancelClose(id);
+                    p.$btn.removeClass('active');
+                    p.$panel.stop(true, true).slideUp(200);
+                });
+                $('.submenu-item.open').removeClass('open')
+                    .children('.submenu-lv3').stop(true, true).slideUp(200);
+            }
+        });
     });
-  }
-  function openPanel(id) {
-    const p = panels[id];
-    if (!p) return;
-    closeAllExcept(id);
-    p.$btn.addClass('active');
-    p.$panel.css({ top: TOP_OFFSET + 'px' })
-      .stop(true, true).slideDown(200);
-    p.$panel.find('.menu-description, .submenu').show();
-  }
-
-  // Ghép menu cấp 1 và panel cấp 2
-  $('.menu-item-1[data-menu-id]').each(function () {
-    const id = $(this).data('menu-id');
-    const $panel = $(`.menu-item-2[data-menu-id="${id}"]`);
-    if ($panel.length) {
-      $panel.hide(); // Ẩn mặc định
-      panels[id] = { $btn: $(this), $panel };
-    }
-  });
-
-  // Hover cấp 1
-  $.each(panels, function (id, p) {
-    p.$btn.on('mouseenter', function () { cancelClose(id); openPanel(id); });
-    p.$btn.on('mouseleave', function () { scheduleClose(id); });
-    p.$panel.on('mouseenter', function () { cancelClose(id); });
-    p.$panel.on('mouseleave', function () { scheduleClose(id); });
-  });
-
-  // Hover cấp 2 → cấp 3
-  $('.custom-menu').on('mouseenter', '.submenu-item', function () {
-    const $item = $(this);
-    const $lv3  = $item.children('.submenu-lv3');
-
-    $item.siblings('.submenu-item')
-      .removeClass('open')
-      .children('.submenu-lv3').stop(true, true).slideUp(200);
-
-    if ($lv3.length) {
-      $item.addClass('open');
-      $lv3.stop(true, true).slideDown(200);
-    }
-  });
-
-  $('.custom-menu').on('mouseleave', '.submenu-item', function () {
-    const $item = $(this);
-    const $lv3  = $item.children('.submenu-lv3');
-    if ($lv3.length) {
-      subTimers[$item.index()] = setTimeout(function () {
-        $item.removeClass('open');
-        $lv3.stop(true, true).slideUp(200);
-      }, CLOSE_DELAY);
-    }
-  });
-
-  // Khi trỏ vào menu cấp 3 thì giữ cấp 2 mở
-  $('.custom-menu').on('mouseenter', '.submenu-lv3', function () {
-    const $parentItem = $(this).closest('.submenu-item');
-    clearTimeout(subTimers[$parentItem.index()]);
-  });
-  $('.custom-menu').on('mouseleave', '.submenu-lv3', function () {
-    const $parentItem = $(this).closest('.submenu-item');
-    subTimers[$parentItem.index()] = setTimeout(function () {
-      $parentItem.removeClass('open');
-      $parentItem.children('.submenu-lv3').stop(true, true).slideUp(200);
-    }, CLOSE_DELAY);
-  });
-
-  // Tắt click-toggle cũ
-  $('.custom-menu > .menu-item > .menu-item-1 > .menu-toggle').off('click');
-  $('.submenu').off('click', '.menu-toggle');
-  $('.custom-menu').on('click', '.menu-toggle', function (e) { e.preventDefault(); e.stopPropagation(); });
-
-  // Click ra ngoài -> đóng tất cả
-  $(document).on('click', function (e) {
-    if ($(e.target).closest('.custom-menu').length === 0) {
-      $.each(panels, function (id, p) {
-        cancelClose(id);
-        p.$btn.removeClass('active');
-        p.$panel.stop(true, true).slideUp(200);
-      });
-      $('.submenu-item.open').removeClass('open')
-        .children('.submenu-lv3').stop(true, true).slideUp(200);
-    }
-  });
-});
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -667,8 +692,8 @@ jQuery(function ($) {
         // Click filter category
         $('.template-blog-filter-btn').on('click', function() {
             category = $(this).data('category');
-$('.template-blog-filter-btn').removeClass('template-blog-filter-btn-active');
-$(this).addClass('template-blog-filter-btn-active');
+            $('.template-blog-filter-btn').removeClass('template-blog-filter-btn-active');
+            $(this).addClass('template-blog-filter-btn-active');
             page = 1;
             $('#template-blog-post-list').html('');
             $('#template-blog-load-more-btn').show();
@@ -716,13 +741,13 @@ $(this).addClass('template-blog-filter-btn-active');
                 category: category,
                 search: search
             }, function(data) {
-                const posts = $(data).filter('.post-card'); 
+                const posts = $(data).filter('.post-card');
                 if (posts.length == 0) {
                     debugger
                     $('#template-blog-load-more-btn').hide();
                 } else {
-                    if(posts.length < 3){
-                                            $('#template-blog-load-more-btn').hide();
+                    if (posts.length < 3) {
+                        $('#template-blog-load-more-btn').hide();
 
                     }
                     $('#template-blog-post-list').append(data);
@@ -764,34 +789,34 @@ $(this).addClass('template-blog-filter-btn-active');
     });
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".accordion-header").forEach(header => {
-    header.addEventListener("click", function () {
-      const item = this.parentElement;
-      const content = item.querySelector(".accordion-content");
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll(".accordion-header").forEach(header => {
+            header.addEventListener("click", function() {
+                const item = this.parentElement;
+                const content = item.querySelector(".accordion-content");
 
-      // Đóng tất cả accordion khác trên toàn trang
-      document.querySelectorAll(".accordion-item").forEach(other => {
-        if (other !== item) {
-          other.classList.remove("active");
-          other.querySelector(".accordion-content").style.maxHeight = null;
-        }
-      });
+                // Đóng tất cả accordion khác trên toàn trang
+                document.querySelectorAll(".accordion-item").forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove("active");
+                        other.querySelector(".accordion-content").style.maxHeight = null;
+                    }
+                });
 
-      // Toggle item hiện tại
-      item.classList.toggle("active");
-      if (item.classList.contains("active")) {
-        content.style.maxHeight = content.scrollHeight + "px";
-      } else {
-        content.style.maxHeight = null;
-      }
+                // Toggle item hiện tại
+                item.classList.toggle("active");
+                if (item.classList.contains("active")) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    content.style.maxHeight = null;
+                }
+            });
+        });
     });
-  });
-});
 </script>
 <style>
     .footer__main {
-        background: white;
+        background: #283573;
         padding: 50px 0;
     }
 
@@ -813,7 +838,7 @@ document.addEventListener("DOMContentLoaded", function () {
         font-weight: 400;
         line-height: 24px;
         text-align: left;
-        color: #292929 !important;
+        color: white !important;
         margin-bottom: 12px;
     }
 
@@ -826,7 +851,7 @@ document.addEventListener("DOMContentLoaded", function () {
         letter-spacing: 0;
         text-align: left;
         padding: 0px;
-        color: #272727 !important;
+        color: white !important;
     }
 
     .footer__main ul li a:hover {
@@ -835,15 +860,17 @@ document.addEventListener("DOMContentLoaded", function () {
         line-height: 24px;
         text-align: left;
         font-family: 'Roboto', sans-serif;
-        color: #283573 !important;
+        text-decoration: underline;
+        color: white !important;
     }
 
     .footer__main .footer__copyright p {
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
         font-style: normal;
-        font-size: 16px;
+        font-size: 20px;
         line-height: 24px;
+        color: white;
         letter-spacing: 0;
         color: #9CA3AF;
     }
@@ -852,6 +879,10 @@ document.addEventListener("DOMContentLoaded", function () {
         display: flex;
         gap: 20px;
         align-items: center;
+        justify-content: center;
+        padding: 8px 0px;
+        text-align: center;
+        width: 100%;
     }
 
     .footer__bar {
@@ -1230,7 +1261,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     .footer {
-        background-color: white;
+        background-color: #283573;
     }
 
     .footer__main .footer__item__title {
@@ -1238,7 +1269,7 @@ document.addEventListener("DOMContentLoaded", function () {
         font-weight: 700;
         font-size: 22px;
         line-height: 32px;
-        color: #283573;
+        color: white;
     }
 
     .footer__main .footer__item__title ul li a {
@@ -1291,9 +1322,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     .footer-bar-text {
-        font-size: 14px;
         line-height: 24px;
-        color: #283573;
+        color: white;
         font-family: "Roboto", sans-serif;
         font-size: 14px;
         font-weight: 400;
@@ -1303,6 +1333,68 @@ document.addEventListener("DOMContentLoaded", function () {
     .footer__copyright a {
         text-decoration: underline;
     }
+    .footer_logo a{
+        padding: 0;
+    }
+
+    .footer_logo a img {
+        width: 160px;
+        border-radius: 8px;
+    }
+
+    .footer__menu .footer-logo-description {
+        font-family: 'Roboto', sans-serif;
+        margin-top: 24px;
+        font-size: 18px;
+        color: white;
+    }
+    .newsletter-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* border: 1px solid #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  background: white;
+  padding: 2px;
+  max-width: 350px; */
+  padding: 8px 0px;
+}
+
+.newsletter-form input[type="email"] {
+  display: flex;
+  align-items: center;
+  border: 1px solid #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  background: white;
+  max-width: 350px;
+  padding: 10px 16px;
+}
+
+/* .newsletter-form input[type="email"]::placeholder {
+  color: rgba(255,255,255,0.8);
+} */
+
+.newsletter-submit {
+  background: #f44336; /* màu đỏ */
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.newsletter-submit i {
+  margin-right: 6px;
+}
+.footer__main .wpcf7 form.failed .wpcf7-response-output, .wpcf7 form.aborted .wpcf7-response-output{
+    color: white !important;
+}
 </style>
 </body>
 
