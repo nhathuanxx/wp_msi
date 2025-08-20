@@ -32,22 +32,22 @@ $slugs = [
 // Tiêu đề tab theo ngôn ngữ
 $titles = [
     'vi' => [
-        'gioi-thieu-chung' => 'Giới thiệu chung',
-        'su-menh'          => 'Sứ mệnh',
-        'tam-nhin'         => 'Tầm nhìn',
-        'gia-tri-cot-loi'  => 'Giá trị cốt lõi',
-        'hanh-trinh-cua-msivn' => 'Hành trình của MSIVN',
-        'cau-chuyen-cua-cd-trong-gan-30-nam-tai-vn' => 'Câu chuyện của CD trong gần 30 năm tại VN',
-        'co-cau-to-chuc'   => 'Cơ cấu tổ chức',
+        'gioi-thieu-chung' => 'GIỚI THIỆU CHUNG',
+        'su-menh'          => 'SỨ MỆNH',
+        'tam-nhin'         => 'TẦM NHÌN',
+        'gia-tri-cot-loi'  => 'GIÁ TRỊ CỐT LÕI',
+        'hanh-trinh-cua-msivn' => 'HÀNH TRÌNH CỦA MSIVN',
+        'cau-chuyen-cua-cd-trong-gan-30-nam-tai-vn' => 'CÂU CHUYỆN CỦA GIÁM ĐỐC QUỐC GIA MSIVN',
+        'co-cau-to-chuc'   => 'CƠ CẤU TỔ CHỨC',
     ],
     'en' => [
-        'general-introduction' => 'General introduction',
-        'mission'          => 'Mission',
-        'vision'         => 'Vision',
-        'core-values'  => 'Core Values',
-        'journey-of-msivn' => 'Journey of MSIVN',
-        'the-story-of-cd-in-nearly-30-years-in-vietnam' => 'The Story of CD in Nearly 30 Years in Vietnam',
-        'organizational-structure'   => 'Organizational Structure',
+        'general-introduction' => 'GENERAL INTRODUCTION',
+        'mission'          => 'MISSION',
+        'vision'         => 'VISION',
+        'core-values'  => 'CORE VALUES',
+        'journey-of-msivn' => 'JOURNEY OF MSIVN',
+        'the-story-of-cd-in-nearly-30-years-in-vietnam' => 'THE STORY OF CD IN NEARLY 30 YEARS IN VIETNAM',
+        'organizational-structure'   => 'ORGANIZATIONAL STRUCTURE',
     ]
 ];
 
