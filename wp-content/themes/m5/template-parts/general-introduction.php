@@ -4,16 +4,23 @@
         <?php if (pll_current_language('slug') === 'vi') : ?>
             <h2 class="msi-intro-title">GIỚI THIỆU CHUNG</h2>
             <p class="msi-intro-text">
-                Với gần năm thập kỷ đồng hành cùng phụ nữ toàn cầu, Tổ chức MSI Reproductive Choices (MSI), tiền thân là Marie Stopes International đã khẳng định vị thế tiên phong trong lĩnh vực chăm sóc sức khỏe sinh sản tại 36 quốc gia. Từ những bước chân đầu tiên đến Việt Nam vào năm 1989, MSI Reproductive Choices tại Việt Nam (MSIVN) đã kiến tạo nên mạng lưới hợp tác bền vững giữa các tổ chức phi chính phủ và cơ quan chính phủ, mang đến những giải pháp toàn diện về chăm sóc sức khỏe sinh sản và kế hoạch hóa gia đình cho hàng triệu người dân từ đồng bằng châu thổ đến miền núi xa xôi.
-                Với kim chỉ nam “Cơ thể của bạn – Lựa chọn của bạn – Tương lai của bạn”, MSIVN không ngừng nỗ lực với khát vọng về một Việt Nam hạnh phúc – nơi mỗi lựa chọn về sức khỏe sinh sản đều trở nên an toàn, dễ tiếp cận và không còn rào cản, để mỗi đứa trẻ sinh ra đều là đứa trẻ được chào đón và mỗi gia đình đều có thể tự tin vun đắp hạnh phúc trọn vẹn.
+            <div class="msi-intro-text"> Với gần năm thập kỷ đồng hành cùng phụ nữ toàn cầu, Tổ chức MSI Reproductive Choices (MSI), tiền thân là Marie Stopes International đã khẳng định vị thế tiên phong trong lĩnh vực chăm sóc sức khỏe sinh sản tại 36 quốc gia.
+            </div>
+            <div class="msi-intro-text"> Từ những bước chân đầu tiên đến Việt Nam vào năm 1989, MSI Reproductive Choices tại Việt Nam (MSIVN) đã kiến tạo nên mạng lưới hợp tác bền vững giữa các tổ chức phi chính phủ và cơ quan chính phủ, mang đến những giải pháp toàn diện về chăm sóc sức khỏe sinh sản và kế hoạch hóa gia đình cho hàng triệu người dân từ đồng bằng châu thổ đến miền núi xa xôi.
+            </div>
+            <div class="msi-intro-text"> Với kim chỉ nam “Cơ thể của bạn – Lựa chọn của bạn – Tương lai của bạn”, MSIVN không ngừng nỗ lực với khát vọng về một Việt Nam hạnh phúc – nơi mỗi lựa chọn về sức khỏe sinh sản đều trở nên an toàn, dễ tiếp cận và không còn rào cản, để mỗi đứa trẻ sinh ra đều là đứa trẻ được chào đón và mỗi gia đình đều có thể tự tin vun đắp hạnh phúc trọn vẹn.
+            </div>
             </p>
             <a href="/ve-chung-toi" class="msi-intro-btn">XEM THÊM</a>
         <?php else : ?>
             <h2 class="msi-intro-title">ABOUT US</h2>
             <p class="msi-intro-text">
-                With nearly five decades of accompanying women around the world, MSI Reproductive Choices (MSI), formerly known as Marie Stopes International, has affirmed its pioneering position in the field of reproductive healthcare across 36 countries. Since its first steps into Vietnam in 1989, MSI Reproductive Choices in Vietnam (MSIVN) has built a sustainable network of collaboration between non-governmental organizations and government agencies, bringing comprehensive solutions in reproductive healthcare and family planning to millions of people, from fertile deltas to remote mountainous areas.
-
-                Guided by the principle “Your body – Your choice – Your future”, MSIVN continues to strive with the aspiration of a happy Vietnam – where every reproductive health choice is safe, accessible, and barrier-free, so that every child born is a welcomed child, and every family can confidently nurture a fulfilling happiness.
+            <div class="msi-intro-text"> With nearly five decades of accompanying women around the world, MSI Reproductive Choices (MSI), formerly known as Marie Stopes International, has affirmed its pioneering position in the field of reproductive healthcare across 36 countries.
+            </div>
+            <div class="msi-intro-text"> Since its first steps into Vietnam in 1989, MSI Reproductive Choices in Vietnam (MSIVN) has built a sustainable network of collaboration between non-governmental organizations and government agencies, bringing comprehensive solutions in reproductive healthcare and family planning to millions of people, from fertile deltas to remote mountainous areas.
+            </div>
+            <div class="msi-intro-text">Guided by the principle “Your body – Your choice – Your future”, MSIVN continues to strive with the aspiration of a happy Vietnam – where every reproductive health choice is safe, accessible, and barrier-free, so that every child born is a welcomed child, and every family can confidently nurture a fulfilling happiness.
+            </div>
             </p>
             <a href="/about-us" class="msi-intro-btn">READ MORE</a>
         <?php endif; ?>
@@ -56,7 +63,6 @@
     </div>
 </div>
 <style>
-
     /* .msi-intro-left {
         flex: 1;
         max-width: 40%;
@@ -69,19 +75,6 @@
         color: #283573;
         margin-bottom: 20px;
         font-family: "Roboto", sans-serif;
-    }
-
-    .msi-intro-text {
-        font-size: 20px;
-        line-height: 1.7;
-        color: #283573;
-        margin-bottom: 28px;
-        font-family: "Roboto", sans-serif;
-    }
-
-    .msi-intro-btn:hover {
-        background-color: #283573;
-        color: #fff;
     }
 
     /* Bên phải giữ nguyên */
@@ -176,10 +169,6 @@
 
         .msi-intro-title {
             font-size: 20px;
-        }
-
-        .msi-intro-text {
-            font-size: 15px;
         }
 
         /* Bên phải full width */

@@ -18,7 +18,7 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>MSI Choices Vietnam - Making Choices Possible</title>
+	<title>MSI Reproductive Choices Vietnam</title>
 	<link rel="profile" href="https://gmpg.org/xfn/11" />
 	<link
 		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
@@ -33,6 +33,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"> -->
 	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<link
 		rel="stylesheet"
@@ -47,6 +48,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-K9MNM9S');</script> -->
 	<!-- End Google Tag Manager -->
 	<meta name="google-site-verification" content="LH4iz-JrIFNrQgMJsV6lwNGOVhbLnRId-JiOPxZcRU0" />
+	<!-- <style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+.custom-menu .menu-item button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700 !important;
+}
+	</style> -->
 </head>
 
 <body <?php body_class(); ?>>
@@ -391,7 +400,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								$has_lv2 = is_array($children_lv2) && count($children_lv2) > 0;
 								?>
 								<li class="menu-item">
-									<div class="menu-item-1" data-menu-id="<?= esc_attr($slug); ?>">
+									<?php
+									$active_class = m5_menu_is_active($slug) ? 'menu-item-active' : '';
+									?>
+									<div class="menu-item-1 <?= $active_class ?>" data-menu-id="<?= esc_attr($slug); ?>">
 										<?php if ($has_lv2): ?>
 											<button type="button" class="menu-toggle"><?= esc_html($title); ?></button>
 										<?php else: ?>
@@ -399,8 +411,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 											<a class="link" href="<?= esc_url($link); ?>" <?= $target ?>><?= esc_html($title); ?></a>
 										<?php endif; ?>
 										<?php if ($has_lv2): ?>
-											<img class="arrow-custom-menu" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/arrow-custom-menu.svg"
-												alt="arrow-custom-menu">
+											<!-- <img class="arrow-custom-menu" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/arrow-custom-menu.svg"
+												alt="arrow-custom-menu"> -->
+											<i class="fas fa-chevron-down arrow-custom-menu"></i>
 										<?php endif; ?>
 
 									</div>
@@ -410,29 +423,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 											<div class="menu-item-2-content">
 												<?php
 												if ($description): ?>
-													<!-- <div class="menu-description">
-													<div class="title">
-														<?= esc_html($title); ?>
-													</div>
-													<div class="subtitle">
-														<?= esc_html($description); ?>
-
-													</div>
-
-													<div class="read-more">
-														<a href="<?= esc_url("$link"); ?>"><?php if ($lang === 'vi') : ?>
-																Đọc thêm <?php else : ?>
-																Read more
-															<?php endif; ?></a>
-													</div>
-													<div class="call-btn">
-														<a href="tel:1900 55 88 82" class="custom-call-btn">
-															<img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/phone-icon-blue.svg"
-																alt="icon-phone">
-															<span class="phone-number">1900 55 88 82</span>
-														</a>
-													</div>
-												</div> -->
 												<?php endif; ?>
 
 												<?php if ($has_lv2): ?>
@@ -471,10 +461,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 																			$title3 = $row3['title'];
 																			$slug3 = trim($row3['slug'], '/');
 																			$target3 = '';
-															if (stripos($slug3, 'open_new_tab_url:') === 0) {
-																$link3 = trim(substr($slug3, strlen('open_new_tab_url:')));
-																$target3 = ' target="_blank"';
-															} elseif (stripos($slug3, 'url:') === 0) {
+																			if (stripos($slug3, 'open_new_tab_url:') === 0) {
+																				$link3 = trim(substr($slug3, strlen('open_new_tab_url:')));
+																				$target3 = ' target="_blank"';
+																			} elseif (stripos($slug3, 'url:') === 0) {
 																				$link3 = trim(substr($slug3, 4));
 																			} else {
 																				$link3 = "$base_url/$slug3";

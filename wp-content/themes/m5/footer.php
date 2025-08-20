@@ -805,7 +805,7 @@
 </script>
 <style>
     .footer__main {
-        background: #283573;
+        background: #459BDA;
         padding: 50px 0;
     }
 
@@ -1175,13 +1175,8 @@
         border-radius: 50%;
     }
 
-    .icon-satellite a i {
-        color: #283573;
-        font-size: 20px;
-    }
-
     .cta-footer-container i {
-        color: #283573;
+        color: #459BDA;
         font-size: 20px;
     }
 
@@ -1246,11 +1241,7 @@
         margin: 0 auto;
         width: 100%;
         padding: 88px 0px 54px 0px;
-        border-bottom: 1px solid #e0e0e0;
-    }
-
-    .footer {
-        background-color: #283573;
+        border-bottom: 1px solid white;
     }
 
     .footer__main .footer__item__title {

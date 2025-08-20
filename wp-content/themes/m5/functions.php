@@ -303,7 +303,47 @@ function msi_mobile_render_menu($items, $base_url, $level = 1) {
     }
     echo '</ul>';
 }
+function m5_menu_is_active($slug) {
+    global $wp;
 
+    // Lấy URL hiện tại
+    $current_url = home_url(add_query_arg([], $wp->request));
+    $current_lang = function_exists('pll_current_language') ? pll_current_language('slug') : 'vi';
+
+    if (empty($slug)) return false;
+
+    // --- Điều kiện đặc biệt ---
+
+    // 1. Tin tức (bài viết / chuyên mục tin tức)
+    if (is_single() || is_category()) {
+        if ($slug === 'tin-tuc' && $current_lang === 'vi') {
+            return true;
+        }
+        if ($slug === 'news' && $current_lang === 'en') {
+            return true;
+        }
+    }
+
+    // 2. Bài viết "tac-dong-cua-msivn" hoặc chuyên mục "cau-chuyen"
+    // if (
+    //     (is_single('tac-dong-cua-msivn')) || 
+    //     (is_category('cau-chuyen'))
+    // ) {
+    //     if ($slug === 'tac-dong-va-thanh-tuu' && $current_lang === 'vi') {
+    //         return true;
+    //     }
+    //     if ($slug === 'impact-and-achievements' && $current_lang === 'en') {
+    //         return true;
+    //     }
+    // }
+
+    // --- Điều kiện mặc định ---
+    if (stripos($current_url, trim($slug, '/')) !== false) {
+        return true;
+    }
+
+    return false;
+}
 
 
 function msi_get_post_card_html($post) {
@@ -1069,7 +1109,7 @@ function msi_circle_enqueue_assets() {
   width: calc(var(--size) * 0.7);
   height: calc(var(--size) * 0.7);
   border-radius: 50%;
-  background: #283573;
+  background: #459BDA;
   color: var(--text);
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;

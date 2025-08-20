@@ -308,14 +308,6 @@ $lang = pll_current_language('slug');
         }
 
         /* Left: Contact Form */
-        .msi-contact-form {
-            flex: 1;
-            min-width: 300px;
-            background-color: #283573;
-            padding: 30px;
-            border-radius: 8px;
-            color: white;
-        }
 
         .msi-contact-form p,
         .msi-contact-form h2 {
@@ -360,10 +352,6 @@ $lang = pll_current_language('slug');
             height: 300px;
             border: 0;
             border-radius: 8px;
-        }
-
-        .msi-contact-details {
-            margin-bottom: 20px;
         }
 
         .msi-contact-social {

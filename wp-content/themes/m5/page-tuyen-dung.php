@@ -209,7 +209,7 @@ get_footer();
     .wp-block-buttons .wp-block-button,
     .wp-block-group .wp-block-button {
         align-items: center;
-        background: #283573;
+        background: #459BDA;
         border-radius: 6px;
         color: white;
         cursor: pointer;

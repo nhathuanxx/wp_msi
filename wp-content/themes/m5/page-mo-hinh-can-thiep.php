@@ -1,6 +1,6 @@
 <?php
 /* 
- * Template Name: About Page
+ * Template Name: Mo hinh can thiep
  */
 get_header();
 
@@ -10,44 +10,31 @@ $lang = function_exists('pll_current_language') ? pll_current_language('slug') :
 // Slug page theo ngôn ngữ
 $slugs = [
     'vi' => [
-        'gioi-thieu-chung' => 'gioi-thieu-chung',
-        'su-menh'          => 'su-menh',
-        'tam-nhin'         => 'tam-nhin',
-        'gia-tri-cot-loi'  => 'gia-tri-cot-loi',
-        'hanh-trinh-cua-msivn' => 'hanh-trinh-cua-msivn',
-        'cau-chuyen-cua-cd-trong-gan-30-nam-tai-vn' => 'cau-chuyen-cua-cd-trong-gan-30-nam-tai-vn',
-        'co-cau-to-chuc'   => 'co-cau-to-chuc',
+        'kenh-hop-tac-suc-khoe-doanh-nghiep' => 'kenh-hop-tac-suc-khoe-doanh-nghiep',
+        'hop-tac-y-te-cong-tu'          => 'hop-tac-y-te-cong-tu',
+        'kenh-tiep-thi-xa-hoi'         => 'kenh-tiep-thi-xa-hoi',
+        'he-thong-phong-kham-san-phu-khoa-drmarie'  => 'he-thong-phong-kham-san-phu-khoa-drmarie',
     ],
     'en' => [
-        'general-introduction' => 'general-introduction',
-        'mission'          => 'mission',
-        'vision'         => 'vision',
-        'core-values'  => 'core-values',
-        'journey-of-msivn' => 'journey-of-msivn',
-        'the-story-of-cd-in-nearly-30-years-in-vietnam' => 'the-story-of-cd-in-nearly-30-years-in-vietnam',
-        'organizational-structure'   => 'organizational-structure',
+       'corporate-health-partnership-channel' => 'corporate-health-partnership-channel',
+        'public-private-healthcare-partnership'          => 'public-private-healthcare-partnership',
+        'social-marketing-channel'         => 'social-marketing-channel',
+        'dr-marie-obstetrics-and-gynecology-clinic-system'  => 'dr-marie-obstetrics-and-gynecology-clinic-system',
     ]
 ];
 
-// Tiêu đề tab theo ngôn ngữ
 $titles = [
     'vi' => [
-        'gioi-thieu-chung' => 'GIỚI THIỆU CHUNG',
-        'su-menh'          => 'SỨ MỆNH',
-        'tam-nhin'         => 'TẦM NHÌN',
-        'gia-tri-cot-loi'  => 'GIÁ TRỊ CỐT LÕI',
-        'hanh-trinh-cua-msivn' => 'HÀNH TRÌNH CỦA MSIVN',
-        'cau-chuyen-cua-cd-trong-gan-30-nam-tai-vn' => 'CÂU CHUYỆN CỦA GIÁM ĐỐC QUỐC GIA MSIVN',
-        'co-cau-to-chuc'   => 'CƠ CẤU TỔ CHỨC',
+        'kenh-hop-tac-suc-khoe-doanh-nghiep' => 'KÊNH HỢP TÁC SỨC KHỎE DOANH NGHIỆP',
+        'hop-tac-y-te-cong-tu'          => 'HỢP TÁC Y TẾ CÔNG TƯ',
+        'kenh-tiep-thi-xa-hoi'         => 'KÊNH TIẾP THỊ XÃ HỘI',
+        'he-thong-phong-kham-san-phu-khoa-drmarie'  => 'HỆ THỐNG PHÒNG KHÁM SẢN PHỤ KHOA DR.MARIE',
     ],
     'en' => [
-        'general-introduction' => 'GENERAL INTRODUCTION',
-        'mission'          => 'MISSION',
-        'vision'         => 'VISION',
-        'core-values'  => 'CORE VALUES',
-        'journey-of-msivn' => 'JOURNEY OF MSIVN',
-        'the-story-of-cd-in-nearly-30-years-in-vietnam' => 'THE STORY OF CD IN NEARLY 30 YEARS IN VIETNAM',
-        'organizational-structure'   => 'ORGANIZATIONAL STRUCTURE',
+        'corporate-health-partnership-channel' => 'CORPORATE HEALTH PARTNERSHIP CHANNEL',
+        'public-private-healthcare-partnership'          => 'PUBLIC–PRIVATE HEALTHCARE PARTNERSHIP',
+        'social-marketing-channel'         => 'SOCIAL MARKETING CHANNEL',
+        'dr-marie-obstetrics-and-gynecology-clinic-system'  => 'DR. MARIE OBSTETRICS AND GYNECOLOGY CLINIC SYSTEM',
     ]
 ];
 
@@ -247,8 +234,9 @@ $tab_keys = array_keys($slugs[$lang]);
     .msi-grid-card:hover {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
     }
-    .msi-grid-card:hover .msi-grid-thumb{
-     scale: 1.1;
+
+    .msi-grid-card:hover .msi-grid-thumb {
+        scale: 1.1;
         transition: 0.6s;
     }
 
