@@ -4521,7 +4521,7 @@ body {
 }
 
 .footer__item__title {
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 
 .footer__menu ul li,
@@ -9289,7 +9289,7 @@ p {
 
 .footer__main {
   background: white;
-  padding: 50px 0;
+  padding: 40px 0;
 }
 
 .footer__main .footer__item__title {
@@ -9305,20 +9305,20 @@ p {
 }
 
 .footer__main ul li {
-  font-family: "Be Vietnam Pro", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   text-align: left;
   color: #292929 !important;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .footer__main ul li a {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   letter-spacing: 0;
   text-align: left;
@@ -9327,7 +9327,6 @@ p {
 }
 
 .footer__main ul li a:hover {
-  font-size: 16px;
   font-weight: 700;
   line-height: 24px;
   text-align: left;
@@ -9736,7 +9735,7 @@ p {
 .footer__main .footer__item__title {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 32px;
   color: #283573;
 }
@@ -9744,7 +9743,7 @@ p {
 .footer__main .footer__item__title ul li a {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 32px;
   color: #283573;
 }
@@ -9809,7 +9808,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #283573;
+  background-color: #459BDA;
   padding: 20px;
   border-radius: 4px;
   color: #fff;
@@ -11184,6 +11183,7 @@ p {
 
   .msi-intro-text {
     font-size: 15px;
+    text-align: left;
   }
 
   /* Bên phải full width */
@@ -11326,7 +11326,7 @@ p {
 
   .footer__main .container .row {
     flex-direction: column;
-    gap: 40px;
+    /* gap: 40px; */
   }
 }
 
@@ -11380,5 +11380,35 @@ p {
 .msi-single-content ul,
 .msi-single-content li {
   font-size: 16px !important;
+}
+.page-link-btn{
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #459BDA;
+  color: white !important;
+    border: 1px solid #283573;
+
+  font-weight: 700;
+}
+.page-link-btn:hover{
+  color: #283573 !important;
+  border: 1px solid #283573;
+  background: white;
+}
+.msi-footer-social{
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.msi-footer-social a{
+  border-radius: 50%;
+  background-color: white;
+  overflow: hidden;
+  width: 36px;
+  height: 36px;
+}
+.msi-footer-social a i{
+  color: #459BDA;
 }
  

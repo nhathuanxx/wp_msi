@@ -532,10 +532,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								</div>
 							<?php endwhile; ?>
 							<div class="menu-item menu-top-mobile-item call-btn">
-								<a href="tel:1900 55 88 82" class="custom-call-btn">
+								 <?php
+                        $phone_raw = get_field('so_dien_thoai', 'option');
+                        $phone = is_string($phone_raw) ? $phone_raw : '';
+                        $phone_link = $phone ? 'tel:' . preg_replace('/\s+/', '', $phone) : '#';
+                        ?>
+								<a href="<?php echo esc_attr($phone_link); ?>" class="custom-call-btn">
 									<img src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/phone-icon.svg"
 										alt="icon-phone">
-									<span class="phone-number">1900 55 88 82</span>
+									<span class="phone-number"> <?php echo esc_html($phone ?: 'Chưa có số'); ?></span>
 								</a>
 							</div>
 							<div class="menu-item menu-top-mobile-item">

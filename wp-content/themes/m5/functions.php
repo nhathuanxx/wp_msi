@@ -274,8 +274,12 @@ function msi_mobile_render_menu($items, $base_url, $level = 1) {
     foreach ($items as $item) {
         $hasChildren = !empty($item['children']) && $item['children'] !== false;
         $slug = isset($item['slug']) ? $item['slug'] : '#';
+        $target = '';
         // $url = (strpos($slug, 'http') === 0) ? $slug : trailingslashit($base_url) . $slug;
-          if (stripos($slug, 'url:') === 0) {
+          if (stripos($slug, 'open_new_tab_url:') === 0) {
+									$url = trim(substr($slug, strlen('open_new_tab_url:')));
+									$target = ' target="_blank"';
+								} elseif (stripos($slug, 'url:') === 0) {
             // Nếu slug bắt đầu bằng "url:" => lấy phần sau "url:"
             $url = trim(substr($slug, 4));
         } elseif (stripos($slug, 'http') === 0) {
@@ -297,8 +301,7 @@ function msi_mobile_render_menu($items, $base_url, $level = 1) {
                 . '</button>';
             msi_mobile_render_menu($item['children'], $base_url, $level + 1);
         } else {
-            echo '<a href="' . esc_url($url) . '" class="msi-mobile-menu-link">' . esc_html($item['title']) . '</a>';
-        }
+echo '<a href="' . esc_url($url) . '" ' . $target . ' class="msi-mobile-menu-link">' . esc_html($item['title']) . '</a>';        }
         echo '</li>';
     }
     echo '</ul>';

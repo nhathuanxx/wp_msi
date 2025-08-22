@@ -28,6 +28,8 @@ get_header(); ?>
             <div class="banner-title">
                 <div><?php the_field('banner_description', pll_current_language('slug')); ?></div>
                 <div><?php the_field('banner_description_2', pll_current_language('slug')); ?></div>
+                <div><?php the_field('banner_description_3', pll_current_language('slug')); ?></div>
+
             </div>
             <?php
             $lang = pll_current_language('slug');

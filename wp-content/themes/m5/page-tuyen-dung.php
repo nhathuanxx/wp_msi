@@ -7,18 +7,22 @@ get_header();
 
 <div class="tuyen-dung-container">
     <div class="wp-block-msi-blocks-header-image-uk alignfull">
-        <div class="right-image-block">
+        <div class="right-image-block" style="background-image: url('<?php echo get_bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/anh-page.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            width: 100%; 
+            ">
             <div class="container-wide">
                 <div class="input-container">
-                    <span> <?php
+                    <span style="color:white;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);"> <?php
                             echo get_the_title();
                             ?></span>
                 </div>
-                <div class="container-image">
+                <!-- <div class="container-image">
                     <div class="image-container">
                     <img decoding="async" class="header-image lazyloaded" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/anh-page.jpg" alt="page-image" >
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

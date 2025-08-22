@@ -14,7 +14,7 @@ get_header();
 $current_page_ID = get_the_ID();
 $page_content = get_post($current_page_ID)->post_content;
 $current_cat_name = get_the_title();
-    $lang = pll_current_language('slug');
+$lang = pll_current_language('slug');
 ?>
 <!-- <div class="page-qa">
 	<div class="container">
@@ -30,16 +30,7 @@ $current_cat_name = get_the_title();
 	</div>
 </div> -->
 <div class="wp-block-msi-blocks-header-image-uk alignfull">
-	<div class="right-image-block">
-		<div class="container-wide">
-			<div class="input-container">
-				<span> <?php
-						echo $current_cat_name
-						?></span>
-			</div>
-			<div class="container-image">
-				<div class="image-container">
-<?php
+	<?php
 // Lấy ID của trang hiện tại
 $post_id = get_the_ID();
 
@@ -50,14 +41,18 @@ $post_content = get_post_field('post_content', $post_id);
 preg_match('/<img[^>]+src=["\']([^"\']+)["\']/i', $post_content, $matches);
 
 // Nếu có ảnh đầu tiên thì dùng, nếu không thì dùng ảnh mặc định
-$image_url = !empty($matches[1]) 
-    ? esc_url($matches[1]) 
-    : get_template_directory_uri() . '/assets/images/msi/phong-kham-gan-ban.jpg';
+$image_url = !empty($matches[1])
+    ? esc_url($matches[1])
+    : get_template_directory_uri() . '/assets/images/msi/anh-page.jpg';
 ?>
-<img class="header-image lazyloaded" src="<?php echo $image_url; ?>" alt="<?php the_title_attribute(); ?>">				</div>
-			</div>
-		</div>
-	</div>
+
+<div class="right-image-block" style="background-image: url('<?php echo $image_url; ?>'); background-size: cover; background-position: center; width: 100%; ">
+    <div class="container-wide">
+        <div class="input-container">
+            <span style="color:white;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);"><?php echo $current_cat_name; ?></span>
+        </div>
+    </div>
+</div>
 </div>
 <main class="main-content service-page">
 	<div class="service-intro bg-f9">
@@ -72,20 +67,20 @@ $image_url = !empty($matches[1])
 		</div>
 	</div>
 	<h3 class="wp-block-heading has-text-align-center">
-	<?php if ($lang === 'vi') : ?>
-		Tìm hiểu thêm về MSI Việt Nam
-	<?php else : ?>
-		Learn more about MSI Vietnam
-	<?php endif; ?>
-</h3>
-<p class="has-text-align-center-p">
-	<?php if ($lang === 'vi') : ?>
-		Tìm hiểu sâu hơn về MSI Việt Nam bằng cách đọc những câu chuyện, tin tức của chúng tôi.
-	<?php else : ?>
-		Explore more about MSI Vietnam by reading our stories and news.
-	<?php endif; ?>
-</p>
-<?php require get_template_directory() . '/template-parts/post-list.php'; ?>
+		<?php if ($lang === 'vi') : ?>
+			Tìm hiểu thêm về MSI Việt Nam
+		<?php else : ?>
+			Learn more about MSI Vietnam
+		<?php endif; ?>
+	</h3>
+	<p class="has-text-align-center-p">
+		<?php if ($lang === 'vi') : ?>
+			Tìm hiểu sâu hơn về MSI Việt Nam bằng cách đọc những câu chuyện, tin tức của chúng tôi.
+		<?php else : ?>
+			Explore more about MSI Vietnam by reading our stories and news.
+		<?php endif; ?>
+	</p>
+	<?php require get_template_directory() . '/template-parts/post-list.php'; ?>
 </main>
 
 
