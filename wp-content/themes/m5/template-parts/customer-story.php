@@ -96,7 +96,7 @@ else {
         <div class="customer-story-slider-header-right customer-story-slider-header-right-mobile">
             <div class="all-story">
                 <a href="<?php echo esc_url($category_link); ?>">
-                    <?php echo ($lang === 'vi') ? 'XEM TẤT CẢ CÁC CÂU CHUYỆN' : 'VIEW ALL STORIES'; ?>
+                    <?php echo ($lang === 'vi') ? 'CÂU CHUYỆN' : 'STORIES'; ?>
                 </a>
             </div>
         </div>
@@ -125,15 +125,15 @@ else {
         font-style: normal;
         font-weight: 700;
         text-transform: none;
-        font-size: 48px;
-        line-height: 48px;
+        font-size: 40px;
+        line-height: 40px;
         margin: 28px 0px 15px 0px
     }
 
     .customer-story-slider-header-left-subtitle {
         color: #283573;
         font-family: 'Roboto', sans-serif;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 400;
         letter-spacing: normal;
         line-height: 28px;
@@ -145,7 +145,7 @@ else {
         font-family: 'Roboto', sans-serif;
 
         align-items: center;
-        background: #283573;
+        background: #459BDA;
         border-radius: 6px;
         color: #FFFFFF !important;
         cursor: pointer;
@@ -249,7 +249,7 @@ else {
     .customer-story-slide-title {
         color: #283573;
         font-family: 'Roboto', sans-serif;
-        font-size: 28px;
+        font-size: 24px;
         font-weight: 600;
         line-height: 32px;
         cursor: pointer;
@@ -283,7 +283,7 @@ else {
     .customer-story-slide-content p {
         color: #283573;
         font-family: 'Roboto', sans-serif;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 400;
         line-height: 28px;
         margin: 0;
@@ -301,9 +301,9 @@ else {
         margin: 0px;
         /* height: 100%; */
         justify-content: center;
-        padding: 20px 40px;
+        padding: 13px 32px;
         align-items: center;
-        background: #283573;
+        background: #459BDA;
         border-radius: 6px;
         color: #FFFFFF;
         cursor: pointer;

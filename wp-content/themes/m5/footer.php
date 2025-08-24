@@ -18,7 +18,7 @@
     <div class="footer__main">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-4 footer__item">
+                <div class="col-12 col-lg-4 footer__item">
                     <div class="footer__menu">
 
                         <div class="footer_logo">
@@ -49,7 +49,7 @@
 
 
                 </div>
-                <div class="col-12 col-md-2 footer__item">
+                <div class="col-12 col-lg-2 footer__item">
                     <div class="footer__menu">
                         <?php if (get_field('listing_1', pll_current_language('slug'))) : ?>
                             <?php while (the_repeater_field('listing_1', pll_current_language('slug'))) : ?>
@@ -67,7 +67,7 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <div class="col-12 col-md-2 footer__item">
+                <div class="col-12 col-lg-2 footer__item">
                     <div class="footer__menu">
                         <?php if (get_field('listing_2', pll_current_language('slug'))) : ?>
                             <?php while (the_repeater_field('listing_2', pll_current_language('slug'))) : ?>
@@ -94,10 +94,10 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 footer__item">
+                <div class="col-12 col-lg-4 footer__item">
                    <div style="font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 32px;
     color: white;">
   <?php if ( function_exists('pll_current_language') ): ?>
@@ -115,27 +115,16 @@
     <?php echo do_shortcode('[contact-form-7 id="6046" title="Form yêu cầu theo dõi"]'); ?>
   <?php endif; ?>
 <?php endif; ?>
-                    <?php if (function_exists('pll_current_language')): ?>
-                        <?php if (pll_current_language('slug') === 'vi'): ?>
+              
                             <div class="footer-bar-text">
                                 <i class="fas fa-map-marker-alt" style="margin-right:6px;color:white;"></i>
-                                MSI Reproductive Choices tại Việt Nam.
+                    <?php the_field('ten_dia_chi', 'option'); ?>
                             </div>
                             <div class="footer-bar-text">
                                 <i class="fas fa-map-marker-alt" style="margin-right:6px;color:white;"></i>
-                                Phòng 203-205, Nhà A1, Số 298 Đường Kim Mã, Khu Ngoại giao đoàn Vạn Phúc, Phường Ngọc Hà, Hà Nội, Việt Nam.
+                    <?php the_field('dia_chi', 'option'); ?>
                             </div>
-                        <?php elseif (pll_current_language('slug') === 'en'): ?>
-                            <div class="footer-bar-text">
-                                <i class="fas fa-map-marker-alt" style="margin-right:6px;color:white;"></i>
-                                MSI Reproductive Choices in Vietnam.
-                            </div>
-                            <div class="footer-bar-text">
-                                <i class="fas fa-map-marker-alt" style="margin-right:6px;color:white;"></i>
-                                Room 203-205, Building A1,298 Kim Ma Street, Van Phuc Diplomatic Compound, Ba Dinh, Hanoi, Vietnam.
-                            </div>
-                        <?php endif; ?>
-                    <?php endif; ?>
+                     
 
                     <div style="display:flex; gap:8px; align-items:center; font-family:'Roboto',sans-serif;">
                         <?php
@@ -160,6 +149,17 @@
                             </a>
                         <?php endif; ?>
                     </div>
+                      <div class="msi-footer-social">
+                    <a href="<?php echo get_field('link_facebook', 'option')?>" target="_blank" class="msi-contact-social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="<?php echo get_field('link_youtube', 'option')?>" target="_blank" class="msi-contact-social-link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="<?php echo get_field('link_tiktok', 'option')?>" target="_blank" class="msi-contact-social-link">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
                 </div>
                 <!-- <div class="col-md-4 col-lg-4 footer__item">
                     <div class="footer__item__wrap footer__intro">
@@ -366,13 +366,13 @@
                 </div>
             </li>
             <li class="icon-satellite">
-                <a href="<?php echo get_field('option_facebook', 'option') ? get_field('option_facebook', 'option') : 'https://www.facebook.com/profile.php?id=61572517763607'; ?>"
+                <a target="_blank" href="<?php echo get_field('link_facebook', 'option') ? get_field('link_facebook', 'option') : 'https://www.facebook.com/profile.php?id=61572517763607'; ?>"
                     target="_blank" rel="nofollow">
                     <i class="fab fa-facebook-f" style="font-size: 20px;"></i>
                 </a>
             </li>
             <li class="icon-satellite">
-                <a href="<?php echo get_field('option_tiktok', 'option') ? get_field('option_tiktok', 'option') : 'https://www.tiktok.com/@msivn_corporate_health'; ?>"
+                <a target="_blank" href="<?php echo get_field('link_tiktok', 'option') ? get_field('link_tiktok', 'option') : 'https://www.tiktok.com/@msivn_corporate_health'; ?>"
                     target="_blank" rel="nofollow">
                     <i class="fab fa-tiktok" style="font-size: 20px;"></i>
                 </a>
@@ -816,8 +816,8 @@
 </script>
 <style>
     .footer__main {
-        background: #283573;
-        padding: 50px 0;
+        background: #459BDA;
+        padding: 40px 0;
     }
 
     .footer__main .footer__item__title {
@@ -833,20 +833,20 @@
     }
 
     .footer__main ul li {
-        font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: "Roboto", sans-serif;
         font-size: 16px;
         font-weight: 400;
         line-height: 24px;
         text-align: left;
         color: white !important;
-        margin-bottom: 12px;
+        margin-bottom: 6px;
     }
 
     .footer__main ul li a {
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
         font-style: normal;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 24px;
         letter-spacing: 0;
         text-align: left;
@@ -855,7 +855,6 @@
     }
 
     .footer__main ul li a:hover {
-        font-size: 16px;
         font-weight: 700;
         line-height: 24px;
         text-align: left;
@@ -1186,13 +1185,8 @@
         border-radius: 50%;
     }
 
-    .icon-satellite a i {
-        color: #283573;
-        font-size: 20px;
-    }
-
     .cta-footer-container i {
-        color: #283573;
+        color: #459BDA;
         font-size: 20px;
     }
 
@@ -1256,18 +1250,14 @@
         max-width: 1335px;
         margin: 0 auto;
         width: 100%;
-        padding: 88px 0px 54px 0px;
-        border-bottom: 1px solid #e0e0e0;
-    }
-
-    .footer {
-        background-color: #283573;
+        padding: 60px 0px 40px 0px;
+        border-bottom: 1px solid white;
     }
 
     .footer__main .footer__item__title {
         font-family: 'Roboto', sans-serif;
         font-weight: 700;
-        font-size: 22px;
+        font-size: 20px;
         line-height: 32px;
         color: white;
     }
@@ -1275,7 +1265,7 @@
     .footer__main .footer__item__title ul li a {
         font-family: 'Roboto', sans-serif;
         font-weight: 500;
-        font-size: 22px;
+        font-size: 20px;
         line-height: 32px;
         color: #283573;
     }
@@ -1338,14 +1328,14 @@
     }
 
     .footer_logo a img {
-        width: 160px;
+        width: 132px;
         border-radius: 8px;
     }
 
     .footer__menu .footer-logo-description {
         font-family: 'Roboto', sans-serif;
-        margin-top: 24px;
-        font-size: 18px;
+        margin-top: 20px;
+        font-size: 16px;
         color: white;
     }
     .newsletter-form {
@@ -1368,7 +1358,7 @@
   border-radius: 24px;
   overflow: hidden;
   background: white;
-  max-width: 350px;
+  width: 100%;
   padding: 10px 16px;
 }
 

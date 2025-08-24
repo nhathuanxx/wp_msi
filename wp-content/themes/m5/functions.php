@@ -274,7 +274,24 @@ function msi_mobile_render_menu($items, $base_url, $level = 1) {
     foreach ($items as $item) {
         $hasChildren = !empty($item['children']) && $item['children'] !== false;
         $slug = isset($item['slug']) ? $item['slug'] : '#';
-        $url = (strpos($slug, 'http') === 0) ? $slug : trailingslashit($base_url) . $slug;
+        $target = '';
+        // $url = (strpos($slug, 'http') === 0) ? $slug : trailingslashit($base_url) . $slug;
+          if (stripos($slug, 'open_new_tab_url:') === 0) {
+									$url = trim(substr($slug, strlen('open_new_tab_url:')));
+									$target = ' target="_blank"';
+								} elseif (stripos($slug, 'url:') === 0) {
+            // Nếu slug bắt đầu bằng "url:" => lấy phần sau "url:"
+            $url = trim(substr($slug, 4));
+        } elseif (stripos($slug, 'http') === 0) {
+            // Nếu slug đã là link đầy đủ (http/https)
+            $url = $slug;
+        } elseif (!empty($slug) && $slug !== '#') {
+            // Nếu slug bình thường => nối base_url + slug
+            $url = trailingslashit($base_url) . ltrim($slug, '/');
+        } else {
+            // Nếu không có slug => mặc định "#"
+            $url = '#';
+        }
         echo '<li class="msi-mobile-menu-item">';
         if ($hasChildren) {
             // Nút toggle có mũi tên bên phải
@@ -284,13 +301,52 @@ function msi_mobile_render_menu($items, $base_url, $level = 1) {
                 . '</button>';
             msi_mobile_render_menu($item['children'], $base_url, $level + 1);
         } else {
-            echo '<a href="' . esc_url($url) . '" class="msi-mobile-menu-link">' . esc_html($item['title']) . '</a>';
-        }
+echo '<a href="' . esc_url($url) . '" ' . $target . ' class="msi-mobile-menu-link">' . esc_html($item['title']) . '</a>';        }
         echo '</li>';
     }
     echo '</ul>';
 }
+function m5_menu_is_active($slug) {
+    global $wp;
 
+    // Lấy URL hiện tại
+    $current_url = home_url(add_query_arg([], $wp->request));
+    $current_lang = function_exists('pll_current_language') ? pll_current_language('slug') : 'vi';
+
+    if (empty($slug)) return false;
+
+    // --- Điều kiện đặc biệt ---
+
+    // 1. Tin tức (bài viết / chuyên mục tin tức)
+    if (is_single() || is_category()) {
+        if ($slug === 'tin-tuc' && $current_lang === 'vi') {
+            return true;
+        }
+        if ($slug === 'news' && $current_lang === 'en') {
+            return true;
+        }
+    }
+
+    // 2. Bài viết "tac-dong-cua-msivn" hoặc chuyên mục "cau-chuyen"
+    // if (
+    //     (is_single('tac-dong-cua-msivn')) || 
+    //     (is_category('cau-chuyen'))
+    // ) {
+    //     if ($slug === 'tac-dong-va-thanh-tuu' && $current_lang === 'vi') {
+    //         return true;
+    //     }
+    //     if ($slug === 'impact-and-achievements' && $current_lang === 'en') {
+    //         return true;
+    //     }
+    // }
+
+    // --- Điều kiện mặc định ---
+    if (stripos($current_url, trim($slug, '/')) !== false) {
+        return true;
+    }
+
+    return false;
+}
 
 
 function msi_get_post_card_html($post) {
@@ -1181,7 +1237,7 @@ function msi_circle_enqueue_assets() {
   width: calc(var(--size) * 0.7);
   height: calc(var(--size) * 0.7);
   border-radius: 50%;
-  background: #283573;
+  background: #459BDA;
   color: var(--text);
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;

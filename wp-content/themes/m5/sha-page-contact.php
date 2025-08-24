@@ -12,19 +12,20 @@ $url = get_template_directory_uri();
 $lang = pll_current_language('slug');
 ?>
 <div class="wp-block-msi-blocks-header-image-uk alignfull">
-    <div class="right-image-block">
+    <div class="right-image-block" style="background-image: url('<?php echo get_bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/anh-page.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            width: 100%; 
+            ">
         <div class="container-wide">
             <div class="input-container">
-                <span><?php echo get_the_title(); ?></span>
+                <span style="color:white;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);"><?php echo get_the_title(); ?></span>
             </div>
-            <div class="container-image">
+            <!-- <div class="container-image">
                 <div class="image-container">
-                    <img decoding="async"
-                        src="https://www.msichoices.org.uk/wp-content/uploads/2023/08/msi-uk-pregnancy-options-01-1.jpg.webp"
-                        alt="<?php echo ($lang === 'vi') ? 'Y tá MSI UK đang an ủi khách hàng phá thai.' : 'MSI UK nurse comforting abortion client.'; ?>"
-                        class="header-image lazyloaded">
+                    <img decoding="async" class="header-image lazyloaded" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/anh-page.jpg" alt="page-image">
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -55,7 +56,7 @@ $lang = pll_current_language('slug');
             <!-- Right: Office Info + Map -->
             <div class="msi-contact-info">
                 <h2 class="msi-contact-title">
-                    <?php echo ($lang === 'vi') ? 'Văn phòng hỗ trợ toàn cầu' : 'Global support office'; ?>
+                    <?php echo ($lang === 'vi') ? 'MSI Reproductive Choices tại Việt Nam' : 'MSI Reproductive Choices in Vietnam'; ?>
                 </h2>
                 <p class="msi-contact-description">
                     <?php
@@ -74,20 +75,34 @@ $lang = pll_current_language('slug');
 
                 <!-- Address & Contact -->
                 <div class="msi-contact-details">
-                    <p><strong><?php echo ($lang === 'vi') ? 'Địa chỉ:' : 'Address:'; ?></strong> Phòng 203-205, Nhà A1/298 P. Kim Mã, Khu Ngoại giao đoàn Vạn Phúc, Ba Đình, Hà Nội, Việt Nam</p>
-                    <p><strong><?php echo ($lang === 'vi') ? 'Hotline:' : 'Hotline:'; ?></strong> 1900 558882</p>
-                    <p><strong><?php echo ($lang === 'vi') ? 'Email:' : 'Email:'; ?></strong> <a href="mailto:truyenthong@msichoices.org.vn">truyenthong@msichoices.org.vn</a></p>
+                    <?php
+                    $phone_raw = get_field('so_dien_thoai', 'option');
+                    $phone = is_string($phone_raw) ? $phone_raw : '';
+                    $phone_link = $phone ? 'tel:' . preg_replace('/\s+/', '', $phone) : '#';
+                    $email = get_field('email', 'option');
+                    ?>
+
+                    <p><strong><?php echo ($lang === 'vi') ? 'Địa chỉ:' : 'Address:'; ?></strong> <?php the_field('dia_chi', 'option'); ?>
+                    </p>
+                    <p><strong><?php echo ($lang === 'vi') ? 'Hotline:' : 'Hotline:'; ?></strong> <a href="<?php echo esc_attr($phone_link); ?>"
+                            style="color:#283573;font-size:20px;margin:0">
+                            <?php echo esc_html($phone ?: 'Chưa có số'); ?>
+                        </a></p>
+                    <p><strong><?php echo ($lang === 'vi') ? 'Email:' : 'Email:'; ?></strong> <a href="mailto:<?php echo esc_attr($email); ?>"
+                            style="color:#283573;font-size:20px;margin:0">
+                            <?php echo esc_html($email); ?>
+                        </a></p>
                 </div>
 
                 <!-- Social Links -->
                 <div class="msi-contact-social">
-                    <a href="https://www.facebook.com/profile.php?id=61572517763607" target="_blank" class="msi-contact-social-link">
+                    <a href="<?php echo get_field('link_facebook', 'option')?>" target="_blank" class="msi-contact-social-link">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://www.youtube.com/@msireproductivechoicesviet6308" target="_blank" class="msi-contact-social-link">
+                    <a href="<?php echo get_field('link_youtube', 'option')?>" target="_blank" class="msi-contact-social-link">
                         <i class="fab fa-youtube"></i>
                     </a>
-                    <a href="https://www.tiktok.com/@msivn_corporate_health" target="_blank" class="msi-contact-social-link">
+                    <a href="<?php echo get_field('link_tiktok', 'option')?>" target="_blank" class="msi-contact-social-link">
                         <i class="fab fa-tiktok"></i>
                     </a>
                 </div>
@@ -311,14 +326,6 @@ $lang = pll_current_language('slug');
         }
 
         /* Left: Contact Form */
-        .msi-contact-form {
-            flex: 1;
-            min-width: 300px;
-            background-color: #283573;
-            padding: 30px;
-            border-radius: 8px;
-            color: white;
-        }
 
         .msi-contact-form p,
         .msi-contact-form h2 {
@@ -363,10 +370,6 @@ $lang = pll_current_language('slug');
             height: 300px;
             border: 0;
             border-radius: 8px;
-        }
-
-        .msi-contact-details {
-            margin-bottom: 20px;
         }
 
         .msi-contact-social {

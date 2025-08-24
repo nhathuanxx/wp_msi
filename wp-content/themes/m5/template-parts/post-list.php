@@ -118,7 +118,7 @@ wp_reset_postdata();
     .wp-block-buttons .wp-block-button,
     .wp-block-group .wp-block-button {
         align-items: center;
-        background: #283573;
+        background: #459BDA;
         border-radius: 6px;
         color: white;
         cursor: pointer;
@@ -133,6 +133,11 @@ wp_reset_postdata();
         text-transform: uppercase;
         width: 100%;
         margin-top: 20px;
+    }
+    .wp-block-button:hover{
+        background-color: white !important;
+        border: 1px solid #283573 !important;
+        color: #283573 !important;
     }
 
     .buttons-container .wp-block-button .wp-block-button__link,

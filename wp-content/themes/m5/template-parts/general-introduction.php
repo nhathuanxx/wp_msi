@@ -1,22 +1,26 @@
 <div class="msi-intro-section">
     <!-- Bên trái -->
     <div class="msi-intro-left">
-        <?php if (pll_current_language('slug') === 'vi') : ?>
-            <h2 class="msi-intro-title">GIỚI THIỆU CHUNG</h2>
-            <p class="msi-intro-text">
-                Với gần năm thập kỷ đồng hành cùng phụ nữ toàn cầu, Tổ chức MSI Reproductive Choices (MSI), tiền thân là Marie Stopes International đã khẳng định vị thế tiên phong trong lĩnh vực chăm sóc sức khỏe sinh sản tại 36 quốc gia. Từ những bước chân đầu tiên đến Việt Nam vào năm 1989, MSI Reproductive Choices tại Việt Nam (MSIVN) đã kiến tạo nên mạng lưới hợp tác bền vững giữa các tổ chức phi chính phủ và cơ quan chính phủ, mang đến những giải pháp toàn diện về chăm sóc sức khỏe sinh sản và kế hoạch hóa gia đình cho hàng triệu người dân từ đồng bằng châu thổ đến miền núi xa xôi.
-                Với kim chỉ nam “Cơ thể của bạn – Lựa chọn của bạn – Tương lai của bạn”, MSIVN không ngừng nỗ lực với khát vọng về một Việt Nam hạnh phúc – nơi mỗi lựa chọn về sức khỏe sinh sản đều trở nên an toàn, dễ tiếp cận và không còn rào cản, để mỗi đứa trẻ sinh ra đều là đứa trẻ được chào đón và mỗi gia đình đều có thể tự tin vun đắp hạnh phúc trọn vẹn.
-            </p>
-            <a href="/ve-chung-toi" class="msi-intro-btn">XEM THÊM</a>
-        <?php else : ?>
-            <h2 class="msi-intro-title">ABOUT US</h2>
-            <p class="msi-intro-text">
-                With nearly five decades of accompanying women around the world, MSI Reproductive Choices (MSI), formerly known as Marie Stopes International, has affirmed its pioneering position in the field of reproductive healthcare across 36 countries. Since its first steps into Vietnam in 1989, MSI Reproductive Choices in Vietnam (MSIVN) has built a sustainable network of collaboration between non-governmental organizations and government agencies, bringing comprehensive solutions in reproductive healthcare and family planning to millions of people, from fertile deltas to remote mountainous areas.
+        <h2 class="msi-intro-title"><?php if (pll_current_language('slug') === 'vi') : ?>
+                GIỚI THIỆU CHUNG <?php else : ?>
+                GENERAL INTRODUCTION
+            <?php endif; ?></h2>
 
-                Guided by the principle “Your body – Your choice – Your future”, MSIVN continues to strive with the aspiration of a happy Vietnam – where every reproductive health choice is safe, accessible, and barrier-free, so that every child born is a welcomed child, and every family can confidently nurture a fulfilling happiness.
-            </p>
-            <a href="/about-us" class="msi-intro-btn">READ MORE</a>
-        <?php endif; ?>
+        <p class="msi-intro-text">
+        <div class="msi-intro-text">
+            <?php the_field('general_introduction_1', pll_current_language('slug')); ?>
+        </div>
+        <div class="msi-intro-text">
+            <?php the_field('general_introduction_2', pll_current_language('slug')); ?>
+        </div>
+        <div class="msi-intro-text">
+            <?php the_field('general_introduction_3', pll_current_language('slug')); ?>
+        </div>
+        </p>
+        <a href="<?php echo (pll_current_language('slug') === 'vi') ? '/ve-chung-toi' : '/about-us'; ?>" class="msi-intro-btn"><?php if (pll_current_language('slug') === 'vi') : ?>
+                XEM THÊM <?php else : ?>
+                READ MORE
+            <?php endif; ?></a>
     </div>
     <div class="msi-intro-right">
         <div class="msi-intro-right-1">
@@ -26,19 +30,18 @@
                 <img class="nen-2" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/nen1.png"
                     alt="about-us-1">
                 <?php
-                $lang = pll_current_language('slug');
-                $text = ($lang === 'vi') ? 'Khách hàng' : 'Customers';
-                echo do_shortcode('[msi_circle size="260" target="2000000" initial_rotation="40" text="' . $text . '"]');
+                $text1 = get_field('mo_ta_so_lieu_1', pll_current_language('slug'));
+                $so_lieu1 = get_field('so_lieu_1', pll_current_language('slug'));
+                echo do_shortcode('[msi_circle size="260" target="' . $so_lieu1 . '" initial_rotation="40" text="' . $text1 . '"]');
                 ?>
-
             </div>
             <div class="msi-circle-container-2">
                 <img class="nen-3" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/nen1.png"
                     alt="about-us-1">
                 <?php
-                $lang = pll_current_language('slug');
-                $text = ($lang === 'vi') ? 'Đối tác' : 'Partners';
-                echo do_shortcode('[msi_circle size="220" target="200" initial_rotation="120" text="' . $text . '"]');
+                $text2 = get_field('mo_ta_so_lieu_2', pll_current_language('slug'));
+                $so_lieu2 = get_field('so_lieu_2', pll_current_language('slug'));
+                echo do_shortcode('[msi_circle size="220" target="' . $so_lieu2 . '" initial_rotation="120" text="' . $text2 . '"]');
                 ?>
             </div>
         </div>
@@ -47,16 +50,15 @@
                 <img class="nen-4" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/nen1.png"
                     alt="about-us-1">
                 <?php
-                $lang = pll_current_language('slug');
-                $text = ($lang === 'vi') ? 'Tỉnh thành' : 'Province';
-                echo do_shortcode('[msi_circle size="200" target="12" initial_rotation="150" text="' . $text . '"]');
+                $text3 = get_field('mo_ta_so_lieu_3', pll_current_language('slug'));
+                $so_lieu3 = get_field('so_lieu_3', pll_current_language('slug'));
+                echo do_shortcode('[msi_circle size="200" target="' . $so_lieu3 . '" initial_rotation="150" text="' . $text3 . '"]');
                 ?>
             </div>
         </div>
     </div>
 </div>
 <style>
-
     /* .msi-intro-left {
         flex: 1;
         max-width: 40%;
@@ -69,19 +71,6 @@
         color: #283573;
         margin-bottom: 20px;
         font-family: "Roboto", sans-serif;
-    }
-
-    .msi-intro-text {
-        font-size: 20px;
-        line-height: 1.7;
-        color: #283573;
-        margin-bottom: 28px;
-        font-family: "Roboto", sans-serif;
-    }
-
-    .msi-intro-btn:hover {
-        background-color: #283573;
-        color: #fff;
     }
 
     /* Bên phải giữ nguyên */
@@ -176,10 +165,6 @@
 
         .msi-intro-title {
             font-size: 20px;
-        }
-
-        .msi-intro-text {
-            font-size: 15px;
         }
 
         /* Bên phải full width */

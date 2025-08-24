@@ -168,7 +168,7 @@
         position: absolute;
         top: 10px;
         left: 10px;
-        background: #1d2d5f;
+        background: #459BDA;
         color: #fff;
         padding: 3px 8px;
         font-size: 12px;
@@ -212,7 +212,7 @@
 
     #template-blog-load-more-btn {
         padding: 8px 20px;
-        background: #1d2d5f;
+        background: #459BDA;
         color: #fff;
         border: none;
         border-radius: 6px;
@@ -222,6 +222,6 @@
     }
 
     #template-blog-load-more-btn:hover {
-        background-color: #16325c;
+        background-color: #459BDA;
     }
 </style>
