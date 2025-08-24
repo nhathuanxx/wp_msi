@@ -71,6 +71,8 @@ get_header(); ?>
         </div>
     </div>
     <?php require get_template_directory() . '/template-parts/general-introduction.php'; ?>
+        <?php require get_template_directory() . '/template-parts/intervention-modal.php'; ?>
+
     <div class="home-service-container" id="homeServiceContainer">
         <div class="home-service-content">
             <div class="home-service-title">

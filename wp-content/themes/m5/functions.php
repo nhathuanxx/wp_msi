@@ -425,6 +425,131 @@ function msi_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'msi_enqueue_scripts');
 
+
+
+// === Shortcode: [msi_orbit_globe size="240"] ===
+function msi_orbit_globe_shortcode($atts){
+    $atts = shortcode_atts([
+        'size' => '240',
+    ], $atts, 'msi_orbit_globe');
+
+    ob_start(); ?>
+    <div class="msi-orbit-globe" style="--size: <?php echo esc_attr($atts['size']); ?>px;">
+        <!-- Hai vòng tròn mờ -->
+        <div class="msi-orbit-globe-ring ring-1" aria-hidden="true"></div>
+        <div class="msi-orbit-globe-ring ring-2" aria-hidden="true"></div>
+
+        <!-- Rotator cho vòng ngoài cùng (ring-1) với 1 chấm đỏ -->
+        <div class="msi-orbit-globe-rotator rotator-1" aria-hidden="true">
+            <div class="msi-orbit-globe-rotator-spin spin-1">
+                <span class="msi-orbit-globe-dot"></span>
+            </div>
+        </div>
+
+        <!-- Rotator cho vòng thứ 2 (ring-2) với 1 chấm đỏ -->
+        <div class="msi-orbit-globe-rotator rotator-2" aria-hidden="true">
+            <div class="msi-orbit-globe-rotator-spin spin-2">
+                <span class="msi-orbit-globe-dot"></span>
+            </div>
+        </div>
+
+        <!-- Inner: globe map xoay -->
+        <div class="msi-orbit-globe-inner" aria-hidden="true"></div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('msi_orbit_globe', 'msi_orbit_globe_shortcode');
+
+
+// === CSS (inline) ===
+function msi_orbit_globe_enqueue_assets(){
+    wp_add_inline_style('wp-block-library', '
+.msi-orbit-globe{
+  --size: 240px;
+  --ring: #e8ecf3;
+  --dot: #ff5449;
+  --dot-size: calc(0.058 * var(--size));
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  margin: 0 auto;
+}
+
+/* Vòng tròn mờ */
+.msi-orbit-globe-ring{
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--ring);
+  pointer-events: none;
+}
+.msi-orbit-globe .ring-1{ transform: scale(1); }
+.msi-orbit-globe .ring-2{ transform: scale(0.85); opacity: .7; }
+
+/* Rotator (mỗi ring có 1 rotator riêng) */
+.msi-orbit-globe-rotator{
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2; /* trên ring */
+}
+/* Scale khớp với từng ring */
+.msi-orbit-globe .rotator-1{ transform: scale(1); }
+.msi-orbit-globe .rotator-2{ transform: scale(0.85); }
+
+/* Lớp con chỉ để xoay, tách riêng scale/rotate */
+.msi-orbit-globe-rotator-spin{
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  animation: orbit-rotate 6s linear infinite;
+}
+/* Có thể cho vòng 2 tốc độ khác (nhanh hơn chút cho sinh động) */
+.msi-orbit-globe .spin-2{ animation-duration: 4.8s; }
+
+/* Chấm đỏ nằm ở đỉnh, xoay cùng rotator */
+.msi-orbit-globe-dot{
+  position: absolute;
+  top: calc(-0.5 * var(--dot-size));
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--dot);
+  border-radius: 50%;
+  box-shadow: 0 0 0 calc(0.0125 * var(--size)) #fff;
+}
+
+/* Inner: globe map xoay (background trượt ngang) */
+.msi-orbit-globe-inner{
+  position: absolute; inset: 0;
+  margin: auto;
+  width: calc(var(--size) * 0.7);
+  height: calc(var(--size) * 0.7);
+  border-radius: 50%;
+  /* fallback 2 lớp: theme asset trước, rồi /img/world-map-3.jpg */
+  background-image: url("'. get_template_directory_uri() .'/assets/images/msi/world-map.jpg"), url("/img/world-map-3.jpg");
+  background-size: 350px;
+  background-repeat: repeat;
+  background-position: 0 0;
+  box-shadow: inset 25px 0px 35px 3px black;
+  transform: rotate(-10deg);
+  animation: xoayTraiDat 5s linear infinite;
+  z-index: 1; /* dưới dot/ring */
+}
+
+/* Keyframes */
+@keyframes orbit-rotate{
+  0%{ transform: rotate(0deg); }
+  100%{ transform: rotate(360deg); }
+}
+@keyframes xoayTraiDat{
+  0%{ background-position: 0px 0; }
+  100%{ background-position: 350px 0; }
+}
+    ');
+}
+add_action("wp_enqueue_scripts", "msi_orbit_globe_enqueue_assets");
+
 /**
  * Enqueue scripts and styles.
  */
