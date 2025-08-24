@@ -6779,7 +6779,7 @@ body {
 }
 
 .extra-header {
-  height: 86px;
+  height: 60px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -6824,7 +6824,7 @@ body {
   border-radius: unset;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 24px;
   color: white;
   background: #459BDA;
@@ -6868,7 +6868,7 @@ body {
   transition: color 0.3s;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 24px;
   color: #ffffff;
 }
@@ -7025,7 +7025,7 @@ body {
   gap: 8px;
   color: #ffffff;
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bolder;
 }
 
@@ -11314,7 +11314,7 @@ p {
 }
 
 .extra-header a {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
 }
 

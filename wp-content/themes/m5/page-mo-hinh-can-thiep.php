@@ -10,31 +10,39 @@ $lang = function_exists('pll_current_language') ? pll_current_language('slug') :
 // Slug page theo ngôn ngữ
 $slugs = [
     'vi' => [
-        'kenh-hop-tac-suc-khoe-doanh-nghiep' => 'kenh-hop-tac-suc-khoe-doanh-nghiep',
-        'hop-tac-y-te-cong-tu'          => 'hop-tac-y-te-cong-tu',
-        'kenh-tiep-thi-xa-hoi'         => 'kenh-tiep-thi-xa-hoi',
-        'he-thong-phong-kham-san-phu-khoa-drmarie'  => 'he-thong-phong-kham-san-phu-khoa-drmarie',
+        'cung-cap-dich-vu'                   => 'cung-cap-dich-vu',
+        'phat-trien-nhan-luc-y-te'           => 'phat-trien-nhan-luc-y-te',
+        'he-thong-thong-tin-y-te'            => 'he-thong-thong-tin-y-te',
+        'tiep-can-thuoc-va-san-pham-thiet-yeu' => 'tiep-can-thuoc-va-san-pham-thiet-yeu',
+        'tai-chinh-y-te'                     => 'tai-chinh-y-te',
+        'quan-tri-va-lanh-dao'               => 'quan-tri-va-lanh-dao',
     ],
     'en' => [
-       'corporate-health-partnership-channel' => 'corporate-health-partnership-channel',
-        'public-private-healthcare-partnership'          => 'public-private-healthcare-partnership',
-        'social-marketing-channel'         => 'social-marketing-channel',
-        'dr-marie-obstetrics-and-gynecology-clinic-system'  => 'dr-marie-obstetrics-and-gynecology-clinic-system',
+        'provide-services'                     => 'provide-services',
+        'healthcare-workforce-development'     => 'healthcare-workforce-development',
+        'health-information-system'            => 'health-information-system',
+        'access-to-medicines-and-essential-products' => 'access-to-medicines-and-essential-products',
+        'health-financing'                     => 'health-financing',
+        'governance-and-leadership'            => 'governance-and-leadership',
     ]
 ];
 
 $titles = [
     'vi' => [
-        'kenh-hop-tac-suc-khoe-doanh-nghiep' => 'KÊNH HỢP TÁC SỨC KHỎE DOANH NGHIỆP',
-        'hop-tac-y-te-cong-tu'          => 'HỢP TÁC Y TẾ CÔNG TƯ',
-        'kenh-tiep-thi-xa-hoi'         => 'KÊNH TIẾP THỊ XÃ HỘI',
-        'he-thong-phong-kham-san-phu-khoa-drmarie'  => 'HỆ THỐNG PHÒNG KHÁM SẢN PHỤ KHOA DR.MARIE',
+        'cung-cap-dich-vu'                   => 'CUNG CẤP DỊCH VỤ',
+        'phat-trien-nhan-luc-y-te'           => 'PHÁT TRIỂN NHÂN LỰC Y TẾ',
+        'he-thong-thong-tin-y-te'            => 'HỆ THỐNG THÔNG TIN Y TẾ',
+        'tiep-can-thuoc-va-san-pham-thiet-yeu' => 'TIẾP CẬN THUỐC VÀ SẢN PHẨM THIẾT YẾU',
+        'tai-chinh-y-te'                     => 'TÀI CHÍNH Y TẾ',
+        'quan-tri-va-lanh-dao'               => 'QUẢN TRỊ VÀ LÃNH ĐẠO',
     ],
     'en' => [
-        'corporate-health-partnership-channel' => 'CORPORATE HEALTH PARTNERSHIP CHANNEL',
-        'public-private-healthcare-partnership'          => 'PUBLIC–PRIVATE HEALTHCARE PARTNERSHIP',
-        'social-marketing-channel'         => 'SOCIAL MARKETING CHANNEL',
-        'dr-marie-obstetrics-and-gynecology-clinic-system'  => 'DR. MARIE OBSTETRICS AND GYNECOLOGY CLINIC SYSTEM',
+        'provide-services'                     => 'PROVIDE SERVICES',
+        'healthcare-workforce-development'     => 'HEALTHCARE WORKFORCE DEVELOPMENT',
+        'health-information-system'            => 'HEALTH INFORMATION SYSTEM',
+        'access-to-medicines-and-essential-products' => 'ACCESS TO MEDICINES AND ESSENTIAL PRODUCTS',
+        'health-financing'                     => 'HEALTH FINANCING',
+        'governance-and-leadership'            => 'GOVERNANCE AND LEADERSHIP',
     ]
 ];
 

@@ -86,7 +86,7 @@
 
                 <?php
                 if (pll_current_language('slug') == 'vi') {
-                    echo 'Đối tác Quốc tế';
+                    echo 'Đối tác Tổ chức Quốc tế';
                 }
                 if (pll_current_language('slug') == 'en') {
                     echo 'Global Partner';

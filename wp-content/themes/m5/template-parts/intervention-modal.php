@@ -1,13 +1,15 @@
 <div class="intervention-modal-container">
     <div class="intervention-model-header">
         <div class="title">
-            <?php if (pll_current_language('slug') === 'vi') : ?>
-                MÔ HÌNH CAN THIỆP <?php else : ?>
-                INTERVENTION MODAL
-            <?php endif; ?>
+            <a href="<?php echo (pll_current_language('slug') === 'vi') ? '/mo-hinh-can-thiep' : '/intervention-model'; ?>"><?php if (pll_current_language('slug') === 'vi') : ?>
+                    MÔ HÌNH CAN THIỆP <?php else : ?>
+                    INTERVENTION MODEL
+                <?php endif; ?></a>
 
-        </div class="sub-title">
-
+        </div>
+        <div class="sub-title">
+            <?php the_field('mo_ta_mo_hinh_can_thiep', pll_current_language('slug')); ?>
+        </div>
     </div>
 
     <div class="intervention-modal-content">
@@ -19,11 +21,11 @@
             </div>
 
             <div class="msi-services" id="services">
-                <?php if (have_rows('intervention_modal', pll_current_language('slug'))):
+                <?php if (have_rows('intervention_model', pll_current_language('slug'))):
                     $i = 0;
                 ?>
-                    <?php while (have_rows('intervention_modal', pll_current_language('slug'))): the_row();
-                        $title = get_sub_field('title');
+                    <?php while (have_rows('intervention_model', pll_current_language('slug'))): the_row();
+                        $title = mb_strtoupper(get_sub_field('title'), 'UTF-8');
                         $i++;
                     ?>
                         <div class="msi-service box-<?php echo $i; ?>">
@@ -35,14 +37,16 @@
             <svg class="lines"></svg>
         </div>
         <div class="intervention-model-list">
-            <?php if (have_rows('intervention_modal', pll_current_language('slug'))):
+            <?php if (have_rows('intervention_model', pll_current_language('slug'))):
             ?>
-                <?php while (have_rows('intervention_modal', pll_current_language('slug'))): the_row();
+                <?php while (have_rows('intervention_model', pll_current_language('slug'))): the_row();
                     $title = get_sub_field('title');
 
                 ?>
                     <div class="title-list">
-                        <?php echo esc_html($title); ?>
+                        <i class="fas fa-check-circle" style="color: red; background: white; border-radius: 50%;"></i>
+
+                        <span> <?php echo esc_html($title); ?></span>
                     </div>
                 <?php endwhile; ?>
             <?php endif; ?>
@@ -56,9 +60,48 @@
         padding: 80px 0px;
         max-width: 1335px;
         margin: 0px auto;
+        font-family: "Roboto", sans-serif;
+
     }
-    .intervention-modal-content{
-     display: flex;
+
+    .intervention-model-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .intervention-model-header .title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #283573 !important;
+        font-family: "Roboto", sans-serif;
+
+    }
+
+    .intervention-model-header .title a {
+        color: #283573 !important;
+        margin: 0;
+        padding: 0;
+        font-size: 22px;
+        white-space: nowrap;
+        font-family: "Roboto", sans-serif;
+
+    }
+
+    .intervention-model-header .title a:hover {
+        color: #283573 !important;
+        text-decoration: underline;
+    }
+
+    .intervention-model-header .sub-title {
+        font-size: 16px;
+        font-weight: 400;
+        color: #283573 !important;
+    }
+
+    .intervention-modal-content {
+        display: flex;
         align-items: center;
         justify-content: space-between;
     }
@@ -89,17 +132,22 @@
     }
 
     .msi-service .box {
-        padding: 12px 24px;
+        padding: 16px 40px;
         border-radius: 25px;
         border: 2px solid currentColor;
         font-weight: bold;
         background: #fff;
         color: currentColor;
         white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Roboto", sans-serif;
+
     }
 
     .msi-service:nth-child(odd) {
-        color: #0057ff;
+        color: #283573;
     }
 
     .msi-service:nth-child(even) {
@@ -114,6 +162,20 @@
         height: 100%;
         pointer-events: none;
         z-index: 1;
+    }
+    .intervention-model-list{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    .intervention-model-list .title-list{
+     display: flex;
+     gap: 20px;
+     align-items: center;
+       font-size: 18px;
+        font-weight: 500;
+        color: #283573 !important;
+        font-family: "Roboto", sans-serif;
     }
 </style>
 <script>
