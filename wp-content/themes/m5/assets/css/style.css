@@ -7209,7 +7209,7 @@ body {
 .menu-item .menu-item-2 {
   display: flex;
   position: absolute;
-  width: 500px;
+  width: 360px;
   border-radius: 8px;
   /* top: 40px; */
 }
@@ -10479,7 +10479,7 @@ p {
 
   .testimonial-slide p {
     text-align: center;
-    font-size: 28px !important;
+    font-size: 24px !important;
     font-style: normal !important;
     line-height: 32px !important;
   }
@@ -11178,11 +11178,11 @@ p {
   }
 
   .msi-intro-title {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .msi-intro-text {
-    font-size: 15px;
+    font-size: 16px;
     text-align: left;
   }
 
@@ -11410,5 +11410,65 @@ p {
 }
 .msi-footer-social a i{
   color: #459BDA;
+}
+
+.story-card {
+  --card-bg: #ffe7f1;        /* màu nền mặc định (hồng nhạt) */
+  --card-border: rgba(0,0,0,0.08);
+  --card-accent: currentColor;
+  --text-color: #212529;
+
+  position: relative;
+  padding: 16px 18px 16px 44px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 16px 0;
+}
+
+/* Dấu ngoặc kép trang trí */
+.story-card::before {
+  content: "“";
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  font-size: 32px;
+  line-height: 1;
+  opacity: 0.35;
+}
+
+/* Viền trái nhấn mạnh */
+.story-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 4px;
+  border-radius: 4px;
+  background: var(--card-accent);
+  opacity: 0.6;
+}
+
+/* Biến thể màu */
+.story-card--pink {
+  --card-bg: #ffe7f1;        /* hồng nhạt */
+  --card-accent: #e83e8c;    /* hồng đậm */
+}
+
+.story-card--blue {
+  --card-bg: #e8f4fb;        /* nhạt theo #459BDA */
+  --card-accent: #459BDA;    /* màu bạn yêu cầu */
+}
+.anh-trang-tri-trai{
+  position: absolute;
+  left:0px;
+}
+.anh-trang-tri-phai{
+  position: absolute;
+  right:0px;
 }
  

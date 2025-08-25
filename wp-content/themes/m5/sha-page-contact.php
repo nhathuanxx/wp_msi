@@ -14,7 +14,7 @@ $lang = pll_current_language('slug');
 <div class="wp-block-msi-blocks-header-image-uk alignfull">
     <div class="right-image-block" style="background-image: url('<?php echo get_bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/anh-page.jpg'); 
             background-size: cover; 
-            background-position: center; 
+            background-position: center 70%;
             width: 100%; 
             ">
         <div class="container-wide">
@@ -44,7 +44,7 @@ $lang = pll_current_language('slug');
         <div class="msi-contact-container">
 
             <!-- Left: Contact Form -->
-            <div class="msi-contact-form">
+            <div id="msiContactForm" class="msi-contact-form">
                 <?php
                 if ($lang === 'vi') {
                     echo do_shortcode('[contact-form-7 id="5667" title="Form liên hệ"]');

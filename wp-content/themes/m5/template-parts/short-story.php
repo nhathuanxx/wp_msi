@@ -3,24 +3,27 @@ $short_story = get_field('short_story', pll_current_language('slug'));
 
 if ($short_story): ?>
     <div class="slider-testimonial-container">
-
+   <img  class="anh-trang-tri-phai" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/background-2.webp"
+                        alt="background-2">
         <div class="slider-testimonial-wrapper">
             <div class="slider-testimonial-viewport">
                 <div class="slider-testimonial-track" id="testimonialSliderTrack">
-                    <?php foreach ($short_story as $row):
+                    <?php foreach ($short_story as $index => $row):
                         $image = $row['image'];
                         $description = $row['description'];
+                        $bg_classes = ['bg-pink', 'bg-blue', 'bg-mint', 'bg-yellow', 'bg-purple'];
+                        $bg_class = $bg_classes[$index % count($bg_classes)];
                     ?>
-                        <div class="testimonial-slide">
-                         <?php 
-$default_image_url = get_bloginfo('wpurl') . '/wp-content/themes/m5/assets/images/msi/phong-kham-gan-ban.jpg';
-?>
+                        <div class="testimonial-slide <?php echo $bg_class; ?>">
+                            <?php
+                            $default_image_url = get_bloginfo('wpurl') . '/wp-content/themes/m5/assets/images/msi/phong-kham-gan-ban.jpg';
+                            ?>
 
-<div class="image-container">
-    <img 
-        src="<?php echo esc_url( $image ? $image['url'] : $default_image_url ); ?>" 
-        alt="<?php echo esc_attr( $image['alt'] ?? 'Phòng khám MSI London' ); ?>">
-</div>
+                            <div class="image-container">
+                                <img
+                                    src="<?php echo esc_url($image ? $image['url'] : $default_image_url); ?>"
+                                    alt="<?php echo esc_attr($image['alt'] ?? 'Phòng khám MSI London'); ?>">
+                            </div>
                             <?php if ($description): ?>
                                 <div class="description-container">
                                     <p><?php echo esc_html($description); ?></p>
@@ -55,11 +58,11 @@ $default_image_url = get_bloginfo('wpurl') . '/wp-content/themes/m5/assets/image
     .slider-testimonial-wrapper {
         max-width: 1335px;
         margin: 0 auto;
-        background: #F9EEF2;
-        padding: 80px 40px;
+        /* background: #F9EEF2;
+        padding: 68px 40px; */
         border-radius: 12px;
         position: relative;
-    
+
     }
 
     .slider-testimonial-viewport {
@@ -94,7 +97,7 @@ $default_image_url = get_bloginfo('wpurl') . '/wp-content/themes/m5/assets/image
 
     .testimonial-slide .image-container img {
         border-radius: 8px;
-        height: 350px;
+        height: 280px;
         max-width: 90%;
         -o-object-fit: cover;
         object-fit: cover;
@@ -104,7 +107,7 @@ $default_image_url = get_bloginfo('wpurl') . '/wp-content/themes/m5/assets/image
 
     .testimonial-slide p {
         font-family: 'Roboto', sans-serif;
-        font-size: 40px;
+        font-size: 28px;
         font-weight: 600;
         line-height: 44px;
         color: #283573;
@@ -154,6 +157,42 @@ $default_image_url = get_bloginfo('wpurl') . '/wp-content/themes/m5/assets/image
     .testimonial-dot.active {
         background-color: #bf006a;
     }
+
+    .testimonial-slide {
+        flex: 0 0 100%;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        box-sizing: border-box;
+        padding: 68px 40px;
+        /* để màu nền thấy rõ hơn */
+        border-radius: 12px;
+    }
+
+    .testimonial-slide.bg-pink {
+        background-color: #F9EEF2;
+        /* pastel hồng */
+    }
+
+    .testimonial-slide.bg-blue {
+        background-color: #E8F0FE;
+        /* pastel xanh dương nhạt */
+    }
+
+    .testimonial-slide.bg-mint {
+        background-color: #E6F7F2;
+        /* xanh mint nhạt */
+    }
+
+    .testimonial-slide.bg-yellow {
+        background-color: #FFF9E6;
+        /* vàng pastel */
+    }
+
+    .testimonial-slide.bg-purple {
+        background-color: #F3E6FF;
+        /* tím pastel */
+    }
 </style>
 <script>
     const track = document.getElementById("testimonialSliderTrack");
@@ -195,73 +234,73 @@ $default_image_url = get_bloginfo('wpurl') . '/wp-content/themes/m5/assets/image
 
 
 
-     let startX = 0;
-let isDragging = false;
-let animationID;
-let currentTranslate = 0;
-let prevTranslate = 0;
+    let startX = 0;
+    let isDragging = false;
+    let animationID;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
 
-track.addEventListener('mousedown', dragStart);
-track.addEventListener('mouseup', dragEnd);
-track.addEventListener('mouseleave', dragEnd);
-track.addEventListener('mousemove', dragMove);
+    track.addEventListener('mousedown', dragStart);
+    track.addEventListener('mouseup', dragEnd);
+    track.addEventListener('mouseleave', dragEnd);
+    track.addEventListener('mousemove', dragMove);
 
-track.addEventListener('touchstart', dragStart);
-track.addEventListener('touchend', dragEnd);
-track.addEventListener('touchmove', dragMove);
+    track.addEventListener('touchstart', dragStart);
+    track.addEventListener('touchend', dragEnd);
+    track.addEventListener('touchmove', dragMove);
 
-function dragStart(event) {
-    isDragging = true;
-    startX = getPositionX(event);
-    animationID = requestAnimationFrame(animation);
-    track.style.transition = "none";
-}
-
-function dragMove(event) {
-    if (!isDragging) return;
-    const currentPosition = getPositionX(event);
-    const diff = currentPosition - startX;
-    currentTranslate = prevTranslate + diff;
-}
-
-function dragEnd(event) {
-    if (!isDragging) return;
-    isDragging = false;
-    cancelAnimationFrame(animationID);
-
-    const movedBy = currentTranslate - prevTranslate;
-
-    if (movedBy < -50 && currentIndex < slides.length - 1) {
-        currentIndex += 1;
-    } else if (movedBy > 50 && currentIndex > 0) {
-        currentIndex -= 1;
+    function dragStart(event) {
+        isDragging = true;
+        startX = getPositionX(event);
+        animationID = requestAnimationFrame(animation);
+        track.style.transition = "none";
     }
 
-    setSliderByIndex();
-}
+    function dragMove(event) {
+        if (!isDragging) return;
+        const currentPosition = getPositionX(event);
+        const diff = currentPosition - startX;
+        currentTranslate = prevTranslate + diff;
+    }
 
-function getPositionX(event) {
-    return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-}
+    function dragEnd(event) {
+        if (!isDragging) return;
+        isDragging = false;
+        cancelAnimationFrame(animationID);
 
-function animation() {
-    setSliderPosition(currentTranslate);
-    if (isDragging) requestAnimationFrame(animation);
-}
+        const movedBy = currentTranslate - prevTranslate;
 
-function setSliderPosition(position) {
-    track.style.transform = `translateX(${position}px)`;
-}
+        if (movedBy < -50 && currentIndex < slides.length - 1) {
+            currentIndex += 1;
+        } else if (movedBy > 50 && currentIndex > 0) {
+            currentIndex -= 1;
+        }
 
-function setSliderByIndex() {
-    track.style.transition = "transform 0.5s ease";
-    const newPosition = -currentIndex * track.offsetWidth;
-    track.style.transform = `translateX(${newPosition}px)`;
-    prevTranslate = newPosition;
-    currentTranslate = newPosition;
+        setSliderByIndex();
+    }
 
-    // Update dots
-    dots.forEach(dot => dot.classList.remove("active"));
-    dots[currentIndex].classList.add("active");
-}
+    function getPositionX(event) {
+        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+    }
+
+    function animation() {
+        setSliderPosition(currentTranslate);
+        if (isDragging) requestAnimationFrame(animation);
+    }
+
+    function setSliderPosition(position) {
+        track.style.transform = `translateX(${position}px)`;
+    }
+
+    function setSliderByIndex() {
+        track.style.transition = "transform 0.5s ease";
+        const newPosition = -currentIndex * track.offsetWidth;
+        track.style.transform = `translateX(${newPosition}px)`;
+        prevTranslate = newPosition;
+        currentTranslate = newPosition;
+
+        // Update dots
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[currentIndex].classList.add("active");
+    }
 </script>

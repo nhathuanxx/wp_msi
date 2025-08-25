@@ -405,8 +405,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									?>
 									<div class="menu-item-1 <?= $active_class ?>" data-menu-id="<?= esc_attr($slug); ?>">
 										<?php if ($has_lv2): ?>
-											<button type="button" class="menu-toggle"><?= esc_html($title); ?></button>
-										<?php else: ?>
+<button 
+    type="button" 
+    class="menu-toggle" 
+    onclick="window.location.href='<?= esc_url($link); ?>'">
+    <?= esc_html($title); ?>
+</button>										<?php else: ?>
 											<!-- <a class="link" href="<?= esc_url($link); ?>"><?= esc_html($title); ?></a> -->
 											<a class="link" href="<?= esc_url($link); ?>" <?= $target ?>><?= esc_html($title); ?></a>
 										<?php endif; ?>

@@ -77,6 +77,9 @@ get_header(); ?>
         <?php require get_template_directory() . '/template-parts/intervention-modal.php'; ?>
 
     <div class="home-service-container" id="homeServiceContainer">
+          <img class="anh-trang-tri-trai" style="left: 80px;
+    width: 160px;padding-top:200px" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/nen1.png"
+                    alt="about-us-1">
         <div class="home-service-content">
             <div class="home-service-title">
                 <?php the_field('category_banner_title', pll_current_language('slug')); ?>
@@ -123,10 +126,11 @@ get_header(); ?>
         </div>
     </div>
     <?php require get_template_directory() . '/template-parts/customer-story.php'; ?>
-
     <?php require get_template_directory() . '/template-parts/short-story.php'; ?>
 
     <div class="about-us-container">
+         <img class="anh-trang-tri-trai" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/background-2.webp"
+                        alt="background-2">
         <div class="about-us-content">
             <div class="about-us-content-left">
                 <div class="about-us-title">
@@ -180,16 +184,25 @@ $text = (pll_current_language('slug') === 'vi') ? 'ĐỌC THÊM' : 'READ MORE';
 
             if (have_rows('events', $lang_slug)) :
                 while (have_rows('events', $lang_slug)) : the_row();
+                	$base_url = site_url();
                     $title = get_sub_field('title');
                     $image = get_sub_field('image');
                     $slug  = get_sub_field('slug');
-
+	$target = '';
+								if (stripos($slug, 'open_new_tab_url:') === 0) {
+									$link = trim(substr($slug, strlen('open_new_tab_url:')));
+									$target = ' target="_blank"';
+								} elseif (stripos($slug, 'url:') === 0) {
+									$link = trim(substr($slug, 4));
+								} else {
+									$link = "$base_url/$slug";
+								}
                     $image_url = is_array($image) ? $image['url'] : $image;
-                    $url = esc_url(home_url($slug));
+                    // $url = esc_url(home_url($slug));
             ?>
                     <div class="intl-activity-item" style="background-image: url('<?php echo esc_url($image_url); ?>');">
                         <div class="home-service-button">
-                            <a href="<?php echo $url; ?>">
+                            <a href="<?= esc_url($link); ?>" <?= $target ?>>
                                 <?php echo esc_html($title); ?>
                             </a>
                         </div>

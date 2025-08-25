@@ -635,7 +635,7 @@
         $('.custom-menu > .menu-item > .menu-item-1 > .menu-toggle').off('click');
         $('.submenu').off('click', '.menu-toggle');
         $('.custom-menu').on('click', '.menu-toggle', function(e) {
-            e.preventDefault();
+            // e.preventDefault();
             e.stopPropagation();
         });
 

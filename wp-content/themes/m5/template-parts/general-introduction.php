@@ -1,4 +1,7 @@
 <div class="msi-intro-section">
+     <img class="anh-trang-tri-trai" style="left: 80px;
+    width: 160px;padding-top:200px" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/nen1.png"
+                    alt="about-us-1">
     <!-- Bên trái -->
     <div class="msi-intro-left">
         <h2 class="msi-intro-title"><?php if (pll_current_language('slug') === 'vi') : ?>

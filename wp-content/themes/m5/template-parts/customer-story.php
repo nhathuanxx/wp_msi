@@ -1,6 +1,6 @@
 <?php
 $lang = pll_current_language('slug');
-$slug = ($lang === 'vi') ? 'cau-chuyen' : 'story';
+$slug = ($lang === 'vi') ? 'su-kien-truyen-thong' : 'internal-communication-events';
 $args = array(
     'post_type'      => 'post',
     'posts_per_page' => 6,
@@ -13,27 +13,29 @@ $query = new WP_Query($args);
 
 if ($query->have_posts()) : ?>
     <div class="customer-story-slider-container">
+           <img class="anh-trang-tri-trai" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/m5/assets/images/msi/background-2.webp"
+                        alt="background-2">
         <div class="customer-story-slider-header">
             <div class="customer-story-slider-header-left">
                 <div class="customer-story-slider-header-left-title">
                     <?php if ($lang === 'vi') : ?>
-                        Những câu chuyện từ khách hàng
+                        Sự kiện truyền thông nổi bật
                     <?php else : ?>
-                        Customer Stories
+                        Featured Events
                     <?php endif; ?>
                 </div>
                 <div class="customer-story-slider-header-left-subtitle">
                     <?php if ($lang === 'vi') : ?>
-                        Đọc những câu chuyện cá nhân của khách hàng để biết những điều cần biết và yên tâm rằng bạn không đơn độc.
+                        Khám phá các sự kiện truyền thông gần đây và những câu chuyện nổi bật từ khách hàng.
                     <?php else : ?>
-                        Read personal stories from our customers to understand what to expect and feel reassured that you're not alone.
+                        Discover recent media events and highlighted stories from our customers.
                     <?php endif; ?>
                 </div>
             </div>
             <div class="customer-story-slider-header-right">
                 <div class="all-story">
                     <a href="<?php echo esc_url($category_link); ?>">
-                        <?php echo ($lang === 'vi') ? 'CÂU CHUYỆN' : 'STORIES'; ?>
+                        <?php echo ($lang === 'vi') ? 'SỰ KIỆN' : 'EVENTS'; ?>
                     </a>
                 </div>
             </div>
@@ -42,29 +44,29 @@ if ($query->have_posts()) : ?>
             <div class="customer-story-slider-viewport">
                 <div class="customer-story-slider-track" id="customerStorySliderTrack">
                     <?php while ($query->have_posts()) : $query->the_post();
-                       $image = get_field('anh_bai_viet');
-$image_url = '';
+                        $image = get_field('anh_bai_viet');
+                        $image_url = '';
 
-// 1. Nếu có ảnh custom field
-if ( !empty($image['url']) ) {
-    $image_url = esc_url($image['url']);
-}
-// 2. Nếu không có thì lấy featured image
-elseif ( has_post_thumbnail() ) {
-    $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-}
-// 3. Nếu không có thì lấy ảnh đầu tiên trong nội dung
-else {
-    global $post;
-    $content = $post->post_content;
-    preg_match('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
-    if ( !empty($matches[1]) ) {
-        $image_url = esc_url($matches[1]);
-    } else {
-        // 4. fallback về placeholder
-        $image_url = get_template_directory_uri() . '/assets/images/placeholder.jpg';
-    }
-}
+                        // 1. Nếu có ảnh custom field
+                        if (!empty($image['url'])) {
+                            $image_url = esc_url($image['url']);
+                        }
+                        // 2. Nếu không có thì lấy featured image
+                        elseif (has_post_thumbnail()) {
+                            $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                        }
+                        // 3. Nếu không có thì lấy ảnh đầu tiên trong nội dung
+                        else {
+                            global $post;
+                            $content = $post->post_content;
+                            preg_match('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+                            if (!empty($matches[1])) {
+                                $image_url = esc_url($matches[1]);
+                            } else {
+                                // 4. fallback về placeholder
+                                $image_url = get_template_directory_uri() . '/assets/images/placeholder.jpg';
+                            }
+                        }
                         $image_alt = !empty($image['alt']) ? esc_attr($image['alt']) : get_the_title();
                     ?>
                         <div class="customer-story-slide">
@@ -75,7 +77,7 @@ else {
                                 <a class="read-more read-more-desktop" href="<?php the_permalink(); ?>">
                                     <?php echo ($lang === 'vi') ? 'Đọc thêm' : 'Read more'; ?>
                                 </a>
-                                  <a class="read-more-mobile" href="<?php the_permalink(); ?>">
+                                <a class="read-more-mobile" href="<?php the_permalink(); ?>">
                                     <?php echo ($lang === 'vi') ? 'Đọc thêm' : 'Read more'; ?>
                                 </a>
                             </div>
@@ -232,7 +234,8 @@ else {
         width: 487px;
         cursor: pointer;
     }
-    .customer-story-slide img:hover{
+
+    .customer-story-slide img:hover {
         scale: 1.1;
         transition: 0.6s;
     }
@@ -271,9 +274,11 @@ else {
         border: 2px solid #283573;
         /* border: 1px solid #283573 !important; */
     }
-    .customer-story-slide-content .customer-story-slide-title{
+
+    .customer-story-slide-content .customer-story-slide-title {
         border: none;
     }
+
     .customer-story-slide-content .customer-story-slide-title:hover {
         color: #283573 !important;
         border: none !important;
